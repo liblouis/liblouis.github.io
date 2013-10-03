@@ -1,3 +1,5 @@
-name: Liblouis - an open-source braille translator and back-translator.
+name: Liblouis
+description: An open-source braille translator and back-translator.
 markdown: redcarpet
 pygments: true
+url: http://www.liblouis.org
