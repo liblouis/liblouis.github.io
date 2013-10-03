@@ -1,0 +1,16 @@
+---
+layout: post
+title: Release 1.6.1
+---
+
+This is mostly a bug fix release. It contains many bug fixes that were discovered in the course of developing UK Math tables.
+
+h3. Bug fixes
+
+* bug fixes for correct, context and multipass opcodes
+* bug fixes for largesign opcode
+* fixed bug with French back-translation
+* fixed the installation path for docs
+* documentation improvement
+
+

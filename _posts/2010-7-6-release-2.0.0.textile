@@ -1,0 +1,10 @@
+---
+layout: post
+title: Release 2.0.0
+---
+
+h3. New features
+
+h4. New functions
+
+* Adding @lou_charSize@ function

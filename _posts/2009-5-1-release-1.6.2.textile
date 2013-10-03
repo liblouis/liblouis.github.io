@@ -1,0 +1,11 @@
+---
+layout: post
+title: Release 1.6.2
+---
+This release contains a new opcode for Malaysian Braille. See the documentation for a description of the new opcode.
+
+h3. New features
+
+h4. repword opcode
+
+The repword opcode is needed for Malaysian Braille
