@@ -10,6 +10,6 @@ Liblouis has features to support screen-reading programs. This has led to its us
 
 Liblouis is based on the translation routines in the "BRLTTY":http://mielke.cc/brltty/ screenreader for Linux. It has, however, gone far beyond these routines. It is named in honor of Louis Braille. In Linux and Mac OSX it is a shared library, and in Windows it is a DLL.
 
-* Read our "publications & presentation slides":https://code.google.com/p/liblouis/wiki/Presentations
-* Consult the "documentation":http://liblouis.googlecode.com/svn/documentation/liblouis.html, including download and installation instructions
+* Read our "publications & presentation slides":/presentations
+* Consult the "documentation":/documentation, including download and installation instructions
 * Subscribe to our mailing list "here":http://www.freelists.org/list/liblouis-liblouisxml or chat with us on irc (irc://irc.oftc.net/liblouis).
