@@ -21,6 +21,8 @@
   </head>
 
   <body>
+    <!-- Skip navigation as recommended in http://getbootstrap.com/getting-started/#accessibility -->
+    <a href="#content" class="sr-only">Skip to content</a>
 
     <!-- Wrap all page content here -->
     <div id="wrap">
@@ -50,7 +52,7 @@
       <!-- Begin page content -->
       <div class="container">
 	<div class="row">
-          <div class="col-md-9">
+          <div id="content" class="col-md-9">
 	    <div class="page-header">
 	      <h1>{{ page.title }}</h1>
 	    </div>
