@@ -1,0 +1,15 @@
+---
+layout: default
+title: Liblouis
+---
+p(lead). Liblouis is an open-source braille translator and back-translator.
+	
+Liblouis is an open-source braille translator and back-translator. It features support for computer and literary braille, supports contracted and uncontracted translation for many, many languages (Arabic, Armenian, Bulgarian, Catalan, Chinese, Croatian, Czech, Danish, Dutch, English, Esperanto, Estonian, Ethiopic, Finish, French, Gaelic, German, Greek, Icelandic, many Indian languages, Italian, Kurdish, Lithuanian, Norwegian, Polish, Portuguese, Romanian, Russian, Serbian, Slovakian, Spanish, Swedish, Turkish, Vietnamese, Welsh) and has support for hyphenation. New languages can easily be added through tables that support a rule- or dictionary based approach. Included are also tools for testing and debugging tables. Liblouis also supports math braille (Nemeth and Marburg). The formatting of braille is provided by the companion project "liblouisxml":http://code.google.com/p/liblouisxml/.
+
+Liblouis has features to support screen-reading programs. This has led to its use in two Open Source screenreaders, "NVDA":http://www.nvda-project.org/ and "Orca":http://live.gnome.org/Orca. It is also used in some commercial assistive technology applications such as from "ViewPlus":http://www.viewplus.com/ for example.
+
+Liblouis is based on the translation routines in the "BRLTTY":http://mielke.cc/brltty/ screenreader for Linux. It has, however, gone far beyond these routines. It is named in honor of Louis Braille. In Linux and Mac OSX it is a shared library, and in Windows it is a DLL.
+
+* Read our "publications & presentation slides":https://code.google.com/p/liblouis/wiki/Presentations
+* Consult the "documentation":http://liblouis.googlecode.com/svn/documentation/liblouis.html, including download and installation instructions
+* Subscribe to our mailing list "here":http://www.freelists.org/list/liblouis-liblouisxml or chat with us on irc (irc://irc.oftc.net/liblouis).
