@@ -29,17 +29,20 @@ Requirements
 
 You need to install [Jekyll](http://jekyllrb.com/)
 
-	$ gem install jekyll
-	$ gem install RedCloth
-
+```
+gem install jekyll
+gem install RedCloth
+```
 
 Usage
 -----
 
 Build the site
 
-	$ cd /path/to/liblouis-website
-	$ jekyll serve
+```
+cd /path/to/liblouis-website
+jekyll serve
+```
 
 then browse http://localhost:4000
 
