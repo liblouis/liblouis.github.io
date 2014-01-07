@@ -9,8 +9,8 @@ h3. Stable versions
 
 table(table).
 |_. Summary|_. File|_. md5|
-|Stable|"liblouis-2.5.3.tar.gz":/downloads/liblouis-2.5.3.tar.gz|5de179044c5147b71c60ca0edbeaabab|
-|Windows build|"liblouis-mingw32msvc.zip":/downloads/liblouis-mingw32msvc.zip|152324424585209c1b9b61b15d0c1e17|
+|Stable|"liblouis-2.5.3.tar.gz":{{ site.baseurl }}/downloads/liblouis-2.5.3.tar.gz|5de179044c5147b71c60ca0edbeaabab|
+|Windows build|"liblouis-mingw32msvc.zip":{{ site.baseurl }}/downloads/liblouis-mingw32msvc.zip|152324424585209c1b9b61b15d0c1e17|
 
 h3. Development versions
 
