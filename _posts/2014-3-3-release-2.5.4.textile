@@ -3,7 +3,7 @@ layout: post
 title: Release 2.5.4
 ---
 
-This release contains nine months worth of braille table improvements for example for UEB, en-us, Nemeth, Bulgarian, Slovenian and many more. Also there are fixes to the core for table path resolving and back-translation.
+This release contains nine months worth of braille table improvements for example for Danish, UEB, en-us, Nemeth, Bulgarian, Slovenian and many more. Also there are fixes to the core for table path resolving and back-translation.
 
 h3. New features
 
