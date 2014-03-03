@@ -9,9 +9,17 @@ h3. Stable versions
 
 table(table).
 |_. Summary|_. File|_. md5|
-|Stable|"liblouis-2.5.3.tar.gz":liblouis-2.5.3.tar.gz|5de179044c5147b71c60ca0edbeaabab|
-|Windows build|"liblouis-mingw32msvc.zip":liblouis-mingw32msvc.zip|152324424585209c1b9b61b15d0c1e17|
+|Stable|"liblouis-2.5.4.tar.gz":liblouis-2.5.4.tar.gz|2848951409d48ae50c37bc783cb6d5a8|
+|Windows build|"liblouis-2.5.4-mingw32msvc.zip":liblouis-2.5.4-mingw32msvc.zip|8f8a8a8bad1d4d842896598a8cad614c|
 
 h3. Development versions
 
 Uptodate versions of liblouis can be checked out directly from the "source code repository":https://code.google.com/p/liblouis/source/checkout.
+
+h3. Old versions
+
+table(table).
+|_. Summary|_. File|_. md5|
+|2.5.3|"liblouis-2.5.3.tar.gz":liblouis-2.5.3.tar.gz|5de179044c5147b71c60ca0edbeaabab|
+|2.5.3 (Windows)|"liblouis-mingw32msvc.zip":liblouis-mingw32msvc.zip|152324424585209c1b9b61b15d0c1e17|
+
