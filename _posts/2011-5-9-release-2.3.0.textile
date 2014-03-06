@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Release 2.3.0
+tags: Liblouis
 ---
 
 This release contains support for many more languages than before (Swedish, Kurdish, Ethiopic, Serbian, many Indian languages). The search path for tables is now a list of paths. Finally there is the usual assortment of bug fixes.

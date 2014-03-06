@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Release 2.4.1
+tags: Liblouis
 ---
 
 h3. New features

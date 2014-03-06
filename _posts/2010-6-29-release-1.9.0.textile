@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Release 1.9.0
+tags: Liblouis
 ---
 h3. New features
 

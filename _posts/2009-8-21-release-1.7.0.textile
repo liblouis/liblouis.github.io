@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Release 1.7.0
+tags: Liblouis
 ---
 The main new feature of this release is the support for UK and Marburg math. Other changes include a new tool to check hyphenation and the usual improvement and addition of tables. Also The test suite has been enhanced and finally passes.
 

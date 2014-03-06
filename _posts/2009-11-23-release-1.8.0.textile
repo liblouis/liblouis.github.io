@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Release 1.8.0
+tags: Liblouis
 ---
 This release contains a number of improvements notably the integration of gnulib, the automatic generation of man pages and the addition of tables for German grade 2.
 
