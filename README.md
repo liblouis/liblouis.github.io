@@ -1,10 +1,8 @@
-liblouis-website
-================
+# liblouis.github.io
 
-A static website for liblouis using Jekyll
+A static website for liblouis, liblouisutdml and friends using Jekyll
 
-Features
---------
+## Features
 
 All the content from the [Google code site][google] has been migrated,
 i.e. the landing page, news, presentations, online documentation, and
@@ -24,8 +22,7 @@ from the `_posts` directory.
 Downloads can be placed in the `downloads` directory and can be linked
 from `downloads/index.textile`
 
-Requirements
-------------
+## Requirements
 
 You need to install [Jekyll](http://jekyllrb.com/)
 
@@ -34,15 +31,14 @@ gem install jekyll
 gem install RedCloth
 ```
 
-Usage
------
+## Usage
 
 Build the site
 
 ```
-cd /path/to/liblouis-website
+cd /path/to/liblouis.github.io
 jekyll serve
 ```
 
-then browse http://localhost:4000
+then open http://localhost:4000
 
