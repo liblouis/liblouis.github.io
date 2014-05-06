@@ -1,6 +1,6 @@
 # liblouis.github.io
 
-A static website for liblouis, liblouisutdml and friends using Jekyll
+The static website for liblouis, liblouisutdml and friends using Jekyll
 
 ## Features
 
