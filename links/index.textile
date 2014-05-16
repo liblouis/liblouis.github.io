@@ -9,7 +9,7 @@ h3. Liblouis
 
 * "Mailing list":http://www.freelists.org/archive/liblouis-liblouisxml
 * "Chat":irc://irc.oftc.net/liblouis (irc.oftc.net/liblouis)
-* "Code repository":https://code.google.com/p/liblouis/source/checkout
+* "Code repository":https://github.com/liblouis/liblouis
 * "Issue tracker":https://code.google.com/p/liblouis/issues/list
 
 h3. Liblouisutdml
