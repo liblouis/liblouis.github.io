@@ -1,6 +1,8 @@
 name: Liblouis*
 description: An open-source braille translator and back-translator.
 markdown: redcarpet
-pygments: true
+highlighter: pygments
 url: http://www.liblouis.org
 baseurl: ""
+gems:
+  - jekyll-sitemap
