@@ -1,7 +1,5 @@
 ---
-layout: post
 title: Maintainership succession
-tags: Liblouis
 ---
 
 John Boyer and [ViewPlus](http://www.viewplus.com) initiated the liblouis project which includes liblouis and liblouisutdml 12 years ago as an open source tool to translate and format braille. With the help of ViewPlus John has dedicated a lot of time into this project, has built a tremendous community around it and has improved many a persons life.
