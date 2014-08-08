@@ -6,3 +6,5 @@ url: http://www.liblouis.org
 baseurl: ""
 gems:
   - jekyll-sitemap
+exclude: 
+  - README.md
