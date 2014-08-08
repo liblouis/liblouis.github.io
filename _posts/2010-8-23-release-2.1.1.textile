@@ -1,9 +1,0 @@
----
-layout: post
-title: Release 2.1.1
-tags: Liblouis
----
-
-h3. Bug fixes
-* Fixed problems with the Danish grade 2 table
-* Fixed problems with the Marburg maths table for mathematics and the UK maths table for mathematics
