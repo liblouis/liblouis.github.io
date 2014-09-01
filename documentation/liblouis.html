@@ -1,34 +1,6 @@
 ---
-layout: default
 title: Liblouis User's and Programmer's Manual
 ---
-<!-- This manual is for liblouis (version 2.5.4, 3 March 2014),
-a Braille Translation and Back-Translation Library derived from the
-Linux screen reader BRLTTY. 
-
-Copyright (C) 1999-2006 by the BRLTTY Team.
-
-Copyright (C) 2004-2007 ViewPlus Technologies, Inc.
-www.viewplus.com.
-
-Copyright (C) 2007,2009 Abilitiessoft, Inc.
-www.abilitiessoft.com.
-
-This file is free software; you can redistribute it and/or modify it
-under the terms of the GNU Lesser (or library) General Public License
-(LGPL) as published by the Free Software Foundation; either version 3,
-or (at your option) any later version.
-
-This file is distributed in the hope that it will be useful, but
-WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-Lesser (or Library) General Public License LGPL for more details.
-
-You should have received a copy of the GNU Lesser (or Library) General
-Public License (LGPL) along with this program; see the file COPYING.
-If not, write to the Free Software Foundation, 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301, USA. -->
-<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 
 <a name="SEC_Contents"></a>
 <h2 class="contents-heading">Table of Contents</h2>
@@ -82,15 +54,17 @@ Fifth Floor, Boston, MA 02110-1301, USA. -->
     <li><a name="toc-lou_005fcompileString-1" href="#lou_005fcompileString">6.10 lou_compileString</a></li>
     <li><a name="toc-lou_005fdotsToChar-1" href="#lou_005fdotsToChar">6.11 lou_dotsToChar</a></li>
     <li><a name="toc-lou_005fcharToDots-1" href="#lou_005fcharToDots">6.12 lou_charToDots</a></li>
-    <li><a name="toc-lou_005flogFile-1" href="#lou_005flogFile">6.13 lou_logFile</a></li>
-    <li><a name="toc-lou_005flogPrint-1" href="#lou_005flogPrint">6.14 lou_logPrint</a></li>
-    <li><a name="toc-lou_005flogEnd-1" href="#lou_005flogEnd">6.15 lou_logEnd</a></li>
-    <li><a name="toc-lou_005fsetDataPath-1" href="#lou_005fsetDataPath">6.16 lou_setDataPath</a></li>
-    <li><a name="toc-lou_005fgetDataPath-1" href="#lou_005fgetDataPath">6.17 lou_getDataPath</a></li>
-    <li><a name="toc-lou_005fgetTable-1" href="#lou_005fgetTable">6.18 lou_getTable</a></li>
-    <li><a name="toc-lou_005freadCharFromFile-1" href="#lou_005freadCharFromFile">6.19 lou_readCharFromFile</a></li>
-    <li><a name="toc-lou_005ffree-1" href="#lou_005ffree">6.20 lou_free</a></li>
-    <li><a name="toc-Python-bindings-1" href="#Python-bindings">6.21 Python bindings</a></li>
+    <li><a name="toc-lou_005fregisterLogCallback-1" href="#lou_005fregisterLogCallback">6.13 lou_registerLogCallback</a></li>
+    <li><a name="toc-lou_005fsetLogLevel-1" href="#lou_005fsetLogLevel">6.14 lou_setLogLevel</a></li>
+    <li><a name="toc-lou_005flogFile-1" href="#lou_005flogFile">6.15 lou_logFile</a></li>
+    <li><a name="toc-lou_005flogPrint-_0028deprecated_0029" href="#lou_005flogPrint">6.16 lou_logPrint (deprecated)</a></li>
+    <li><a name="toc-lou_005flogEnd-1" href="#lou_005flogEnd">6.17 lou_logEnd</a></li>
+    <li><a name="toc-lou_005fsetDataPath-1" href="#lou_005fsetDataPath">6.18 lou_setDataPath</a></li>
+    <li><a name="toc-lou_005fgetDataPath-1" href="#lou_005fgetDataPath">6.19 lou_getDataPath</a></li>
+    <li><a name="toc-lou_005fgetTable-1" href="#lou_005fgetTable">6.20 lou_getTable</a></li>
+    <li><a name="toc-lou_005freadCharFromFile-1" href="#lou_005freadCharFromFile">6.21 lou_readCharFromFile</a></li>
+    <li><a name="toc-lou_005ffree-1" href="#lou_005ffree">6.22 lou_free</a></li>
+    <li><a name="toc-Python-bindings-1" href="#Python-bindings">6.23 Python bindings</a></li>
   </ul></li>
   <li><a name="toc-Opcode-Index-1" href="#Opcode-Index">Opcode Index</a></li>
   <li><a name="toc-Function-Index-1" href="#Function-Index">Function Index</a></li>
@@ -98,11 +72,11 @@ Fifth Floor, Boston, MA 02110-1301, USA. -->
 </ul>
 </div>
 
-<hr/>
+
 <a name="Top"></a>
 <a name="Liblouis-User_0027s-and-Programmer_0027s-Manual"></a>
 
-<p>This manual is for liblouis (version 2.5.4, 3 March 2014),
+<p>This manual is for liblouis (version 2.6.0, 1 September 2014),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <acronym>BRLTTY</acronym>. 
 </p>
@@ -2260,21 +2234,19 @@ License along with Liblouis. If not, see
 
 <p>You use the liblouis library by calling the following functions,
 <code>lou_translateString</code>, <code>lou_backTranslateString</code>,
-<code>lou_logFile</code>, <code>lou_logPrint</code>, 
-<code>lou_endLog</code>, <code>lou_getTable</code>,
-<code>lou_translate</code>, <code>lou_backTranslate</code>, <code>lou_hyphenate</code>,
-<code>lou_charToDots</code>, 
-<code>lou_dotsToChar</code>, 
-<code>lou_compileString</code>, <code>lou_readCharFromFile</code>, 
-<code>lou_version</code> and <code>lou_free</code>.
-These are described below. The header file, <samp>liblouis.h</samp>, also
-contains brief descriptions. Liblouis is written in straight C. It has
-just three code modules, <samp>compileTranslationTable.c</samp>,
+<code>lou_registerLogCallback</code>, <code>lou_setLogLevel</code>,
+<code>lou_logFile</code>, <code>lou_logPrint</code>, <code>lou_logEnd</code>,
+<code>lou_getTable</code>, <code>lou_translate</code>, <code>lou_backTranslate</code>,
+<code>lou_hyphenate</code>, <code>lou_charToDots</code>, <code>lou_dotsToChar</code>,
+<code>lou_compileString</code>, <code>lou_readCharFromFile</code>,
+<code>lou_version</code> and <code>lou_free</code>.  These are described
+below. The header file, <samp>liblouis.h</samp>, also contains brief
+descriptions. Liblouis is written in straight C. It has four code
+modules, <samp>compileTranslationTable.c</samp>, <samp>logging.c</samp>,
 <samp>lou_translateString.c</samp> and <samp>lou_backTranslateString.c</samp>. In
 addition, there are two header files, <samp>liblouis.h</samp>, which defines
-the API, and <samp>louis.h</samp>, used only internally and by liblouisxml. 
-The latter includes
-<samp>liblouis.h</samp>. 
+the API, and <samp>louis.h</samp>, used only internally and by liblouisxml.
+The latter includes <samp>liblouis.h</samp>.
 </p>
 <p>Persons who wish to use liblouis from Python may want to skip ahead to
 <a href="#Python-bindings">Python bindings</a>.
@@ -2286,9 +2258,9 @@ yet been compiled <samp>compileTranslationTable.c</samp> checks it for
 correctness and compiles it into an efficient internal representation.
 The main entry point is <code>lou_getTable</code>. Since it is the module
 that keeps track of memory usage, it also contains the <code>lou_free</code>
-function. In addition, it contains the <code>lou_logFile</code>,
-<code>lou_logPrint</code> and <code>lou_endLog</code> functions, plus some utility 
-functions which are
+function. In addition, it contains the <code>lou_registerLogCallback</code>,
+<code>lou_setLogLevel</code>, <code>lou_logFile</code>, <code>lou_logPrint</code> and
+<code>lou_logEnd</code> functions, plus some utility functions which are
 used by the other modules.
 </p>
 <p>By default, liblouis handles all characters internally as 16-bit
@@ -2700,9 +2672,55 @@ not set and in Unicode format if it is set. The function returns 1 on
 success and 0 on failure.
 </p>
 <hr>
+<a name="lou_005fregisterLogCallback"></a>
+<a name="lou_005fregisterLogCallback-1"></a>
+<h3 class="section">6.13 lou_registerLogCallback</h3>
+<a name="index-lou_005fregisterLogCallback"></a>
+
+<div class="example">
+<pre class="example">typedef void (*logcallback)(int level, const char *message);
+void lou_registerLogCallback(logcallback callback);
+</pre></div>
+
+<p>This function can be used to register a custom logging callback. The
+callback must take a single argument, the message string. By default
+log messages are printed to stderr, or if a filename was specified
+with <code>lou_logFile</code> then messages are logged to that
+file. <code>lou_registerLogCallback</code> overrides the default
+callback. Passing <code>NULL</code> resets to the default callback.
+</p>
+<hr>
+<a name="lou_005fsetLogLevel"></a>
+<a name="lou_005fsetLogLevel-1"></a>
+<h3 class="section">6.14 lou_setLogLevel</h3>
+<a name="index-lou_005fsetLogLevel"></a>
+
+<div class="example">
+<pre class="example">typedef enum
+{
+  LOG_ALL = -2147483648,
+  LOG_DEBUG = 10000,
+  LOG_INFO = 20000,
+  LOG_WARN = 30000,
+  LOG_ERROR = 40000,
+  LOG_FATAL = 50000,
+  LOG_OFF = 2147483647
+} logLevels;
+void lou_setLogLevel(logLevels level);
+</pre></div>
+
+<p>This function can be used to influence the amount of logging, from
+fatal error messages only to detailed debugging messages. Supported
+values are <code>LOG_DEBUG</code>, <code>LOG_INFO</code>, <code>LOG_WARN</code>,
+<code>LOG_ERROR</code>, <code>LOG_FATAL</code> and <code>LOG_OFF</code>. Enabling
+logging at a given level also enables logging at all higher
+levels. Setting the level to <code>LOG_OFF</code> disables logging. The
+default level is <code>LOG_INFO</code>.
+</p>
+<hr>
 <a name="lou_005flogFile"></a>
 <a name="lou_005flogFile-1"></a>
-<h3 class="section">6.13 lou_logFile</h3>
+<h3 class="section">6.15 lou_logFile</h3>
 <a name="index-lou_005flogFile"></a>
 
 <div class="example">
@@ -2717,8 +2735,8 @@ the file must be given.
 </p>
 <hr>
 <a name="lou_005flogPrint"></a>
-<a name="lou_005flogPrint-1"></a>
-<h3 class="section">6.14 lou_logPrint</h3>
+<a name="lou_005flogPrint-_0028deprecated_0029"></a>
+<h3 class="section">6.16 lou_logPrint (deprecated)</h3>
 <a name="index-lou_005flogPrint"></a>
 
 <div class="example">
@@ -2730,10 +2748,12 @@ libraries to print messages to the file specified by the call to
 <code>lou_logFile</code>. In particular, it is used by the companion
 library liblouisxml.
 </p>
+<p>This function is deprecated as of version 2.6.0.
+</p>
 <hr>
 <a name="lou_005flogEnd"></a>
 <a name="lou_005flogEnd-1"></a>
-<h3 class="section">6.15 lou_logEnd</h3>
+<h3 class="section">6.17 lou_logEnd</h3>
 <a name="index-lou_005flogEnd"></a>
 
 <div class="example">
@@ -2746,7 +2766,7 @@ log file, so that it can be read by the rest of the program.
 <hr>
 <a name="lou_005fsetDataPath"></a>
 <a name="lou_005fsetDataPath-1"></a>
-<h3 class="section">6.16 lou_setDataPath</h3>
+<h3 class="section">6.18 lou_setDataPath</h3>
 <a name="index-lou_005fsetDataPath"></a>
 
 <div class="example">
@@ -2762,7 +2782,7 @@ located. The function returns a pointer to the <code>path</code>.
 <hr>
 <a name="lou_005fgetDataPath"></a>
 <a name="lou_005fgetDataPath-1"></a>
-<h3 class="section">6.17 lou_getDataPath</h3>
+<h3 class="section">6.19 lou_getDataPath</h3>
 <a name="index-lou_005fgetDataPath"></a>
 
 <div class="example">
@@ -2775,7 +2795,7 @@ located. The function returns a pointer to the <code>path</code>.
 <hr>
 <a name="lou_005fgetTable"></a>
 <a name="lou_005fgetTable-1"></a>
-<h3 class="section">6.18 lou_getTable</h3>
+<h3 class="section">6.20 lou_getTable</h3>
 <a name="index-lou_005fgetTable"></a>
 
 <div class="example">
@@ -2786,15 +2806,15 @@ located. The function returns a pointer to the <code>path</code>.
 commas, as explained previously
 (see <a href="#translation_002dtables"><code>tableList</code> parameter in
 <code>lou_translateString</code></a>). If no errors are found this function
-returns a pointer to the compiled table. If errors are found messages
-are printed to the log file, which is stderr unless a different
-filename has been given using the <code>lou_logFile</code> function.
-Errors result in a <code>NULL</code> pointer being returned.
+returns a pointer to the compiled table. If errors are found error
+messages are logged to the log callback (see
+<code>lou_registerLogCallback</code>). Errors result in a <code>NULL</code>
+pointer being returned.
 </p>
 <hr>
 <a name="lou_005freadCharFromFile"></a>
 <a name="lou_005freadCharFromFile-1"></a>
-<h3 class="section">6.19 lou_readCharFromFile</h3>
+<h3 class="section">6.21 lou_readCharFromFile</h3>
 <a name="index-lou_005freadCharFromFile"></a>
 
 <div class="example">
@@ -2813,7 +2833,7 @@ function takes care of it. On end-of-file the function returns
 <hr>
 <a name="lou_005ffree"></a>
 <a name="lou_005ffree-1"></a>
-<h3 class="section">6.20 lou_free</h3>
+<h3 class="section">6.22 lou_free</h3>
 <a name="index-lou_005ffree"></a>
 
 <div class="example">
@@ -2829,7 +2849,7 @@ tables every time they are used, resulting in great inefficiency.
 <hr>
 <a name="Python-bindings"></a>
 <a name="Python-bindings-1"></a>
-<h3 class="section">6.21 Python bindings</h3>
+<h3 class="section">6.23 Python bindings</h3>
 
 <p>There are Python bindings for <code>lou_translateString</code>,
 <code>lou_translate</code> and <code>lou_version</code>. For installation
@@ -3082,7 +3102,9 @@ directory. Usage information is included in the Python module itself.
 <tr><td></td><td valign="top"><a href="#index-lou_005flogFile"><code>lou_logFile</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005flogFile">lou_logFile</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005flogPrint"><code>lou_logPrint</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005flogPrint">lou_logPrint</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005freadCharFromFile"><code>lou_readCharFromFile</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005freadCharFromFile">lou_readCharFromFile</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-lou_005fregisterLogCallback"><code>lou_registerLogCallback</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fregisterLogCallback">lou_registerLogCallback</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fsetDataPath"><code>lou_setDataPath</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fsetDataPath">lou_setDataPath</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-lou_005fsetLogLevel"><code>lou_setLogLevel</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fsetLogLevel">lou_setLogLevel</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005ftranslate"><code>lou_translate</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005ftranslate">lou_translate</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005ftranslateString"><code>lou_translateString</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005ftranslateString">lou_translateString</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fversion"><code>lou_version</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fversion">lou_version</a></td></tr>
@@ -3114,3 +3136,5 @@ directory. Usage information is included in the Python module itself.
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Program-Index_pg_letter-L"><b>L</b></a>
  &nbsp; 
 </td></tr></table>
+
+<hr>

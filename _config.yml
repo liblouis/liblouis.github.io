@@ -12,13 +12,13 @@ defaults:
   - 
     scope:
       path: "" # all pages should have layout default by default
-      type: "page"
+      type: "pages"
     values:
       layout: "default"
   - 
     scope:
       path: "" # all posts should have layout post by default
-      type: "post"
+      type: "posts"
     values:
       layout: "post"
       tags: "Liblouis"
