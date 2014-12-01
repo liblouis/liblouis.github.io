@@ -11,7 +11,9 @@ intro: The Liblouis software suite provides an open-source braille translator, b
 ## News
 
 {% for post in site.posts limit:1 %}
-{{ post.date | date_to_string}} [{{ post.title }}]({{ post.url }})
+### {{ post.date | date_to_string}} [{{ post.title }}]({{ post.url }})
+
+{{ post.excerpt }}
 {% endfor %}
 
 </div>
