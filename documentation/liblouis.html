@@ -8,42 +8,47 @@ title: Liblouis User's and Programmer's Manual
 <div class="contents">
 
 <ul class="no-bullet">
-  <li><a name="toc-Introduction-1" href="#Introduction">1 Introduction</a></li>
-  <li><a name="toc-Test-Programs-1" href="#Test-Programs">2 Test Programs</a>
+  <li><a name="toc-Introduction-1" href="#Introduction">1 Introduction</a>
   <ul class="no-bullet">
-    <li><a name="toc-lou_005fdebug-1" href="#lou_005fdebug">2.1 lou_debug</a></li>
-    <li><a name="toc-lou_005ftrace-1" href="#lou_005ftrace">2.2 lou_trace</a></li>
-    <li><a name="toc-lou_005fchecktable-1" href="#lou_005fchecktable">2.3 lou_checktable</a></li>
-    <li><a name="toc-lou_005fallround-1" href="#lou_005fallround">2.4 lou_allround</a></li>
-    <li><a name="toc-lou_005ftranslate-1" href="#lou_005ftranslate-_0028program_0029">2.5 lou_translate</a></li>
-    <li><a name="toc-lou_005fcheckhyphens-1" href="#lou_005fcheckhyphens">2.6 lou_checkhyphens</a></li>
+    <li><a name="toc-Who-is-this-manual-for" href="#Who-is-this-manual-for">1.1 Who is this manual for</a></li>
+    <li><a name="toc-How-to-read-this-manual" href="#How-to-read-this-manual">1.2 How to read this manual</a></li>
   </ul></li>
-  <li><a name="toc-How-to-Write-Translation-Tables-1" href="#How-to-Write-Translation-Tables">3 How to Write Translation Tables</a>
+  <li><a name="toc-How-to-Write-Translation-Tables-1" href="#How-to-Write-Translation-Tables">2 How to Write Translation Tables</a>
   <ul class="no-bullet">
-    <li><a name="toc-Hyphenation-Tables-1" href="#Hyphenation-Tables">3.1 Hyphenation Tables</a></li>
-    <li><a name="toc-Character_002dDefinition-Opcodes-1" href="#Character_002dDefinition-Opcodes">3.2 Character-Definition Opcodes</a></li>
-    <li><a name="toc-Braille-Indicator-Opcodes-1" href="#Braille-Indicator-Opcodes">3.3 Braille Indicator Opcodes</a></li>
-    <li><a name="toc-Emphasis-Opcodes-1" href="#Emphasis-Opcodes">3.4 Emphasis Opcodes</a></li>
-    <li><a name="toc-Special-Symbol-Opcodes-1" href="#Special-Symbol-Opcodes">3.5 Special Symbol Opcodes</a></li>
-    <li><a name="toc-Special-Processing-Opcodes-1" href="#Special-Processing-Opcodes">3.6 Special Processing Opcodes</a></li>
-    <li><a name="toc-Translation-Opcodes-1" href="#Translation-Opcodes">3.7 Translation Opcodes</a></li>
-    <li><a name="toc-Character_002dClass-Opcodes-1" href="#Character_002dClass-Opcodes">3.8 Character-Class Opcodes</a></li>
-    <li><a name="toc-Swap-Opcodes-1" href="#Swap-Opcodes">3.9 Swap Opcodes</a></li>
-    <li><a name="toc-The-Context-and-Multipass-Opcodes-1" href="#The-Context-and-Multipass-Opcodes">3.10 The Context and Multipass Opcodes</a></li>
-    <li><a name="toc-The-correct-Opcode-1" href="#The-correct-Opcode">3.11 The correct Opcode</a></li>
-    <li><a name="toc-Miscellaneous-Opcodes-1" href="#Miscellaneous-Opcodes">3.12 Miscellaneous Opcodes</a></li>
-    <li><a name="toc-Deprecated-Opcodes-1" href="#Deprecated-Opcodes">3.13 Deprecated Opcodes</a></li>
+    <li><a name="toc-Overview-1" href="#Overview">2.1 Overview</a></li>
+    <li><a name="toc-Hyphenation-Tables-1" href="#Hyphenation-Tables">2.2 Hyphenation Tables</a></li>
+    <li><a name="toc-Character_002dDefinition-Opcodes-1" href="#Character_002dDefinition-Opcodes">2.3 Character-Definition Opcodes</a></li>
+    <li><a name="toc-Braille-Indicator-Opcodes-1" href="#Braille-Indicator-Opcodes">2.4 Braille Indicator Opcodes</a></li>
+    <li><a name="toc-Emphasis-Opcodes-1" href="#Emphasis-Opcodes">2.5 Emphasis Opcodes</a></li>
+    <li><a name="toc-Special-Symbol-Opcodes-1" href="#Special-Symbol-Opcodes">2.6 Special Symbol Opcodes</a></li>
+    <li><a name="toc-Special-Processing-Opcodes-1" href="#Special-Processing-Opcodes">2.7 Special Processing Opcodes</a></li>
+    <li><a name="toc-Translation-Opcodes-1" href="#Translation-Opcodes">2.8 Translation Opcodes</a></li>
+    <li><a name="toc-Character_002dClass-Opcodes-1" href="#Character_002dClass-Opcodes">2.9 Character-Class Opcodes</a></li>
+    <li><a name="toc-Swap-Opcodes-1" href="#Swap-Opcodes">2.10 Swap Opcodes</a></li>
+    <li><a name="toc-The-Context-and-Multipass-Opcodes-1" href="#The-Context-and-Multipass-Opcodes">2.11 The Context and Multipass Opcodes</a></li>
+    <li><a name="toc-The-correct-Opcode-1" href="#The-correct-Opcode">2.12 The correct Opcode</a></li>
+    <li><a name="toc-Miscellaneous-Opcodes-1" href="#Miscellaneous-Opcodes">2.13 Miscellaneous Opcodes</a></li>
+    <li><a name="toc-Deprecated-Opcodes-1" href="#Deprecated-Opcodes">2.14 Deprecated Opcodes</a></li>
   </ul></li>
-  <li><a name="toc-How-to-test-Translation-Tables-1" href="#How-to-test-Translation-Tables">4 How to test Translation Tables</a>
+  <li><a name="toc-Notes-on-Back_002dTranslation-1" href="#Notes-on-Back_002dTranslation">3 Notes on Back-Translation</a></li>
+  <li><a name="toc-Testing-Translation-Tables-interactively-1" href="#Testing-Translation-Tables-interactively">4 Testing Translation Tables interactively</a>
   <ul class="no-bullet">
-    <li><a name="toc-Translation-Table-Test-Harness-1" href="#Translation-Table-Test-Harness">4.1 Translation Table Test Harness</a></li>
-    <li><a name="toc-Translation-Table-Doctests-1" href="#Translation-Table-Doctests">4.2 Translation Table Doctests</a></li>
+    <li><a name="toc-lou_005fdebug-1" href="#lou_005fdebug">4.1 lou_debug</a></li>
+    <li><a name="toc-lou_005ftrace-1" href="#lou_005ftrace">4.2 lou_trace</a></li>
+    <li><a name="toc-lou_005fchecktable-1" href="#lou_005fchecktable">4.3 lou_checktable</a></li>
+    <li><a name="toc-lou_005fallround-1" href="#lou_005fallround">4.4 lou_allround</a></li>
+    <li><a name="toc-lou_005ftranslate-1" href="#lou_005ftranslate-_0028program_0029">4.5 lou_translate</a></li>
+    <li><a name="toc-lou_005fcheckhyphens-1" href="#lou_005fcheckhyphens">4.6 lou_checkhyphens</a></li>
   </ul></li>
-  <li><a name="toc-Notes-on-Back_002dTranslation-1" href="#Notes-on-Back_002dTranslation">5 Notes on Back-Translation</a></li>
+  <li><a name="toc-Automated-Testing-of-Translation-Tables-1" href="#Automated-Testing-of-Translation-Tables">5 Automated Testing of Translation Tables</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Translation-Table-Test-Harness-1" href="#Translation-Table-Test-Harness">5.1 Translation Table Test Harness</a></li>
+    <li><a name="toc-Translation-Table-Doctests-1" href="#Translation-Table-Doctests">5.2 Translation Table Doctests</a></li>
+  </ul></li>
   <li><a name="toc-Programming-with-liblouis-1" href="#Programming-with-liblouis">6 Programming with liblouis</a>
   <ul class="no-bullet">
     <li><a name="toc-License-1" href="#License">6.1 License</a></li>
-    <li><a name="toc-Overview-1" href="#Overview">6.2 Overview</a></li>
+    <li><a name="toc-Overview-2" href="#Overview-_0028library_0029">6.2 Overview</a></li>
     <li><a name="toc-Data-structure-of-liblouis-tables-1" href="#Data-structure-of-liblouis-tables">6.3 Data structure of liblouis tables</a></li>
     <li><a name="toc-lou_005fversion-1" href="#lou_005fversion">6.4 lou_version</a></li>
     <li><a name="toc-lou_005ftranslateString-1" href="#lou_005ftranslateString">6.5 lou_translateString</a></li>
@@ -75,11 +80,13 @@ title: Liblouis User's and Programmer's Manual
 
 <a name="Top"></a>
 <a name="Liblouis-User_0027s-and-Programmer_0027s-Manual"></a>
+<h1 class="top">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouis (version 2.6.0, 1 September 2014),
+<p>This manual is for liblouis (version 2.6.1, 25 November 2014),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <acronym>BRLTTY</acronym>. 
 </p>
+
 <p>Copyright &copy; 1999-2006 by the BRLTTY Team.
 </p>
 <p>Copyright &copy; 2004-2007 ViewPlus Technologies, Inc.
@@ -88,6 +95,9 @@ Linux screen reader <acronym>BRLTTY</acronym>.
 <p>Copyright &copy; 2007,2009 Abilitiessoft, Inc.
 <a href="www.abilitiessoft.com">www.abilitiessoft.com</a>.
 </p>
+<p>Copyright &copy; 2014 Swiss Library for the Blind, Visually Impaired and Print Disabled.
+</p>
+
 <blockquote>
 <p>This file is free software; you can redistribute it and/or modify it
 under the terms of the GNU Lesser (or library) General Public License
@@ -117,332 +127,85 @@ derived from the translation routines in the BRLTTY screen reader for
 Linux. It has, however, gone far beyond these routines. It is named in
 honor of Louis Braille. In Linux and Mac OSX it is a shared library,
 and in Windows it is a DLL. For installation instructions see the
-README file. Please report bugs and oddities to the maintainer,
-<a href="mailto:john.boyer@abilitiessoft.com">john.boyer@abilitiessoft.com</a>
+README file. Please report bugs and oddities to the mailing list,
+<a href="mailto:liblouis-liblouisxml@freelists.org">liblouis-liblouisxml@freelists.org</a>
 </p>
 <p>This documentation is derived from Chapter 7 of the BRLTTY manual, but
 it has been extensively rewritten to cover new features.
 </p>
-<p>Please read the following copyright and warranty information. Note
-that this information also applies to all source code, tables and
-other files in this distribution of liblouis. It applies similarly to
-the sister library liblouisxml.
-</p>
-<p>This file is maintained by John J. Boyer
-<a href="mailto:john.boyer@abilitiessoft.com">john.boyer@abilitiessoft.com</a>.
-</p>
-<p>Persons who wish to program with liblouis but will not be writing
-translation tables may want to skip ahead to <a href="#Programming-with-liblouis">Programming with liblouis</a>.
-</p>
-<hr>
-<a name="Test-Programs"></a>
-<a name="Test-Programs-1"></a>
-<h2 class="chapter">2 Test Programs</h2>
+<a name="Who-is-this-manual-for"></a>
+<h3 class="section">1.1 Who is this manual for</h3>
 
-<p>A number of test programs are provided as part of the liblouis
-package. They are intended for testing liblouis and for debugging
-tables. None of them is suitable for braille transcription. An
-application that can be used for transcription is <code>xml2brl</code>,
-which is part of the liblouisxml package (see <a href="liblouisxml.html#Top">Introduction</a> in <cite>Liblouisxml User&rsquo;s and Programmer&rsquo;s Manual</cite>). The source
-code of the test programs can be studied to learn how to use the
-liblouis library and they can be used to perform the following
-functions.
+<p>This manual has two main audiences: People who want to write or
+improve a braille translation table and people who want to use the
+braille translator library in their own programs. This manual is
+probably not for people who are looking for some turn-key braille
+translation software.
 </p>
-<a name="common-options"></a><p>All of these programs recognize the <samp>--help</samp> and
-<samp>--version</samp> options.
-</p>
-<dl compact="compact">
-<dt><samp>--help</samp></dt>
-<dt><samp>-h</samp></dt>
-<dd><p>Print a usage message listing all available options, then exit
-successfully.
-</p>
-</dd>
-<dt><samp>--version</samp></dt>
-<dt><samp>-v</samp></dt>
-<dd><p>Print the version number, then exit successfully.
-</p>
-</dd>
-</dl>
+<a name="How-to-read-this-manual"></a>
+<h3 class="section">1.2 How to read this manual</h3>
 
-
-<hr>
-<a name="lou_005fdebug"></a>
-<a name="lou_005fdebug-1"></a>
-<h3 class="section">2.1 lou_debug</h3>
-<a name="index-lou_005fdebug"></a>
-
-<p>The <code>lou_debug</code> tool is intended for debugging liblouis
-translation tables. The command line for <code>lou_debug</code> is:
+<p>If you are mostly interested in writing braille translation tables
+then you want to focus on <a href="#How-to-Write-Translation-Tables">How to Write Translation Tables</a>. You
+might want to look at <a href="#Notes-on-Back_002dTranslation">Notes on Back-Translation</a> if you are
+interested in back-translation. Finally <a href="#Testing-Translation-Tables-interactively">Testing Translation Tables interactively</a> and <a href="#Automated-Testing-of-Translation-Tables">Automated Testing of Translation Tables</a> will show how your braille translation tables can be tested
+interactively and also in an automated fashion.
 </p>
-<div class="example">
-<pre class="example">lou_debug [OPTIONS] TABLE[,TABLE,...]
-</pre></div>
-
-<p>The command line options that are accepted by <code>lou_debug</code> are
-described in <a href="#common-options">common options</a>.
-</p>
-<p>The table (or comma-separated list of tables) is compiled. If no
-errors are found a brief command summary is printed, then the prompt
-&lsquo;<samp>Command:</samp>&rsquo;. You can then input one of the command letters and get
-output, as described below.
-</p>
-<p>Most of the commands print information in the various arrays of
-<code>TranslationTableHeader</code>. Since these arrays are pointers to
-chains of hashed items, the commands first print the hash number, then
-the first item, then the next item chained to it, and so on. After
-each item there is a prompt indicated by &lsquo;<samp>=&gt;</samp>&rsquo;. You can then press
-enter (<kbd><span class="key">RET</span></kbd>) to see the next item in the chain or the first
-item in the next chain. Or you can press <kbd>h</kbd> (for next-(h)ash) to
-skip to the next hash chain. You can also press <kbd>e</kbd> to exit the
-command and go back to the &lsquo;<samp>command:</samp>&rsquo; prompt.
-</p>
-<dl compact="compact">
-<dt><kbd>h</kbd></dt>
-<dd><p>Brings up a screen of somewhat more extensive help.
-</p>
-</dd>
-<dt><kbd>f</kbd></dt>
-<dd><p>Display the first forward-translation rule in the first non-empty hash
-bucket. The number of the bucket is displayed at the beginning of the
-chain. Each rule is identified by the word &lsquo;<samp>Rule:</samp>&rsquo;. The fields
-are displayed by phrases consisting of the name of the field, an equal
-sign, and its value. The before and after fields are displayed only if
-they are nonzero. Special opcodes such as the <code>correct</code> opcode (see <a href="#correct-opcode"><code>correct</code></a>) and
-the multipass opcodes are shown with the code that instructs the
-virtual machine that interprets them. If you want to see only the
-rules for a particular character string you can type <kbd>p</kbd> at the
-&lsquo;<samp>command:</samp>&rsquo; prompt. This will take you to the &lsquo;<samp>particular:</samp>&rsquo;
-prompt, where you can press <kbd>f</kbd> and then type in the string. The
-whole hash chain containing the string will be displayed.
-</p>
-</dd>
-<dt><kbd>b</kbd></dt>
-<dd><p>Display back-translation rules. This display is very similar to that
-of forward translation rules except that the dot pattern is displayed
-before the character string.
-</p>
-</dd>
-<dt><kbd>c</kbd></dt>
-<dd><p>Display character definitions, again within their hash chains.
-</p>
-</dd>
-<dt><kbd>d</kbd></dt>
-<dd><p>Displays single-cell dot definitions. If a character-definition opcode
-gives a multi-cell dot pattern, it is displayed among the
-back-translation rules.
-</p>
-</dd>
-<dt><kbd>C</kbd></dt>
-<dd><p>Display the character-to-dots map. This is set up by the
-character-definition opcodes and can also be influenced by the
-<code>display</code> opcode (see <a href="#display-opcode"><code>display</code></a>).
-</p>
-</dd>
-<dt><kbd>D</kbd></dt>
-<dd><p>Display the dot to character map, which shows which single-cell dot
-patterns map to which characters.
-</p>
-</dd>
-<dt><kbd>z</kbd></dt>
-<dd><p>Show the multi-cell dot patterns which have been assigned to the
-characters from 0 to 255 to comply with computer braille codes such as
-a 6-dot code. Note that the character-definition opcodes should use
-8-dot computer braille.
-</p>
-</dd>
-<dt><kbd>p</kbd></dt>
-<dd><p>Bring up a secondary (&lsquo;<samp>particular:</samp>&rsquo;) prompt from which you can
-examine particular character strings, dot patterns, etc. The commands
-(given in its own command summary) are very similar to those of the
-main &lsquo;<samp>command:</samp>&rsquo; prompt, but you can type a character string or
-dot pattern. They include <kbd>h</kbd>, <kbd>f</kbd>, <kbd>b</kbd>, <kbd>c</kbd>, <kbd>d</kbd>,
-<kbd>C</kbd>, <kbd>D</kbd>, <kbd>z</kbd> and <kbd>x</kbd> (to exit this prompt), but not
-<kbd>p</kbd>, <kbd>i</kbd> and <kbd>m</kbd>.
-</p>
-</dd>
-<dt><kbd>i</kbd></dt>
-<dd><p>Show braille indicators. This shows the dot patterns for various
-opcodes such as the <code>capsign</code> opcode (see <a href="#capsign-opcode"><code>capsign</code></a>) and the <code>numsign</code> opcode (see <a href="#numsign-opcode"><code>numsign</code></a>).
-It also shows emphasis dot patterns, such as those for the
-<code>italword</code>,
-the <code>firstletterbold</code> opcode (see <a href="#firstletterbold-opcode"><code>firstletterbold</code></a>), etc. If a given
-opcode has not been used nothing is printed for it.
-</p>
-</dd>
-<dt><kbd>m</kbd></dt>
-<dd><p>Display various miscellaneous information about the table, such as the
-number of passes, whether certain opcodes have been used, and whether
-there is a hyphenation table.
-</p>
-</dd>
-<dt><kbd>q</kbd></dt>
-<dd><p>Exit the program.
-</p></dd>
-</dl>
-
-<hr>
-<a name="lou_005ftrace"></a>
-<a name="lou_005ftrace-1"></a>
-<h3 class="section">2.2 lou_trace</h3>
-<a name="index-lou_005ftrace"></a>
-
-<p>When working on translation tables it is sometimes useful to determine
-what rules were applied when translating a string. <code>lou_trace</code>
-helps with exactly that. It list all the the applied rules for a given
-translation table and an input string.
-</p>
-<div class="example">
-<pre class="example">lou_trace [OPTIONS] TABLE[,TABLE,...]
-</pre></div>
-
-<p><code>lou_trace</code> accepts all the standard options (see <a href="#common-options">common options</a>). Once started you can type an input string followed by
-<kbd><span class="key">RET</span></kbd>. <code>lou_trace</code> will print the braille
-translation followed by list of rules that were applied to produce the
-translation. A possible invocation is listed in the following example:
-</p>
-<div class="example">
-<pre class="example">$ lou_trace tables/en-us-g2.ctb 
-the u.s. postal service
-! u4s4 po/al s}vice
-1.      largesign       the     2346
-2.      repeated                0
-3.      lowercase       u       136
-4.      punctuation     .       46
-5.      context _$l[&quot;.&quot;]$l      @256
-6.      lowercase       s       234
-7.      postpunc        .       256
-8.      repeated                0
-9.      begword post    1234-135-34
-10.     largesign       a       1
-11.     lowercase       l       123
-12.     repeated                0
-13.     lowercase       s       234
-14.     always  er      12456
-15.     lowercase       v       1236
-16.     lowercase       i       24
-17.     lowercase       c       14
-18.     lowercase       e       15
-19.     pass2   $s1-10  @0
-20.     pass2   $s1-10  @0
-21.     pass2   $s1-10  @0
-</pre></div>
-
-<hr>
-<a name="lou_005fchecktable"></a>
-<a name="lou_005fchecktable-1"></a>
-<h3 class="section">2.3 lou_checktable</h3>
-<a name="index-lou_005fchecktable"></a>
-
-<p>To use this program type the following:
-</p>
-<div class="example">
-<pre class="example">lou_checktable [OPTIONS] TABLE
-</pre></div>
-
-<p>Aside from the standard options (see <a href="#common-options">common options</a>)
-<code>lou_checktable</code> also accepts the following options:
-</p>
-<dl compact="compact">
-<dt><samp>--quiet</samp></dt>
-<dt><samp>-q</samp></dt>
-<dd><p>Do not write to standard error if there are no errors.
-</p>
-</dd>
-</dl>
-
-<p>If the table contains errors, appropriate messages will be displayed.
-If there are no errors the message &lsquo;<samp>no errors found.</samp>&rsquo; will be
-shown.
-</p>
-<hr>
-<a name="lou_005fallround"></a>
-<a name="lou_005fallround-1"></a>
-<h3 class="section">2.4 lou_allround</h3>
-<a name="index-lou_005fallround"></a>
-
-<p>This program tests every capability of the liblouis library. It is
-completely interactive. Invoke it as follows:
-</p>
-<div class="example">
-<pre class="example">lou_allround [OPTIONS]
-</pre></div>
-
-<p>The command line options that are accepted by <code>lou_allround</code>
-are described in <a href="#common-options">common options</a>.
-</p>
-<p>You will see a few lines telling you how to use the program. Pressing
-one of the letters in parentheses and then enter will take you to a
-message asking for more information or for the answer to a yes/no
-question. Typing the letter &lsquo;<samp>r</samp>&rsquo; and then <tt class="key">RET</tt> will take you
-to a screen where you can enter a line to be processed by the library
-and then view the results.
-</p>
-<hr>
-<a name="lou_005ftranslate-_0028program_0029"></a>
-<a name="lou_005ftranslate-1"></a>
-<h3 class="section">2.5 lou_translate</h3>
-<a name="index-lou_005ftranslate-1"></a>
-
-<p>This program translates whatever is on the standard input unit and
-prints it on the standard output unit. It is intended for large-scale
-testing of the accuracy of translation and back-translation. The
-command line for <code>lou_translate</code> is:
-</p>
-<div class="example">
-<pre class="example">lou_translate [OPTION] TABLE[,TABLE,...]
-</pre></div>
-
-<p>Aside from the standard options (see <a href="#common-options">common options</a>) this program
-also accepts the following options:
-</p>
-<dl compact="compact">
-<dt><samp>--forward</samp></dt>
-<dt><samp>-f</samp></dt>
-<dd><p>Do a forward translation.
-</p>
-</dd>
-<dt><samp>--backward</samp></dt>
-<dt><samp>-b</samp></dt>
-<dd><p>Do a backward translation.
-</p>
-</dd>
-</dl>
-
-<p>To use it to translate or back-translate a file use a line like
-</p>
-<div class="example">
-<pre class="example">lou_translate --forward en-us-g2.ctb &lt;liblouis.txt &gt;testtrans
-</pre></div>
-
-<hr>
-<a name="lou_005fcheckhyphens"></a>
-<a name="lou_005fcheckhyphens-1"></a>
-<h3 class="section">2.6 lou_checkhyphens</h3>
-<a name="index-lou_005fcheckhyphens"></a>
-
-<p>This program checks the accuracy of hyphenation in Braille translation
-for both translated and untranslated words. It is completely
-interactive. Invoke it as follows:
-</p>
-<div class="example">
-<pre class="example">lou_checkhyphens [OPTIONS]
-</pre></div>
-
-<p>The command line options that are accepted by
-<code>lou_checkhyphens</code> are described in <a href="#common-options">common options</a>.
-</p>
-<p>You will see a few lines telling you how to use the program.
+<p>If you want to use the braille translation library in your own program
+or you are interested in enhancing the braille translation library
+itself then you will want to look at <a href="#Programming-with-liblouis">Programming with liblouis</a>.
 </p>
 <hr>
 <a name="How-to-Write-Translation-Tables"></a>
 <a name="How-to-Write-Translation-Tables-1"></a>
-<h2 class="chapter">3 How to Write Translation Tables</h2>
+<h2 class="chapter">2 How to Write Translation Tables</h2>
+
+<p>For many languages there is already a translation table, so before
+creating a new table start by looking at existing tables to modify
+them as needed.
+</p>
+<p>Typically, a braille translation table consists of several parts.
+First are header and includes, in which you write what the table is
+for, license information and include tables you need for your table.
+</p>
+<p>Following this, you&rsquo;ll write various translation rules and lastly you
+write special rules to handle certain situations.
+</p>
+<p>A translation rule is composed of at least three parts: the opcode
+(translation command), character(s) and braille dots. An opcode is a
+command you give to a machine or a program to perform something on
+your behalf. In liblouis, an opcode tells it which rule to use when
+translating characters into braille. An operand can be thought of as
+parameters for the translation rule and is composed of two parts: the
+character or word to be translated and the braille dots.
+</p>
+<p>For example, suppose you want to read the word &lsquo;<samp>world</samp>&rsquo; using
+braille dots &lsquo;<samp>456</samp>&rsquo;, followed by the letter &lsquo;<samp>W</samp>&rsquo; all the time.
+Then you&rsquo;d write:
+</p>
+<div class="example">
+<pre class="example">always world 456-2456
+</pre></div>
+
+<p>The word <code>always</code> is an opcode which tells liblouis to always
+honor this translation, that is to say when the word &lsquo;<samp>world</samp>&rsquo; (an
+operand) is encountered, always show braille dots &lsquo;<samp>456</samp>&rsquo; followed
+by the letter &lsquo;<samp>w</samp>&rsquo; (&lsquo;<samp>2456</samp>&rsquo;).
+</p>
+<p>When you write any braille table for any language, we&rsquo;d recommend
+working from some sort of official standard, and have a device or a
+program in which you can test your work.
+</p>
+
+<hr>
+<a name="Overview"></a>
+<a name="Overview-1"></a>
+<h3 class="section">2.1 Overview</h3>
 
 <p>Many translation (contraction) tables have already been made up. They
-are included in this distribution in the tables directory and should be
-studied as part of the documentation. The most helpful (and normative)
-are listed in the following table:
+are included in the distribution in the tables directory and can be
+studied as part of the documentation. Some of the more helpful (and
+normative) are listed in the following table:
 </p>
 <dl compact="compact">
 <dt><samp>chardefs.cti</samp></dt>
@@ -467,7 +230,7 @@ are listed in the following table:
 <dd><p>6-dot computer braille
 </p></dd>
 <dt><samp>nemeth.ctb</samp></dt>
-<dd><p>Nemeth Code translation for use with liblouisxml
+<dd><p>Nemeth Code translation for use with liblouisutdml
 </p></dd>
 <dt><samp>nemeth_edit.ctb</samp></dt>
 <dd><p>Fixes errors at the boundaries of math and text
@@ -500,8 +263,8 @@ are described for each opcode, please see <a href="#Opcode-Index">Opcode Index</
 exceptions, opcodes expect a certain number of operands. Any text on
 the line after the last operand is ignored, and may be a comment. A
 few opcodes accept a variable number of operands. In this case a
-number sign begins a comment unless it is preceded by a backslash
-(&lsquo;<samp>\</samp>&rsquo;).
+number sign (&lsquo;<samp>#</samp>&rsquo;) begins a comment unless it is preceded by a
+backslash (&lsquo;<samp>\</samp>&rsquo;).
 </p>
 <p>Here are some examples of table entries.
 </p>
@@ -516,7 +279,7 @@ though some have only one and a few have other types.
 <p>The characters operand consists of any combination of characters and
 escape sequences proceeded and followed by whitespace. Escape
 sequences are used to represent difficult characters. They begin with
-a backslash (&lsquo;\&lsquo;). They are:
+a backslash (&lsquo;<samp>\</samp>&rsquo;). They are:
 </p>
 <dl compact="compact">
 <dt><kbd>\</kbd></dt>
@@ -609,11 +372,10 @@ convenient. Hyphenation tables may be specified either with an
 everything else. Character-definition opcodes are necessary for 
 hyphenation tables to work.
 </p>
-
 <hr>
 <a name="Hyphenation-Tables"></a>
 <a name="Hyphenation-Tables-1"></a>
-<h3 class="section">3.1 Hyphenation Tables</h3>
+<h3 class="section">2.2 Hyphenation Tables</h3>
 
 <p>Hyphenation tables are necessary to make opcodes such as the
 <code>nocross</code> opcode (see <a href="#nocross-opcode"><code>nocross</code></a>) function properly. There are no opcodes for
@@ -628,7 +390,7 @@ of a hyphenation table, see <samp>hyph_en_US.dic</samp>.
 <hr>
 <a name="Character_002dDefinition-Opcodes"></a>
 <a name="Character_002dDefinition-Opcodes-1"></a>
-<h3 class="section">3.2 Character-Definition Opcodes</h3>
+<h3 class="section">2.3 Character-Definition Opcodes</h3>
 
 <p>These opcodes are needed to define attributes such as digit,
 punctuation, letter, etc. for all characters and their dot patterns.
@@ -713,7 +475,7 @@ distinction is important in the forward translator. for example:
 <dt><code>grouping name characters dots ,dots</code></dt>
 <dd><p>This opcode is used to indicate pairs of grouping symbols used in
 processing mathematical expressions. These symbols are usually
-generated by the MathML interpreter in liblouisxml. They are used in
+generated by the MathML interpreter in liblouisutdml. They are used in
 multipass opcodes. The name operand must contain only letters, but
 they may be upper- or lower-case. The characters operand must contain
 exactly two Unicode characters. The dots operand must contain exactly
@@ -790,7 +552,7 @@ example:
 <hr>
 <a name="Braille-Indicator-Opcodes"></a>
 <a name="Braille-Indicator-Opcodes-1"></a>
-<h3 class="section">3.3 Braille Indicator Opcodes</h3>
+<h3 class="section">2.4 Braille Indicator Opcodes</h3>
 
 <p>Braille indicators are dot patterns which are inserted into the
 braille text to indicate such things as capitalization, italic type,
@@ -888,7 +650,7 @@ and not letters or some other symbols. For example:
 <hr>
 <a name="Emphasis-Opcodes"></a>
 <a name="Emphasis-Opcodes-1"></a>
-<h3 class="section">3.4 Emphasis Opcodes</h3>
+<h3 class="section">2.5 Emphasis Opcodes</h3>
 
 <p>These also define braille indicators, but they require more
 explanation. There are four sets, for italic, bold, underline and
@@ -1126,7 +888,7 @@ inferred because it contains a subsequence specified by the
 <hr>
 <a name="Special-Symbol-Opcodes"></a>
 <a name="Special-Symbol-Opcodes-1"></a>
-<h3 class="section">3.5 Special Symbol Opcodes</h3>
+<h3 class="section">2.6 Special Symbol Opcodes</h3>
 
 <p>These opcodes define certain symbols, such as the decimal point, which
 require special treatment.
@@ -1155,7 +917,7 @@ determine the end of individual words.
 <hr>
 <a name="Special-Processing-Opcodes"></a>
 <a name="Special-Processing-Opcodes-1"></a>
-<h3 class="section">3.6 Special Processing Opcodes</h3>
+<h3 class="section">2.7 Special Processing Opcodes</h3>
 
 <p>These opcodes cause special processing to be carried out.
 </p>
@@ -1173,7 +935,7 @@ such as Norwegian.
 <hr>
 <a name="Translation-Opcodes"></a>
 <a name="Translation-Opcodes-1"></a>
-<h3 class="section">3.7 Translation Opcodes</h3>
+<h3 class="section">2.8 Translation Opcodes</h3>
 
 <p>These opcodes define the braille representations for character
 sequences. Each of them defines an entry within the contraction table.
@@ -1447,7 +1209,7 @@ letter.
 pattern following it is evaluated for validity. If it is valid,
 whenever an at sign followed by this dot pattern appears in the source
 document it is replaced by the characters corresponding to the dot
-pattern in the output. This opcode is intended for use in liblouisxml
+pattern in the output. This opcode is intended for use in liblouisutdml
 semantic-action files to specify exact dot patterns, as in
 mathematical codes. For example:
 </p>
@@ -1511,7 +1273,7 @@ joinnum \x00A5 13456 (YEN SIGN)
 <hr>
 <a name="Character_002dClass-Opcodes"></a>
 <a name="Character_002dClass-Opcodes-1"></a>
-<h3 class="section">3.8 Character-Class Opcodes</h3>
+<h3 class="section">2.9 Character-Class Opcodes</h3>
 
 <p>These opcodes define and use character classes. A character class
 associates a set of characters with a name. The name then refers to
@@ -1593,7 +1355,7 @@ classes is used.
 <hr>
 <a name="Swap-Opcodes"></a>
 <a name="Swap-Opcodes-1"></a>
-<h3 class="section">3.9 Swap Opcodes</h3>
+<h3 class="section">2.10 Swap Opcodes</h3>
 
 <p>The swap opcodes are needed to tell the <code>context</code> opcode (see <a href="#context-opcode"><code>context</code></a>), the
 <code>correct</code> opcode (see <a href="#correct-opcode"><code>correct</code></a>) and multipass opcodes which dot patterns to swap
@@ -1638,7 +1400,7 @@ such as formatting phone numbers.
 <hr>
 <a name="The-Context-and-Multipass-Opcodes"></a>
 <a name="The-Context-and-Multipass-Opcodes-1"></a>
-<h3 class="section">3.10 The Context and Multipass Opcodes</h3>
+<h3 class="section">2.11 The Context and Multipass Opcodes</h3>
 
 <p>The <code>context</code> and multipass opcodes (<code>pass2</code>, <code>pass3</code>
 and <code>pass4</code>) provide translation capabilities beyond those of the
@@ -1867,7 +1629,7 @@ continue the loop
 <hr>
 <a name="The-correct-Opcode"></a>
 <a name="The-correct-Opcode-1"></a>
-<h3 class="section">3.11 The correct Opcode</h3>
+<h3 class="section">2.12 The correct Opcode</h3>
 
 <dl compact="compact">
 <dd><a name="index-correct"></a>
@@ -1899,7 +1661,7 @@ correct &quot;\s?&quot; &quot;?&quot; drop space before question mark
 <hr>
 <a name="Miscellaneous-Opcodes"></a>
 <a name="Miscellaneous-Opcodes-1"></a>
-<h3 class="section">3.12 Miscellaneous Opcodes</h3>
+<h3 class="section">2.13 Miscellaneous Opcodes</h3>
 
 <dl compact="compact">
 <dd><a name="index-include"></a>
@@ -1978,7 +1740,7 @@ opcode.
 <hr>
 <a name="Deprecated-Opcodes"></a>
 <a name="Deprecated-Opcodes-1"></a>
-<h3 class="section">3.13 Deprecated Opcodes</h3>
+<h3 class="section">2.14 Deprecated Opcodes</h3>
 
 <p>The following opcodes are an early attempt to handle emphasis. They
 have been deprecated by more specific opcodes, but are kept for
@@ -2038,9 +1800,325 @@ backward compatibility.
 </dl>
 
 <hr>
-<a name="How-to-test-Translation-Tables"></a>
-<a name="How-to-test-Translation-Tables-1"></a>
-<h2 class="chapter">4 How to test Translation Tables</h2>
+<a name="Notes-on-Back_002dTranslation"></a>
+<a name="Notes-on-Back_002dTranslation-1"></a>
+<h2 class="chapter">3 Notes on Back-Translation</h2>
+
+<p>Back-translation is carried out by the function
+<code>lou_backTranslateString</code>. Its calling sequence is described in
+<a href="#Programming-with-liblouis">Programming with liblouis</a>. Tables containing no
+<code>context</code> opcode (see <a href="#context-opcode"><code>context</code></a>), <code>correct</code> opcode (see <a href="#correct-opcode"><code>correct</code></a>) or multipass opcodes can be
+used for both forward and backward translation. If these opcodes are
+needed different tables will be required.
+<code>lou_backTranslateString</code> first performs <code>pass4</code>, if
+present, then <code>pass3</code>, then <code>pass2</code>, then the
+backtranslation, then corrections. Note that this is exactly the
+inverse of forward translation.
+</p>
+<hr>
+<a name="Testing-Translation-Tables-interactively"></a>
+<a name="Testing-Translation-Tables-interactively-1"></a>
+<h2 class="chapter">4 Testing Translation Tables interactively</h2>
+
+<p>A number of test programs are provided as part of the liblouis
+package. They are intended for testing liblouis and for debugging
+tables. None of them is suitable for braille transcription. An
+application that can be used for transcription is <code>file2brl</code>,
+which is part of the liblouisutdml package (see <a href="liblouisutdml.html#Top">Introduction</a> in <cite>Liblouisutdml User&rsquo;s and Programmer&rsquo;s Manual</cite>). The source
+code of the test programs can be studied to learn how to use the
+liblouis library and they can be used to perform the following
+functions.
+</p>
+<a name="common-options"></a><p>All of these programs recognize the <samp>--help</samp> and
+<samp>--version</samp> options.
+</p>
+<dl compact="compact">
+<dt><samp>--help</samp></dt>
+<dt><samp>-h</samp></dt>
+<dd><p>Print a usage message listing all available options, then exit
+successfully.
+</p>
+</dd>
+<dt><samp>--version</samp></dt>
+<dt><samp>-v</samp></dt>
+<dd><p>Print the version number, then exit successfully.
+</p>
+</dd>
+</dl>
+
+
+<hr>
+<a name="lou_005fdebug"></a>
+<a name="lou_005fdebug-1"></a>
+<h3 class="section">4.1 lou_debug</h3>
+<a name="index-lou_005fdebug"></a>
+
+<p>The <code>lou_debug</code> tool is intended for debugging liblouis
+translation tables. The command line for <code>lou_debug</code> is:
+</p>
+<div class="example">
+<pre class="example">lou_debug [OPTIONS] TABLE[,TABLE,...]
+</pre></div>
+
+<p>The command line options that are accepted by <code>lou_debug</code> are
+described in <a href="#common-options">common options</a>.
+</p>
+<p>The table (or comma-separated list of tables) is compiled. If no
+errors are found a brief command summary is printed, then the prompt
+&lsquo;<samp>Command:</samp>&rsquo;. You can then input one of the command letters and get
+output, as described below.
+</p>
+<p>Most of the commands print information in the various arrays of
+<code>TranslationTableHeader</code>. Since these arrays are pointers to
+chains of hashed items, the commands first print the hash number, then
+the first item, then the next item chained to it, and so on. After
+each item there is a prompt indicated by &lsquo;<samp>=&gt;</samp>&rsquo;. You can then press
+enter (<kbd><span class="key">RET</span></kbd>) to see the next item in the chain or the first
+item in the next chain. Or you can press <kbd>h</kbd> (for next-(h)ash) to
+skip to the next hash chain. You can also press <kbd>e</kbd> to exit the
+command and go back to the &lsquo;<samp>command:</samp>&rsquo; prompt.
+</p>
+<dl compact="compact">
+<dt><kbd>h</kbd></dt>
+<dd><p>Brings up a screen of somewhat more extensive help.
+</p>
+</dd>
+<dt><kbd>f</kbd></dt>
+<dd><p>Display the first forward-translation rule in the first non-empty hash
+bucket. The number of the bucket is displayed at the beginning of the
+chain. Each rule is identified by the word &lsquo;<samp>Rule:</samp>&rsquo;. The fields
+are displayed by phrases consisting of the name of the field, an equal
+sign, and its value. The before and after fields are displayed only if
+they are nonzero. Special opcodes such as the <code>correct</code> opcode (see <a href="#correct-opcode"><code>correct</code></a>) and
+the multipass opcodes are shown with the code that instructs the
+virtual machine that interprets them. If you want to see only the
+rules for a particular character string you can type <kbd>p</kbd> at the
+&lsquo;<samp>command:</samp>&rsquo; prompt. This will take you to the &lsquo;<samp>particular:</samp>&rsquo;
+prompt, where you can press <kbd>f</kbd> and then type in the string. The
+whole hash chain containing the string will be displayed.
+</p>
+</dd>
+<dt><kbd>b</kbd></dt>
+<dd><p>Display back-translation rules. This display is very similar to that
+of forward translation rules except that the dot pattern is displayed
+before the character string.
+</p>
+</dd>
+<dt><kbd>c</kbd></dt>
+<dd><p>Display character definitions, again within their hash chains.
+</p>
+</dd>
+<dt><kbd>d</kbd></dt>
+<dd><p>Displays single-cell dot definitions. If a character-definition opcode
+gives a multi-cell dot pattern, it is displayed among the
+back-translation rules.
+</p>
+</dd>
+<dt><kbd>C</kbd></dt>
+<dd><p>Display the character-to-dots map. This is set up by the
+character-definition opcodes and can also be influenced by the
+<code>display</code> opcode (see <a href="#display-opcode"><code>display</code></a>).
+</p>
+</dd>
+<dt><kbd>D</kbd></dt>
+<dd><p>Display the dot to character map, which shows which single-cell dot
+patterns map to which characters.
+</p>
+</dd>
+<dt><kbd>z</kbd></dt>
+<dd><p>Show the multi-cell dot patterns which have been assigned to the
+characters from 0 to 255 to comply with computer braille codes such as
+a 6-dot code. Note that the character-definition opcodes should use
+8-dot computer braille.
+</p>
+</dd>
+<dt><kbd>p</kbd></dt>
+<dd><p>Bring up a secondary (&lsquo;<samp>particular:</samp>&rsquo;) prompt from which you can
+examine particular character strings, dot patterns, etc. The commands
+(given in its own command summary) are very similar to those of the
+main &lsquo;<samp>command:</samp>&rsquo; prompt, but you can type a character string or
+dot pattern. They include <kbd>h</kbd>, <kbd>f</kbd>, <kbd>b</kbd>, <kbd>c</kbd>, <kbd>d</kbd>,
+<kbd>C</kbd>, <kbd>D</kbd>, <kbd>z</kbd> and <kbd>x</kbd> (to exit this prompt), but not
+<kbd>p</kbd>, <kbd>i</kbd> and <kbd>m</kbd>.
+</p>
+</dd>
+<dt><kbd>i</kbd></dt>
+<dd><p>Show braille indicators. This shows the dot patterns for various
+opcodes such as the <code>capsign</code> opcode (see <a href="#capsign-opcode"><code>capsign</code></a>) and the <code>numsign</code> opcode (see <a href="#numsign-opcode"><code>numsign</code></a>).
+It also shows emphasis dot patterns, such as those for the
+<code>italword</code>,
+the <code>firstletterbold</code> opcode (see <a href="#firstletterbold-opcode"><code>firstletterbold</code></a>), etc. If a given
+opcode has not been used nothing is printed for it.
+</p>
+</dd>
+<dt><kbd>m</kbd></dt>
+<dd><p>Display various miscellaneous information about the table, such as the
+number of passes, whether certain opcodes have been used, and whether
+there is a hyphenation table.
+</p>
+</dd>
+<dt><kbd>q</kbd></dt>
+<dd><p>Exit the program.
+</p></dd>
+</dl>
+
+<hr>
+<a name="lou_005ftrace"></a>
+<a name="lou_005ftrace-1"></a>
+<h3 class="section">4.2 lou_trace</h3>
+<a name="index-lou_005ftrace"></a>
+
+<p>When working on translation tables it is sometimes useful to determine
+what rules were applied when translating a string. <code>lou_trace</code>
+helps with exactly that. It list all the the applied rules for a given
+translation table and an input string.
+</p>
+<div class="example">
+<pre class="example">lou_trace [OPTIONS] TABLE[,TABLE,...]
+</pre></div>
+
+<p><code>lou_trace</code> accepts all the standard options (see <a href="#common-options">common options</a>). Once started you can type an input string followed by
+<kbd><span class="key">RET</span></kbd>. <code>lou_trace</code> will print the braille
+translation followed by list of rules that were applied to produce the
+translation. A possible invocation is listed in the following example:
+</p>
+<div class="example">
+<pre class="example">$ lou_trace tables/en-us-g2.ctb 
+the u.s. postal service
+! u4s4 po/al s}vice
+1.      largesign       the     2346
+2.      repeated                0
+3.      lowercase       u       136
+4.      punctuation     .       46
+5.      context _$l[&quot;.&quot;]$l      @256
+6.      lowercase       s       234
+7.      postpunc        .       256
+8.      repeated                0
+9.      begword post    1234-135-34
+10.     largesign       a       1
+11.     lowercase       l       123
+12.     repeated                0
+13.     lowercase       s       234
+14.     always  er      12456
+15.     lowercase       v       1236
+16.     lowercase       i       24
+17.     lowercase       c       14
+18.     lowercase       e       15
+19.     pass2   $s1-10  @0
+20.     pass2   $s1-10  @0
+21.     pass2   $s1-10  @0
+</pre></div>
+
+<hr>
+<a name="lou_005fchecktable"></a>
+<a name="lou_005fchecktable-1"></a>
+<h3 class="section">4.3 lou_checktable</h3>
+<a name="index-lou_005fchecktable"></a>
+
+<p>To use this program type the following:
+</p>
+<div class="example">
+<pre class="example">lou_checktable [OPTIONS] TABLE
+</pre></div>
+
+<p>Aside from the standard options (see <a href="#common-options">common options</a>)
+<code>lou_checktable</code> also accepts the following options:
+</p>
+<dl compact="compact">
+<dt><samp>--quiet</samp></dt>
+<dt><samp>-q</samp></dt>
+<dd><p>Do not write to standard error if there are no errors.
+</p>
+</dd>
+</dl>
+
+<p>If the table contains errors, appropriate messages will be displayed.
+If there are no errors the message &lsquo;<samp>no errors found.</samp>&rsquo; will be
+shown.
+</p>
+<hr>
+<a name="lou_005fallround"></a>
+<a name="lou_005fallround-1"></a>
+<h3 class="section">4.4 lou_allround</h3>
+<a name="index-lou_005fallround"></a>
+
+<p>This program tests every capability of the liblouis library. It is
+completely interactive. Invoke it as follows:
+</p>
+<div class="example">
+<pre class="example">lou_allround [OPTIONS]
+</pre></div>
+
+<p>The command line options that are accepted by <code>lou_allround</code>
+are described in <a href="#common-options">common options</a>.
+</p>
+<p>You will see a few lines telling you how to use the program. Pressing
+one of the letters in parentheses and then enter will take you to a
+message asking for more information or for the answer to a yes/no
+question. Typing the letter &lsquo;<samp>r</samp>&rsquo; and then <tt class="key">RET</tt> will take you
+to a screen where you can enter a line to be processed by the library
+and then view the results.
+</p>
+<hr>
+<a name="lou_005ftranslate-_0028program_0029"></a>
+<a name="lou_005ftranslate-1"></a>
+<h3 class="section">4.5 lou_translate</h3>
+<a name="index-lou_005ftranslate-1"></a>
+
+<p>This program translates whatever is on the standard input unit and
+prints it on the standard output unit. It is intended for large-scale
+testing of the accuracy of translation and back-translation. The
+command line for <code>lou_translate</code> is:
+</p>
+<div class="example">
+<pre class="example">lou_translate [OPTION] TABLE[,TABLE,...]
+</pre></div>
+
+<p>Aside from the standard options (see <a href="#common-options">common options</a>) this program
+also accepts the following options:
+</p>
+<dl compact="compact">
+<dt><samp>--forward</samp></dt>
+<dt><samp>-f</samp></dt>
+<dd><p>Do a forward translation.
+</p>
+</dd>
+<dt><samp>--backward</samp></dt>
+<dt><samp>-b</samp></dt>
+<dd><p>Do a backward translation.
+</p>
+</dd>
+</dl>
+
+<p>To use it to translate or back-translate a file use a line like
+</p>
+<div class="example">
+<pre class="example">lou_translate --forward en-us-g2.ctb &lt;liblouis.txt &gt;testtrans
+</pre></div>
+
+<hr>
+<a name="lou_005fcheckhyphens"></a>
+<a name="lou_005fcheckhyphens-1"></a>
+<h3 class="section">4.6 lou_checkhyphens</h3>
+<a name="index-lou_005fcheckhyphens"></a>
+
+<p>This program checks the accuracy of hyphenation in Braille translation
+for both translated and untranslated words. It is completely
+interactive. Invoke it as follows:
+</p>
+<div class="example">
+<pre class="example">lou_checkhyphens [OPTIONS]
+</pre></div>
+
+<p>The command line options that are accepted by
+<code>lou_checkhyphens</code> are described in <a href="#common-options">common options</a>.
+</p>
+<p>You will see a few lines telling you how to use the program.
+</p>
+<hr>
+<a name="Automated-Testing-of-Translation-Tables"></a>
+<a name="Automated-Testing-of-Translation-Tables-1"></a>
+<h2 class="chapter">5 Automated Testing of Translation Tables</h2>
 
 <p>There are a number of automated tests for liblouis and they are
 proving to be of tremendous value. When changing the code the
@@ -2099,16 +2177,16 @@ inpos, modes, etc) then the doctests are for you.
 <hr>
 <a name="Translation-Table-Test-Harness"></a>
 <a name="Translation-Table-Test-Harness-1"></a>
-<h3 class="section">4.1 Translation Table Test Harness</h3>
+<h3 class="section">5.1 Translation Table Test Harness</h3>
 
-<p>Each harness file is a simple utf8 encoded json file, which has two entries.
+<p>Each harness file is a simple UTF8 encoded json file, which has two entries.
 </p><dl compact="compact">
 <dt><code>tables</code></dt>
 <dd><p>A list containing table names, which the tests should be run against.
 This is usually just one table, but for some situations more than one table is required.
 </p></dd>
 <dt><code>tests</code></dt>
-<dd><p>A list of sections of tests, which should be processed independantly.
+<dd><p>A list of sections of tests, which should be processed independently.
 Each test section is a dictionary of two items.
 </p></dd>
 <dt><code>flags</code></dt>
@@ -2129,18 +2207,18 @@ For example, they could all be forward translation tests, or they should all be 
 <dt><code>cursorPos</code></dt>
 <dd><p>The position of the cursor within the given text (optional). Useful
 when simulating screenreader interaction, to debug contraction and
-cursor behaviour.
+cursor behavior.
 </p></dd>
 <dt><code>mode</code></dt>
 <dd><p>The liblouis translation mode that should be used for this test
 (optional). If not defined defaults to 0.
 </p></dd>
 <dt><code>outputUniBrl</code></dt>
-<dd><p>For a forward translation test, the output should be in unicode braille.
-For a backward translation test, the input is in unicode braille.
+<dd><p>For a forward translation test, the output should be in Unicode braille.
+For a backward translation test, the input is in Unicode braille.
 </p></dd>
 <dt><code>testmode</code></dt>
-<dd><p>The optional testmode field can have three values: &quot;translate&quot; (default if undeclaired), &quot;backtranslate&quot; or &quot;hyphenate&quot;.
+<dd><p>The optional testmode field can have three values: &quot;translate&quot; (default if undeclared), &quot;backtranslate&quot; or &quot;hyphenate&quot;.
 Declares what tests should be performed on the test data.
 </p></dd>
 </dl>
@@ -2150,21 +2228,21 @@ Declares what tests should be performed on the test data.
 </p>
 <dl compact="compact">
 <dt><code>input</code></dt>
-<dd><p>The unicode text to be tested (required).
+<dd><p>The Unicode text to be tested (required).
 </p></dd>
 <dt><code>output</code></dt>
 <dd><p>The expected braille output (required). The dots should be encoded in
-the liblouis ascii-braille like encoding.
+the liblouis ASCII-braille like encoding.
 </p></dd>
 <dt><code>brlCursorPos</code></dt>
 <dd><p>The expected position of the braille cursor in the braille output
 (optional). Useful when simulating screenreader interaction, to debug
-contraction and cursor behaviour.
+contraction and cursor behavior.
 </p></dd>
 </dl>
 
-<p>Variables defined in the flags section can be overwridden by individual test cases, but if several tests need the same options, they should 
-idealy be split into their own section, complete with their own flags and data.
+<p>Variables defined in the flags section can be overridden by individual test cases, but if several tests need the same options, they should 
+ideally be split into their own section, complete with their own flags and data.
 </p>
 <p>For examples please see <samp>*_harness.txt</samp> in the
 harness directory in the source distribution.
@@ -2172,26 +2250,10 @@ harness directory in the source distribution.
 <hr>
 <a name="Translation-Table-Doctests"></a>
 <a name="Translation-Table-Doctests-1"></a>
-<h3 class="section">4.2 Translation Table Doctests</h3>
+<h3 class="section">5.2 Translation Table Doctests</h3>
 
 <p>For examples on how to create doctests please see <samp>*_test.txt</samp> in
 the doctest directory in the source distribution.
-</p>
-<hr>
-<a name="Notes-on-Back_002dTranslation"></a>
-<a name="Notes-on-Back_002dTranslation-1"></a>
-<h2 class="chapter">5 Notes on Back-Translation</h2>
-
-<p>Back-translation is carried out by the function
-<code>lou_backTranslateString</code>. Its calling sequence is described in
-<a href="#Programming-with-liblouis">Programming with liblouis</a>. Tables containing no
-<code>context</code> opcode (see <a href="#context-opcode"><code>context</code></a>), <code>correct</code> opcode (see <a href="#correct-opcode"><code>correct</code></a>) or multipass opcodes can be
-used for both forward and backward translation. If these opcodes are
-needed different tables will be required.
-<code>lou_backTranslateString</code> first performs <code>pass4</code>, if
-present, then <code>pass3</code>, then <code>pass2</code>, then the
-backtranslation, then corrections. Note that this is exactly the
-inverse of forward translation.
 </p>
 <hr>
 <a name="Programming-with-liblouis"></a>
@@ -2228,8 +2290,8 @@ License along with Liblouis. If not, see
 <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.
 </p>
 <hr>
-<a name="Overview"></a>
-<a name="Overview-1"></a>
+<a name="Overview-_0028library_0029"></a>
+<a name="Overview-2"></a>
 <h3 class="section">6.2 Overview</h3>
 
 <p>You use the liblouis library by calling the following functions,
@@ -2245,7 +2307,7 @@ descriptions. Liblouis is written in straight C. It has four code
 modules, <samp>compileTranslationTable.c</samp>, <samp>logging.c</samp>,
 <samp>lou_translateString.c</samp> and <samp>lou_backTranslateString.c</samp>. In
 addition, there are two header files, <samp>liblouis.h</samp>, which defines
-the API, and <samp>louis.h</samp>, used only internally and by liblouisxml.
+the API, and <samp>louis.h</samp>, used only internally and by liblouisutdml.
 The latter includes <samp>liblouis.h</samp>.
 </p>
 <p>Persons who wish to use liblouis from Python may want to skip ahead to
@@ -2612,7 +2674,7 @@ re-translated so that the hyphens can be placed correctly. The
 in this process. <code>lou_hyphenate</code> returns 1 if hyphenation was
 successful and 0 otherwise. In the latter case, the contents of the
 <code>hyphens</code> parameter are undefined. This function was provided for
-use in liblouisxml.
+use in liblouisutdml.
 </p>
 <hr>
 <a name="lou_005fcompileString"></a>
@@ -2729,7 +2791,7 @@ default level is <code>LOG_INFO</code>.
 
 <p>This function is used when it is not convenient either to let messages
 be printed on stderr or to use redirection, as when liblouis is used
-in a GUI application or in liblouisxml. Any error messages generated
+in a GUI application or in liblouisutdml. Any error messages generated
 will be printed to the file given in this call. The entire path name of
 the file must be given.
 </p>
@@ -2746,7 +2808,7 @@ the file must be given.
 <p>This function is called like <code>fprint</code>. It can be used by other
 libraries to print messages to the file specified by the call to
 <code>lou_logFile</code>. In particular, it is used by the companion
-library liblouisxml.
+library liblouisutdml.
 </p>
 <p>This function is deprecated as of version 2.6.0.
 </p>
