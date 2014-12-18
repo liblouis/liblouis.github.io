@@ -32,7 +32,7 @@ Liblouis is free software licensed under the [GNU Lesser GPL](https://www.gnu.or
 
 * Read our [publications & presentation slides](presentations)
 * Consult the [documentation](documentation)
-* Subscribe to our [mailing list])http://www.freelists.org/list/liblouis-liblouisxml) or chat with us on [irc](irc://irc.oftc.net/liblouis) (irc://irc.oftc.net/liblouis).
+* Subscribe to our [mailing list](http://www.freelists.org/list/liblouis-liblouisxml) or chat with us on [irc](irc://irc.oftc.net/liblouis) (irc://irc.oftc.net/liblouis).
 
 </div>
 
