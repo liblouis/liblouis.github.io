@@ -6,7 +6,8 @@ title: Downloads
 
 |Summary|File|md5|
 |---------|
-|Liblouis|[liblouis-2.6.1.tar.gz](https://github.com/liblouis/liblouis/releases/download/v2.6.1/liblouis-2.6.1.tar.gz)|fe4ba3d68f82396c7e564a5400d6606b|
+|Liblouis|[liblouis-2.6.2.tar.gz](https://github.com/liblouis/liblouis/releases/download/v2.6.2/liblouis-2.6.2.tar.gz)|536ce64bee23b90477b36c863fea3db3|
+|Liblouis (Windows build)|[liblouis-2.6.2-mingw32msvc.zip](https://github.com/liblouis/liblouis/releases/download/v2.6.2/liblouis-2.6.2-mingw32msvc.zip)|924b652816a5a445424575df68cbec32|
 |Liblouisutdml|[liblouisutdml-2.5.0.tar.gz](http://code.google.com/p/liblouisutdml/downloads/detail?name=liblouisutdml-2.5.0.tar.gz)||
 {: .table}
 
@@ -24,6 +25,7 @@ Up-to-date versions can be checked out directly from the source code repositorie
 
 |Summary|File|md5|
 |---------|
+|2.6.1|[liblouis-2.6.1.tar.gz](https://github.com/liblouis/liblouis/releases/download/v2.6.1/liblouis-2.6.1.tar.gz)|fe4ba3d68f82396c7e564a5400d6606b|
 |2.6.0|[liblouis-2.6.0.tar.gz](https://github.com/liblouis/liblouis/releases/download/v2.6.0/liblouis-2.6.0.tar.gz)|d829917d430649789b54ddde50be0d62|
 |2.6.0 (Windows build)|[liblouis-2.6.0-mingw32msvc.zip](https://github.com/liblouis/liblouis/releases/download/v2.6.0/liblouis-2.6.0-mingw32msvc.zip)|7de64971d2f4d09d204053b396b9fb84|
 |2.5.4|[liblouis-2.5.4.tar.gz](liblouis-2.5.4.tar.gz)|2848951409d48ae50c37bc783cb6d5a8|
