@@ -7,13 +7,13 @@ title: Links
 * [Mailing list](http://www.freelists.org/archive/liblouis-liblouisxml)
 * [Chat](irc://irc.oftc.net/liblouis) (irc.oftc.net/liblouis)
 * [Code repository](https://github.com/liblouis/liblouis)
-* [Issue tracker](https://code.google.com/p/liblouis/issues/list)
+* [Issue tracker](https://github.com/liblouis/liblouis/issues)
 
 ## Liblouisutdml
 
 * [Mailing list](http://www.freelists.org/archive/liblouis-liblouisxml)
-* [Code repository](https://code.google.com/p/liblouisutdml/source/checkout)
-* [Issue tracker](https://code.google.com/p/liblouisutdml/issues/list)
+* [Code repository](https://github.com/liblouis/liblouisutdml)
+* [Issue tracker](https://github.com/liblouis/liblouisutdml/issues)
 
 ## BrailleBlaster
 
