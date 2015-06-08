@@ -18,7 +18,7 @@ Up-to-date versions can be checked out directly from the source code repositorie
 |Summary|Source code repository|
 |---------|
 |Liblouis|<https://github.com/liblouis/liblouis.git>|
-|Liblouisutdml|<http://code.google.com/p/liblouisutdml/source/checkout>|
+|Liblouisutdml|<https://github.com/liblouis/liblouisutdml.git>|
 {: .table}
 
 ## Old versions
