@@ -6,11 +6,11 @@ intro: The Liblouis software suite provides an open-source braille translator, b
 
 {::options parse_block_html="true" /}
 
-<div class="col-md-12">
+<div class="col-md-6">
 
 ## News
 
-{% for post in site.posts limit:1 %}
+{% for post in site.posts limit:2 %}
 ### {{ post.date | date_to_string}} [{{ post.title }}]({{ post.url }})
 
 {{ post.excerpt }}
@@ -43,6 +43,9 @@ Liblouis is free software licensed under the [GNU Lesser GPL](https://www.gnu.or
 **Liblouisutdml** is an open-source braille formatter. The formatting can be configured via a style sheet. By incorporating Liblouis it provides the capability of translating any XML or plain text file into properly transcribed, embosser-ready braille. This includes translation into grade two, mathematical codes, etc.
 
 Liblouisutdml is free software licensed under the [GNU Lesser GPL](https://www.gnu.org/licenses/lgpl.html).
+
+</div>
+<div class="col-md-6">
 
 ## Braille production
 
