@@ -6,7 +6,7 @@ title: News
 
 ## {{ post.title }}
 
-{{ post.date | date_to_string}} - {{post.tags}}
+{{ post.date | date_to_string}} - {{post.category}}
 
 {{post.content}}
 
