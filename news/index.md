@@ -17,7 +17,7 @@ title: News
 <ul>
   {% for post in site.posts offset:1 %}
     <li>
-      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.tags}} {{ post.title }}</a>
+      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
     </li>
   {% endfor %}
 </ul>
