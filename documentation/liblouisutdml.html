@@ -1,33 +1,6 @@
 ---
-layout: default
 title: Liblouisutdml User's and Programmer's Manual
 ---
-<!-- This manual is for liblouisutdml (version 2.5.0,
-14 September 2012), an xml to Braille Translation Library.
-
-This file may contain code borrowed from the Linux screenreader
-BRLTTY, Copyright (C) 1999-2009 by the
-BRLTTY Team.
-
-Copyright (C) 2004-2009 ViewPlus Technologies, Inc.
-www.viewplus.com and Copyright (C) 2006,2009
-Abilitiessoft, Inc. www.abilitiessoft.com.
-
-This file is free software; you can redistribute it and/or modify it
-under the terms of the GNU Lesser (or library) General Public License
-(LGPL) as published by the Free Software Foundation; either version 3,
-or (at your option) any later version.
-
-This file is distributed in the hope that it will be useful, but
-WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-Lesser (or Library) General Public License LGPL for more details.
-
-You should have received a copy of the GNU Lesser (or Library) General
-Public License (LGPL) along with this program; see the file COPYING.
-If not, write to the Free Software Foundation, 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301, USA. -->
-<!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 
 <a name="SEC_Contents"></a>
 <h2 class="contents-heading">Table of Contents</h2>
@@ -42,9 +15,6 @@ Fifth Floor, Boston, MA 02110-1301, USA. -->
     <li><a name="toc-Transcribing-Text-Documents-1" href="#Transcribing-Text-Documents">2.2 Transcribing Text Documents</a></li>
     <li><a name="toc-Transcribing-Poorly-Formatted-Documents-1" href="#Transcribing-Poorly-Formatted-Documents">2.3 Transcribing Poorly Formatted Documents</a></li>
     <li><a name="toc-Transcribing-html-Documents-1" href="#Transcribing-html-Documents">2.4 Transcribing html Documents</a></li>
-    <li><a name="toc-Transcribing-Microsoft-Word-files-with-msword2brl-1" href="#Transcribing-Microsoft-Word-files-with-msword2brl">2.5 Transcribing Microsoft Word files with msword2brl</a></li>
-    <li><a name="toc-Transcribing-RTF-files-with-rtf2brl-1" href="#Transcribing-RTF-files-with-rtf2brl">2.6 Transcribing RTF files with rtf2brl</a></li>
-    <li><a name="toc-Transcribing-PDF-files-with-pdf2brl-1" href="#Transcribing-PDF-files-with-pdf2brl">2.7 Transcribing PDF files with pdf2brl</a></li>
   </ul></li>
   <li><a name="toc-Customization_003a-Configuring-liblouisutdml" href="#Customization-Configuring-liblouisutdml">3 Customization: Configuring liblouisutdml</a>
   <ul class="no-bullet">
@@ -64,6 +34,7 @@ Fifth Floor, Boston, MA 02110-1301, USA. -->
       <li><a name="toc-style-heading3" href="#style-heading3">3.4.9 style heading3</a></li>
       <li><a name="toc-style-heading4" href="#style-heading4">3.4.10 style heading4</a></li>
       <li><a name="toc-style-para" href="#style-para">3.4.11 style para</a></li>
+      <li><a name="toc-style-boxline" href="#style-boxline">3.4.12 style boxline</a></li>
     </ul></li>
   </ul></li>
   <li><a name="toc-Connecting-with-the-xml-Document-_002d-Semantic_002dAction-Files" href="#Connecting-with-the-xml-Document">4 Connecting with the xml Document - Semantic-Action Files</a>
@@ -72,11 +43,12 @@ Fifth Floor, Boston, MA 02110-1301, USA. -->
     <li><a name="toc-Semantic-Actions-in-detail-1" href="#Semantic-Actions-in-detail">4.2 Semantic Actions in detail</a></li>
     <li><a name="toc-Pseudo_002dactions-1" href="#Pseudo_002dactions">4.3 Pseudo-actions</a>
     <ul class="no-bullet">
-      <li><a name="toc-include" href="#include">4.3.1 include</a></li>
-      <li><a name="toc-newentries" href="#newentries">4.3.2 newentries</a></li>
-      <li><a name="toc-namespaces" href="#namespaces">4.3.3 namespaces</a></li>
+      <li><a name="toc-include-1" href="#include">4.3.1 include</a></li>
+      <li><a name="toc-newentries-1" href="#newentries">4.3.2 newentries</a></li>
+      <li><a name="toc-namespaces-1" href="#namespaces">4.3.3 namespaces</a></li>
     </ul></li>
     <li><a name="toc-Using-XPath-Expressions-1" href="#Using-XPath-Expressions">4.4 Using XPath Expressions</a></li>
+    <li><a name="toc-Using-Macros-1" href="#Using-Macros">4.5 Using Macros</a></li>
   </ul></li>
   <li><a name="toc-Special-Features-1" href="#Special-Features">5 Special Features</a>
   <ul class="no-bullet">
@@ -86,6 +58,22 @@ Fifth Floor, Boston, MA 02110-1301, USA. -->
     <li><a name="toc-Interlining-1" href="#Interlining">5.4 Interlining</a></li>
     <li><a name="toc-Browser_002dFriendly-Output-1" href="#Browser_002dFriendly-Output">5.5 Browser-Friendly Output</a></li>
     <li><a name="toc-CDATA-Sections-1" href="#CDATA-Sections">5.6 <code>CDATA</code> Sections</a></li>
+    <li><a name="toc-End-notes-1" href="#End-notes">5.7 End notes</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Use-of-Endnotes-1" href="#Use-of-Endnotes">5.7.1 Use of Endnotes</a></li>
+      <li><a name="toc-Output-1" href="#Output">5.7.2 Output</a></li>
+      <li><a name="toc-Configuration-1" href="#Configuration">5.7.3 Configuration</a></li>
+      <li><a name="toc-Styles-1" href="#Styles">5.7.4 Styles</a></li>
+      <li><a name="toc-Semantic-Actions-1" href="#Semantic-Actions">5.7.5 Semantic Actions</a></li>
+      <li><a name="toc-Example-1" href="#Example">5.7.6 Example</a>
+      <ul class="no-bullet">
+        <li><a name="toc-input_002exml" href="#input_002exml">5.7.6.1 input.xml</a></li>
+        <li><a name="toc-liblouisutdml_002eini" href="#liblouisutdml_002eini">5.7.6.2 liblouisutdml.ini</a></li>
+        <li><a name="toc-endnotes_002esem-1" href="#endnotes_002esem-1">5.7.6.3 endnotes.sem</a></li>
+        <li><a name="toc-styles_002ecfg" href="#styles_002ecfg">5.7.6.4 styles.cfg</a></li>
+        <li><a name="toc-output_002etxt" href="#output_002etxt">5.7.6.5 output.txt</a></li>
+      </ul></li>
+    </ul></li>
   </ul></li>
   <li><a name="toc-Special-Formats-1" href="#Special-Formats">6 Special Formats</a>
   <ul class="no-bullet">
@@ -112,34 +100,23 @@ Fifth Floor, Boston, MA 02110-1301, USA. -->
     <li><a name="toc-lbu_005fbackTranslateFile-1" href="#lbu_005fbackTranslateFile">8.9 lbu_backTranslateFile</a></li>
     <li><a name="toc-lbu_005ffree-1" href="#lbu_005ffree">8.10 lbu_free</a></li>
   </ul></li>
-  <li><a name="toc-Example-files-1" href="#Example-files">Appendix A Example files</a>
-  <ul class="no-bullet">
-    <li><a name="toc-liblouisutdml_002eini-1" href="#liblouisutdml_002eini">A.1 <samp>liblouisutdml.ini</samp></a></li>
-    <li><a name="toc-default_002ecfg-1" href="#default_002ecfg">A.2 <samp>default.cfg</samp></a></li>
-    <li><a name="toc-html_002esem-1" href="#html_002esem">A.3 <samp>html.sem</samp></a></li>
-    <li><a name="toc-nemeth_002esem-1" href="#nemeth_002esem">A.4 <samp>nemeth.sem</samp></a></li>
-    <li><a name="toc-Files-for-BAUK-Maths-_0028ukmaths_0029-1" href="#Files-for-BAUK-Maths-_0028ukmaths_0029">A.5 Files for BAUK Maths (ukmaths)</a>
-    <ul class="no-bullet">
-      <li><a name="toc-ukmaths_002ecfg-1" href="#ukmaths_002ecfg">A.5.1 <samp>ukmaths.cfg</samp></a></li>
-      <li><a name="toc-ukmaths_002esem-1" href="#ukmaths_002esem">A.5.2 <samp>ukmaths.sem</samp></a></li>
-      <li><a name="toc-ukmaths_002ectb-1" href="#ukmaths_002ectb">A.5.3 <samp>ukmaths.ctb</samp></a></li>
-      <li><a name="toc-ukmaths_005fedit_002ectb-1" href="#ukmaths_005fedit_002ectb">A.5.4 <samp>ukmaths_edit.ctb</samp></a></li>
-    </ul></li>
-  </ul></li>
+  <li><a name="toc-Example-files-1" href="#Example-files">Appendix A Example files</a></li>
   <li><a name="toc-Configuration-Settings-Index-1" href="#Configuration-Settings-Index">Configuration Settings Index</a></li>
   <li><a name="toc-Semantic-Action-Index-1" href="#Semantic-Action-Index">Semantic Action Index</a></li>
+  <li><a name="toc-Style-Index-1" href="#Style-Index">Style Index</a></li>
   <li><a name="toc-Function-Index-1" href="#Function-Index">Function Index</a></li>
   <li><a name="toc-Program-Index-1" href="#Program-Index">Program Index</a></li>
+  <li><a name="toc-Concept-Index-1" href="#Concept-Index">Concept Index</a></li>
 </ul>
 </div>
 
 
-<hr/>
 <a name="Top"></a>
 <a name="Liblouisutdml-User_0027s-and-Programmer_0027s-Manual"></a>
+<h1 class="top">Liblouisutdml User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouisutdml (version 2.5.0,
-14 September 2012), an xml to Braille Translation Library.
+<p>This manual is for liblouisutdml (version 2.6.0,
+7 May 2015), an xml to Braille Translation Library.
 </p>
 <p>This file may contain code borrowed from the Linux screenreader
 <acronym>BRLTTY</acronym>, Copyright &copy; 1999-2009 by the
@@ -147,7 +124,7 @@ Fifth Floor, Boston, MA 02110-1301, USA. -->
 </p>
 <p>Copyright &copy; 2004-2009 ViewPlus Technologies, Inc.
 <a href="www.viewplus.com">www.viewplus.com</a> and Copyright &copy; 2006,2009
-Abilitiessoft, Inc. <a href="www.abilitiessoft.com">www.abilitiessoft.com</a>.
+Abilitiessoft, Inc. <a href="www.abilitiessoft.org">www.abilitiessoft.org</a>.
 </p>
 <blockquote>
 <p>This file is free software; you can redistribute it and/or modify it
@@ -186,13 +163,6 @@ into an embosser-ready braille file. It is not necessary to know xml,
 because MSWord and other word processors can export files in this
 format. If the word processor has been used correctly
 <code>file2brl</code> will produce an excellent braille file.
-</p>
-
-<p>There is a Mac GUI application incorporating liblouisutdml called
-<code>louis</code>. For a link to it go to
-<a href="www.abilitiessoft.com/downloads">www.abilitiessoft.com/downloads</a>. You can also obtain a Windows
-binary on this page. At present it is command-line. We hope to have a
-GUI soon.
 </p>
 <p>Users who want to generate Braille using <code>file2brl</code> will be
 interested in <a href="#Transcribing-XML-files-with-file2brl">Transcribing XML files with file2brl</a>. Those who
@@ -247,14 +217,6 @@ describing usage and exit.
 information and exit.
 </p>
 </dd>
-<dt><samp>-l</samp></dt>
-<dt><samp>--log-file</samp></dt>
-<dd><p>This option will cause <code>file2brl</code> and liblouisutdml to print
-error messages to <samp>file2brl.log</samp> instead of stderr. The file will
-be in the current directory. This option is particularly useful if
-<code>file2brl</code> is called by a GUI script or Web application.
-</p>
-</dd>
 <dt><samp>-f configfile</samp></dt>
 <dt><samp>--config-file configfile</samp></dt>
 <dd><p>This specifies the configuration file which tells <code>file2brl</code>
@@ -263,22 +225,13 @@ by commas.) This file specifies such things as the number of cells per
 line, the number of lines per page, The translation tables to be used,
 how paragraphs and headings are to be formatted, etc. If this part of
 the command line is omitted, <code>file2brl</code> assumes that the
-configuration file is named <samp>default.cfg</samp>. If the configuration
-file name contains a pathname <code>file2brl</code> will consider this as
-a path on which to look for files that it needs (see <a href="#Files-and-Paths">Files and Paths</a>). If no pathname is given the standard paths are searched and
-finally the current directory. To make <code>file2brl</code> search the
-current directory first, precede the file name with <code>./</code>.
-</p>
-</dd>
-<dt><samp>-Csetting=value</samp></dt>
-<dt><samp>--config-setting setting=value</samp></dt>
-<dd><p>This option enables you to specify configuration settings on the
-command line instead of changing the configuration file. You can use
-as many <samp>-C</samp> options as you wish. Any settings can be specified
-except those having to do with styles. See <a href="#Configuration-Settings-Index">Configuration Settings Index</a>, for a list of available settings. These must be specified in
-configuration files. The settings may be in any order. They override
-any settings in <samp>liblouisutdml.ini</samp> or in the configuration file used
-by <code>file2brl</code>.
+configuration file is named <samp>preferences.cfg</samp>. If the
+configuration file name contains a pathname <code>file2brl</code> will
+consider this as a path on which to look for files that it needs
+(see <a href="#Files-and-Paths">Files and Paths</a>). If no pathname is given the standard paths
+are searched and finally the current directory. To make
+<code>file2brl</code> search the current directory first, precede the
+file name with <code>./</code>.
 </p>
 </dd>
 <dt><samp>-b</samp></dt>
@@ -308,15 +261,9 @@ accuracy of liblouis tables. The original page numbers at the tops and
 bottoms of pages are discarded, and new ones are generated.
 </p>
 </dd>
-<dt><samp>-p</samp></dt>
-<dt><samp>--poorly-formatted</samp></dt>
-<dd><p>Poorly formatted input translation. Infile is any text file such as may
-have been obtained by extracting the text in a pdf file. The input
-file may also be an xml or html file which is so poorly formatted that
-better braille can be obtained by ignoring the formatting.
-<code>file2brl</code> tries to guess paragraph breaks. The output is
-generally reasonably formatted, that is, with reasonable paragraph
-breaks.
+<dt><samp>-T</samp></dt>
+<dt><samp>--text</samp></dt>
+<dd><p>Consider the document to be a text file, even if it is xml or html.
 </p>
 </dd>
 <dt><samp>-t</samp></dt>
@@ -330,9 +277,47 @@ configuration (see <a href="#formatFor-setting">formatFor setting</a>) file sett
 you to format the braille output for viewing in a browser.
 </p>
 </dd>
-<dt><samp>-T</samp></dt>
-<dt><samp>--text</samp></dt>
-<dd><p>Consider the document to be a text file, even if it is xml or html.
+<dt><samp>-p</samp></dt>
+<dt><samp>--poorly-formatted</samp></dt>
+<dd><p>Poorly formatted input translation. Infile is any text file such as may
+have been obtained by extracting the text in a pdf file. The input
+file may also be an xml or html file which is so poorly formatted that
+better braille can be obtained by ignoring the formatting.
+<code>file2brl</code> tries to guess paragraph breaks. The output is
+generally reasonably formatted, that is, with reasonable paragraph
+breaks.
+</p>
+</dd>
+<dt><samp>-P</samp></dt>
+<dt><samp>--paragraph-line</samp></dt>
+<dd><p>Treat each block of text ending in a newline as a paragraph. If there
+are two newline characters a blank line will be inserted before the
+next paragraph.
+</p>
+</dd>
+<dt><samp>-Csetting=value</samp></dt>
+<dt><samp>--config-setting setting=value</samp></dt>
+<dd><p>This option enables you to specify configuration settings on the
+command line instead of changing the configuration file. You can use
+as many <samp>-C</samp> options as you wish. Any settings can be specified
+except those having to do with styles. See <a href="#Configuration-Settings-Index">Configuration Settings Index</a>, for a list of available settings. These must be specified in
+configuration files. The settings may be in any order. They override
+any settings in <samp>liblouisutdml.ini</samp> or in the configuration file used
+by <code>file2brl</code>.
+</p>
+</dd>
+<dt><samp>-w</samp></dt>
+<dt><samp>--writeable-path</samp></dt>
+<dd><p>This option enables you to specify where the log file and other
+temporary files will be written.
+</p>
+</dd>
+<dt><samp>-l</samp></dt>
+<dt><samp>--log-file</samp></dt>
+<dd><p>This option will cause <code>file2brl</code> and liblouisutdml to print
+error messages to <samp>file2brl.log</samp> instead of stderr. The file will
+be in the current directory. This option is particularly useful if
+<code>file2brl</code> is called by a GUI script or Web application.
 </p>
 </dd>
 <dt><samp>infile</samp></dt>
@@ -369,8 +354,8 @@ you wish input to be taken from stdin and still want to specify an
 output file, use one minus sign (&lsquo;<samp>-</samp>&rsquo;) for the input file.
 </p>
 <p>If only the program name is typed <code>file2brl</code> assumes that the
-configuration file is <samp>default.cfg</samp>, input is from the standard
-input unit, and output is to the standard output unit.
+configuration file is <samp>preferences.cfg</samp>, input is from the
+standard input unit, and output is to the standard output unit.
 </p>
 <hr>
 <a name="Transcribing-Text-Documents"></a>
@@ -398,10 +383,8 @@ better braille by ignoring whatever markup they contain. The
 <samp>-p</samp> option of <code>file2brl</code> does this. It ignores xml or
 html markup and uses heuristics to find the beginning of paragraphs.
 Its choices are usually good. Note that it does not work with rtf
-files. However, if <code>rtf2xml</code> (see <a href="#Transcribing-RTF-files-with-rtf2brl">Transcribing RTF files with rtf2brl</a>) will convert the file, it will work with the resulting
-xml file.
+files.
 </p>
-
 <hr>
 <a name="Transcribing-html-Documents"></a>
 <a name="Transcribing-html-Documents-1"></a>
@@ -411,70 +394,10 @@ xml file.
 <pre class="example">file2brl -t infile outfile
 </pre></div>
 
-<p>The <samp>-t</samp> option prevents <code>xml2blr</code> from trying to
-transcribe
-infile as an xml document. This will produce a lot of error messages.
-<code>file2brl</code> will then try the html parser. Note that xhtml
-documents are actually xml.
-</p>
-<hr>
-<a name="Transcribing-Microsoft-Word-files-with-msword2brl"></a>
-<a name="Transcribing-Microsoft-Word-files-with-msword2brl-1"></a>
-<h3 class="section">2.5 Transcribing Microsoft Word files with msword2brl</h3>
-<a name="index-msword2brl"></a>
-
-<div class="example">
-<pre class="example">msword2brl infile outfile
-</pre></div>
-
-<p>Infile must be a Microsoft Word file. The script first calls the
-<code>antiword</code> program, so you must have this installed on your
-machine. <code>antiword</code> is called with <samp>-x db</samp>, which
-causes the output to be in docbook format. This is piped to
-<code>file2brl</code>. The output file from <code>file2brl</code> contains
-much of the formatting, including emphasis, of the word file.
-</p>
-<hr>
-<a name="Transcribing-RTF-files-with-rtf2brl"></a>
-<a name="Transcribing-RTF-files-with-rtf2brl-1"></a>
-<h3 class="section">2.6 Transcribing RTF files with rtf2brl</h3>
-<a name="index-rtf2brl"></a>
-
-<div class="example">
-<pre class="example">rtf2brl infile outfile
-</pre></div>
-
-<p>Infile must be a rich-text (rtf) file, such as Bookshare provides for
-proofreading. The script first calls <code>rtf2xml</code>, so you must have
-this program installed on your machine. You can find it on the downloads
-page of <a href="www.abilitiessoft.com">www.abilitiessoft.com</a>. It was copied from its SourceForge
-project. Since it is a Python program, it can be rather slow. Its output
-is piped to <code>file2brl</code>. The output of <code>rtf2xml</code> is xml
-with the root element <code>doc</code>. The file <samp>doc.sem</samp> is fairly
-complete, so the output of <code>file2brl</code> contains much of the
-formatting, including emphasis, of the original rtf file.
-</p>
-<hr>
-<a name="Transcribing-PDF-files-with-pdf2brl"></a>
-<a name="Transcribing-PDF-files-with-pdf2brl-1"></a>
-<h3 class="section">2.7 Transcribing PDF files with pdf2brl</h3>
-<a name="index-pdf2brl"></a>
-
-<div class="example">
-<pre class="example">pdf2brl infile outfile
-</pre></div>
-
-<p>Infile must be a PDF (Portable Document Format) file. The script first
-calls the <code>pdftotext</code> program, so you must have this installed
-on your machine. It is part of xpdf and most likely already installed
-if you&rsquo;re on a modern Linux distribution. Otherwise, you can get it
-from either <a href="http://poppler.freedesktop.org">http://poppler.freedesktop.org</a> or
-<a href="http://www.foolabs.com/xpdf/download.html">http://www.foolabs.com/xpdf/download.html</a>. <code>pdftotext</code>
-is called with the <samp>-raw</samp> and <samp>-</samp> options, which cause
-it to place its output on stdout. This is piped to <code>file2brl</code>,
-which is called with the <samp>-p</samp> option, since output from
-<code>pdftotext</code> is likely to be poorly formatted. The output file
-from <code>file2brl</code> is mostly in sensible paragraphs.
+<p>The <samp>-t</samp> option prevents <code>file2brl</code> from trying to
+transcribe infile as an xml document. This will produce a lot of error
+messages. <code>file2brl</code> will then try the html parser. Note that
+xhtml documents are actually xml.
 </p>
 <hr>
 <a name="Customization-Configuring-liblouisutdml"></a>
@@ -509,56 +432,57 @@ structure containing the configuration information. The calling program
 must include the header file <code>louisutdml.h</code>. You do not need to call
 <code>lbu_initialize</code> unless you need the facilities which it provides.
 </p>
-<p>A configuration file specification may contain more than one file name, 
-separated by commas. liblouisutdml will process these files in sequence, 
-merging the information they contain. The first file name may also 
-contain a path. liblouisutdml will search for the files it needs first 
-on this path. To make it search first the current directory precede the 
-first file name with <code>./</code>. After the path, if any, has been 
-evaluated, but before reading any of the files, liblouisutdml reads in a 
-file called <samp>liblouisutdml.ini</samp>. This file can contain any 
-configuration settings, but it usually contains only the minimum ones 
-for liblouisutdml to operate properly. You may alter the values in the 
-distribution <samp>liblouisutdml.ini</samp>, but you should not delete any 
-settings. Do not specify <samp>liblouisutdml.ini</samp> as your configuration 
-file. This will lead to error messages and program termination. If a 
-configuration file read in later contains a particular setting name, the 
-value specified simply replaces the one specified in 
-<samp>liblouisutdml.ini</samp> or any previously read configuration file.
+<p>A configuration file specification may contain more than one file
+name, separated by commas. liblouisutdml will process these files in
+sequence, merging the information they contain. The first file name
+may also contain a path. liblouisutdml will search for the files it
+needs first on this path. To make it search first the current
+directory precede the first file name with <code>./</code>. After the path,
+if any, has been evaluated, but before reading any of the files,
+liblouisutdml reads in a file called <samp>liblouisutdml.ini</samp>. This
+file can contain any configuration settings, but it usually contains
+only the minimum ones for liblouisutdml to operate properly. You may
+alter the values in the distribution <samp>liblouisutdml.ini</samp>, but you
+should not delete any settings. Do not specify
+<samp>liblouisutdml.ini</samp> as your configuration file. This will lead to
+error messages and program termination. If a configuration file read
+in later contains a particular setting name, the value specified
+simply replaces the one specified in <samp>liblouisutdml.ini</samp> or any
+previously read configuration file.
 </p>
-<p>Originally, configuration files contained four main sections, 
-<code>outputFormat</code>, <code>translation</code>, <code>xml</code> and <code>style</code>. 
-The section names, except for <code>style</code> are now optional. In 
-addition, a configuration file can contain an include entry. This causes 
-the file named on that line to be read in at the point where the line 
-occurs. The sections need not follow each other in any particular order, 
-nor is the order of settings within each section important. The section 
-names, except for <code>style</code> are optional. In this document and in the 
-<samp>liblouisutdml.ini</samp> file, where section and setting names consist 
-of more than one word, the first letter of each word following the 
-initial one is capitalized. This is merely for readability. The case of 
-the letters in these names is ignored by the program. Section and 
-setting names may not contain spaces.
+<p>Originally, configuration files contained four main sections,
+<code>outputFormat</code>, <code>translation</code>, <code>xml</code> and <code>style</code>.
+The section names, except for <code>style</code> are now optional. In
+addition, a configuration file can contain an include entry. This
+causes the file named on that line to be read in at the point where
+the line occurs. The sections need not follow each other in any
+particular order, nor is the order of settings within each section
+important. The section names, except for <code>style</code> are optional. In
+this document and in the <samp>liblouisutdml.ini</samp> file, where section
+and setting names consist of more than one word, the first letter of
+each word following the initial one is capitalized. This is merely for
+readability. The case of the letters in these names is ignored by the
+program. Section and setting names may not contain spaces.
 </p>
-<p>In addition to <samp>liblouisutdml.ini</samp> the distribution also 
-sontains a number of configuration files. The most important of 
-these is <samp>preferences.cfg</samp>, which contains all possible 
-settings and a &quot;default&quot; value for each. You should use this file 
-as a refererence. It is the file read by the <code>file2brl</code> 
-command-line interface program if no configuration file is giben.
+<p>In addition to <samp>liblouisutdml.ini</samp> the distribution also sontains
+a number of configuration files. The most important of these is
+<samp>preferences.cfg</samp>, which contains all possible settings and a
+&quot;default&quot; value for each. You should use this file as a refererence.
+It is the file read by the <code>file2brl</code> command-line interface
+program if no configuration file is giben.
 </p>
-<p>Here, then, is an explanation of each section and setting in the 
-<samp>preferences.cfg</samp> file. When you look at this file you will see 
-that the section names start at the left margin, while the settings are 
-indented one tab stop. This is done for readability. it has no effect on 
-the meaning of the lines. You will also see lines beginning with a 
-number sign (&lsquo;<samp>#</samp>&rsquo;), which are comments. Blank lines can also be used 
-anywhere in a configuration file. In general, a section name is a single 
-word or combination of unspaced words. However, each style has a section 
-of its own, so the word &lsquo;<samp>style</samp>&rsquo; is followed by a space then by the 
-name of the style. Setting lines begin with the name of the setting, 
-followed by at least one space or tab, followed by the value of the 
-setting. A few settings have two values.
+<p>Here, then, is an explanation of each section and setting in the
+<samp>preferences.cfg</samp> file. When you look at this file you will see
+that the section names start at the left margin, while the settings
+are indented one tab stop. This is done for readability. it has no
+effect on the meaning of the lines. You will also see lines beginning
+with a number sign (&lsquo;<samp>#</samp>&rsquo;), which are comments. Blank lines can
+also be used anywhere in a configuration file. In general, a section
+name is a single word or combination of unspaced words. However, each
+style has a section of its own, so the word &lsquo;<samp>style</samp>&rsquo; is followed
+by a space then by the name of the style. Setting lines begin with the
+name of the setting, followed by at least one space or tab, followed
+by the value of the setting. A few settings have two values.
 </p>
 
 <hr>
@@ -645,85 +569,86 @@ Braille volumes.
 </dd>
 <dt><code>printPageNumberAt top</code></dt>
 <dd><p>If print page numbers are given in the xml input file they will be
-placed at the top of each braille page in the right-hand corner. If 
-<code>pageSeparator</code> is set to &lsquo;<samp>yes</samp>&rsquo;, a page separator line 
-will also be produced on the Braille page where the print page break 
+placed at the top of each braille page in the right-hand corner. If
+<code>pageSeparator</code> is set to &lsquo;<samp>yes</samp>&rsquo;, a page separator line will
+also be produced on the Braille page where the print page break
 actually occurs. You may also specify &lsquo;<samp>bottom</samp>&rsquo; for this setting.
 </p>
 <a name="index-braillePageNumberAt"></a>
 </dd>
 <dt><code>braillePageNumberAt bottom</code></dt>
 <dd><p>The braille page number will be placed in the bottom right-hand corner
-of each page. If <code>interpoint yes</code> has been specified only odd pages 
-will receive page numbers. You may also specify &lsquo;<samp>top</samp>&rsquo; for this 
-setting. If print page numbers and Braille page numbers are 
-both placed at the top or bottom, they are rendered next to each other 
-with a space in between. 
+of each page. If <code>interpoint yes</code> has been specified only odd
+pages will receive page numbers. You may also specify &lsquo;<samp>top</samp>&rsquo; for
+this setting. If print page numbers and Braille page numbers are both
+placed at the top or bottom, they are rendered next to each other with
+a space in between.
 </p>
 <a name="continuePages-setting"></a><a name="index-continuePages"></a>
 </dd>
 <dt><code>continuePages yes</code></dt>
-<dd><p>Print page numbers can be prefixed with a letter (a, b, c, etc.) on 
+<dd><p>Print page numbers can be prefixed with a letter (a, b, c, etc.) on
 continued pages. The two valid values are &lsquo;<samp>yes</samp>&rsquo; and &lsquo;<samp>no</samp>&rsquo;.
 </p>
 <a name="pageSeparator-setting"></a><a name="index-pageSeparator"></a>
 </dd>
 <dt><code>pageSeparator yes</code></dt>
-<dd><p>A page separator line (or page break indicator), a line of unspaced 
-Braille dots 36, will be placed wherever a print page break occurs. No 
-page separator lines are placed on the first or last line of a Braille 
-page, and no page separator lines are shown when the new print page 
+<dd><p>A page separator line (or page break indicator), a line of unspaced
+Braille dots 36, will be placed wherever a print page break occurs. No
+page separator lines are placed on the first or last line of a Braille
+page, and no page separator lines are shown when the new print page
 coincides with a new Braille page.
 </p>
 <a name="index-pageSeparatorNumber"></a>
 </dd>
 <dt><code>pageSeparatorNumber yes</code></dt>
-<dd><p>Show a page number at the far right margin of a page separator line. No 
-space is left between the separator line and the first symbol of the 
-page number. 
+<dd><p>Show a page number at the far right margin of a page separator line.
+No space is left between the separator line and the first symbol of
+the page number.
 </p>
 <a name="index-ignoreEmptyPages"></a>
 </dd>
 <dt><code>ignoreEmptyPages yes</code></dt>
-<dd><p>An empty page occurs when a <code>pagenum</code> tag is immediately followed 
-by another <code>pagenum</code> tag. By default, empty pages are completely 
-ignored. If you specify &lsquo;<samp>no</samp>&rsquo; for this setting, a sequence of 
-<code>pagenum</code> tags will lead to a <em>combined</em> print page number: 
-the number of the first empty page is combined with that of the page on 
-which text reappears, e.g. 5-7. If lettered continuation pages are 
-required (see <code>continuePages</code>), they carry only the number of the 
+<dd><p>An empty page occurs when a <code>pagenum</code> tag is immediately followed
+by another <code>pagenum</code> tag. By default, empty pages are completely
+ignored. If you specify &lsquo;<samp>no</samp>&rsquo; for this setting, a sequence of
+<code>pagenum</code> tags will lead to a <em>combined</em> print page number:
+the number of the first empty page is combined with that of the page
+on which text reappears, e.g. 5-7. If lettered continuation pages are
+required (see <code>continuePages</code>), they carry only the number of the
 page on which text reappears.
 </p>
 <a name="printPageNumberRange-setting"></a><a name="index-printPageNumberRange"></a>
 </dd>
 <dt><code>printPageNumberRange no</code></dt>
-<dd><p>By default, only the page number of the <em>first</em> print page on a 
-Braille page is shown at the top or bottom. However, if 
-<code>printPageNumberRange</code> is set to &lsquo;<samp>yes</samp>&rsquo;, the <em>range</em> of 
-print pages contained in the current Braille page is displayed. If the 
-first page in this range is a continued print page, it is prefixed 
+<dd><p>By default, only the page number of the <em>first</em> print page on a
+Braille page is shown at the top or bottom. However, if
+<code>printPageNumberRange</code> is set to &lsquo;<samp>yes</samp>&rsquo;, the <em>range</em> of
+print pages contained in the current Braille page is displayed. If the
+first page in this range is a continued print page, it is prefixed
 with a letter as usual (see <code>continuePages</code>).
 </p>
 <a name="index-mergeUnnumberedPages"></a>
 </dd>
 <dt><code>mergeUnnumberedPages yes</code></dt>
-<dd><p>Page breaks without a page number can simply be ignored. This means that 
-unnumbered print pages will be treated as if they were a part of the 
-preceding page. You can also specify &lsquo;<samp>no</samp>&rsquo; for this setting.
+<dd><p>Page breaks without a page number can simply be ignored. This means
+that unnumbered print pages will be treated as if they were a part of
+the preceding page. You can also specify &lsquo;<samp>no</samp>&rsquo; for this setting.
 </p>
 <a name="index-pageNumberTopSeparateLine"></a>
 </dd>
 <dt><code>pageNumberTopSeparateLine yes</code></dt>
-<dd><p>Whether or not to provide a separate line for page numbers when they are 
-placed at the top of a Braille page. The two valid values are &lsquo;<samp>yes</samp>&rsquo; and 
-&lsquo;<samp>no</samp>&rsquo;. A print page number range (see <code>printPageNumberRange</code>) 
-at the top of a page is always displayed on a separate line.
+<dd><p>Whether or not to provide a separate line for page numbers when they
+are placed at the top of a Braille page. The two valid values are
+&lsquo;<samp>yes</samp>&rsquo; and &lsquo;<samp>no</samp>&rsquo;. A print page number range (see
+<code>printPageNumberRange</code>) at the top of a page is always displayed
+on a separate line.
 </p>
 <a name="index-pageNumberBottomSeparateLine"></a>
 </dd>
 <dt><code>pageNumberBottomSeparateLine yes</code></dt>
-<dd><p>Whether or not to provide a separate line for page numbers when they are 
-placed at the bottom of a Braille page.
+<dd><p>Whether or not to provide a separate line for page numbers when they
+are placed at the bottom of a Braille page.
 </p>
 <a name="index-hyphenate"></a>
 </dd>
@@ -780,17 +705,6 @@ will preserve print page numbering and emphasis.
 <dd><p>This setting specifies the length of lines in back-translated files,
 whether in plain-text or html. This is mainly for human readability.
 Lines may sometimes be somewhat longer.
-</p>
-<a name="index-interline"></a>
-</dd>
-<dt><code>interline no</code></dt>
-<dd><p>This setting specifies whether interlining is desired. If it is set to
-&lsquo;<samp>yes</samp>&rsquo;, the first line in the output will be a braille
-translation, the next line will be its back-translation according to
-the interlineBackTable. Back-translation is used instead of simply
-presenting the print original because a braille line may contain
-additional information, such as leading blanks, print or braille page
-numbers, print page separator lines, etc.
 </p>
 <a name="lineFill-setting"></a><a name="index-lineFill"></a>
 </dd>
@@ -851,14 +765,6 @@ of standard Grade Two.
 <dd><p>When the output includes both mathematics and text there may be errors
 where one type of translation directly follows another. The editTable
 removes these errors.
-</p>
-<a name="index-interlineBackTable"></a>
-</dd>
-<dt><code>interlineBackTable en-us-interline.ctb</code></dt>
-<dd><p>This setting specifies the table to be used for back-translation when
-interlining is turned on. It must be tailored for this purpose, since
-an ordinary forward-translation table may contain entries that do not
-handle the additional information in braille lines correctly.
 </p>
 </dd>
 </dl>
@@ -970,6 +876,7 @@ only settings that are different from the defaults.
 </p>
 <a name="style-document"></a>
 <h4 class="subsection">3.4.1 style document</h4>
+<a name="index-document-1"></a>
 
 <p>This is a predefined style name. All settings have their default values.
 The user must specify any other values. If a &quot;persistent&quot; style setting
@@ -1118,6 +1025,7 @@ have a value of &lsquo;<samp>2</samp>&rsquo; or more.
 
 <a name="contentsheader-style"></a><a name="style-contentsheader"></a>
 <h4 class="subsection">3.4.2 style contentsheader</h4>
+<a name="index-contentsheader-1"></a>
 
 <p>This style is used to specify where the table of contents should be
 placed and its title. The xml tag assigned to it in the semantic action
@@ -1139,6 +1047,8 @@ starting and ending markers.
 
 <a name="style-contents1"></a>
 <h4 class="subsection">3.4.3 style contents1</h4>
+<a name="index-contents1"></a>
+
 <p>This style and the other contents styles are used for the table of
 contents and correspond to the ten heading levels (&lsquo;<samp>contents5</samp>&rsquo;,
 &lsquo;<samp>contents6</samp>&rsquo;, &lsquo;<samp>contents7</samp>&rsquo;, &lsquo;<samp>contents8</samp>&rsquo;,
@@ -1155,8 +1065,11 @@ contents and correspond to the ten heading levels (&lsquo;<samp>contents5</samp>
 </dd>
 <dt><code>format contents</code></dt>
 </dl>
+
 <a name="style-contents2"></a>
 <h4 class="subsection">3.4.4 style contents2</h4>
+<a name="index-contents2"></a>
+
 <dl compact="compact">
 <dd><a name="index-firstLineIndent-2"></a>
 </dd>
@@ -1168,8 +1081,11 @@ contents and correspond to the ten heading levels (&lsquo;<samp>contents5</samp>
 </dd>
 <dt><code>format contents</code></dt>
 </dl>
+
 <a name="style-contents3"></a>
 <h4 class="subsection">3.4.5 style contents3</h4>
+<a name="index-contents3"></a>
+
 <dl compact="compact">
 <dd><a name="index-firstLineIndent-3"></a>
 </dd>
@@ -1181,8 +1097,11 @@ contents and correspond to the ten heading levels (&lsquo;<samp>contents5</samp>
 </dd>
 <dt><code>format contents</code></dt>
 </dl>
+
 <a name="style-contents4"></a>
 <h4 class="subsection">3.4.6 style contents4</h4>
+<a name="index-contents4"></a>
+
 <dl compact="compact">
 <dd><a name="index-firstLineIndent-4"></a>
 </dd>
@@ -1197,6 +1116,7 @@ contents and correspond to the ten heading levels (&lsquo;<samp>contents5</samp>
 
 <a name="style-heading1"></a>
 <h4 class="subsection">3.4.7 style heading1</h4>
+<a name="index-heading1-1"></a>
 
 <p>This style is used for main headings, such as chapter titles.
 </p>
@@ -1214,6 +1134,7 @@ contents and correspond to the ten heading levels (&lsquo;<samp>contents5</samp>
 
 <a name="style-heading2"></a>
 <h4 class="subsection">3.4.8 style heading2</h4>
+<a name="index-heading2-1"></a>
 
 <p>The first level of subheadings after the main heading.
 </p>
@@ -1228,6 +1149,7 @@ contents and correspond to the ten heading levels (&lsquo;<samp>contents5</samp>
 
 <a name="style-heading3"></a>
 <h4 class="subsection">3.4.9 style heading3</h4>
+<a name="index-heading3-1"></a>
 
 <p>The third level of headings.
 </p>
@@ -1240,6 +1162,7 @@ contents and correspond to the ten heading levels (&lsquo;<samp>contents5</samp>
 
 <a name="style-heading4"></a>
 <h4 class="subsection">3.4.10 style heading4</h4>
+<a name="index-heading4-1"></a>
 
 <p>The fourth level of headings. There are six more levels:
 &lsquo;<samp>heading5</samp>&rsquo;, &lsquo;<samp>heading6</samp>&rsquo;, &lsquo;<samp>heading7</samp>&rsquo;,
@@ -1254,6 +1177,7 @@ contents and correspond to the ten heading levels (&lsquo;<samp>contents5</samp>
 
 <a name="style-para"></a>
 <h4 class="subsection">3.4.11 style para</h4>
+<a name="index-para-1"></a>
 
 <p>Paragraph. This is ordinary body text.
 </p>
@@ -1262,6 +1186,33 @@ contents and correspond to the ten heading levels (&lsquo;<samp>contents5</samp>
 <a name="index-firstLineIndent-8"></a>
 </dd>
 <dt><code>firstLineIndent 2</code></dt>
+</dl>
+
+<a name="style-boxline"></a>
+<h4 class="subsection">3.4.12 style boxline</h4>
+<a name="index-boxline"></a>
+
+<p>Typically used to form the top and bottom lines of &quot;boxed&quot; material.
+The character must be chosen to produce the desired dot pattern on the
+embosser or display in use.
+</p>
+<dl compact="compact">
+<dd>
+<a name="index-topBoxline"></a>
+</dd>
+<dt><code>topBoxline .</code></dt>
+<dd>
+<p>This should be set to the character you want used for the boxline
+which appears before the content.
+</p>
+<a name="index-bottomBoxline"></a>
+</dd>
+<dt><code>bottomBoxline .</code></dt>
+<dd>
+<p>This should be set to the character you want used for the boxline
+which appears after the content.
+</p>
+</dd>
 </dl>
 
 <hr>
@@ -1274,7 +1225,6 @@ contents and correspond to the ten heading levels (&lsquo;<samp>contents5</samp>
 <a name="Semantic-Actions-Overview"></a>
 <a name="Overview-1"></a>
 <h3 class="section">4.1 Overview</h3>
-
 
 <p>When liblouisutdml (or <code>file2brl</code>) processes an xml document, it
 needs to be told how to use the information in that document to
@@ -1353,22 +1303,21 @@ However, the computer still does not know what to do when it
 encounters an element. The semantic-action file tells it that.
 </p>
 <p>Consider <samp>html.sem</samp>. A copy is included as part of this
-documentation with the name <samp>example_html.sem</samp>
-(see <a href="#html_002esem">html.sem</a>). It may differ from the file that liblouisutdml is
-currently using. You will see that it begins with some lines about
-copyrights. Each line begins with a number sign (&lsquo;<samp>#</samp>&rsquo;). This
-indicates that it is a &quot;comment&quot;, intended for the human reader and
-the computer should ignore it. Then there is a blank line. Finally,
-there are two other comments explaining that the file must be edited
-to get proper output. This is because a human being must tell the
-computer what to do with each element. The semantic files for common
-types of documents have already been edited, so you generally don&rsquo;t
-have to worry about this. But if you encounter a new type of document
-or wish to specify special handling for styles or mathematics you may
-have to edit the semantic-action file or send it to the maintainer for
-editing. In any case the rest of this section is essential for
-understanding how liblouisutdml handles documents and for making changes
-if the way it does so is not correct.
+documentation with the name <samp>example_html.sem</samp> (see <a href="#Example-files">Example files</a>). It may differ from the file that liblouisutdml is currently
+using. You will see that it begins with some lines about copyrights.
+Each line begins with a number sign (&lsquo;<samp>#</samp>&rsquo;). This indicates that it
+is a &quot;comment&quot;, intended for the human reader and the computer should
+ignore it. Then there is a blank line. Finally, there are two other
+comments explaining that the file must be edited to get proper output.
+This is because a human being must tell the computer what to do with
+each element. The semantic files for common types of documents have
+already been edited, so you generally don&rsquo;t have to worry about this.
+But if you encounter a new type of document or wish to specify special
+handling for styles or mathematics you may have to edit the
+semantic-action file or send it to the maintainer for editing. In any
+case the rest of this section is essential for understanding how
+liblouisutdml handles documents and for making changes if the way it
+does so is not correct.
 </p>
 <p>After another blank line you will see a table consisting of two, and
 sometimes three, columns. The first column contains a word which tells
@@ -1543,7 +1492,7 @@ tables in braille do not have borders.
 <p>Now let&rsquo;s look at the file which is included at the beginning of the
 <samp>html.sem</samp> file. This is <samp>nemeth.sem</samp>. As with
 <samp>html.sem</samp>, a copy is included in the appendix
-(see <a href="#nemeth_002esem">nemeth.sem</a>), but it is not necessarily the one that
+(see <a href="#Example-files">Example files</a>), but it is not necessarily the one that
 liblouisutdml is currently using. It illustrates several more things
 about how liblouisutdml uses semantic-action files.
 </p>
@@ -1670,8 +1619,8 @@ contents generator. They should be assigned style settings, however.
 <a name="contentsheader-semantic"></a></dd>
 <dt><code>contentsheader elementSpecifier</code></dt>
 <dd>
-<p>This semantic action must be assigned an element specifier if used. See
-the discussion of it in the section on styles.
+<p>This semantic action must be assigned an element specifier if used.
+See the discussion of it in <a href="#style">style</a>.
 </p>
 <a name="index-document"></a>
 <a name="document-semantic"></a></dd>
@@ -1724,16 +1673,6 @@ may contain will be ignored.
 at the end of the semantic action name is there to prevent conflicts
 with names elsewhere in the software. Just where the bold indicators
 will be placed is controlled by the liblouis translation table in use.
-</p>
-<a name="index-boxline"></a>
-<a name="boxline-semantic"></a></dd>
-<dt><code>boxline elementSpecifier character</code></dt>
-<dd>
-<p>A line consisting entirely of the character in the third column is
-placed in the output. If the third column is blank this semantic action
-does nothing. It is typically used to form the top and bottom lines of
-&quot;boxed&quot; material. The character must be chosen to produce the desired
-dot pattern on the embosser or display in use.
 </p>
 <a name="index-chemistry"></a>
 <a name="chemistry-semantic"></a></dd>
@@ -2141,7 +2080,7 @@ is declared with this semantic action
 <dt><code>righthandpage elementSpecifier</code></dt>
 <dd>
 <p>If <code>interpoint yes</code> has been specified in the configuration file,
-and the current page is a right-hand one, the lest of the page is
+and the current page is a right-hand one, the rest of the page is
 skipped except for footer and page number. the following left-hand page
 is similarly skipped. Otherwise, the action is the same as
 <code>newpage</code>.
@@ -2205,7 +2144,10 @@ future.
 not connected with any tag in the document. They are executed when they
 are encountered in the processing of semantic-action files.
 </p>
+
+<hr>
 <a name="include"></a>
+<a name="include-1"></a>
 <h4 class="subsection">4.3.1 include</h4>
 
 <div class="example">
@@ -2216,7 +2158,9 @@ are encountered in the processing of semantic-action files.
 compiled as though it were part of the file containing the
 <code>include</code> entry. Included files may include other files.
 </p>
+<hr>
 <a name="newentries"></a>
+<a name="newentries-1"></a>
 <h4 class="subsection">4.3.2 newentries</h4>
 
 <div class="example">
@@ -2229,44 +2173,163 @@ produced. This affects only documents processed with this
 semantic-action file. The configuration setting <code>newEntries</code>
 affects all documents.
 </p>
+<hr>
 <a name="namespaces"></a>
+<a name="namespaces-1"></a>
 <h4 class="subsection">4.3.3 namespaces</h4>
+<a name="index-Namespaces"></a>
 
 <div class="example">
 <pre class="example">namespaces dtb=http://www.daisy.org/z3986/2005/dtbook/
 </pre></div>
 
 <p>This pseudo-action is used to declare namespaces used in XPath
-expressions. (See following section). The format is &lsquo;<samp>namespaces
-prefix1=url1,prefix2=url2,...</samp>&rsquo;. The list of namespaces may not contain
-blanks.
+expressions. (see <a href="#Using-XPath-Expressions">Using XPath Expressions</a>). The format is
+&lsquo;<samp>namespaces prefix1=url1,prefix2=url2,...</samp>&rsquo;. The list of
+namespaces may not contain blanks.
 </p>
 <hr>
 <a name="Using-XPath-Expressions"></a>
 <a name="Using-XPath-Expressions-1"></a>
 <h3 class="section">4.4 Using XPath Expressions</h3>
+<a name="index-XPath-Expressions"></a>
 
+<p>The second column of a semantic action may contain a XPath expression
+for matching nodes. When an XPath expression is to be used the second
+column should be of the format: &lsquo;<samp>&amp;xpath(&lt;expression&gt;)</samp>&rsquo; where
+&lsquo;<samp>&lt;expression&gt;</samp>&rsquo; is the XPath expression to match nodes.
+</p>
+<p>When constructing your XPath expressions you may wish to consider the
+following facts:
+</p>
+<ul>
+<li> The XPath expression may contain brackets but they must match
 
+</li><li> liblouisutdml performs XPath matching from the document root, so you
+most likely want all XPath expressions to begin with double slash
+(&lsquo;<samp>//</samp>&rsquo;).
+
+</li><li> If the source document uses namespaces for the nodes you wish to match
+then you must define the namespace in the semantic action file
+(see <a href="#namespaces">namespaces</a>) and then prefix the node with the namespace (e.g.
+for a namespace with alias &lsquo;<samp>xhtml</samp>&rsquo; and node with name &lsquo;<samp>p</samp>&rsquo;,
+this would be &lsquo;<samp>xhtml:p</samp>&rsquo;)
+
+</li><li> You should be careful to not create XPath expressions which give
+overlapping node set results. When liblouisutdml finds a match for a
+node it assigns the semantic action to that node and this will not be
+changed subsequently. Note that this is unlike XSLT, where for each
+matcher a priority is calculated from the XPath expression while in
+liblouisutdml it is unpredictable which rule will win.
+
+</li><li> XPath expressions take precedence over ordinary semantic-fie entries.
+
+</li></ul>
+
+<p>As with other types of semantic actions, you may define arguments in
+the third column of a semantic action using XPath expressions.
+</p>
 <div class="example">
-<pre class="example">para &amp;xpath(h4)
+<pre class="example">para &amp;xpath(//h4)
 </pre></div>
 
 <p>This example causes any element with the name &lsquo;<samp>h4</samp>&rsquo; to be given the
 semantic action <code>para</code>, no matter what other assignments may be
-made to it. In general, XPath expressions are entered in the second
-column with the syntax <code>&amp;xpath(...)</code>. That is, the XPath
-expression is placed within parentheses following <code>&amp;xpath</code>. It may
-contain parentheses itself, as long as they match. The third column may
-contain arguments, as with any line in a semantic-action file. XPath
-expressions are not processed in any particular order. Care should be
-taken that the node sets which they find do not overlap. If a node is in
-a node set found by a particular XPath expression it will be given the
-semantic-action and arguments associated with that expression. This will
-not be changed subsequently.
+made to it.
 </p>
-<p>The &lsquo;<samp>&amp;funcname(...)</samp>&rsquo; notation may be used for other features, such
-as XPointer, in the future.
+<hr>
+<a name="Using-Macros"></a>
+<a name="Using-Macros-1"></a>
+<h3 class="section">4.5 Using Macros</h3>
+<a name="index-Macros"></a>
+
+<p>A semantic-action file permits only one action or style to be
+mentioned in the first column. Macros get around this limitation. They
+define a style and a series of semantic actions. A macro name can also
+be in the first column.
 </p>
+<p>Macros somewhat resemble styles. They are defined in a configuration
+file and used in a semantic-action file. In a configuration file the
+definition is of the form
+</p>
+<div class="example">
+<pre class="example">macro macroName macroBody
+</pre></div>
+
+<p>In a semantic-action file they are invoked as follows:
+</p>
+<div class="example">
+<pre class="example">macroName element[,attribute[,value]] [parameters]
+</pre></div>
+
+<p>Here is an example of a macro definition.
+</p>
+<div class="example">
+<pre class="example">macro useSpanish para,configtweak(literaryTextTable=es-Es-g2.ctb)
+</pre></div>
+
+<p>In a semantic-action file it might be used as follows.
+</p>
+<div class="example">
+<pre class="example">useSpanish p,lang,ES
+</pre></div>
+
+<p>The meanings of the various parts of a macro are as follows:
+</p>
+<dl compact="compact">
+<dt><code>macroName</code></dt>
+<dd>
+<p>is a string of alphanumeric characters, of which the first must be a
+letter.
+</p>
+</dd>
+<dt><code>macroBody</code></dt>
+<dd>
+<p>is a series of items separated by commas. It may not contain
+whitespace. If it is too long to fit on one line it may be continued
+by using a backslash (&lsquo;<samp>\</samp>&rsquo;) followed by enter. It should not be
+more than 500 characters in length. Each item is one of the following:
+</p>
+<dl compact="compact">
+<dt>A style name</dt>
+<dd>
+<p>Only one style can be specified in a macro. This is due to the way in
+which styles are handled.
+</p>
+</dd>
+<dt>A semantic action, optionally with parameters</dt>
+<dd>
+<p>The parameters are enclosed in parentheses. They consist of whatever
+is legal in the third column for the particular semantic action. If
+the parentheses are empty, that is, simply &lsquo;<samp>()</samp>&rsquo; the contents of
+the third column of the macro invocation itself are used as the
+parameters.
+</p>
+</dd>
+<dt>&lsquo;<samp>pause</samp>&rsquo;</dt>
+<dd>
+<p>This is used after a style name so that text belonging to that style
+can be processed. Semantic actions can be specified between the style
+name and the word &lsquo;<samp>pause</samp>&rsquo;.
+</p>
+</dd>
+<dt>&lsquo;<samp>endstyle</samp>&rsquo;</dt>
+<dd>
+<p>This causes the style to be terminated and the processing of any text
+which may have been entered into it to be completed. Semantic actions
+may be specified after the word &lsquo;<samp>endstyle</samp>&rsquo;.
+</p>
+</dd>
+</dl>
+
+<p>If a style has been specified and neither &lsquo;<samp>pause</samp>&rsquo; nor
+&lsquo;<samp>endstyle</samp>&rsquo; has been used the style is terminated when the end of
+the macro has been reached, and the processing of text is completed.
+(When the end_macro function is called by the program.)
+</p>
+</dd>
+</dl>
+
 <hr>
 <a name="Special-Features"></a>
 <a name="Special-Features-1"></a>
@@ -2422,6 +2485,300 @@ the output with no translation. In the third case it is translated into
 computer braille and inserted into the output. Any other semantic action
 has the same effect as <code>no</code>.
 </p>
+<hr>
+<a name="End-notes"></a>
+<a name="End-notes-1"></a>
+<h3 class="section">5.7 End notes</h3>
+
+<p>An endnote is defined as the link between a reference character in the
+body of the text and a description at the end of the output document.
+</p>
+
+<hr>
+<a name="Use-of-Endnotes"></a>
+<a name="Use-of-Endnotes-1"></a>
+<h4 class="subsection">5.7.1 Use of Endnotes</h4>
+
+<p>The position of the reference character in the body of the text is
+defined by the <code>noteref</code> semantic action (see <a href="#noteref-semantic"><code>noteref</code></a>), which is then linked to a
+<code>note</code> semantic action (see <a href="#note-semantic"><code>note</code></a>) (which can appear anywhere within the input file)
+with the same id. The content of <code>note</code> will appear at the end of
+the output document, along with its corresponding reference character
+and the page and line numbers of where the reference character appears
+in the text.
+</p>
+<p>A heading for the first endnote page can be set using the
+<code>notesheader</code> semantic action (see <a href="#notesheader-semantic"><code>notesheader</code></a>), and a small note can also be placed after
+this heading, but before the endnotes, by using the
+<code>notesdescription</code> semantic action (see <a href="#notesdescription-semantic"><code>notesdescription</code></a>).
+</p>
+<p>The endnote page created will follow any formatting (page numbers,
+headers, footers) from the last page in the document.
+</p>
+<hr>
+<a name="Output"></a>
+<a name="Output-1"></a>
+<h4 class="subsection">5.7.2 Output</h4>
+
+<p>Let&rsquo;s look at an example. The following text in an input file
+</p>
+<div class="example">
+<pre class="example">some text &lt;mynoteref id=&quot;1&quot;&gt;1&lt;/mynoteref&gt; some text
+...
+&lt;mynote id=&quot;1&quot;&gt;Endnote Description&lt;/mynote&gt;
+</pre></div>
+
+<p>will produce a reference to the end note in the output as follows
+(with usual representation of numbers):
+</p>
+<div class="example">
+<pre class="example">some text 99#a some text
+</pre></div>
+
+<p>The &lsquo;<samp>99</samp>&rsquo; in ascii is used as the indicator for an endnote
+reference. And it will also produce an entry on the end notes page as
+follows:
+</p>
+<div class="example">
+<pre class="example">#a p#g#b Endnote Description
+</pre></div>
+
+<p>with the usual representation of numbers and, in this example, the
+reference to the note, i.e. the reference character appearing on the
+2nd line of the 7th page.
+</p>
+<hr>
+<a name="Configuration"></a>
+<a name="Configuration-1"></a>
+<h4 class="subsection">5.7.3 Configuration</h4>
+
+<dl compact="compact">
+<dd><a name="index-endnotes"></a>
+</dd>
+<dt><code>endnotes yes</code></dt>
+<dd>
+<p>Choose whether to use endnotes or not. Choosing &lsquo;<samp>no</samp>&rsquo; will ignore
+anything enclosed by all the semantic actions <a href="#Semantic-Actions">Semantic Actions</a>.
+</p>
+</dd>
+</dl>
+
+<hr>
+<a name="Styles"></a>
+<a name="Styles-1"></a>
+<h4 class="subsection">5.7.4 Styles</h4>
+
+<p>The semantic actions <code>note</code>, <code>notesdescription</code>, and
+<code>notesheader</code> have corresponding styles.
+</p>
+<dl compact="compact">
+<dt><code>style note</code></dt>
+<dd>
+<p>Each endnote on the endnote page will use this style
+</p>
+</dd>
+<dt><code>style notesheader</code></dt>
+<dd>
+<p>The style used by the title on the endnote page
+</p>
+</dd>
+<dt><code>style notesdescription</code></dt>
+<dd>
+<p>The style used by the note just after the title on the endnote page
+</p>
+</dd>
+</dl>
+
+<p>The <code>noteref</code> semantic action (see <a href="#noteref-semantic"><code>noteref</code></a>) will inherit its style.
+</p>
+<hr>
+<a name="Semantic-Actions"></a>
+<a name="Semantic-Actions-1"></a>
+<h4 class="subsection">5.7.5 Semantic Actions</h4>
+
+<dl compact="compact">
+<dd><a name="index-note"></a>
+<a name="note-semantic"></a></dd>
+<dt><code>note elementSpecifier id</code></dt>
+<dd>
+<p>Defines the endnote displayed at the bottom of the file. The id
+attribute has to be unique, and be identical to the id attribute in a
+<code>noteref</code> in the file in order to be displayed, but the
+<code>note</code> action can appear before the corresponding <code>noteref</code>
+action if needed.
+</p>
+<p>Given the following definition in the semantic action file
+</p>
+<div class="example">
+<pre class="example">note    mynote,idref
+</pre></div>
+
+<p>we could define an endnote in the input file as follows:
+</p>
+<div class="example">
+<pre class="example">&lt;mynote idref=&quot;1&quot;&gt;This is an endnote&lt;/mynote&gt;
+</pre></div>
+
+<a name="index-noteref"></a>
+<a name="noteref-semantic"></a></dd>
+<dt><code>noteref elementSpecifier id</code></dt>
+<dd>
+<p>Defines the position where the endnote reference character should be
+placed, as well as the endnote reference character in the endnote at
+the bottom of the file. The order that these appear in the input file
+determines the order that they appear in the endnote section.
+</p>
+<p>Given the following definition in the semantic action file
+</p>
+<div class="example">
+<pre class="example">noteref    mynoteref,idref
+</pre></div>
+
+<p>we could place a reference to an endnote in the input file as follows:
+</p>
+<div class="example">
+<pre class="example">&lt;mynoteref idref=&quot;1&quot;&gt;*&lt;/mynoteref&gt;
+</pre></div>
+
+<a name="index-notesheader"></a>
+<a name="notesheader-semantic"></a></dd>
+<dt><code>notesheader elementSpecifier</code></dt>
+<dd>
+<p>The text enclosed defines the header to be placed at the top of the
+first endnote page. For multiple of these defined in the input, the
+last one is used.
+</p>
+<p>Given the following definition in the semantic action file
+</p>
+<div class="example">
+<pre class="example">notesheader    mynotesheader
+</pre></div>
+
+<p>we could define the page header of the first endnotes page in the
+input file as follows:
+</p>
+<div class="example">
+<pre class="example">&lt;mynotesheader&gt;Endnote Page Header&lt;/mynotesheader&gt;
+</pre></div>
+
+<a name="index-notesdescription"></a>
+<a name="notesdescription-semantic"></a></dd>
+<dt><code>notesdescription elementSpecifier</code></dt>
+<dd>
+<p>Defines some text to be placed after the <code>notesheader</code> semantic action (see <a href="#notesheader-semantic"><code>notesheader</code></a>),
+but before the rest of the endnotes. Again, for multiple definitions
+in the input file, the last one will be used.
+</p>
+<p>Given the following definition in the semantic action file
+</p>
+<div class="example">
+<pre class="example">notesdescription    mynotesdescription
+</pre></div>
+
+<p>we could define some text to appear on the first endnotes page in the
+input file as follows:
+</p>
+<div class="example">
+<pre class="example">&lt;mynotesdescription&gt;Endnote Page Text&lt;/mynotesdescription&gt;
+</pre></div>
+</dd>
+</dl>
+
+<hr>
+<a name="Example"></a>
+<a name="Example-1"></a>
+<h4 class="subsection">5.7.6 Example</h4>
+
+<p>So, to define end notes we need an input file (see <a href="#endnotes_002exml">endnotes.xml</a>)
+containing end notes and references to them , end notes have to be
+enabled in the ini file or via command line options
+(see <a href="#endnotes_002eini">endnotes.ini</a>) and finally we have to specify which element in
+the input file constitutes an endnote and a reference to it by
+defining this in a semantic action file (see <a href="#endnotes_002esem">endnotes.sem</a>).
+Optionally we can also define styles for the notes, the header of the
+notes page and the descriptive text (see <a href="#endnote-styles">endnote styles</a>).
+</p>
+<p>The following example shows the relevant excerpts in the input, sem
+and configuration files together with the resulting output
+(see <a href="#endnote-output">endnote output</a>).
+</p>
+<a name="input_002exml"></a>
+<h4 class="subsubsection">5.7.6.1 input.xml</h4>
+<a name="endnotes_002exml"></a>
+<div class="example">
+<pre class="example">&lt;?xml version=&quot;&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;doc&gt;
+    &lt;notesheader&gt;not seen header&lt;/notesheader&gt;
+    &lt;notesdescription&gt;not seen description&lt;/notesdescription&gt;
+
+    &lt;note id = &quot;2&quot;&gt;Endnote Description 2&lt;/note&gt;
+
+    &lt;p&gt;Foo&lt;noteref id = &quot;1&quot;&gt;1&lt;/noteref&gt;Bar.&lt;/p&gt;
+    &lt;p&gt;Foo&lt;noteref id = &quot;2&quot;&gt;ref2&lt;/noteref&gt;Bar.&lt;/p&gt;
+
+    &lt;notesheader&gt;Endnotes&lt;/notesheader&gt;
+    &lt;notesdescription&gt;Some descriptive text&lt;/notesdescription&gt;
+
+    &lt;note id = &quot;1&quot;&gt;Endnote Description 1&lt;/note&gt;
+&lt;/doc&gt;
+</pre></div>
+
+<a name="liblouisutdml_002eini"></a>
+<h4 class="subsubsection">5.7.6.2 liblouisutdml.ini</h4>
+<a name="endnotes_002eini"></a>
+<div class="example">
+<pre class="example">endnotes yes
+</pre></div>
+
+<a name="endnotes_002esem-1"></a>
+<h4 class="subsubsection">5.7.6.3 endnotes.sem</h4>
+<a name="endnotes_002esem"></a>
+<div class="example">
+<pre class="example">note                note,id
+noteref             noteref,id
+notesheader         notesheader
+notesdescription    notesdescription
+</pre></div>
+
+<a name="styles_002ecfg"></a>
+<h4 class="subsubsection">5.7.6.4 styles.cfg</h4>
+<a name="endnote-styles"></a>
+<div class="example">
+<pre class="example">style note
+    leftMargin 2
+    firstLineIndent 2
+
+style notesheader
+    format centered
+
+style notesdescription
+    format leftJustified
+</pre></div>
+
+<a name="output_002etxt"></a>
+<h4 class="subsubsection">5.7.6.5 output.txt</h4>
+<a name="endnote-output"></a>
+<div class="example">
+<pre class="example">Foo 99#a Bar.
+Foo 99ref#b Bar.
+
+
+
+
+
+
+-page-
+     Endnotes Header
+
+Some descriptive text
+
+#a p#a#a Endnote
+  Description #a
+ref#b p#a#b Endnote
+  Description #b
+-page-
+</pre></div>
+
 <hr>
 <a name="Special-Formats"></a>
 <a name="Special-Formats-1"></a>
@@ -2810,7 +3167,7 @@ by the BRLTTY Team.
 <a href="www.viewplus.com">www.viewplus.com</a>.
 </p>
 <p>Copyright &copy; 2006,2009 Abilitiessoft, Inc.
-<a href="www.abilitiessoft.com">www.abilitiessoft.com</a>.
+<a href="www.abilitiessoft.org">www.abilitiessoft.org</a>.
 </p>
 <p>Liblouisutdml is free software: you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License as published
@@ -2871,9 +3228,9 @@ Code.
 <code>transcribe_graphics</code> can be expanded in the near future to use the
 graphics capability of the Tiger tactile graphics embossers.
 </p>
-<p>The latest versions of liblouisutdml and liblouis can be downloaded from
-<a href="www.abilitiessoft.com">www.abilitiessoft.com</a>. This site also contains links to a mailing
-list and to project pages on googlecode.google.com. Note that
+<p>The latest versions of liblouisutdml and liblouis can be downloaded
+from <a href="www.liblouis.org">www.liblouis.org</a>. This site also contains links to a
+mailing list and to project pages on github.com. Note that
 liblouisutdml will only work with the latest version of liblouis.
 </p>
 <p>liblouisutdml can be compiled to use either 16-bit or 32-bit Unicode
@@ -3111,1458 +3468,61 @@ information. This will call the <code>lbu_free</code> function automatically.
 <a name="Example-files-1"></a>
 <h2 class="appendix">Appendix A Example files</h2>
 
-<p>This appendix contains all the files referenced in this document. They
-are up-to-date at the time of writing, but the actual files used by the
-software may change. Besides being used for reference, they can be
-studied to see how things are done.
+<p>This manual refers to files to files contained in liblouisutdml and
+liblouis. You might want to look up these files in the source
+distribution (located under <samp>lbu_files/</samp>) or online in the
+<a href="https://github.com/liblouis/liblouisutdml">source code
+repository</a> and use them as a reference or to study how things are
+done. In particular the following files are mentioned:
 </p>
-
-<hr>
-<a name="liblouisutdml_002eini"></a>
-<a name="liblouisutdml_002eini-1"></a>
-<h3 class="section">A.1 <samp>liblouisutdml.ini</samp></h3>
-
-<div class="example">
-<pre class="example"># canonical Configuration File
-
-# This file contains all possible settings, together with their
-# default values.
-
-# It is read automatically when liblouisutdml starts. You should use it as
-# a reference but never specify it as a configuration file.
-
-# There are three kinds of lines in the file. the first has a single
-# column beginning at the left margin. This column contains the name of
-# a category of settings, such as outputFormat or translation. These
-# lines are optional. The
-# second type of line contains the word style in the first column,
-# followed by at least one space or tab, and then a style name. The
-# third kind of line is indented one tab stop to set it off from the
-# others. It centains a setting name, at least one blank space or tab,
-# and the value of the setting.
-
-outputFormat
-cellsPerLine 40
-linesPerPage 25
-interpoint no
-lineEnd \r\n
-pageEnd \f
-fileEnd ^z
-printPages yes
-braillePages yes
-paragraphs yes
-beginningPageNumber 1
-printPageNumberAt top
-braillePageNumberAt bottom
-hyphenate no
-outputEncoding ascii8
-inputTextEncoding ascii8
-backFormat plain
-backLineLength 70
-formatFor textDevice
-interline no
-lineFill '
-translation
-literarytextTable en-us-g2.ctb
-uncontractedTable en-us-g1.ctb
-compbrlTable en-us-compbrl.ctb
-mathtextTable en-us-g2.ctb
-mathexprTable nemeth.ctb
-editTable nemeth_edit.ctb
-interlineBackTable en-us-interline.ctb
-xml
-semanticFiles *,nemeth.sem
-xmlheader &quot;&lt;?xml version='1.0' encoding='UTF8' standalone='yes'?&gt;&quot;
-# entity nbsp ^1
-internetAccess yes
-newEntries yes
-
-# Unlike the other categories, the style category must be followed by
-# the name of a style.
-
-style document
-linesBefore 0
-linesAfter 0
-leftMargin 0
-firstLineIndent 0
-translate contracted
-skipNumberLines no
-format leftJustified
-newPageBefore no
-newPageAfter no
-righthandPage no
-braillePageNumberFormat normal
-
-style arith
-style attribution
-format rightJustified
-style biblio
-style caption
-leftMargin 4
-firstLineIndent 2
-style code
-linesBefore 1
-linesAfter 1
-skipNumberLines yes
-format computerCoded
-style contentsheader
-linesBefore 1
-format centered
-linesAfter 1
-style contents1
-firstLineIndent -2
-leftMargin 2
-format contents
-style contents2
-firstLineIndent -2
-leftMargin 4
-format contents
-style contents3
-firstLineIndent -2
-leftMargin 6
-format contents
-style contents4
-firstLineIndent -2
-leftMargin 8
-format contents
-style dedication
-newPageBefore yes
-newPageAfter yes
-format centered
-style directions
-style dispmath
-leftMargin 2
-style disptext
-leftMargin 2
-firstLineIndent 2
-style exercise1
-leftMargin 2
-firstLineIndent -2
-style exercise2
-leftMargin 4
-firstLineIndent -2
-style exercise3
-leftMargin 6
-firstLineIndent -2
-style glossary
-firstLineIndent 2
-style graph
-skipNumberLines yes
-style graphlabel
-style heading1
-linesBefore 1
-format centered
-linesAfter 1
-style heading2
-linesBefore 1
-firstLineIndent 4
-style heading3
-firstLineIndent 4
-style heading4
-firstLineIndent 4
-style index
-style line
-firstLineIndent -2
-leftMargin 2
-style list
-firstLineIndent -2
-leftMargin 2
-style matrix
-format alignColumnsLeft
-style music
-skipNumberLines yes
-style note
-style para
-firstLineIndent 2
-style quotation
-linesBefore 1
-linesAfter 1
-style section
-firstLineIndent 4
-style spatial
-style stanza
-linesBefore 1
-linesAfter 1
-style style1
-style style2
-style style3
-style style4
-style style5
-style subsection
-firstLineIndent 4
-style table
-linesBefore 1
-linesAfter 1
-style titlepage
-newPageAfter yes
-style trnote
-firstLineIndent 7
-leftMargin 5
-style volume
-</pre></div>
-
-
-<hr>
-<a name="default_002ecfg"></a>
-<a name="default_002ecfg-1"></a>
-<h3 class="section">A.2 <samp>default.cfg</samp></h3>
-
-<div class="example">
-<pre class="example">outputFormat
-cellsPerLine 32
-linesPerPage 25
-interpoint no
-braillePages no
-# backFormat html
-# hyphenate yes
-# interline yes
-translation
-literaryTextTable en-us-g2.ctb,corrections.ctb
-# literaryTextTable en-us-g2.ctb,hyph_en_US.dic
-# literaryTextTable no-no-g1.ctb
-# interlineBackTable en-us-interline.ctb
-compbrlTable en-us-comp8.ctb
-xml
-internetAccess no
-# newEntries no
-# semanticFiles book.sem
-# entity nbsp ~1
-
-</pre></div>
-
-<hr>
-<a name="html_002esem"></a>
-<a name="html_002esem-1"></a>
-<h3 class="section">A.3 <samp>html.sem</samp></h3>
-
-<div class="example">
-<pre class="example"># This file was produced by liblouisutdml and is considered part of
-# the code. See the file copyright-notice for permissions and
-# restrictions. This notice also applies to any files with names
-# beginning with 'appended_'.
-
-# You must edit this file as explained in the documentation to get
-# proper output.
-notranslate ntr
-trnote trnote
-contentsheader contentshere
-no hr
-no body
-softreturn br
-heading1 h1
-italicx em
-skip style
-italicx strong
-no ol
-no head
-document html
-no a
-para p
-heading1 title
-list li
-table table
-no param
-pagenum pagenum
-no div
-no span
-no link
-heading2 h2
-no img
-no td
-no tr
-no object
-no ul
-no link,type
-no img,width
-no table,cellpadding
-no img,src
-no div,class
-no td,class
-no p,class
-no table,border
-no table,width
-htmllink link,href
-no param,name
-no param,value
-no link,rel
-no a,id
-no table,cellspacing
-no td,colspan
-no img,height
-no object,classid
-no object,width
-changetable span,lang
-no span,class
-no object,height
-no a,class
-no img,alt
-htmllink a,href
-htmltarget a,name
-no p,align
-no a,name,light
-no a,name,decisi
-no a,name,city
-no a,name,ascent
-no a,name,homeco
-no a,name,forest
-no a,name,prolog
-no p,align,center
-no a,name,homest
-no link,type,text/css
-no a,id,TrigonometricFun
-no img,width,300
-no img,height,300
-no a,href,http://ocw.mit.e
-no td,colspan,3
-no table,border,0
-no table,cellpadding,0
-no td,class,navbar
-no param,name,archive
-no a,href,../tools/content
-no object,height,450
-no span,class,math-inline-bold
-no link,href,../calculus.css
-no param,name,codebase
-no span,class,math-inline-norm
-no img,alt,figure
-no p,class,text-right
-no a,href,contents.xhtml
-no img,src,images/trigo_fun
-no object,classid,java:Trigonometr
-no p,class,text-center
-no a,class,doclink
-no table,cellspacing,0
-no a,href,../glossary_nota
-no div,class,math-block-norma
-no link,href,../mathml.css
-no param,value,trigonometricFun
-no a,href,../index.xhtml
-no link,rel,stylesheet
-no param,value,../applets/
-no object,width,760
-no table,width,100%
-no img,width,184
-no div,class,math-block-bold
-no img,height,116
-no img,src,images/law_sines
-no img,src,images/ln.gif
-no param,value,rotatingCoordina
-no object,classid,java:RotatingCoo
-no a,id,RotatingCoordina
-no a,id,Exercise_3_2
-no a,id,Exercise_3_5
-no object,classid,java:OperationsO
-no a,id,Definition
-no param,value,operationsOnVect
-no param,value,multiplicationVe
-no img,src,images/polar_coo
-no param,value,determinantVecto
-no html,lang
-no html,lang,no
-no i
-no sup
-no style,type
-no style,type,text/css
-no p,class,indent
-no p,class,center
-no p,class,right
-no span,class,math-inline-normal
-no object,classid,java:OperationsOnVectors.class
-no a,href,http://ocw.mit.edu/OcwWeb/Mathematics/18-013ASprin
-code pre
-no meta
-no h1,align
-no meta,content
-no meta,name
-no meta,name,description
-no h1,align,center
-no meta,name,keywords
-no meta,content,Pope_John_Paul_II's_Apostolic__Letter_'Salvifici_D
-no meta,content,suffering__Christian_suffering__redemptive_sufferi
-no font
-no b
-no small
-no h3
-no sub
-no font,size
-no td,align
-no mstyle,fontfamily
-no td,width
-no mi,fontstyle
-no ol,type
-no mstyle,fontfamily,helvetica
-no mi,fontstyle,italic
-no td,align,center
-no meta,content,TtM_3.72
-no td,width,1
-no meta,name,GENERATOR
-no ol,type,1
-no div,class,p
-no font,size,-1
-no mi,fontstyle,normal
-no span,lang,en-us-g1.ctb
-no none
-no col
-no caption
-no thead
-no cite
-no tbody
-no mprescripts
-no math,id
-no mo,minsize
-no math,smilref
-no h1,class
-no p,id
-no caption,title
-no table,id
-no object,data
-no thead,id
-no div,title
-no col,id
-no tbody,id
-no div,id
-no caption,id
-no math,alttext
-no meta,scheme
-no object,id
-no p,title
-no td,rowspan
-no cite,id
-no math,altimg
-no mspace,linebreak
-no table,title
-no td,id
-no tr,id
-no math,overflow
-no div,id,d4e64
-no math,id,d1e21
-no p,title,paragraph:_We_have_performed...
-no div,id,d4e54
-no div,id,d4e59
-no meta,content,Text
-no mi,mathvariant,bold-italic
-no div,id,d4e49
-no math,overflow,scroll
-no div,id,front
-no p,id,d4e72
-no math,alttext,__lamda_sub_c
-no meta,scheme,EID
-no p,id,d4e62
-no p,id,d4e67
-no p,id,d4e52
-no object,id,f1
-no object,id,f2
-no p,id,d4e57
-no object,id,f3
-no tbody,id,d13e73
-no tr,id,d13e74
-no math,smilref,dtb_e057003.smil#d1e21
-no td,colspan,1
-no tr,id,d13e67
-no td,colspan,2
-no p,title,paragraph:_We_report_measure...
-no caption,id,d13e2
-no math,id,d1e770
-no meta,scheme,PACS_code
-no p,title,paragraph:_Angle_resolved_ph...
-no object,data,e057003_2.svg
-no math,smilref,dtb_e057003.smil#d1e770
-no p,title,paragraph:_The_transition_me...
-no col,id,d13e60
-no col,id,d13e61
-no col,id,d13e62
-no col,id,d13e63
-no col,id,d13e64
-no caption,title,caption
-no div,title,Author_Information
-no link,href,default.css
-no math,alttext,__cap_nb_cap_se_sub_2
-no math,id,d1e113
-no math,alttext,__lamda_sub_ay
-no mspace,linebreak,goodbreak
-no math,id,d1e121
-no meta,name,dc:Type
-no math,id,d1e129
-no span,class,sentence
-no div,title,frontmatter
-no cite,id,d4e2807
-no div,class,doctitle
-no math,smilref,dtb_e057003.smil#d1e113
-no td,rowspan,1
-no p,title,paragraph:_We_thank_I._Mazin...
-no math,smilref,dtb_e057003.smil#d1e121
-no math,smilref,dtb_e057003.smil#d1e129
-no math,altimg,math_img/math_2.png
-no cite,id,d4e2838
-no div,class,frontmatter
-no thead,id,d13e66
-no table,title,Table:_Variation_of_the_...
-no cite,id,d4e2816
-no cite,id,d4e2829
-no math,alttext,_2__cap_h_-__cap_nb_cap_se_sub_2
-no td,id,d13e88
-no td,id,d13e71
-no td,id,d13e75
-no param,name,SRC
-no td,id,d13e68
-no td,id,d13e69
-no object,classid,CLSID:8483EB52-5EF2-44F5-A685-C9FD08F9B18C
-no html,lang,en
-no object,data,e057003_3.svg
-no tr,id,d13e193
-no tr,id,d13e167
-no tr,id,d13e180
-no table,id,d13e1
-no math,altimg,math_img/math_1.png
-no meta,content,ANSI/NISO_Z39.86-2005
-no meta,scheme,http://www.w3.org/1998/Math/MathML
-no math,altimg,math_img/math_4.png
-no h1,class,title
-no math,altimg,math_img/math_10.png
-no math,altimg,math_img/math_3.png
-no cite,id,d4e2794
-no meta,scheme,DOI
-no mo,minsize,5ex
-no object,data,e057003_1.svg
-no meta,name,dc:Format
-no a,class,nava
-no a,onclick
-no a,onclick,ChSize('10')
-no a,onclick,ChSize('12')
-no a,onclick,ChSize('13')
-no a,onclick,ChSize('14')
-no a,shape
-no a,shape,rect
-no a,target
-no a,target,_blank
-quotation blockquote
-no br,class
-no br,class,newline
-no center
-no h3,class
-no h3,class,sectionHead
-heading4 h4
-no h4,class
-no h4,class,subsectionHead
-no img,alt,Variable_Star.jpg
-no img,src,Variable%20Star.jpg
-no link,href,http://purl.org/DC/elements/1.0/
-no link,href,root.css
-no link,rel,schema.DC
-no meta,http-equiv
-no meta,http-equiv,Content-Language
-no meta,http-equiv,Content-Type
-no mo,class
-no mo,class,MathClass-close
-no mo,class,MathClass-punc
-no mo,class,MathClass-rel
-no mspace,class
-no mspace,class,quad
-no mspace,width,1em
-no mstyle,class
-no mstyle,class,label
-no mstyle,id
-no mstyle,id,x1-2001r1
-no mstyle,id,x1-2002r2
-no script
-no script,type
-no script,type,text/javascript
-no span,class,titlemark
-no table,class
-no table,class,equation
-no td,class,eq-no
-titlepage titlepage
-dedication dedication
-attribution attribution
-no list
-italicx emp
-no attrib
-no meta,name,generator
-no mo,class,MathClass-op
-no mo,class,MathClass-open
-no mo,class,MathClass-bin
-boxline boxline 7
-no base
-no var
-para dd
-no dl
-para dt
-heading4 h5
-compbrl code
-no base,href
-no hr,title
-no tr,valign
-no pre,style
-no img,width,72
-no pre,style,color:_red
-no tr,valign,baseline
-no base,href,http://www.w3.org/TR/1999/REC-xslt-19991116
-no img,height,48
-no table,class,scrap
-no hr,title,Separator_for_header
-no img,alt,W3C
-no hr,title,Separator_from_footer
-no samp
-no th
-no dd,id
-
-no h2,id
-no table,summary
-no li,id
-no ol,id
-no dl,id
-no ul,class
-no ul,id
-no dt,id
-no samp,id
-no h1,id
-no h3,id
-no ul,class,pl
-no dl,id,dl_1
-no ul,id,ul_1
-no dl,id,dl_2
-no ul,id,ul_2
-no ul,id,ul_3
-no ul,id,ul_4
-no dl,id,dl_5
-no dl,id,dl_6
-no h3,id,h3_18
-no h2,id,h2_5a
-no h1,id,h1_2a
-no h3,id,Vote
-no dl,id,dl_5a
-no samp,id,smp_1
-no samp,id,smp_2
-no li,id,li_0
-no samp,id,smp_3
-no li,id,li_1
-no samp,id,smp_4
-no li,id,li_2
-no samp,id,smp_5
-no li,id,li_3
-no li,id,li_4
-no dd,id,dd_1
-no dt,id,dt_1
-no dd,id,dd_2
-no dt,id,dt_2
-no dd,id,dd_3
-no dt,id,dt_3
-no dd,id,dd_4
-no dt,id,dt_4
-no dd,id,dd_5
-no dt,id,dt_5
-no h3,id,h3_8
-no h3,id,BoD
-no h3,id,h2_5
-no ol,id,ol_3gwk
-no h1,id,h1_2
-no h1,id,h1_3
-no h1,id,h1_4
-no h2,id,h2_6
-no h2,id,h2_7
-no h2,id,h2_8
-no h2,id,h2_9
-no ol,id,ol_2
-no h1,id,h1_a
-no ol,id,ol_3
-no ol,id,ol_4
-no table,summary,This_table_lists_each_kind_of_DTB_file__the_requir
-no ul,id,ol_1
-no base
-no var
-para dd
-para dl
-no dt
-no h5
-code code
-no base,href
-no hr,title
-no tr,valign
-no pre,style
-no img,width,72
-no pre,style,color:_red
-no tr,valign,baseline
-no base,href,http://www.w3.org/TR/1999/REC-xslt-19991116
-no img,height,48
-no table,class,scrap
-no hr,title,Separator_for_header
-no img,alt,W3C
-no hr,title,Separator_from_footer
-no samp
-no th
-no dd,id
-no h2,id
-no table,summary
-no li,id
-no ol,id
-no dl,id
-no ul,class
-no ul,id
-no dt,id
-no samp,id
-no h1,id
-no h3,id
-no ul,class,pl
-no dl,id,dl_1
-no ul,id,ul_1
-no dl,id,dl_2
-no ul,id,ul_2
-no ul,id,ul_3
-no ul,id,ul_4
-no dl,id,dl_5
-no dl,id,dl_6
-no h3,id,h3_18
-no h2,id,h2_5a
-no h1,id,h1_2a
-no h3,id,Vote
-no dl,id,dl_5a
-no samp,id,smp_1
-no samp,id,smp_2
-no li,id,li_0
-no samp,id,smp_3
-no li,id,li_1
-no samp,id,smp_4
-no li,id,li_2
-no samp,id,smp_5
-no li,id,li_3
-no li,id,li_4
-no dd,id,dd_1
-no dt,id,dt_1
-no dd,id,dd_2
-no dt,id,dt_2
-no dd,id,dd_3
-no dt,id,dt_3
-no dd,id,dd_4
-no dt,id,dt_4
-no dd,id,dd_5
-no dt,id,dt_5
-no h3,id,h3_8
-no h3,id,BoD
-no h3,id,h2_5
-no ol,id,ol_3gwk
-no h1,id,h1_2
-no h1,id,h1_3
-no h1,id,h1_4
-no h2,id,h2_6
-no h2,id,h2_7
-no h2,id,h2_8
-no h2,id,h2_9
-no base,href,http://www.daisy.org/z3986/2005/Z3986-2005.html
-no ol,id,ol_2
-no h1,id,h1_a
-no ol,id,ol_3
-no ol,id,ol_4
-no table,summary,This_table_lists_each_kind_of_DTB_file__the_requir
-no ul,id,ol_1
-no form
-no input
-no select
-no label
-no noscript
-no option
-no textarea
-no td,valign
-no input,border
-no textarea,class
-no select,class
-no img,name
-no input,type
-no script,language
-no select,size
-no label,for
-no textarea,name
-no link,media
-no input,name
-no textarea,wrap
-no td,height
-no script,src
-no input,width
-no input,id
-no form,id
-no img,border
-no b,class
-no option,selected
-no li,class
-no form,method
-no img,align
-no table,align
-no input,maxlength
-no img,class
-no input,value
-no select,id
-no form,name
-no textarea,rows
-no tr,align
-no input,class
-no input,src
-no textarea,id
-no select,name
-no pre,class
-no span,id
-no input,alt
-no img,vspace
-no textarea,cols
-no input,height
-no form,action
-no tr,class
-no option,value
-no img,vspace,3
-no img,border,0
-no input,height,21
-no input,width,120
-no select,size,1
-no input,src,//www.ibm.com/i/v14/buttons/submit.gif
-no td,height,18
-no input,maxlength,100
-no option,value,dW
-no pre,class,displaycode
-no textarea,cols,35
-no form,method,get
-no tr,align,right
-no table,align,right
-no input,id,q
-no img,class,display-img
-no textarea,rows,5
-no form,name,form1
-no b,class,related
-no input,name,searchType
-no input,border,0
-no td,valign,middle
-no textarea,class,iform
-no select,id,sn
-no textarea,id,Comments
-no link,media,screen_print
-no select,name,searchScope
-no textarea,name,Comments
-no form,action,//www.ibm.com/developerworks/search/searchResults.
-no img,align,left
-no input,class,ibm-btn-search
-no script,src,/developerworks/js/dwcss14.js
-no span,id,ibm-search-scope
-no label,for,sn
-no script,language,JavaScript
-no input,alt,Submit
-no img,name,Benoit_Marchal
-no tr,class,left-nav-child-highlight
-no input,type,hidden
-no textarea,wrap,virtual
-no li,class,ibm-first
-no option,selected,selected
-no select,class,input-local
-no input,value,1
-no form,id,ibm-search-form
-no body,link
-no h3,align
-no body,vlink
-no body,alink
-no body,bgcolor
-no body,text
-no h2,align
-no font,face
-no body,text,black
-no body,bgcolor,white
-no body,alink,navy
-no body,link,red
-no h2,align,center
-no h3,align,center
-no body,vlink,red
-no font,face,Arial_Helvetica_sans-serif
-no link,rel,SHORTCUT_ICON
-no acronym
-code cdata-section
-no dfn
-no kbd
-no ul,compact
-no a,accesskey
-no ol,start
-no small,class
-no link,title
-no a,rel
-no h2,class
-no div,align
-no ol,start,1
-no small,class,dots
-no h2,class,unnumbered
-no a,rel,next
-no div,align,right
-no link,title,Top
-no ul,compact,
-no a,accesskey,n
-no h3,class,likesectionHead
-no h4,class,likesubsectionHead
-no a,class,url
-no colgroup
-no colgroup,id
-no table,rules
-no tr,style
-no td,style
-no li,class
-no ol,class
-no tr,class
-no li,class,enumerate
-no ol,class,enumerate1
-no tr,style,vertical-align:baseline;
-no td,style,text-align:center;_white-space:nowrap;
-no colgroup,id,TBL-1-4g
-no colgroup,id,TBL-1-5g
-no table,rules,groups
-no colgroup,id,TBL-1-2g
-no colgroup,id,TBL-1-3g
-no td,style,text-align:left;_white-space:nowrap;
-no colgroup,id,TBL-1-1g
-no tr,class,hline
-no table,class,tabular
-no td,class,td11
-no h2,class
-no h2,class,likechapterHead
-no colgroup,id
-no tr,style
-no td,style
-no tr,class
-no h3,class,likesectionHead
-no colgroup,id,TBL-4621-1g
-no tr,style,vertical-align:baseline;
-no td,style,text-align:center;_white-space:nowrap;
-no table,rules,groups
-no colgroup,id,TBL-4621-2g
-no td,style,text-align:left;_white-space:nowrap;
-no h4,class,likesubsectionHead
-no tr,class,hline
-no table,class,tabular
-no td,class,td11
-</pre></div>
-
-
-<hr>
-<a name="nemeth_002esem"></a>
-<a name="nemeth_002esem-1"></a>
-<h3 class="section">A.4 <samp>nemeth.sem</samp></h3>
-
-<div class="example">
-<pre class="example"># Licnsed under LGPL
-
-# Updated 6-18-08 by Mike Sivill &lt;mike.sivill@viewplus.com&gt;
-
-# You must edit this file as explained in the documentation to get
-# proper output.
-
-maction maction
-maligngroup maligngroup
-malignmark malignmark
-math math \eb,\*\ee
-menclose menclose
-mfrac mfrac ^?,/,^#
-mfenced mfenced ^(,^)
-mfenced mfenced,open,{ ^{,^}
-mglyph mglyph
-mi mi
-mlabeledtr mlabeledtr
-mmultiscripts mmultiscripts
-mn mn
-mo mo
-mover mover ^&quot;,^&lt;,^}
-mpadded mpadded
-reverse mroot ^&lt;,^&gt;,^}
-mrow mrow
-ms ms
-mspace mspace
-msqrt msqrt ^&gt;,^}
-mstyle mstyle
-msub msub ,^;,^&quot;
-msubsup msupsup ,^~,^~^~,^&quot;
-msubsup msubsup ,^;,^~,^&quot;
-msup msup ,^~,^&quot;
-matrix mtable
-mtd mtd \*\ec
-mtext mtext
-mtr mtr ^`^\,^(,\*^`^\,^)\er
-munder munder ^&quot;,^%,^}
-munderover munderover ^&quot;,^%,^&lt;,^}
-semantics semantics
-skip annotation
-no annotation,encoding
-no maction,actiontype
-no maction,actiontype,highli
-no maction,actiontype,status
-no maction,actiontype,toggle
-no maction,dsi:background
-no malignmark,edge
-no malignmark,edge,right
-no math,display
-no math,display,block
-no math,mode
-no math,mode,inline
-no math,xmlns
-no mfenced,open
-no mfenced,separators
-no mn,color
-no mn,color,green
-no mo,stretchy
-no mo,stretchy,false
-no mo,stretchy,true
-no mover,accent
-no mover,accent,true
-no ms,lquote
-no ms,rquote
-no ms,rquote,'
-no mspace,height
-no mspace,width
-no mstyle,background
-no mstyle,background,lightb
-no mstyle,background,red
-no mstyle,color
-no mstyle,color,blue
-no mstyle,displaystyle
-no mstyle,displaystyle,true
-no mstyle,fontsize
-no mstyle,fontstyle
-no mstyle,fontstyle,italic
-no mstyle,fontstyle,normal
-no mstyle,fontweight
-no mstyle,fontweight,bold
-no mstyle,mathsize
-no mstyle,mathsize,normal
-no mstyle,mathvariant
-no mstyle,mathvariant,bold
-no mstyle,scriptlevel
-no mtable,columnalign
-no mtable,columnalign,left
-no mtable,equalcolumns
-no mtable,equalcolumns,false
-no mtable,equalrows
-no mtable,equalrows,false
-no mtable,frame
-no mtable,frame,solid
-no mtable,width
-no munderover,accent
-no munderover,accent,true
-skip annotation,encoding,MathType-MTEF
-skip merror
-skip mphantom
-no mo,maxsize
-no mo,maxsize,3
-no mo,mathsize
-no mi,mathvariant
-no mo,mathvariant
-no munder,accentunder
-no mn,mathvariant
-no mtext,mathvariant
-no mi,mathvariant,italic
-no mn,mathvariant,normal
-no mo,mathvariant,normal
-no munder,accentunder,true
-no mtext,mathvariant,normal
-no math,display,inline
-no mi,mathvariant,normal
-no mi,mathvariant,fraktur
-no mi,mathvariant,bold-sans
-
-no mi,mathvariant,double-struck
-no mi,mathvariant,double-struck
-no mi,mathvariant,double-struck
-no menclose,notation
-no mtd,columnalign
-no menclose,notation,longdiv
-no mtd,columnalign,right
-no mfrac
-no mfrac
-no mfrac
-no mfrac
-no mfrac
-no mfrac
-no mstyle,scriptlevel,-1
-</pre></div>
-
-<hr>
-<a name="Files-for-BAUK-Maths-_0028ukmaths_0029"></a>
-<a name="Files-for-BAUK-Maths-_0028ukmaths_0029-1"></a>
-<h3 class="section">A.5 Files for BAUK Maths (ukmaths)</h3>
-
-
-<hr>
-<a name="ukmaths_002ecfg"></a>
-<a name="ukmaths_002ecfg-1"></a>
-<h4 class="subsection">A.5.1 <samp>ukmaths.cfg</samp></h4>
-
-<div class="example">
-<pre class="example">cellsperline 32
-braillePages no
-mathexprtable us-table.dis,ukmaths.ctb
-editTable ukmaths_edit.ctb
-internetAccess no
-semanticFiles *,ukmaths.sem
-
-</pre></div>
-
-<hr>
-<a name="ukmaths_002esem"></a>
-<a name="ukmaths_002esem-1"></a>
-<h4 class="subsection">A.5.2 <samp>ukmaths.sem</samp></h4>
-
-<div class="example">
-<pre class="example"># Licensed under LGPL
-
-maction maction
-maligngroup maligngroup
-malignmark malignmark
-math math \eb,\*\ee
-menclose menclose
-mfrac mfrac \x0003,@456-34,\x0004
-mfenced mfenced @126,@345
-mfenced mfenced,open,{ @246,@135
-mover mover ,@4-346,@12456
-munder munder ,@4-16,@12456
-mglyph mglyph
-mi mi
-mlabeledtr mlabeledtr
-mmultiscripts mmultiscripts
-mn mn
-mo mo
-mpadded mpadded
-reverse mroot @146
-mrow mrow \x0001,\*\x0002
-ms ms
-mspace mspace \x00a0
-msqrt msqrt @146
-mstyle mstyle
-msub msub ,@16,@12456
-msubsup msubsup ,@346,@12456
-msup msup ,@346,@12456
-matrix mtable
-mtd mtd \*\ec
-mtext mtext
-mtr mtr @123456,\*@123456\er
-munderover munderover ^&quot;,^%,^&lt;,^}
-semantics semantics
-skip annotation
-no annotation,encoding
-no maction,actiontype
-no maction,actiontype,highli
-no maction,actiontype,status
-no maction,actiontype,toggle
-no maction,dsi:background
-no malignmark,edge
-no malignmark,edge,right
-no math,display
-no math,display,block
-no math,mode
-no math,mode,inline
-no math,xmlns
-no mfenced,open
-no mfenced,separators
-no mn,color
-no mn,color,green
-no mo,stretchy
-no mo,stretchy,false
-no mo,stretchy,true
-no mover,accent
-no mover,accent,true
-no ms,lquote
-no ms,rquote
-no ms,rquote,'
-no mspace,height
-no mspace,width
-no mstyle,background
-no mstyle,background,lightb
-no mstyle,background,red
-no mstyle,color
-no mstyle,color,blue
-no mstyle,displaystyle
-no mstyle,displaystyle,true
-no mstyle,fontsize
-no mstyle,fontstyle
-no mstyle,fontstyle,italic
-no mstyle,fontstyle,normal
-no mstyle,fontweight
-no mstyle,fontweight,bold
-no mstyle,mathsize
-no mstyle,mathsize,normal
-no mstyle,mathvariant
-no mstyle,mathvariant,bold
-no mstyle,scriptlevel
-no mtable,columnalign
-no mtable,columnalign,left
-no mtable,equalcolumns
-no mtable,equalcolumns,false
-no mtable,equalrows
-no mtable,equalrows,false
-no mtable,frame
-no mtable,frame,solid
-no mtable,width
-no munderover,accent
-no munderover,accent,true
-skip annotation,encoding,MathType-MTEF
-skip merror
-skip mphantom
-no mo,maxsize
-no mo,maxsize,3
-no mo,mathsize
-no mi,mathvariant
-no mo,mathvariant
-no munder,accentunder
-no mn,mathvariant
-no mtext,mathvariant
-no mi,mathvariant,italic
-no mn,mathvariant,normal
-no mo,mathvariant,normal
-no munder,accentunder,true
-no mtext,mathvariant,normal
-no math,display,inline
-no mi,mathvariant,normal
-no mi,mathvariant,fraktur
-no mi,mathvariant,bold-sans
-no mi,mathvariant,double-struck
-no menclose,notation
-no mtd,columnalign
-no menclose,notation,longdiv
-no mtd,columnalign,right
-no mstyle,scriptlevel,-1
-</pre></div>
-
-
-<hr>
-<a name="ukmaths_002ectb"></a>
-<a name="ukmaths_002ectb-1"></a>
-<h4 class="subsection">A.5.3 <samp>ukmaths.ctb</samp></h4>
-
-<div class="example">
-<pre class="example"># liblouis: UK Maths Table for mathematics
-#
-# Based on the Linux screenreader BRLTTY, copyright (C) 1999-2006 by
-# The BRLTTY Team
-#
-# Copyright (C) 2004, 2005, 2006
-# ViewPlus Technologies, Inc. www.viewplus.com
-# and
-# JJB Software, Inc. www.jjb-software.com
-# All rights reserved
-#
-# This file is free software; you can redistribute it and/or modify it
-# under the terms of the Lesser or Library GNU General Public License
-# as published by the
-# Free Software Foundation; either version 3, or (at your option) any
-# later version.
-#
-# This file is distributed in the hope that it will be useful, but
-# WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# Library GNU General Public License for more details.
-#
-# You should have received a copy of the Library GNU General Public
-# License along with this program; see the file COPYING. If not, write
-# to
-# the Free Software Foundation, 51 Franklin Street, Fifth Floor,
-# Boston, MA 02110-1301, USA.
-#
-# Maintained by John J. Boyer john.boyer@jjb-software.com
-# Updated 6-18-08 by Mike Sivill &lt;mike.sivill@viewplus.com&gt;
-
-include ukmaths_single_cell_defs.cti
-include ukmaths_unicode_defs.cti
-# grouping definitions are character-definition rules
-grouping mrow \x0001\x0002 1e,2e
-grouping mfrac \x0003\x0004 3e,4e
-grouping brackets \x0005\x0006 126,345
-
-# Braille indicators
-numsign 3456
-capsign 6
-begcaps 6-6
-endcaps 6-3
-singleletterital 4
-singleletterbold 4
-
-# litdigit opcodes must be in this table, not the single-cell table.
-litdigit 0 245
-litdigit 1 1
-litdigit 2 12
-litdigit 3 14
-litdigit 4 145
-litdigit 5 15
-litdigit 6 124
-litdigit 7 1245
-litdigit 8 125
-litdigit 9 24
-
-# No letsign but endnum for letters a-j.
-endnum a 56-1
-endnum b 56-12
-endnum c 56-14
-endnum d 56-145
-endnum e 56-15
-endnum f 56-124
-endnum g 56-1245
-endnum h 56-125
-endnum i 56-24
-endnum j 56-245
-
-# Ordinary translation entries
-always = a-56-2356
-always + a-56-235
-always &gt; a-135-a
-always &lt; a-246-a
-always % 25-1234
-always $ 256
-always &amp; 4-12346
-always ~ 45-156
-always ! 6-236
-prepunc &quot; 236
-postpunc &quot; 356
-postpunc ' 3
-always '' 36
-always ''' 36-3
-midnum , 3
-postpunc , 6-2
-always , 3
-always # 35-2345 print number sign before number
-always ( 126
-always ) 345
-pass2 [{mrow]@126/@345}mrow ?
-pass2 @126[{mrow]/}mrow@345 ?
-decpoint . 2
-always ... 3-3-3
-hyphen - 36
-postpunc . 6-256
-postpunc ; 6-23
-postpunc : 6-25
-postpunc ? 6-236
-endnum % 4-356
-midnum * 4-16
-repeated \s 0
-repeated \x00a0 a
-
-# swap opcodes for replacement and testing.
-swapcd dropped 0123456789 356,2,23,25,456,26,235,2356,236,35
-swapdd upnum 245,1,12,14,145,15,124,1245,125,24 0,0,0,0,0,0,0,0,0,0
-swapdd lownum 356,2,23,25,256,26,235,2356,236,35 0,0,0,0,0,0,0,0,0,0
-
-# now we start doing the real work
-
-# Correction rules
-correct {mrow$ld1-20[}mrow] ?
-correct &quot;\eb&quot;[{mrow]/}mrow&quot;\ee&quot; ?
-context &quot;\eb&quot;[]$l&quot;\ee&quot; @56
-context &quot;\eb&quot;[]&quot;,&quot;$l&quot;\ee&quot; @56
-context []&quot;@456-34&quot;$d1-10}mfrac #1=1
-# context []&quot;@456-34&quot;$d1-10}mfrac #1=1
-context []&quot;@346&quot;$d1-10&quot;@12456&quot; #1=1
-context []&quot;@16&quot;$d1-10&quot;@12456&quot; #1=1
-# context []&quot;@146&quot;$d1-10 #1=1
-context #1=1$d1-10 #1=0%dropped
-
-# exactdots opcodes for dot patterns in ukmaths.sem
-exactdots @126
-exactdots @345
-exactdots @123456
-exactdots @346
-exactdots @16
-exactdots @23456
-exactdots @34
-exactdots @456-34
-exactdots @12456
-exactdots @146
-
-# Function names and abbreviations
-word cos 1246-14
-word grad 1246-1245
-word cosh 1246-125-14
-word sinh 1246-125-234
-word tanh 1246-125-2345
-word cosech 1246-125-126
-word coth 1246-125-1256
-word sech 1246-125-36
-word log 1246-123
-word sin 1246-234
-word tan 1246-2345
-word cosec 1246-126
-word curl 1246-146
-word div 1246-1456
-word cot 1246-1256
-word arccosh 1246-236-14
-word arcsinh 1246-236-234
-word arctanh 1246-236-2345
-word arccosech 1246-236-126
-word arccoth 1246-236-1256
-word arcsech 1246-236-36
-word sec 1246-36
-word arccos 1246-4-14
-word antilog 1246-4-123
-word arcsin 1246-4-234
-word arctan 1246-4-2345
-word arccosec 1246-4-126
-word arccot 1246-4-1256
-word arcsec 1246-4-25
-word colog 1246-45-123
-
-# pass2 processing
-pass2 [@3456]%lownum1-10 ?
-pass2 [@456-34-3456]%lownum1-10 ?
-
-# pass3 processing
-pass3 @346%lownum1-10[@12456] ?
-pass3 @16[%lownum1-10]@12456 *
-pass3 {mfrac[@3456%upnum1-10%lownum1-10]}mfrac *
-</pre></div>
-
-<hr>
-<a name="ukmaths_005fedit_002ectb"></a>
-<a name="ukmaths_005fedit_002ectb-1"></a>
-<h4 class="subsection">A.5.4 <samp>ukmaths_edit.ctb</samp></h4>
-
-<div class="example">
-<pre class="example"># liblouis Table for Post-Translation Editing
-#
-# Based on the Linux screenreader BRLTTY, copyright (C) 1999-2006 by
-# The BRLTTY Team
-#
-# Copyright (C) 2004, 2005, 2006
-# ViewPlus Technologies, Inc. www.viewplus.com
-# and
-# JJB Software, Inc. www.jjb-software.com
-# All rights reserved
-#
-# This file is free software; you can redistribute it and/or modify it
-# under the terms of the Lesser or Library GNU General Public License
-# as published by the
-# Free Software Foundation; either version 3, or (at your option) any
-# later version.
-#
-# This file is distributed in the hope that it will be useful, but
-# WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# Library GNU General Public License for more details.
-#
-# You should have received a copy of the Library GNU General Public
-# License along with this program; see the file COPYING. If not, write
-# to
-# the Free Software Foundation, 51 Franklin Street, Fifth Floor,
-# Boston, MA 02110-1301, USA.
-#
-# Maintained by John J. Boyer john.boyer@jjb-software.com
-# Updated 6-18-08 by Mike Sivill &lt;mike.sivill@viewplus.com&gt;
-include ukmaths_single_cell_defs.cti
-
-
-math \x0001 56
-math \x0002 45
-math \x0003 56
-math \x0004 45
-repeated \s 0
-always \ee\s`4 6-256
-always \ee\s`1 6
-always \ee\s`3 6-25
-always \ee\s`2 6-23
-always `7\s\eb 12356
-always \ee\s`7 23456
-always &quot;\s 0
-always \s,\s 6-0
-# context &quot;\eb&quot;[]$l&quot;\ee&quot; @56
-# context &quot;\eb&quot;[]&quot;,&quot;$l&quot;\ee&quot; @56
-
-pass2 @1b-12 ?
-pass2 @1b-15 ?
-pass2 @1b-12-4-4 @4
-</pre></div>
+<dl compact="compact">
+<dt><samp>liblouisutdml.ini</samp></dt>
+<dd>
+<p>The
+<a href="https://github.com/liblouis/liblouisutdml/blob/master/lbu_files/liblouisutdml.ini">main initialization file</a> that contains the minimal settings for
+liblouisutdml operation.
+</p>
+</dd>
+<dt><samp>preferences.cfg</samp></dt>
+<dd>
+<p>The
+<a href="https://github.com/liblouis/liblouisutdml/blob/master/lbu_files/preferences.cfg">preferences.cfg</a> file contains all possible configuration settings,
+with sample values, where appropriate. It is used by the
+<code>file2brl</code> command-line interface if no configuration file is
+given.
+</p>
+</dd>
+<dt><samp>html.sem</samp></dt>
+<dd>
+<p>An example of a
+<a href="https://github.com/liblouis/liblouisutdml/blob/master/lbu_files/html.sem">semantic action file to handle html</a>.
+</p>
+</dd>
+<dt><samp>nemeth.sem</samp></dt>
+<dd>
+<p>An example of a
+<a href="https://github.com/liblouis/liblouisutdml/blob/master/lbu_files/nemeth.sem">semantic action file to handle math</a>.
+</p>
+</dd>
+<dt><samp>ukmaths.sem</samp></dt>
+<dd>
+<p>An example of a
+<a href="https://github.com/liblouis/liblouisutdml/blob/master/lbu_files/ukmaths.sem">semantic action file to handle math</a>.
+</p>
+</dd>
+<dt><samp>ukmaths.ctb</samp></dt>
+<dd>
+<p>The
+<a href="https://github.com/liblouis/liblouis/blob/master/tables/ukmaths.ctb">liblouis UK Maths table for mathematics</a>.
+</p>
+</dd>
+<dt><samp>ukmaths_edit.ctb</samp></dt>
+<dd>
+<p>The
+<a href="https://github.com/liblouis/liblouis/blob/master/tables/ukmaths_edit.ctb">liblouis table for post-translation editing of UK Maths</a>.
+</p>
+</dd>
+</dl>
 
 <hr>
 <a name="Configuration-Settings-Index"></a>
@@ -4613,6 +3573,7 @@ pass2 @1b-12-4-4 @4
 <tr><td></td><td valign="top"><a href="#index-backFormat"><code>backFormat</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-backLineLength"><code>backLineLength</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-beginningPageNumber"><code>beginningPageNumber</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-bottomBoxline"><code>bottomBoxline</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-braillePageNumberAt"><code>braillePageNumberAt</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-braillePageNumberFormat"><code>braillePageNumberFormat</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-braillePages"><code>braillePages</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
@@ -4628,6 +3589,7 @@ pass2 @1b-12-4-4 @4
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Configuration-Settings-Index_tp_letter-E">E</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-editTable"><code>editTable</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#translation">translation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-endnotes"><code>endnotes</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Configuration">Configuration</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-entity"><code>entity</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#xml">xml</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Configuration-Settings-Index_tp_letter-F">F</a></th><td></td><td></td></tr>
@@ -4655,8 +3617,6 @@ pass2 @1b-12-4-4 @4
 <tr><th><a name="Configuration-Settings-Index_tp_letter-I">I</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ignoreEmptyPages"><code>ignoreEmptyPages</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-inputTextEncoding"><code>inputTextEncoding</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-interline"><code>interline</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-interlineBackTable"><code>interlineBackTable</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#translation">translation</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-internetAccess"><code>internetAccess</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#xml">xml</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-interpoint"><code>interpoint</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
@@ -4715,6 +3675,7 @@ pass2 @1b-12-4-4 @4
 <tr><td></td><td valign="top"><a href="#index-skipNumberLines"><code>skipNumberLines</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Configuration-Settings-Index_tp_letter-T">T</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-topBoxline"><code>topBoxline</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-translate"><code>translate</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Configuration-Settings-Index_tp_letter-U">U</a></th><td></td><td></td></tr>
@@ -4802,7 +3763,6 @@ pass2 @1b-12-4-4 @4
 <tr><th><a name="Semantic-Action-Index_semantic_letter-B">B</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-blankline">blankline</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-boldx">boldx</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-boxline">boxline</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Semantic-Action-Index_semantic_letter-C">C</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-changetable">changetable</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
@@ -4882,6 +3842,10 @@ pass2 @1b-12-4-4 @4
 <tr><td></td><td valign="top"><a href="#index-newpage">newpage</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-no">no</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-none">none</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-note">note</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions">Semantic Actions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-noteref">noteref</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions">Semantic Actions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-notesdescription">notesdescription</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions">Semantic Actions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-notesheader">notesheader</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions">Semantic Actions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-notranslate">notranslate</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Semantic-Action-Index_semantic_letter-P">P</a></th><td></td><td></td></tr>
@@ -4934,6 +3898,60 @@ pass2 @1b-12-4-4 @4
 </td></tr></table>
 
 <hr>
+<a name="Style-Index"></a>
+<a name="Style-Index-1"></a>
+<h2 class="unnumbered">Style Index</h2>
+
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Style-Index_style_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Style-Index_style_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Style-Index_style_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Style-Index_style_letter-H"><b>H</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Style-Index_style_letter-P"><b>P</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-style" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Style-Index_style_letter-B">B</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-boxline">boxline</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Style-Index_style_letter-C">C</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-contents1">contents1</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-contents2">contents2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-contents3">contents3</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-contents4">contents4</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-contentsheader-1">contentsheader</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Style-Index_style_letter-D">D</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-document-1">document</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Style-Index_style_letter-H">H</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-heading1-1">heading1</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-heading2-1">heading2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-heading3-1">heading3</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-heading4-1">heading4</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Style-Index_style_letter-P">P</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-para-1">para</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Style-Index_style_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Style-Index_style_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Style-Index_style_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Style-Index_style_letter-H"><b>H</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Style-Index_style_letter-P"><b>P</b></a>
+ &nbsp; 
+</td></tr></table>
+
+<hr>
 <a name="Function-Index"></a>
 <a name="Function-Index-1"></a>
 <h2 class="unnumbered">Function Index</h2>
@@ -4965,12 +3983,6 @@ pass2 @1b-12-4-4 @4
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Program-Index_pg_letter-F"><b>F</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Program-Index_pg_letter-M"><b>M</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Program-Index_pg_letter-P"><b>P</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Program-Index_pg_letter-R"><b>R</b></a>
- &nbsp; 
 </td></tr></table>
 <table class="index-pg" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
@@ -4978,29 +3990,40 @@ pass2 @1b-12-4-4 @4
 <tr><th><a name="Program-Index_pg_letter-F">F</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-file2brl"><code>file2brl</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Transcribing-XML-files-with-file2brl">Transcribing XML files with file2brl</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Program-Index_pg_letter-M">M</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-msword2brl"><code>msword2brl</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Transcribing-Microsoft-Word-files-with-msword2brl">Transcribing Microsoft Word files with msword2brl</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Program-Index_pg_letter-P">P</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-pdf2brl"><code>pdf2brl</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Transcribing-PDF-files-with-pdf2brl">Transcribing PDF files with pdf2brl</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Program-Index_pg_letter-R">R</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-rtf2brl"><code>rtf2brl</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Transcribing-RTF-files-with-rtf2brl">Transcribing RTF files with rtf2brl</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
 </table>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Program-Index_pg_letter-F"><b>F</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Program-Index_pg_letter-M"><b>M</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Program-Index_pg_letter-P"><b>P</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Program-Index_pg_letter-R"><b>R</b></a>
  &nbsp; 
 </td></tr></table>
 
 <hr>
+<a name="Concept-Index"></a>
+<a name="Concept-Index-1"></a>
+<h2 class="unnumbered">Concept Index</h2>
 
-
-
-</body>
-</html>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Concept-Index_cp_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-N"><b>N</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-X"><b>X</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-cp" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-M">M</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Macros">Macros</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-Macros">Using Macros</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-N">N</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Namespaces">Namespaces</a>:</td><td>&nbsp;</td><td valign="top"><a href="#namespaces">namespaces</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-X">X</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-XPath-Expressions">XPath Expressions</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-XPath-Expressions">Using XPath Expressions</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Concept-Index_cp_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-N"><b>N</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-X"><b>X</b></a>
+ &nbsp; 
+</td></tr></table>
