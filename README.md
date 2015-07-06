@@ -4,23 +4,24 @@ The static website for liblouis, liblouisutdml and friends using Jekyll
 
 ## Features
 
-All the content from the [Google code site][google] has been migrated,
-i.e. the landing page, news, presentations, online documentation, and
-downloads. Issues and source still link to the [old site][google].
-
-[google]: https://code.google.com/p/liblouis/
+All the content from the
+[Google code site](https://code.google.com/p/liblouis) has been
+migrated, i.e. the landing page, news, presentations and online
+documentation, and downloads. Downloads, issues and source link to the
+[github site](https://github.com/liblouis/liblouis).
 
 The layout uses [bootstrap3](http://getbootstrap.com/) and uses the
 recommendations regarding accessibility.
 
-Most of the content is written using
-[textile](http://redcloth.org/textile/).
+All of the content is written using
+[markdown](https://help.github.com/articles/markdown-basics/).
 
 News items are automatically placed on the news page using the files
 from the `_posts` directory.
 
-Downloads can be placed in the `downloads` directory and can be linked
-from `downloads/index.textile`
+Downloads are uploaded to the
+[github site](https://github.com/liblouis/liblouis) and are be linked
+from `downloads/index.md`
 
 ## Requirements
 
