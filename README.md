@@ -7,7 +7,7 @@ The static website for liblouis, liblouisutdml and friends using Jekyll
 All the content from the
 [Google code site](https://code.google.com/p/liblouis) has been
 migrated, i.e. the landing page, news, presentations and online
-documentation, and downloads. Downloads, issues and source link to the
+documentation. Downloads, issues and source link to the
 [github site](https://github.com/liblouis/liblouis).
 
 The layout uses [bootstrap3](http://getbootstrap.com/) and uses the
