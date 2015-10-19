@@ -26,6 +26,8 @@ intro: The Liblouis software suite provides an open-source braille translator, b
 
 Liblouis has features to support screen-reading programs. This has led to its use in two open-source screenreaders, [NVDA](http://www.nvda-project.org/) and [Orca](http://live.gnome.org/Orca). It is also used in some commercial assistive technology applications for example by [ViewPlus](http://www.viewplus.com).
 
+Liblouis is the translator of choice for Benetech’s [Bookshare](http://www.bookshare.org), providing braille access to more than 350,000 books to members worldwide, and also to thousands of public domain books for guests.  Bookshare currently offers titles in braille in more than a dozen languages, with the ability to quickly add new languages as translation tables become available.
+
 Liblouis is based on the translation routines in the [BRLTTY](http://mielke.cc/brltty/) screenreader for Linux. It has, however, gone far beyond these routines. In Linux and Mac OSX it is a shared library, and in Windows it is a DLL.
 
 Liblouis is free software licensed under the [GNU Lesser GPL](https://www.gnu.org/licenses/lgpl.html).
