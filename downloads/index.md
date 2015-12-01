@@ -11,6 +11,13 @@ title: Downloads
 |Liblouisutdml|[liblouisutdml-2.6.0.tar.gz](https://github.com/liblouis/liblouisutdml/releases/download/v2.6.0/liblouisutdml-2.6.0.tar.gz)|e1928395d7aff424742b39bd923a607e|
 {: .table}
 
+## Nightly builds
+
+|Summary|File|md5|
+|---------|
+|Liblouis ([bfrees_backtranslateWithTracing](https://github.com/liblouis/liblouis/pull/100) branch - Windows 32 bit)|[nightly/bfrees_backtranslateWithTracing-win32.zip](nightly/bfrees_backtranslateWithTracing-win32.zip)|edf3fd2344afbf1f7102bc7ab56ea648|
+{: .table}
+
 ## Development versions
 
 Up-to-date versions can be checked out directly from the source code repositories.
