@@ -72,6 +72,7 @@ title: Liblouis User's and Programmer's Manual
     <li><a name="toc-lou_005ffree-1" href="#lou_005ffree">6.22 lou_free</a></li>
     <li><a name="toc-Python-bindings-1" href="#Python-bindings">6.23 Python bindings</a></li>
   </ul></li>
+  <li><a name="toc-Concept-Index-1" href="#Concept-Index">Concept Index</a></li>
   <li><a name="toc-Opcode-Index-1" href="#Opcode-Index">Opcode Index</a></li>
   <li><a name="toc-Function-Index-1" href="#Function-Index">Function Index</a></li>
   <li><a name="toc-Program-Index-1" href="#Program-Index">Program Index</a></li>
@@ -83,7 +84,7 @@ title: Liblouis User's and Programmer's Manual
 <a name="Liblouis-User_0027s-and-Programmer_0027s-Manual"></a>
 <h1 class="top">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouis (version 2.6.4, 31 August 2015),
+<p>This manual is for liblouis (version 2.6.5, 1 December 2015),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <acronym>BRLTTY</acronym>. 
 </p>
@@ -327,14 +328,18 @@ also recognized.
 </dl>
 
 <p>The dots operand is a braille dot pattern. The real braille dots, 1
-through 8, must be specified with their standard numbers. liblouis
-recognizes &quot;virtual dots,&quot; which are used for special purposes, such
-as distinguishing accent marks. There are seven virtual dots. They are
-specified by the number 9 and the letters &lsquo;<samp>a</samp>&rsquo; through &lsquo;<samp>f</samp>&rsquo;.
-For a multi-cell dot pattern, the cell specifications must be
+through 8, must be specified with their standard numbers.
+</p>
+<a name="index-virtual-dots"></a>
+<a name="virtual-dots"></a><p>liblouis recognizes <em>virtual dots</em>, which are used for special
+purposes, such as distinguishing accent marks. There are seven virtual
+dots. They are specified by the number 9 and the letters &lsquo;<samp>a</samp>&rsquo;
+through &lsquo;<samp>f</samp>&rsquo;.
+</p>
+<p>For a multi-cell dot pattern, the cell specifications must be
 separated from one another by a dash (&lsquo;<samp>-</samp>&rsquo;). For example, the
 contraction for the English word &lsquo;<samp>lord</samp>&rsquo; (the letter &lsquo;<samp>l</samp>&rsquo;
-preceded by dot 5) would be specified as 5-123. A space may be
+preceded by dot 5) would be specified as &lsquo;<samp>5-123</samp>&rsquo;. A space may be
 specified with the special dot number 0.
 </p>
 <p>An opcode which is helpful in writing translation tables is
@@ -1012,7 +1017,7 @@ may require more than one cell. The first operand must be a character
 with a decimal representation from 0 to 255 inclusive. The second
 operand may specify as many cells as necessary. The opcode is somewhat
 of a misnomer, since any dots, not just dots 1 through 6, can be
-specified. This even includes virtual dots.
+specified. This even includes virtual dots (see <a href="#virtual-dots">virtual dots</a>).
 </p>
 <a name="index-nocont"></a>
 <a name="nocont-opcode"></a></dd>
@@ -1978,10 +1983,28 @@ translation table and an input string.
 <pre class="example">lou_trace [OPTIONS] TABLE[,TABLE,...]
 </pre></div>
 
-<p><code>lou_trace</code> accepts all the standard options (see <a href="#common-options">common options</a>). Once started you can type an input string followed by
-<kbd><span class="key">RET</span></kbd>. <code>lou_trace</code> will print the braille
-translation followed by list of rules that were applied to produce the
-translation. A possible invocation is listed in the following example:
+<p>Aside from the standard options (see <a href="#common-options">common options</a>)
+<code>lou_trace</code> also accepts the following options:
+</p>
+<dl compact="compact">
+<dt><samp>--forward</samp></dt>
+<dt><samp>-f</samp></dt>
+<dd><p>Trace a forward translation.
+</p>
+</dd>
+<dt><samp>--backward</samp></dt>
+<dt><samp>-b</samp></dt>
+<dd><p>Trace a backward translation.
+</p>
+</dd>
+</dl>
+
+<p>If no options are given forward translation is assumed.
+</p>
+<p>Once started you can type an input string followed by <kbd><span class="key">RET</span></kbd>.
+<code>lou_trace</code> will print the braille translation followed by
+list of rules that were applied to produce the translation. A possible
+invocation is listed in the following example:
 </p>
 <div class="example">
 <pre class="example">$ lou_trace tables/en-us-g2.ctb 
@@ -3099,6 +3122,24 @@ tables every time they are used, resulting in great inefficiency.
 instructions see the the <samp>README</samp> file in the <samp>python</samp>
 directory. Usage information is included in the Python module itself.
 </p>
+
+<hr>
+<a name="Concept-Index"></a>
+<a name="Concept-Index-1"></a>
+<h2 class="unnumbered">Concept Index</h2>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Concept-Index_cp_letter-V"><b>V</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-cp" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-V">V</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-virtual-dots">virtual dots</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Overview">Overview</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Concept-Index_cp_letter-V"><b>V</b></a>
+ &nbsp; 
+</td></tr></table>
 
 <hr>
 <a name="Opcode-Index"></a>
