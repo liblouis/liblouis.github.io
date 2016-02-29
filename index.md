@@ -6,11 +6,12 @@ intro: The Liblouis software suite provides an open-source braille translator, b
 
 {::options parse_block_html="true" /}
 
+<div class="row">
 <div class="col-md-6">
 
 ## News
 
-{% for post in site.posts limit:2 %}
+{% for post in site.posts limit:3 %}
 ### {{ post.date | date_to_string}} [{{ post.title }}]({{ post.url }})
 
 {{ post.excerpt }}
@@ -36,8 +37,10 @@ Liblouis is free software licensed under the [GNU Lesser GPL](https://www.gnu.or
 * Consult the [documentation](documentation)
 * Subscribe to our [mailing list](http://www.freelists.org/list/liblouis-liblouisxml) or chat with us on [irc](irc://irc.oftc.net/liblouis) (irc://irc.oftc.net/liblouis).
 
-</div>
+</div> <!-- /col-md-6 -->
+</div> <!-- /row -->
 
+<div class="row">
 <div class="col-md-6">
 
 ## Braille formatter
@@ -57,5 +60,6 @@ There are two braille production systems based on Liblouis and Liblouisutdml.
 
 [DAISY Pipeline](http://www.daisy.org/pipeline2), backed by the DAISY Consortium, is aimed at automated, hands-off, high-volume production on the server.
 
-</div>
+</div> <!-- /col-md-6 -->
+</div> <!-- /row -->
 
