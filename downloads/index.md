@@ -7,7 +7,7 @@ title: Downloads
 |Summary|File|md5|
 |---------|
 |Liblouis|[liblouis-2.6.5.tar.gz](https://github.com/liblouis/liblouis/releases/download/v2.6.5/liblouis-2.6.5.tar.gz)|ccd5887a1888f1207c53b5d079f3f38b|
-|Liblouis (Windows build)|[liblouis-2.6.4-w64-mingw32.zip](https://github.com/liblouis/liblouis/releases/download/v2.6.4/liblouis-2.6.4-w64-mingw32.zip)|f78515a177cc848192ab49e3681dcde3|
+|Liblouis (Windows build)|[liblouis-2.6.5-mingw32msvc.zip](https://github.com/liblouis/liblouis/releases/download/v2.6.5/liblouis-2.6.5-mingw32msvc.zip)|5443711aff227d9c159e8093295ccc7a|
 |Liblouisutdml|[liblouisutdml-2.6.0.tar.gz](https://github.com/liblouis/liblouisutdml/releases/download/v2.6.0/liblouisutdml-2.6.0.tar.gz)|e1928395d7aff424742b39bd923a607e|
 {: .table}
 
