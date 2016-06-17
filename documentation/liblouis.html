@@ -19,7 +19,20 @@ title: Liblouis User's and Programmer's Manual
     <li><a name="toc-Hyphenation-Tables-1" href="#Hyphenation-Tables">2.2 Hyphenation Tables</a></li>
     <li><a name="toc-Character_002dDefinition-Opcodes-1" href="#Character_002dDefinition-Opcodes">2.3 Character-Definition Opcodes</a></li>
     <li><a name="toc-Braille-Indicator-Opcodes-1" href="#Braille-Indicator-Opcodes">2.4 Braille Indicator Opcodes</a></li>
-    <li><a name="toc-Emphasis-Opcodes-1" href="#Emphasis-Opcodes">2.5 Emphasis Opcodes</a></li>
+    <li><a name="toc-Emphasis-Opcodes-1" href="#Emphasis-Opcodes">2.5 Emphasis Opcodes</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Emphasis-class-1" href="#Emphasis-class">2.5.1 Emphasis class</a></li>
+      <li><a name="toc-Contexts-1" href="#Contexts">2.5.2 Contexts</a>
+      <ul class="no-bullet">
+        <li><a name="toc-None-1" href="#None">2.5.2.1 None</a></li>
+        <li><a name="toc-Letter-1" href="#Letter">2.5.2.2 Letter</a></li>
+        <li><a name="toc-Word-1" href="#Word">2.5.2.3 Word</a></li>
+        <li><a name="toc-Phrase-1" href="#Phrase">2.5.2.4 Phrase</a></li>
+        <li><a name="toc-Symbol-1" href="#Symbol">2.5.2.5 Symbol</a></li>
+      </ul></li>
+      <li><a name="toc-Fallback-behavior-1" href="#Fallback-behavior">2.5.3 Fallback behavior</a></li>
+      <li><a name="toc-Computer-braille-1" href="#Computer-braille">2.5.4 Computer braille</a></li>
+    </ul></li>
     <li><a name="toc-Special-Symbol-Opcodes-1" href="#Special-Symbol-Opcodes">2.6 Special Symbol Opcodes</a></li>
     <li><a name="toc-Special-Processing-Opcodes-1" href="#Special-Processing-Opcodes">2.7 Special Processing Opcodes</a></li>
     <li><a name="toc-Translation-Opcodes-1" href="#Translation-Opcodes">2.8 Translation Opcodes</a></li>
@@ -28,7 +41,6 @@ title: Liblouis User's and Programmer's Manual
     <li><a name="toc-The-Context-and-Multipass-Opcodes-1" href="#The-Context-and-Multipass-Opcodes">2.11 The Context and Multipass Opcodes</a></li>
     <li><a name="toc-The-correct-Opcode-1" href="#The-correct-Opcode">2.12 The correct Opcode</a></li>
     <li><a name="toc-Miscellaneous-Opcodes-1" href="#Miscellaneous-Opcodes">2.13 Miscellaneous Opcodes</a></li>
-    <li><a name="toc-Deprecated-Opcodes-1" href="#Deprecated-Opcodes">2.14 Deprecated Opcodes</a></li>
   </ul></li>
   <li><a name="toc-Notes-on-Back_002dTranslation-1" href="#Notes-on-Back_002dTranslation">3 Notes on Back-Translation</a></li>
   <li><a name="toc-Testing-Translation-Tables-interactively-1" href="#Testing-Translation-Tables-interactively">4 Testing Translation Tables interactively</a>
@@ -42,9 +54,11 @@ title: Liblouis User's and Programmer's Manual
   </ul></li>
   <li><a name="toc-Automated-Testing-of-Translation-Tables-1" href="#Automated-Testing-of-Translation-Tables">5 Automated Testing of Translation Tables</a>
   <ul class="no-bullet">
-    <li><a name="toc-YAML-Tests-1" href="#YAML-Tests">5.1 YAML Tests</a></li>
-    <li><a name="toc-Test-Harness-1" href="#Test-Harness">5.2 Test Harness</a></li>
-    <li><a name="toc-Doctests-1" href="#Doctests">5.3 Doctests</a></li>
+    <li><a name="toc-YAML-Tests-1" href="#YAML-Tests">5.1 YAML Tests</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Optional-test-description" href="#Optional-test-description">5.1.1 Optional test description</a></li>
+    </ul></li>
+    <li><a name="toc-Doctests-1" href="#Doctests">5.2 Doctests</a></li>
   </ul></li>
   <li><a name="toc-Programming-with-liblouis-1" href="#Programming-with-liblouis">6 Programming with liblouis</a>
   <ul class="no-bullet">
@@ -84,7 +98,7 @@ title: Liblouis User's and Programmer's Manual
 <a name="Liblouis-User_0027s-and-Programmer_0027s-Manual"></a>
 <h1 class="top">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouis (version 2.6.5, 1 December 2015),
+<p>This manual is for liblouis (version 3.0.0.alpha1, 16 June 2016),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <acronym>BRLTTY</acronym>. 
 </p>
@@ -94,10 +108,11 @@ Linux screen reader <acronym>BRLTTY</acronym>.
 <p>Copyright &copy; 2004-2007 ViewPlus Technologies, Inc.
 <a href="www.viewplus.com">www.viewplus.com</a>.
 </p>
-<p>Copyright &copy; 2007,2009 Abilitiessoft, Inc.
+<p>Copyright &copy; 2007, 2009 Abilitiessoft, Inc.
 <a href="www.abilitiessoft.org">www.abilitiessoft.org</a>.
 </p>
-<p>Copyright &copy; 2014 Swiss Library for the Blind, Visually Impaired and Print Disabled.
+<p>Copyright &copy; 2014, 2016 Swiss Library for the Blind, Visually
+Impaired and Print Disabled. <a href="www.sbs.ch">www.sbs.ch</a>.
 </p>
 
 <blockquote>
@@ -173,6 +188,7 @@ for, license information and include tables you need for your table.
 <p>Following this, you&rsquo;ll write various translation rules and lastly you
 write special rules to handle certain situations.
 </p>
+<a name="index-opcode"></a>
 <p>A translation rule is composed of at least three parts: the opcode
 (translation command), character(s) and braille dots. An opcode is a
 command you give to a machine or a program to perform something on
@@ -278,6 +294,7 @@ always world 456-2456 A word and the dot pattern of its contraction
 <p>Most opcodes have both a &quot;characters&quot; operand and a &quot;dots&quot; operand,
 though some have only one and a few have other types.
 </p>
+<a name="index-characters-operand"></a>
 <p>The characters operand consists of any combination of characters and
 escape sequences proceeded and followed by whitespace. Escape
 sequences are used to represent difficult characters. They begin with
@@ -327,6 +344,7 @@ also recognized.
 </dd>
 </dl>
 
+<a name="index-dots-operand"></a>
 <p>The dots operand is a braille dot pattern. The real braille dots, 1
 through 8, must be specified with their standard numbers.
 </p>
@@ -336,6 +354,7 @@ purposes, such as distinguishing accent marks. There are seven virtual
 dots. They are specified by the number 9 and the letters &lsquo;<samp>a</samp>&rsquo;
 through &lsquo;<samp>f</samp>&rsquo;.
 </p>
+<a name="index-multi_002dcell-dot-pattern"></a>
 <p>For a multi-cell dot pattern, the cell specifications must be
 separated from one another by a dash (&lsquo;<samp>-</samp>&rsquo;). For example, the
 contraction for the English word &lsquo;<samp>lord</samp>&rsquo; (the letter &lsquo;<samp>l</samp>&rsquo;
@@ -639,6 +658,15 @@ letter sign is not used. By default the characters apostrophe
 <code>noletsignafter</code> entry is used the characters in all entries are
 combined.
 </p>
+<a name="index-nocontractsign"></a>
+<a name="nocontractsign-opcode"></a></dd>
+<dt><code>nocontractsign dots</code></dt>
+<dd>
+<p>The dots in this opcode are used to indicate a letter or a sequence of
+letters that are not a contraction, e.g. &lsquo;<samp>CD</samp>&rsquo;. The opcode is
+similar to the <code>letsign</code> opcode (see <a href="#letsign-opcode"><code>letsign</code></a>).
+</p>
+
 <a name="index-numsign"></a>
 <a name="numsign-opcode"></a></dd>
 <dt><code>numsign dots</code></dt>
@@ -658,239 +686,244 @@ and not letters or some other symbols. For example:
 <a name="Emphasis-Opcodes-1"></a>
 <h3 class="section">2.5 Emphasis Opcodes</h3>
 
-<p>These also define braille indicators, but they require more
-explanation. There are four sets, for italic, bold, underline and
-computer braille. In each of the first three sets there are seven
-opcodes, for use before the first word of a phrase, for use before the
-last word, for use after the last word, for use before the first
-letter (or character) if emphasis starts in the middle of a word, for
-use after the last letter (or character) if emphasis ends in the
-middle of a word, before a single letter (or character), and to
-specify the length of a phrase to which the first-word and
-last-word-before indicators apply. This rather elaborate set of
-emphasis opcodes was devised to try to meet all contingencies. It is
-unlikely that a translation table will contain all of them. The
-translator checks for their presence. If they are present, it first
-looks to see if the single-letter indicator should be used. Then it
-looks at the word (or phrase) indicators and finally at the
-multi-letter indicators.
+<p>In many braille systems emphasis such as bold, italics or underline is
+indicated using special dot patterns that mark the start and often
+also the end. For some languages these braille indicators differ
+depending on the context, i.e. here is an separate indicator for an
+emphasized word and another one for an emphasized phrase. To
+accommodate for all these usage scenarios liblouis provides a number of
+opcodes for various contexts.
 </p>
-<p>The translator will apply up to two emphasis indicators to each phrase
-or string of characters, depending on what the <code>typeform</code>
-parameter in its calling sequence indicates (see <a href="#Programming-with-liblouis">Programming with liblouis</a>).
+<p>At the same time some braille systems use different indicators for
+different kinds of emphasis while others know only one kind of
+emphasis. For that reason liblouis doesn&rsquo;t hard code any emphasis but
+the table author defines which kind of emphasis exist for a specific
+language using the <code>emphclass</code> opcode (see <a href="#emphclass-opcode"><code>emphclass</code></a>) opcode.
 </p>
+
+<hr>
+<a name="Emphasis-class"></a>
+<a name="Emphasis-class-1"></a>
+<h4 class="subsection">2.5.1 Emphasis class</h4>
+
+<p>The <code>emphclass</code> opcode defines the classes of emphasis that are
+relevant for a particular language. For all emphasis that need special
+indicators an emphasis class has to be declared.
+</p>
+<dl compact="compact">
+<dd><a name="index-emphclass"></a>
+<a name="emphclass-opcode"></a></dd>
+<dt><code>emphclass &lt;emphasis class&gt;</code></dt>
+<dd><p>Define an emphasis class to be used later in other emphasis related
+opcodes in the table.
+</p>
+<div class="example">
+<pre class="example">emphclass italic
+emphclass underline
+emphclass bold
+emphclass transnote
+</pre></div>
+
+</dd>
+</dl>
+
+<hr>
+<a name="Contexts"></a>
+<a name="Contexts-1"></a>
+<h4 class="subsection">2.5.2 Contexts</h4>
+
+<p>In order to understand the capabilities of Liblouis for emphasis
+handling we have to look at the different contexts that are supported.
+</p>
+
+<hr>
+<a name="None"></a>
+<a name="None-1"></a>
+<h4 class="subsubsection">2.5.2.1 None</h4>
+
+<p>For some languages there is no such concept as contexts. Emphasis is
+always handled the same regardless of context. There is simply an
+indicator for the beginning of emphasis and another one for the end of
+the emphasis.
+</p>
+<dl compact="compact">
+<dd><a name="index-begemph"></a>
+<a name="begemph-opcode"></a></dd>
+<dt><code>begemph &lt;emphasis class&gt; &lt;dot pattern&gt;</code></dt>
+<dd><p>Braille dot pattern to indicate the beginning of emphasis.
+</p>
+<div class="example">
+<pre class="example">begemph italic 46-3
+</pre></div>
+
+<a name="index-endemph"></a>
+<a name="endemph-opcode"></a></dd>
+<dt><code>endemph &lt;emphasis class&gt; &lt;dot pattern&gt;</code></dt>
+<dd><p>Braille dot pattern to indicate the end of emphasis.
+</p>
+<div class="example">
+<pre class="example">endemph italic 46-36
+</pre></div>
+
+</dd>
+</dl>
+
+<hr>
+<a name="Letter"></a>
+<a name="Letter-1"></a>
+<h4 class="subsubsection">2.5.2.2 Letter</h4>
+
+<p>Some languages have special indicators for single letter emphasis.
+</p>
+<dl compact="compact">
+<dd><a name="index-emphletter"></a>
+<a name="emphletter-opcode"></a></dd>
+<dt><code>emphletter &lt;emphasis class&gt; &lt;dot pattern&gt;</code></dt>
+<dd><p>Braille dot pattern to indicate that the next character is emphasized.
+</p>
+<div class="example">
+<pre class="example">emphletter italic 46-25
+</pre></div>
+
+</dd>
+</dl>
+
+<hr>
+<a name="Word"></a>
+<a name="Word-1"></a>
+<h4 class="subsubsection">2.5.2.3 Word</h4>
+
+<p>Many languages have special indicators for emphasized words. Usually
+they start at the beginning of the word and and implicitly, i.e.
+without a closing indicator at the end of the word. There are also use
+cases where the emphasis starts in the middle of the word and an
+explicit closing indicator is required.
+</p>
+<dl compact="compact">
+<dd><a name="index-begemphword"></a>
+<a name="begemphword-opcode"></a></dd>
+<dt><code>begemphword &lt;emphasis class&gt; &lt;dot pattern&gt;</code></dt>
+<dd><p>Braille dot pattern to indicate the beginning of an emphasized word
+or the beginning of emphasized characters within a word.
+</p>
+<div class="example">
+<pre class="example">begemphword underline 456-36
+</pre></div>
+
+<a name="index-endemphword"></a>
+<a name="endemphword-opcode"></a></dd>
+<dt><code>endemphword &lt;emphasis class&gt;  &lt;dot pattern&gt;</code></dt>
+<dd><p>Generally emphasis with word context ends when the word ends. However
+when an indication is required to close a word emphasis then this
+opcode defines the Braille dot pattern that indicates the end of a word
+emphasis.
+</p>
+<div class="example">
+<pre class="example">endemphword transnote 6-3
+</pre></div>
+
+<p>If emphasis ends in the middle of a word the Braille dot pattern
+defined in this opcode is also used.
+</p>
+</dd>
+</dl>
+
+<hr>
+<a name="Phrase"></a>
+<a name="Phrase-1"></a>
+<h4 class="subsubsection">2.5.2.4 Phrase</h4>
+
+<p>Many languages have a concept of a phrase where the emphasis is valid
+for a number of words. The beginning of the phase is indicated with a
+braille dot pattern and a closing indicator is put before or after the
+last word of the phrase. To define how many words are considered a
+phrase in your language use the <code>lenemphphrase</code> opcode (see <a href="#lenemphphrase-opcode"><code>lenemphphrase</code></a>).
+</p>
+<dl compact="compact">
+<dd><a name="index-begemphphrase"></a>
+<a name="begemphphrase-opcode"></a></dd>
+<dt><code>begemphphrase &lt;emphasis class&gt; &lt;dot pattern&gt;</code></dt>
+<dd><p>Braille dot pattern to indicate the beginning of a phrase.
+</p>
+<div class="example">
+<pre class="example">begemphphrase bold 456-46-46
+</pre></div>
+
+<a name="index-endemphphrase-before"></a>
+<a name="endemphphrase-before-opcode"></a></dd>
+<dt><code>endemphphrase before &lt;emphasis class&gt; before &lt;dot pattern&gt;</code></dt>
+<dd><p>Braille dot pattern to indicate the end of a phrase. The closing indicator
+will be placed before the last word of the phrase.
+</p>
+<div class="example">
+<pre class="example">endemphphrase bold before 456-46
+</pre></div>
+
+<a name="index-endemphphrase-after"></a>
+<a name="endemphphrase-after-opcode"></a></dd>
+<dt><code>endemphphrase after &lt;emphasis class&gt; after &lt;dot pattern&gt;</code></dt>
+<dd><p>Braille dot pattern to indicate the end of a phrase. The closing
+indicator will be placed after the last word of the phrase. If both
+<code>endemphphrase &lt;emphasis class&gt; before</code> and <code>endemphphrase &lt;emphasis
+class&gt; after</code> are defined an error will be signaled.
+</p>
+<div class="example">
+<pre class="example">endemphphrase underline after 6-3
+</pre></div>
+
+<a name="index-lenemphphrase"></a>
+<a name="lenemphphrase-opcode"></a></dd>
+<dt><code>lenemphphrase &lt;emphasis class&gt; &lt;number&gt;</code></dt>
+<dd><p>Define how many words are required before a sequence of words is
+considered a phrase.
+</p>
+<div class="example">
+<pre class="example">lenemphphrase underline 3
+</pre></div>
+
+</dd>
+</dl>
+
+<hr>
+<a name="Symbol"></a>
+<a name="Symbol-1"></a>
+<h4 class="subsubsection">2.5.2.5 Symbol</h4>
+<p>UEB has a concept of symbols that need special indication. When the
+translator detects an emphasis sequence that needs to be indicated
+with the rules for a symbol then it will use the dots defined with the
+<code>emphletter</code> opcode (see <a href="#emphletter-opcode"><code>emphletter</code></a>). To indicate the end of the symbol it will use
+the dots defined in the <code>endemphword</code> opcode (see <a href="#endemphword-opcode"><code>endemphword</code></a>).
+</p>
+<hr>
+<a name="Fallback-behavior"></a>
+<a name="Fallback-behavior-1"></a>
+<h4 class="subsection">2.5.3 Fallback behavior</h4>
+
+<p>Many braille systems either handle emphasis using no contexts or
+otherwise by employing a combination of the letter, word and phrase
+contexts. So if a table defines any opcodes for the letter, word or
+phrase contexts then liblouis will signal an error for opcodes that
+define emphasis with no context. In other words contrary to previous
+versions of liblouis there is no fallback behavior.
+</p>
+<p>As a consequence, there will only be emphasis for a context when the
+table defines it. So for example when defining a braille dot pattern
+for phrases and not for words liblouis will not indicate emphasis on
+words that aren&rsquo;t part of a phrase.
+</p>
+<hr>
+<a name="Computer-braille"></a>
+<a name="Computer-braille-1"></a>
+<h4 class="subsection">2.5.4 Computer braille</h4>
+
 <p>For computer braille there are only two braille indicators, for the
 beginning and end of a sequence of characters to be rendered in
 computer braille. Such a sequence may also have other emphasis. The
 computer braille indicators are applied not only when computer braille
 is indicated in the <code>typeform</code> parameter, but also when a
 sequence of characters is determined to be computer braille because it
-contains a subsequence defined by the <code>compbrl</code> opcode (see <a href="#compbrl-opcode"><code>compbrl</code></a>) or the
-<code>literal</code> opcode (see <a href="#literal-opcode"><code>literal</code></a>).
+contains a subsequence defined by the <code>compbrl</code> opcode (see <a href="#compbrl-opcode"><code>compbrl</code></a>).
 </p>
-<p>Here are the various emphasis opcodes.
-</p>
-<dl compact="compact">
-<dd>
-<a name="index-firstwordital"></a>
-<a name="firstwordital-opcode"></a></dd>
-<dt><code>firstwordital dots</code></dt>
-<dd><p>This is the braille indicator to be placed before the first word of an
-italicized phrase that is longer than the value given in the
-<code>lenitalphrase</code> opcode (see <a href="#lenitalphrase-opcode"><code>lenitalphrase</code></a>). For example:
-</p>
-<div class="example">
-<pre class="example">firstwordital 46-46 English indicator
-</pre></div>
-
-<a name="index-lastworditalbefore"></a>
-<a name="lastworditalbefore-opcode"></a></dd>
-<dt><code>lastworditalbefore dots</code></dt>
-<dd><p>This is the braille indicator to be placed before the last word of an
-italicized phrase. In addition, if <code>firstwordital</code> is not used,
-this braille indicator is doubled and placed before the first word. Do
-not use <code>lastworditalbefore</code> and <code>lastworditalafter</code> in the
-same table. For example:
-</p>
-<div class="example">
-<pre class="example">lastworditalbefore 4-6
-</pre></div>
-
-<a name="index-lastworditalafter"></a>
-<a name="lastworditalafter-opcode"></a></dd>
-<dt><code>lastworditalafter dots</code></dt>
-<dd><p>This is the braille indicator to be placed after the last word of an
-italicized phrase. Do not use <code>lastworditalbefore</code> and
-<code>lastworditalafter</code> in the same table. See also the
-<code>lenitalphrase</code> opcode (see <a href="#lenitalphrase-opcode"><code>lenitalphrase</code></a>) for more information.
-</p>
-<a name="index-firstletterital"></a>
-<a name="firstletterital-opcode"></a></dd>
-<dt><code>firstletterital dots</code></dt>
-<dd><p>This is the braille indicator to be placed before the first letter (or
-character) if italicization begins in the middle of a word.
-</p>
-<a name="index-lastletterital"></a>
-<a name="lastletterital-opcode"></a></dd>
-<dt><code>lastletterital dots</code></dt>
-<dd><p>This is the braille indicator to be placed after the last letter (or
-character) when italicization ends in the middle of a word.
-</p>
-<a name="index-singleletterital"></a>
-<a name="singleletterital-opcode"></a></dd>
-<dt><code>singleletterital dots</code></dt>
-<dd><p>This braille indicator is used if only a single letter (or character)
-is italicized.
-</p>
-<a name="index-lenitalphrase"></a>
-<a name="lenitalphrase-opcode"></a></dd>
-<dt><code>lenitalphrase number</code></dt>
-<dd><p>If <code>lastworditalbefore</code> is used, an italicized phrase is checked
-to see how many words it contains. If this number is less than or
-equal to the number given in the <code>lenitalphrase</code> opcode, the
-<code>lastworditalbefore</code> sign is placed in front of each word. If it
-is greater, the <code>firstwordital</code> indicator is placed before the
-first word and the <code>lastworditalbefore</code> indicator is placed after
-the last word. Note that if the <code>firstwordital</code> opcode is not
-used its indicator is made up by doubling the dot pattern given in the
-<code>lastworditalbefore</code> entry. For example:
-</p>
-<div class="example">
-<pre class="example">lenitalphrase 4
-</pre></div>
-
-<a name="index-firstwordbold"></a>
-<a name="firstwordbold-opcode"></a></dd>
-<dt><code>firstwordbold dots</code></dt>
-<dd><p>This is the braille indicator to be placed before the first word of a
-bold phrase. For example:
-</p>
-<div class="example">
-<pre class="example">firstwordbold 456-456
-</pre></div>
-
-<a name="index-lastwordboldbefore"></a>
-<a name="lastwordboldbefore-opcode"></a></dd>
-<dt><code>lastwordboldbefore dots</code></dt>
-<dd><p>This is the braille indicator to be placed before the last word of a
-bold phrase. In addition, if <code>firstwordbold</code> is not used, this
-braille indicator is doubled and placed before the first word. Do not
-use <code>lastwordboldbefore</code> and <code>lastwordboldafter</code> in the same
-table. For example:
-</p>
-<div class="example">
-<pre class="example">lastwordboldbefore 456
-</pre></div>
-
-<a name="index-lastwordboldafter"></a>
-<a name="lastwordboldafter-opcode"></a></dd>
-<dt><code>lastwordboldafter dots</code></dt>
-<dd><p>This is the braille indicator to be placed after the last word of a
-bold phrase. Do not use <code>lastwordboldbefore</code> and
-<code>lastwordboldafter</code> in the same table.
-</p>
-<a name="index-firstletterbold"></a>
-<a name="firstletterbold-opcode"></a></dd>
-<dt><code>firstletterbold dots</code></dt>
-<dd><p>This is the braille indicator to be placed before the first letter (or
-character) if bold emphasis begins in the middle of a word.
-</p>
-<a name="index-lastletterbold"></a>
-<a name="lastletterbold-opcode"></a></dd>
-<dt><code>lastletterbold dots</code></dt>
-<dd><p>This is the braille indicator to be placed after the last letter (or
-character) when bold emphasis ends in the middle of a word.
-</p>
-<a name="index-singleletterbold"></a>
-<a name="singleletterbold-opcode"></a></dd>
-<dt><code>singleletterbold dots</code></dt>
-<dd><p>This braille indicator is used if only a single letter (or character)
-is in boldface.
-</p>
-<a name="index-lenboldphrase"></a>
-<a name="lenboldphrase-opcode"></a></dd>
-<dt><code>lenboldphrase number</code></dt>
-<dd><p>If <code>lastwordboldbefore</code> is used, a bold phrase is checked to see
-how many words it contains. If this number is less than or equal to
-the number given in the <code>lenboldphrase</code> opcode, the
-<code>lastwordboldbefore</code> sign is placed in front of each word. If it
-is greater, the <code>firstwordbold</code> indicator is placed before the
-first word and the <code>lastwordboldbefore</code> indicator is placed after
-the last word. Note that if the <code>firstwordbold</code> opcode is not
-used its indicator is made up by doubling the dot pattern given in the
-<code>lastwordboldbefore</code> entry.
-</p>
-<a name="index-firstwordunder"></a>
-<a name="firstwordunder-opcode"></a></dd>
-<dt><code>firstwordunder dots</code></dt>
-<dd><p>This is the braille indicator to be placed before the first word of an
-underlined phrase.
-</p>
-<a name="index-lastwordunderbefore"></a>
-<a name="lastwordunderbefore-opcode"></a></dd>
-<dt><code>lastwordunderbefore dots</code></dt>
-<dd><p>This is the braille indicator to be placed before the last word of an
-underlined phrase. In addition, if <code>firstwordunder</code> is not used,
-this braille indicator is doubled and placed before the first word.
-</p>
-<a name="index-lastwordunderafter"></a>
-<a name="lastwordunderafter-opcode"></a></dd>
-<dt><code>lastwordunderafter dots</code></dt>
-<dd><p>This is the braille indicator to be placed after the last word of an
-underlined phrase.
-</p>
-<a name="index-firstletterunder"></a>
-<a name="firstletterunder-opcode"></a></dd>
-<dt><code>firstletterunder dots</code></dt>
-<dd><p>This is the braille indicator to be placed before the first letter (or
-character) if underline emphasis begins in the middle of a word.
-</p>
-<a name="index-lastletterunder"></a>
-<a name="lastletterunder-opcode"></a></dd>
-<dt><code>lastletterunder dots</code></dt>
-<dd><p>This is the braille indicator to be placed after the last letter (or
-character) when underline emphasis ends in the middle of a word.
-</p>
-<a name="index-singleletterunder"></a>
-<a name="singleletterunder-opcode"></a></dd>
-<dt><code>singleletterunder dots</code></dt>
-<dd><p>This braille indicator is used if only a single letter (or character)
-is underlined.
-</p>
-<a name="index-lenunderphrase"></a>
-<a name="lenunderphrase-opcode"></a></dd>
-<dt><code>lenunderphrase number</code></dt>
-<dd><p>If <code>lastwordunderbefore</code> is used, an underlined phrase is checked
-to see how many words it contains. If this number is less than or
-equal to the number given in the <code>lenunderphrase</code> opcode, the
-<code>lastwordunderbefore</code> sign is placed in front of each word. If it
-is greater, the <code>firstwordunder</code> indicator is placed before the
-first word and the <code>lastwordunderbefore</code> indicator is placed
-after the last word. Note that if the <code>firstwordunder</code> opcode is
-not used its indicator is made up by doubling the dot pattern given in
-the <code>lastwordunderbefore</code> entry.
-</p>
-<a name="index-begcomp"></a>
-<a name="begcomp-opcode"></a></dd>
-<dt><code>begcomp dots</code></dt>
-<dd><p>This braille indicator is placed before a sequence of characters
-translated in computer braille, whether this sequence is indicated in
-the <code>typeform</code> parameter (see <a href="#Programming-with-liblouis">Programming with liblouis</a>) or
-inferred because it contains a subsequence specified by the
-<code>compbrl</code> opcode (see <a href="#compbrl-opcode"><code>compbrl</code></a>).
-</p>
-<a name="index-endcomp"></a>
-<a name="endcomp-opcode"></a></dd>
-<dt><code>endcomp dots</code></dt>
-<dd><p>This braille indicator is placed after a sequence of characters
-translated in computer braille, whether this sequence is indicated in
-the <code>typeform</code> parameter (see <a href="#Programming-with-liblouis">Programming with liblouis</a>) or
-inferred because it contains a subsequence specified by the
-<code>compbrl</code> opcode (see <a href="#compbrl-opcode"><code>compbrl</code></a>).
-</p>
-</dd>
-</dl>
-
 <hr>
 <a name="Special-Symbol-Opcodes"></a>
 <a name="Special-Symbol-Opcodes-1"></a>
@@ -914,8 +947,8 @@ only one character. For example, in <samp>en-us-g1.ctb</samp> we have:
 <a name="hyphen-opcode"></a></dd>
 <dt><code>hyphen character dots</code></dt>
 <dd><p>This opcode defines the hyphen, that is, the character used in
-compound words such as have-nots. The back-translator uses it to
-determine the end of individual words.
+compound words such as &lsquo;<samp>have-nots</samp>&rsquo;. The back-translator uses it
+to determine the end of individual words.
 </p>
 </dd>
 </dl>
@@ -1744,68 +1777,6 @@ opcode.
 </dl>
 
 <hr>
-<a name="Deprecated-Opcodes"></a>
-<a name="Deprecated-Opcodes-1"></a>
-<h3 class="section">2.14 Deprecated Opcodes</h3>
-
-<p>The following opcodes are an early attempt to handle emphasis. They
-have been deprecated by more specific opcodes, but are kept for
-backward compatibility.
-</p>
-<dl compact="compact">
-<dd><a name="index-italsign"></a>
-<a name="italsign-opcode"></a></dd>
-<dt><code>italsign dots</code></dt>
-<dd><p>This opcode is deprecated. Use the <code>lastworditalbefore</code> opcode (see <a href="#lastworditalbefore-opcode"><code>lastworditalbefore</code></a>) instead.
-</p>
-<a name="index-begital"></a>
-<a name="begital-opcode"></a></dd>
-<dt><code>begital dots</code></dt>
-<dd><p>This opcode is deprecated. Use the <code>firstletterital</code> opcode (see <a href="#firstletterital-opcode"><code>firstletterital</code></a>) instead.
-</p>
-<a name="index-endital"></a>
-<a name="endital-opcode"></a></dd>
-<dt><code>endital dots</code></dt>
-<dd><p>This opcode is deprecated. Use the <code>lastletterital</code> opcode (see <a href="#lastletterital-opcode"><code>lastletterital</code></a>) instead.
-</p>
-<a name="index-boldsign"></a>
-<a name="boldsign-opcode"></a></dd>
-<dt><code>boldsign dots</code></dt>
-<dd><p>This opcode is deprecated. Use the <code>lastwordboldbefore</code> opcode (see <a href="#lastwordboldbefore-opcode"><code>lastwordboldbefore</code></a>) instead.
-</p>
-<a name="index-begbold"></a>
-<a name="begbold-opcode"></a></dd>
-<dt><code>begbold dots</code></dt>
-<dd><p>This opcode is deprecated. Use the <code>firstletterbold</code> opcode (see <a href="#firstletterbold-opcode"><code>firstletterbold</code></a>) instead.
-</p>
-<a name="index-endbold"></a>
-<a name="endbold-opcode"></a></dd>
-<dt><code>endbold dots</code></dt>
-<dd><p>This opcode is deprecated. Use the <code>lastletterbold</code> opcode (see <a href="#lastletterbold-opcode"><code>lastletterbold</code></a>) instead.
-</p>
-<a name="index-undersign"></a>
-<a name="undersign-opcode"></a></dd>
-<dt><code>undersign dots</code></dt>
-<dd><p>This opcode is deprecated. Use the <code>lastwordunderbefore</code> opcode (see <a href="#lastwordunderbefore-opcode"><code>lastwordunderbefore</code></a>) instead.
-</p>
-<a name="index-begunder"></a>
-<a name="begunder-opcode"></a></dd>
-<dt><code>begunder dots</code></dt>
-<dd><p>This opcode is deprecated. Use the <code>firstletterunder</code> opcode (see <a href="#firstletterunder-opcode"><code>firstletterunder</code></a>) instead.
-</p>
-<a name="index-endunder"></a>
-<a name="endunder-opcode"></a></dd>
-<dt><code>endunder dots</code></dt>
-<dd><p>This opcode is deprecated. Use the <code>lastletterunder</code> opcode (see <a href="#lastletterunder-opcode"><code>lastletterunder</code></a>) instead.
-</p>
-<a name="index-literal"></a>
-<a name="literal-opcode"></a></dd>
-<dt><code>literal characters</code></dt>
-<dd><p>This opcode is deprecated. Use the <code>compbrl</code> opcode (see <a href="#compbrl-opcode"><code>compbrl</code></a>) instead.
-</p></dd>
-</dl>
-
-<hr>
 <a name="Notes-on-Back_002dTranslation"></a>
 <a name="Notes-on-Back_002dTranslation-1"></a>
 <h2 class="chapter">3 Notes on Back-Translation</h2>
@@ -1952,9 +1923,8 @@ dot pattern. They include <kbd>h</kbd>, <kbd>f</kbd>, <kbd>b</kbd>, <kbd>c</kbd>
 <dd><p>Show braille indicators. This shows the dot patterns for various
 opcodes such as the <code>capsign</code> opcode (see <a href="#capsign-opcode"><code>capsign</code></a>) and the <code>numsign</code> opcode (see <a href="#numsign-opcode"><code>numsign</code></a>).
 It also shows emphasis dot patterns, such as those for the
-<code>italword</code>,
-the <code>firstletterbold</code> opcode (see <a href="#firstletterbold-opcode"><code>firstletterbold</code></a>), etc. If a given
-opcode has not been used nothing is printed for it.
+<code>begemphword</code> opcode (see <a href="#begemphword-opcode"><code>begemphword</code></a>), the <code>begemphphrase</code> opcode (see <a href="#begemphphrase-opcode"><code>begemphphrase</code></a>), etc. If a
+given opcode has not been used nothing is printed for it.
 </p>
 </dd>
 <dt><kbd>m</kbd></dt>
@@ -2153,10 +2123,9 @@ where you define the table that is to be tested and any number of
 words or phrases to translate together with their respective expected
 translation.
 </p>
-<p>The YAML based tests replace the two older methods for testing the
-translation tables which only work with Python and when compiled with
-UCS4: the harness tests and the doctests. They are deprecated and will
-be removed in a future release.
+<p>The YAML based tests replace older methods for testing the translation
+tables which only work with Python and when compiled with UCS4. They
+are deprecated and will be removed in a future release.
 </p>
 <dl compact="compact">
 <dt>YAML tests</dt>
@@ -2167,18 +2136,11 @@ automatically be invoked as part of the standard <code>make check</code>
 command.
 </p>
 </dd>
-<dt>Harness tests</dt>
-<dd><p>The harness tests are also data driven like the YAML tests. However
-the data is given in JSON and quite a bit more verbose than the YAML
-tests. They work with both Python2 and Python3 but not from plain C,
-so you need Python and you will have to compile with UCS4.
-</p>
-</dd>
 <dt>Doctests</dt>
 <dd><p>The doctests are based on a technology used in Python where you define
 your tests as if you were sitting at a terminal session with a Python
-interpreter. Again they only work with either Python2 and Python3 but
-not from plain C, so you need Python and you will have to compile with
+interpreter. They only work with either Python2 and Python3 but not
+from plain C, so you need Python and you will have to compile with
 UCS4.
 </p></dd>
 </dl>
@@ -2219,7 +2181,7 @@ tests:
     # item such as typeform or expected failure, etc
     - Hello
     - ⠨⠶⠠⠓⠑⠇⠇⠕⠨⠄
-    - {typeform: '11110', xfail: true}
+    - {typeform: {italic: '++++ '}, xfail: true}
   - # a simple, no-frills test
     - Good bye
     - ⠠⠛⠕⠕⠙ ⠃⠽⠑
@@ -2271,12 +2233,12 @@ values:
 </p>
 </dd>
 <dt>&lsquo;<samp>tests</samp>&rsquo;</dt>
-<dd><p>A list of tests. Each test consists of a list of two or three items.
-The first item is the unicode text to be tested. The second item is
-the expected braille output. This can be either unicode braille or an
-ASCII-braille like encoding. Quoting strings is optional. Comments can
-be inserted almost anywhere using the &lsquo;<samp>#</samp>&rsquo; sign. A simple test
-would look at follows:
+<dd><p>A list of tests. Each test consists of a list of two, three or in some
+cases even four items. The first item is the unicode text to be
+tested. The second item is the expected braille output. This can be
+either unicode braille or an ASCII-braille like encoding. Quoting
+strings is optional. Comments can be inserted almost anywhere using
+the &lsquo;<samp>#</samp>&rsquo; sign. A simple test would look at follows:
 </p>
 <div class="example">
 <pre class="example">  - # a simple, no-frills test
@@ -2299,27 +2261,52 @@ shows a typical example:
 <pre class="example">  -
     - Hello
     - ⠨⠶⠠⠓⠑⠇⠇⠕⠨⠄
-    - {typeform: '11110', xfail: true}
+    - {typeform: {italic: '++++ '}, xfail: true}
   # same test more compact
-  - [Hello, ⠨⠶⠠⠓⠑⠇⠇⠕⠨⠄, {typeform: '11110', xfail: true}]
+  - [Hello, ⠨⠶⠠⠓⠑⠇⠇⠕⠨⠄, {typeform: {italic: '++++ '}, xfail: true}]
 </pre></div>
 
 <p>The valid additional options for a test are as follows:
 </p>
 <dl compact="compact">
 <dt>&lsquo;<samp>xfail</samp>&rsquo;</dt>
-<dd><p>Whether a test is expected to fail. Valid options are &lsquo;<samp>true</samp>&rsquo;,
-&lsquo;<samp>Y</samp>&rsquo;, &lsquo;<samp>Yes</samp>&rsquo; or &lsquo;<samp>ON</samp>&rsquo;. Anything else is considered false.
+<dd><p>Whether a test is expected to fail. If you expect a test to fail, set
+this to &lsquo;<samp>true</samp>&rsquo;. If you prefer you can also specify a reason for
+the failure:
+</p>
+<div class="example">
+<pre class="example">  - [Hello, ⠨, {xfail: Test case is not complete}]
+</pre></div>
+
+<p>If you expect a test case to pass then just don&rsquo;t mark it with
+&lsquo;<samp>xfail</samp>&rsquo; or if you really have to, set &lsquo;<samp>xfail</samp>&rsquo; to
+&lsquo;<samp>false</samp>&rsquo; or &lsquo;<samp>off</samp>&rsquo;.
 </p>
 </dd>
 <dt>&lsquo;<samp>typeform</samp>&rsquo;</dt>
-<dd><p>The typeform used for a translation. The typeform is passed in the
-form of a string.
+<dd><p>The typeform used for a translation. It consists of one or more
+emphasis specifications. For each character in the specifications that
+is not a space the corresponding emphasis will be set. Valid options
+for emphasis are &lsquo;<samp>italic</samp>&rsquo;, &lsquo;<samp>underline</samp>&rsquo;, &lsquo;<samp>bold</samp>&rsquo;,
+&lsquo;<samp>computer_braille</samp>&rsquo;, &lsquo;<samp>passage_break</samp>&rsquo;, &lsquo;<samp>word_reset</samp>&rsquo;,
+&lsquo;<samp>script</samp>&rsquo;, &lsquo;<samp>trans_note</samp>&rsquo;, &lsquo;<samp>trans_note_1</samp>&rsquo;,
+&lsquo;<samp>trans_note_2</samp>&rsquo;, &lsquo;<samp>trans_note_3</samp>&rsquo;, &lsquo;<samp>trans_note_4</samp>&rsquo; or
+&lsquo;<samp>trans_note_5</samp>&rsquo;. The following shows an example where both
+&lsquo;<samp>italic</samp>&rsquo; and &lsquo;<samp>underline</samp>&rsquo; are specified:
 </p>
+<div class="example">
+<pre class="example">  -
+    - Hello
+    - ⠨⠶⠠⠓⠑⠇⠇⠕⠨⠄
+    - typeform:
+        italic:    '++++ '
+        underline: '    +'
+</pre></div>
+
 </dd>
 <dt>&lsquo;<samp>cursorPos</samp>&rsquo;</dt>
 <dd><p>A list of cursor positions for each input position. Useful when
-simulating screenreader interaction, to debug contraction and cursor
+simulating screen reader interaction, to debug contraction and cursor
 behavior as in the following example from the <samp>en-GB-g2.ctb</samp>
 test. Also note that in this example the additional options are not
 passed in using the &ldquo;flow style&rdquo; notation.
@@ -2345,96 +2332,33 @@ defined defaults to 0. Valid mode values are &lsquo;<samp>noContractions</samp>&
 </dd>
 </dl>
 
+<a name="Optional-test-description"></a>
+<h4 class="subsection">5.1.1 Optional test description</h4>
+<p>When a test contains three or four items the first item is assumed to
+be a test description, the second item is the unicode text to be
+tested and the third item is the expected braille output. Again an
+optional fourth item can contain additional options for the test. The
+following shows an example:
+</p>
+<div class="example">
+<pre class="example">  -
+    - Number-text-transitions with italic
+    - 123abc
+    - ⠼⠁⠃⠉⠨⠶⠰⠁⠃⠉⠨⠄
+    - {typeform: '000111'}
+</pre></div>
+
+<p>In case the test fails the description will be printed together with
+the expected and the actual braille output.
+</p>
 <p>For more examples and inspiration please see the YAML tests
 (<samp>*.yaml</samp>) in the <samp>tests</samp> directory of the source
 distribution.
 </p>
 <hr>
-<a name="Test-Harness"></a>
-<a name="Test-Harness-1"></a>
-<h3 class="section">5.2 Test Harness</h3>
-
-<p>Each harness file is a simple UTF8 encoded JSON file, which has two entries.
-</p><dl compact="compact">
-<dt><code>tables</code></dt>
-<dd><p>A list containing table names, which the tests should be run against.
-This is usually just one table, but for some situations more than one
-table is required.
-</p></dd>
-<dt><code>tests</code></dt>
-<dd><p>A list of sections of tests, which should be processed independently.
-Each test section is a dictionary of two items.
-</p></dd>
-<dt><code>flags</code></dt>
-<dd><p>The flags that apply for all the test cases in this section. For
-example, they could all be forward translation tests, or they should
-all be run as computer braille tests.
-</p>
-</dd>
-<dt><code>data</code></dt>
-<dd><p>A list of test cases, each one containing the specific test data
-needed to perform a test.
-</p></dd>
-</dl>
-
-<p>These are the valid fields for the flags section:
-</p><dl compact="compact">
-<dt><code>comment</code></dt>
-<dd><p>A field describing the reason for the tests, the transformation rule
-or any useful info that might be needed in case the test breaks
-(optional).
-</p></dd>
-<dt><code>cursorPos</code></dt>
-<dd><p>The position of the cursor within the given text (optional). Useful
-when simulating screenreader interaction, to debug contraction and
-cursor behavior.
-</p></dd>
-<dt><code>mode</code></dt>
-<dd><p>The liblouis translation mode that should be used for this test
-(optional). If not defined defaults to 0.
-</p></dd>
-<dt><code>outputUniBrl</code></dt>
-<dd><p>For a forward translation test, the output should be in Unicode
-braille. For a backward translation test, the input is in Unicode
-braille.
-</p></dd>
-<dt><code>testmode</code></dt>
-<dd><p>The optional testmode field can have three values: &quot;translate&quot;
-(default if undeclared), &quot;backtranslate&quot; or &quot;hyphenate&quot;. Declares what
-tests should be performed on the test data.
-</p></dd>
-</dl>
-
-
-<p>Each test case has the following entries:
-</p>
-<dl compact="compact">
-<dt><code>input</code></dt>
-<dd><p>The Unicode text to be tested (required).
-</p></dd>
-<dt><code>output</code></dt>
-<dd><p>The expected braille output (required). The dots should be encoded in
-the liblouis ASCII-braille like encoding.
-</p></dd>
-<dt><code>brlCursorPos</code></dt>
-<dd><p>The expected position of the braille cursor in the braille output
-(optional). Useful when simulating screenreader interaction, to debug
-contraction and cursor behavior.
-</p></dd>
-</dl>
-
-<p>Variables defined in the flags section can be overridden by individual
-test cases, but if several tests need the same options, they should
-ideally be split into their own section, complete with their own flags
-and data.
-</p>
-<p>For examples please see <samp>*_harness.txt</samp> in the harness directory
-in the source distribution.
-</p>
-<hr>
 <a name="Doctests"></a>
 <a name="Doctests-1"></a>
-<h3 class="section">5.3 Doctests</h3>
+<h3 class="section">5.2 Doctests</h3>
 <p>A doctest looks like you typed a command at the Python command line
 and got some output, e.g.
 </p>
@@ -2644,14 +2568,14 @@ and perhaps notable changes.
 
 <div class="example">
 <pre class="example">int lou_translateString (
-    const char * tableList, 
-    const widechar * inbuf, 
-    int *inlen, 
-    widechar *outbuf, 
-    int *outlen, 
-    char *typeform, 
-    char *spacing, 
-    int mode);
+  const char *tableList,
+  const widechar *inbuf,
+  int *inlen,
+  widechar *outbuf,
+  int *outlen,
+  char *typeform,
+  char *spacing,
+  int mode);
 </pre></div>
 
 <p>This function takes a string of 16-bit Unicode characters in
@@ -2736,17 +2660,17 @@ complete translation could not be done.
 
 <div class="example">
 <pre class="example">int lou_translate (
-    const char * tableList, 
-    const widechar * const inbuf, 
-    int *inlen, 
-    widechar * outbuf, 
-    int *outlen, 
-    char *typeform, 
-    char *spacing, 
-    int *outputPos, 
-    int *inputPos, 
-    int *cursorPos, 
-    int mode);
+  const char *tableList,
+  const widechar *inbuf,
+  int *inlen,
+  widechar *outbuf,
+  int *outlen,
+  char *typeform,
+  char *spacing,
+  int *outputPos,
+  int *inputPos,
+  int *cursorPos,
+  int mode);
 </pre></div>
 
 <p>This function adds the parameters <code>outputPos</code>, <code>inputPos</code> and
@@ -2801,14 +2725,14 @@ failure (return value of 0).
 
 <div class="example">
 <pre class="example">int lou_backTranslateString (
-    const char * tableList, 
-    const widechar * inbuf, 
-    int *inlen, 
-    widechar *outbuf, 
-    int *outlen, 
-    char *typeform, 
-    char *spacing, 
-    int mode);
+  const char *tableList,
+  const widechar *inbuf,
+  int *inlen,
+  widechar *outbuf,
+  int *outlen,
+  char *typeform,
+  char *spacing,
+  int mode);
 </pre></div>
 
 <p>This is exactly the opposite of <code>lou_translateString</code>.
@@ -2829,17 +2753,17 @@ should be done.
 
 <div class="example">
 <pre class="example">int lou_backTranslate (
-    const char * tableList, 
-    const widechar * inbufx, 
-    int *inlen, 
-    widechar * outbuf, 
-    int *outlen, 
-    char *typeform, 
-    char *spacing, 
-    int *outputPos, 
-    int *inputPos, 
-    int *cursorPos, 
-    int mode);
+  const char *tableList,
+  const widechar *inbuf,
+  int *inlen,
+  widechar *outbuf,
+  int *outlen,
+  char *typeform,
+  char *spacing,
+  int *outputPos,
+  int *inputPos,
+  int *cursorPos,
+  int mode);
 </pre></div>
 
 <p>This function is exactly the inverse of <code>lou_translate</code>.
@@ -2852,11 +2776,11 @@ should be done.
 
 <div class="example">
 <pre class="example">int lou_hyphenate (
-    const char *tableList, 
-    const widechar *inbuf, 
-    int inlen, 
-    char *hyphens, 
-    int mode);
+  const char *tableList,
+  const widechar *inbuf,
+  int inlen,
+  char *hyphens,
+  int mode);
 </pre></div>
 
 <p>This function looks at the characters in <code>inbuf</code> and if it finds
@@ -2905,8 +2829,12 @@ will be produced if it is invalid. The function returns 1 on success and
 <a name="index-lou_005fdotsToChar"></a>
 
 <div class="example">
-<pre class="example">int lou_dotsToChar (const char *tableList, const widechar *inbuf, widechar 
-	*outbuf, int length, int)
+<pre class="example">int lou_dotsToChar (
+  const char *tableList,
+  const widechar *inbuf,
+  widechar *outbuf,
+  int length,
+  int mode)
 </pre></div>
 
 <p>This function takes a widechar string in <code>inbuf</code> consisting of dot 
@@ -2924,8 +2852,12 @@ and 0 on failure.
 <a name="index-lou_005fcharToDots"></a>
 
 <div class="example">
-<pre class="example">int lou_charToDots (const char *tableList, const widechar *inbuf, widechar 
-	*outbuf, int length, int mode)
+<pre class="example">int lou_charToDots (
+  const char *tableList,
+  const widechar *inbuf,
+  widechar *outbuf,
+  int length,
+  int mode)
 </pre></div>
 
 <p>This function is the inverse of <code>lou_dotsToChar</code>. It takes a
@@ -2944,8 +2876,12 @@ success and 0 on failure.
 <a name="index-lou_005fregisterLogCallback"></a>
 
 <div class="example">
-<pre class="example">typedef void (*logcallback)(int level, const char *message);
-void lou_registerLogCallback(logcallback callback);
+<pre class="example">typedef void (*logcallback) (
+  int level,
+  const char *message);
+  
+void lou_registerLogCallback (
+  logcallback callback);
 </pre></div>
 
 <p>This function can be used to register a custom logging callback. The
@@ -2964,15 +2900,16 @@ callback. Passing <code>NULL</code> resets to the default callback.
 <div class="example">
 <pre class="example">typedef enum
 {
-  LOG_ALL = -2147483648,
+  LOG_ALL = 0,
   LOG_DEBUG = 10000,
   LOG_INFO = 20000,
   LOG_WARN = 30000,
   LOG_ERROR = 40000,
   LOG_FATAL = 50000,
-  LOG_OFF = 2147483647
+  LOG_OFF = 6000
 } logLevels;
-void lou_setLogLevel(logLevels level);
+void lou_setLogLevel (
+  logLevels level);
 </pre></div>
 
 <p>This function can be used to influence the amount of logging, from
@@ -2990,7 +2927,8 @@ default level is <code>LOG_INFO</code>.
 <a name="index-lou_005flogFile"></a>
 
 <div class="example">
-<pre class="example">void lou_logFile (char *fileName);
+<pre class="example">void lou_logFile (
+  char *fileName);
 </pre></div>
 
 <p>This function is used when it is not convenient either to let messages
@@ -3006,7 +2944,9 @@ the file must be given.
 <a name="index-lou_005flogPrint"></a>
 
 <div class="example">
-<pre class="example">void lou_logPrint (char *format, ...);
+<pre class="example">void lou_logPrint (
+  char *format,
+  ...);
 </pre></div>
 
 <p>This function is called like <code>fprint</code>. It can be used by other
@@ -3036,7 +2976,8 @@ log file, so that it can be read by the rest of the program.
 <a name="index-lou_005fsetDataPath"></a>
 
 <div class="example">
-<pre class="example">char * lou_setDataPath (char *path);
+<pre class="example">char *lou_setDataPath (
+  char *path);
 </pre></div>
 
 <p>This function is used to tell liblouis and liblouisutdml where tables 
@@ -3052,7 +2993,7 @@ located. The function returns a pointer to the <code>path</code>.
 <a name="index-lou_005fgetDataPath"></a>
 
 <div class="example">
-<pre class="example">char * lou_getDataPath ();
+<pre class="example">char *lou_getDataPath ();
 </pre></div>
 
 <p>This function returns a pointer to the path set by 
@@ -3065,7 +3006,8 @@ located. The function returns a pointer to the <code>path</code>.
 <a name="index-lou_005fgetTable"></a>
 
 <div class="example">
-<pre class="example">void *lou_getTable (char *tablelist);
+<pre class="example">void *lou_getTable (
+  char *tablelist);
 </pre></div>
 
 <p><code>tablelist</code> is a list of names of table files separated by
@@ -3084,7 +3026,9 @@ pointer being returned.
 <a name="index-lou_005freadCharFromFile"></a>
 
 <div class="example">
-<pre class="example">int lou_readCharFromFile (const char *fileName, int *mode);
+<pre class="example">int lou_readCharFromFile (
+  const char *fileName,
+  int *mode);
 </pre></div>
 
 <p>This function is provided for situations where it is necessary to read
@@ -3127,17 +3071,45 @@ directory. Usage information is included in the Python module itself.
 <a name="Concept-Index"></a>
 <a name="Concept-Index-1"></a>
 <h2 class="unnumbered">Concept Index</h2>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Concept-Index_cp_letter-V"><b>V</b></a>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Concept-Index_cp_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-O"><b>O</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-V"><b>V</b></a>
  &nbsp; 
 </td></tr></table>
 <table class="index-cp" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-C">C</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-characters-operand">characters operand</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Overview">Overview</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-D">D</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-dots-operand">dots operand</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Overview">Overview</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-M">M</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-multi_002dcell-dot-pattern">multi-cell dot pattern</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Overview">Overview</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-O">O</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-opcode">opcode</a>:</td><td>&nbsp;</td><td valign="top"><a href="#How-to-Write-Translation-Tables">How to Write Translation Tables</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Concept-Index_cp_letter-V">V</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-virtual-dots">virtual dots</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Overview">Overview</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Concept-Index_cp_letter-V"><b>V</b></a>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Concept-Index_cp_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-O"><b>O</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-V"><b>V</b></a>
  &nbsp; 
 </td></tr></table>
 
@@ -3154,8 +3126,6 @@ directory. Usage information is included in the Python module itself.
 <a class="summary-letter" href="#Opcode-Index_opcode_letter-D"><b>D</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Opcode-Index_opcode_letter-E"><b>E</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Opcode-Index_opcode_letter-F"><b>F</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Opcode-Index_opcode_letter-G"><b>G</b></a>
  &nbsp; 
@@ -3191,15 +3161,13 @@ directory. Usage information is included in the Python module itself.
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Opcode-Index_opcode_letter-B">B</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-before">before</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dClass-Opcodes">Character-Class Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-begbold">begbold</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Deprecated-Opcodes">Deprecated Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-begcaps">begcaps</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-begcomp">begcomp</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-begital">begital</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Deprecated-Opcodes">Deprecated Opcodes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-begemph">begemph</a>:</td><td>&nbsp;</td><td valign="top"><a href="#None">None</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-begemphphrase">begemphphrase</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Phrase">Phrase</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-begemphword">begemphword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Word">Word</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-begmidword">begmidword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-begnum">begnum</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-begunder">begunder</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Deprecated-Opcodes">Deprecated Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-begword">begword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-boldsign">boldsign</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Deprecated-Opcodes">Deprecated Opcodes</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Opcode-Index_opcode_letter-C">C</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-capsign">capsign</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
@@ -3217,22 +3185,16 @@ directory. Usage information is included in the Python module itself.
 <tr><td></td><td valign="top"><a href="#index-display">display</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Opcodes">Miscellaneous Opcodes</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Opcode-Index_opcode_letter-E">E</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-endbold">endbold</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Deprecated-Opcodes">Deprecated Opcodes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-emphclass">emphclass</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-class">Emphasis class</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-emphletter">emphletter</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Letter">Letter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-endcaps">endcaps</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-endcomp">endcomp</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-endital">endital</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Deprecated-Opcodes">Deprecated Opcodes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-endemph">endemph</a>:</td><td>&nbsp;</td><td valign="top"><a href="#None">None</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-endemphphrase-after">endemphphrase after</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Phrase">Phrase</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-endemphphrase-before">endemphphrase before</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Phrase">Phrase</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-endemphword">endemphword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Word">Word</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-endnum">endnum</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-endunder">endunder</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Deprecated-Opcodes">Deprecated Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-endword">endword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-exactdots">exactdots</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Opcode-Index_opcode_letter-F">F</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-firstletterbold">firstletterbold</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-firstletterital">firstletterital</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-firstletterunder">firstletterunder</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-firstwordbold">firstwordbold</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-firstwordital">firstwordital</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-firstwordunder">firstwordunder</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Opcode-Index_opcode_letter-G">G</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-grouping">grouping</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
@@ -3242,7 +3204,6 @@ directory. Usage information is included in the Python module itself.
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Opcode-Index_opcode_letter-I">I</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-include">include</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Opcodes">Miscellaneous Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-italsign">italsign</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Deprecated-Opcodes">Deprecated Opcodes</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Opcode-Index_opcode_letter-J">J</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-joinnum">joinnum</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
@@ -3250,22 +3211,10 @@ directory. Usage information is included in the Python module itself.
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Opcode-Index_opcode_letter-L">L</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-largesign">largesign</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-lastletterbold">lastletterbold</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-lastletterital">lastletterital</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-lastletterunder">lastletterunder</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-lastwordboldafter">lastwordboldafter</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-lastwordboldbefore">lastwordboldbefore</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-lastworditalafter">lastworditalafter</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-lastworditalbefore">lastworditalbefore</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-lastwordunderafter">lastwordunderafter</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-lastwordunderbefore">lastwordunderbefore</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-lenboldphrase">lenboldphrase</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-lenitalphrase">lenitalphrase</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-lenunderphrase">lenunderphrase</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-lenemphphrase">lenemphphrase</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Phrase">Phrase</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-letsign">letsign</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-letter">letter</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-litdigit">litdigit</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-literal">literal</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Deprecated-Opcodes">Deprecated Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-locale">locale</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Opcodes">Miscellaneous Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lowercase">lowercase</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lowword">lowword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
@@ -3280,6 +3229,7 @@ directory. Usage information is included in the Python module itself.
 <tr><th><a name="Opcode-Index_opcode_letter-N">N</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-noback">noback</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-nocont">nocont</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-nocontractsign">nocontractsign</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-nocross">nocross</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-nofor">nofor</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-noletsign">noletsign</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
@@ -3304,9 +3254,6 @@ directory. Usage information is included in the Python module itself.
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Opcode-Index_opcode_letter-S">S</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-sign">sign</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-singleletterbold">singleletterbold</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-singleletterital">singleletterital</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-singleletterunder">singleletterunder</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-Opcodes">Emphasis Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-space">space</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-sufword">sufword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-swapcc">swapcc</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Swap-Opcodes">Swap Opcodes</a></td></tr>
@@ -3316,7 +3263,6 @@ directory. Usage information is included in the Python module itself.
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Opcode-Index_opcode_letter-U">U</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-undefined">undefined</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Opcodes">Miscellaneous Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-undersign">undersign</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Deprecated-Opcodes">Deprecated Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-uplow">uplow</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-uppercase">uppercase</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
@@ -3333,8 +3279,6 @@ directory. Usage information is included in the Python module itself.
 <a class="summary-letter" href="#Opcode-Index_opcode_letter-D"><b>D</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Opcode-Index_opcode_letter-E"><b>E</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Opcode-Index_opcode_letter-F"><b>F</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Opcode-Index_opcode_letter-G"><b>G</b></a>
  &nbsp; 
