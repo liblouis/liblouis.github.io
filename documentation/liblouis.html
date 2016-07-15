@@ -62,16 +62,16 @@ title: Liblouis User's and Programmer's Manual
   </ul></li>
   <li><a name="toc-Programming-with-liblouis-1" href="#Programming-with-liblouis">6 Programming with liblouis</a>
   <ul class="no-bullet">
-    <li><a name="toc-License-1" href="#License">6.1 License</a></li>
-    <li><a name="toc-Overview-2" href="#Overview-_0028library_0029">6.2 Overview</a></li>
-    <li><a name="toc-Data-structure-of-liblouis-tables-1" href="#Data-structure-of-liblouis-tables">6.3 Data structure of liblouis tables</a></li>
-    <li><a name="toc-lou_005fversion-1" href="#lou_005fversion">6.4 lou_version</a></li>
-    <li><a name="toc-lou_005ftranslateString-1" href="#lou_005ftranslateString">6.5 lou_translateString</a></li>
-    <li><a name="toc-lou_005ftranslate-2" href="#lou_005ftranslate">6.6 lou_translate</a></li>
-    <li><a name="toc-lou_005fbackTranslateString-1" href="#lou_005fbackTranslateString">6.7 lou_backTranslateString</a></li>
-    <li><a name="toc-lou_005fbackTranslate-1" href="#lou_005fbackTranslate">6.8 lou_backTranslate</a></li>
-    <li><a name="toc-lou_005fhyphenate-1" href="#lou_005fhyphenate">6.9 lou_hyphenate</a></li>
-    <li><a name="toc-lou_005fcompileString-1" href="#lou_005fcompileString">6.10 lou_compileString</a></li>
+    <li><a name="toc-Overview-2" href="#Overview-_0028library_0029">6.1 Overview</a></li>
+    <li><a name="toc-Data-structure-of-liblouis-tables-1" href="#Data-structure-of-liblouis-tables">6.2 Data structure of liblouis tables</a></li>
+    <li><a name="toc-lou_005fversion-1" href="#lou_005fversion">6.3 lou_version</a></li>
+    <li><a name="toc-lou_005ftranslateString-1" href="#lou_005ftranslateString">6.4 lou_translateString</a></li>
+    <li><a name="toc-lou_005ftranslate-2" href="#lou_005ftranslate">6.5 lou_translate</a></li>
+    <li><a name="toc-lou_005fbackTranslateString-1" href="#lou_005fbackTranslateString">6.6 lou_backTranslateString</a></li>
+    <li><a name="toc-lou_005fbackTranslate-1" href="#lou_005fbackTranslate">6.7 lou_backTranslate</a></li>
+    <li><a name="toc-lou_005fhyphenate-1" href="#lou_005fhyphenate">6.8 lou_hyphenate</a></li>
+    <li><a name="toc-lou_005fcompileString-1" href="#lou_005fcompileString">6.9 lou_compileString</a></li>
+    <li><a name="toc-lou_005fgetTypeformForEmphClass-1" href="#lou_005fgetTypeformForEmphClass">6.10 lou_getTypeformForEmphClass</a></li>
     <li><a name="toc-lou_005fdotsToChar-1" href="#lou_005fdotsToChar">6.11 lou_dotsToChar</a></li>
     <li><a name="toc-lou_005fcharToDots-1" href="#lou_005fcharToDots">6.12 lou_charToDots</a></li>
     <li><a name="toc-lou_005fregisterLogCallback-1" href="#lou_005fregisterLogCallback">6.13 lou_registerLogCallback</a></li>
@@ -82,9 +82,10 @@ title: Liblouis User's and Programmer's Manual
     <li><a name="toc-lou_005fsetDataPath-1" href="#lou_005fsetDataPath">6.18 lou_setDataPath</a></li>
     <li><a name="toc-lou_005fgetDataPath-1" href="#lou_005fgetDataPath">6.19 lou_getDataPath</a></li>
     <li><a name="toc-lou_005fgetTable-1" href="#lou_005fgetTable">6.20 lou_getTable</a></li>
-    <li><a name="toc-lou_005freadCharFromFile-1" href="#lou_005freadCharFromFile">6.21 lou_readCharFromFile</a></li>
-    <li><a name="toc-lou_005ffree-1" href="#lou_005ffree">6.22 lou_free</a></li>
-    <li><a name="toc-Python-bindings-1" href="#Python-bindings">6.23 Python bindings</a></li>
+    <li><a name="toc-lou_005fcheckTable-1" href="#lou_005fcheckTable">6.21 lou_checkTable</a></li>
+    <li><a name="toc-lou_005freadCharFromFile-1" href="#lou_005freadCharFromFile">6.22 lou_readCharFromFile</a></li>
+    <li><a name="toc-lou_005ffree-1" href="#lou_005ffree">6.23 lou_free</a></li>
+    <li><a name="toc-Python-bindings-1" href="#Python-bindings">6.24 Python bindings</a></li>
   </ul></li>
   <li><a name="toc-Concept-Index-1" href="#Concept-Index">Concept Index</a></li>
   <li><a name="toc-Opcode-Index-1" href="#Opcode-Index">Opcode Index</a></li>
@@ -98,7 +99,7 @@ title: Liblouis User's and Programmer's Manual
 <a name="Liblouis-User_0027s-and-Programmer_0027s-Manual"></a>
 <h1 class="top">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouis (version 3.0.0.alpha1, 16 June 2016),
+<p>This manual is for liblouis (version 3.0.0, 14 July 2016),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <acronym>BRLTTY</acronym>. 
 </p>
@@ -864,8 +865,8 @@ will be placed before the last word of the phrase.
 <dt><code>endemphphrase after &lt;emphasis class&gt; after &lt;dot pattern&gt;</code></dt>
 <dd><p>Braille dot pattern to indicate the end of a phrase. The closing
 indicator will be placed after the last word of the phrase. If both
-<code>endemphphrase &lt;emphasis class&gt; before</code> and <code>endemphphrase &lt;emphasis
-class&gt; after</code> are defined an error will be signaled.
+<code>endemphphrase &lt;emphasis class&gt; before</code> and <code>endemphphrase
+&lt;emphasis class&gt; after</code> are defined an error will be signaled.
 </p>
 <div class="example">
 <pre class="example">endemphphrase underline after 6-3
@@ -2390,53 +2391,26 @@ the doctest directory in the source distribution.
 
 
 <hr>
-<a name="License"></a>
-<a name="License-1"></a>
-<h3 class="section">6.1 License</h3>
-
-<p>Liblouis may contain code borrowed from the Linux screen reader BRLTTY,
-Copyright &copy; 1999-2006 by the BRLTTY Team.
-</p>
-<p>Copyright &copy; 2004-2007 ViewPlus Technologies, Inc.
-<a href="www.viewplus.com">www.viewplus.com</a>.
-</p>
-<p>Copyright &copy; 2007,2009 Abilitiessoft, Inc.
-<a href="www.abilitiessoft.org">www.abilitiessoft.org</a>.
-</p>
-<p>Liblouis is free software: you can redistribute it and/or modify it
-under the terms of the GNU Lesser General Public License as published
-by the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-</p>
-<p>Liblouis is distributed in the hope that it will be useful, but
-WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-Lesser General Public License for more details.
-</p>
-<p>You should have received a copy of the GNU Lesser General Public
-License along with Liblouis. If not, see
-<a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.
-</p>
-<hr>
 <a name="Overview-_0028library_0029"></a>
 <a name="Overview-2"></a>
-<h3 class="section">6.2 Overview</h3>
+<h3 class="section">6.1 Overview</h3>
 
 <p>You use the liblouis library by calling the following functions,
 <code>lou_translateString</code>, <code>lou_backTranslateString</code>,
+<code>lou_translate</code>, <code>lou_backTranslate</code>,
 <code>lou_registerLogCallback</code>, <code>lou_setLogLevel</code>,
 <code>lou_logFile</code>, <code>lou_logPrint</code>, <code>lou_logEnd</code>,
-<code>lou_getTable</code>, <code>lou_translate</code>, <code>lou_backTranslate</code>,
-<code>lou_hyphenate</code>, <code>lou_charToDots</code>, <code>lou_dotsToChar</code>,
-<code>lou_compileString</code>, <code>lou_readCharFromFile</code>,
-<code>lou_version</code> and <code>lou_free</code>.  These are described
-below. The header file, <samp>liblouis.h</samp>, also contains brief
-descriptions. Liblouis is written in straight C. It has four code
-modules, <samp>compileTranslationTable.c</samp>, <samp>logging.c</samp>,
+<code>lou_getTable</code>, <code>lou_checkTable</code>, <code>lou_hyphenate</code>,
+<code>lou_charToDots</code>, <code>lou_dotsToChar</code>,
+<code>lou_compileString</code>, <code>lou_getTypeformForEmphClass</code>,
+<code>lou_readCharFromFile</code>, <code>lou_version</code> and <code>lou_free</code>.
+These are described below. The header file, <samp>liblouis.h</samp>, also
+contains brief descriptions. Liblouis is written in straight C. It has
+four code modules, <samp>compileTranslationTable.c</samp>, <samp>logging.c</samp>,
 <samp>lou_translateString.c</samp> and <samp>lou_backTranslateString.c</samp>. In
 addition, there are two header files, <samp>liblouis.h</samp>, which defines
-the API, and <samp>louis.h</samp>, used only internally and by liblouisutdml.
-The latter includes <samp>liblouis.h</samp>.
+the API, and <samp>louis.h</samp>, used only internally and by
+liblouisutdml. The latter includes <samp>liblouis.h</samp>.
 </p>
 <p>Persons who wish to use liblouis from Python may want to skip ahead to
 <a href="#Python-bindings">Python bindings</a>.
@@ -2448,10 +2422,8 @@ yet been compiled <samp>compileTranslationTable.c</samp> checks it for
 correctness and compiles it into an efficient internal representation.
 The main entry point is <code>lou_getTable</code>. Since it is the module
 that keeps track of memory usage, it also contains the <code>lou_free</code>
-function. In addition, it contains the <code>lou_registerLogCallback</code>,
-<code>lou_setLogLevel</code>, <code>lou_logFile</code>, <code>lou_logPrint</code> and
-<code>lou_logEnd</code> functions, plus some utility functions which are
-used by the other modules.
+function. In addition, it contains the <code>lou_checkTable</code> function,
+plus some utility functions which are used by the other modules.
 </p>
 <p>By default, liblouis handles all characters internally as 16-bit
 unsigned integers. It can be compiled for 32-bit characters as
@@ -2480,7 +2452,7 @@ been compiled for 32-bit Unicode simply read 32 instead of 16.
 <hr>
 <a name="Data-structure-of-liblouis-tables"></a>
 <a name="Data-structure-of-liblouis-tables-1"></a>
-<h3 class="section">6.3 Data structure of liblouis tables</h3>
+<h3 class="section">6.2 Data structure of liblouis tables</h3>
 
 <p>The data structure <code>TranslationTableHeader</code> is defined by a
 <code>typedef</code> statement in <samp>louis.h</samp>. To find the beginning,
@@ -2549,7 +2521,7 @@ points.
 <hr>
 <a name="lou_005fversion"></a>
 <a name="lou_005fversion-1"></a>
-<h3 class="section">6.4 lou_version</h3>
+<h3 class="section">6.3 lou_version</h3>
 <a name="index-lou_005fversion"></a>
 
 <div class="example">
@@ -2563,17 +2535,17 @@ and perhaps notable changes.
 <hr>
 <a name="lou_005ftranslateString"></a>
 <a name="lou_005ftranslateString-1"></a>
-<h3 class="section">6.5 lou_translateString</h3>
+<h3 class="section">6.4 lou_translateString</h3>
 <a name="index-lou_005ftranslateString"></a>
 
 <div class="example">
-<pre class="example">int lou_translateString (
+<pre class="example">int lou_translateString(
   const char *tableList,
   const widechar *inbuf,
   int *inlen,
   widechar *outbuf,
   int *outlen,
-  char *typeform,
+  formtype *typeform,
   char *spacing,
   int mode);
 </pre></div>
@@ -2625,13 +2597,13 @@ contain the maximum input and output lengths, respectively. When it
 returns, they are set to the actual lengths used.
 </p>
 <p>The <code>typeform</code> parameter is used to indicate italic type,
-boldface type, computer braille, etc. It is a string of characters
+boldface type, computer braille, etc. It is an array of <code>formtype</code>
 with the same length as the input buffer pointed to by <code>*inbuf</code>.
 However, it is used to pass back character-by-character results, so
 enough space must be provided to match the <code>*outlen</code> parameter.
-Each character indicates the typeform of the corresponding character
-in the input buffer. The values are as follows: 0 plain-text; 1
-italic; 2 bold; 4 underline; 8 computer braille. These values can be
+Each element indicates the typeform of the corresponding character
+in the input buffer. The values and their meaning can be consulted in the
+<code>typeforms</code> enum in <samp>liblouis.h</samp>. These values can be
 added for multiple emphasis. If this parameter is <code>NULL</code>, no
 checking for type forms is done. In addition, if this parameter is not
 <code>NULL</code>, it is set on return to have an 8 at every position
@@ -2655,17 +2627,17 @@ complete translation could not be done.
 <hr>
 <a name="lou_005ftranslate"></a>
 <a name="lou_005ftranslate-2"></a>
-<h3 class="section">6.6 lou_translate</h3>
+<h3 class="section">6.5 lou_translate</h3>
 <a name="index-lou_005ftranslate"></a>
 
 <div class="example">
-<pre class="example">int lou_translate (
+<pre class="example">int lou_translate(
   const char *tableList,
   const widechar *inbuf,
   int *inlen,
   widechar *outbuf,
   int *outlen,
-  char *typeform,
+  formtype *typeform,
   char *spacing,
   int *outputPos,
   int *inputPos,
@@ -2673,35 +2645,34 @@ complete translation could not be done.
   int mode);
 </pre></div>
 
-<p>This function adds the parameters <code>outputPos</code>, <code>inputPos</code> and
-<code>cursorPos</code>, to facilitate use in screen reader programs. The
+<p>This function adds the parameters <code>outputPos</code>, <code>inputPos</code>
+and <code>cursorPos</code>, to facilitate use in screen reader programs. The
 <code>outputPos</code> parameter must point to an array of integers with at
 least <code>inlen</code> elements. On return, this array will contain the
 position in <code>outbuf</code> corresponding to each input position.
 Similarly, <code>inputPos</code> must point to an array of integers of at
 least <code>outlen</code> elements. On return, this array will contain the
-position in <code>inbuf</code> corresponding to each position in 
-<code>outbuf</code>.
-<code>cursorPos</code> must point to an integer containing the position of the
-cursor in the input. On return, it will contain the cursor position in
-the output. Any parameter after <code>outlen</code> may be <code>NULL</code>. In
-this case, the actions corresponding to it will not be carried out. The
-<code>mode</code> parameter, however, must be present and must be an integer,
-not a pointer to an integer. If the <code>compbrlAtCursor</code> bit is set in
-the <code>mode</code> parameter the space-bounded characters containing the
-cursor will be translated in computer braille. If the
-<code>compbrlLeftCursor</code> bit is set only the characters to the left of
-the cursor will be in computer braille. This bit overrides
-<code>compbrlAtCursor</code>.
-When the <code>dotsIO</code> bit is set, during translation, produce output as dot patterns. During
+position in <code>inbuf</code> corresponding to each position in
+<code>outbuf</code>. <code>cursorPos</code> must point to an integer containing
+the position of the cursor in the input. On return, it will contain
+the cursor position in the output. Any parameter after <code>outlen</code>
+may be <code>NULL</code>. In this case, the actions corresponding to it will
+not be carried out. The <code>mode</code> parameter, however, must be
+present and must be an integer, not a pointer to an integer. If the
+<code>compbrlAtCursor</code> bit is set in the <code>mode</code> parameter the
+space-bounded characters containing the cursor will be translated in
+computer braille. If the <code>compbrlLeftCursor</code> bit is set only the
+characters to the left of the cursor will be in computer braille. This
+bit overrides <code>compbrlAtCursor</code>. When the <code>dotsIO</code> bit is
+set, during translation, produce output as dot patterns. During
 back-translation accept input as dot patterns. Note that the produced
 dot patterns are affected if you have any <code>display</code> opcode (see <a href="#display-opcode"><code>display</code></a>) defined
-in any of your tables. 
-The <code>ucBrl</code> (Unicode Braille) bit is used by <code>lou_charToDots</code> and <code>lou_translate</code>.  It causes the dot
-patterns to be Unicode Braille rather than the liblouis representation.
-Note that you will not notice any change when setting <code>ucBrl</code>  unless <code>dotsIO</code> is also set.
-<code>lou_dotsToChar</code> and <code>lou_backTranslate</code> recognize Unicode
-braille automatically.
+in any of your tables. The <code>ucBrl</code> (Unicode Braille) bit is used
+by <code>lou_charToDots</code> and <code>lou_translate</code>. It causes the dot
+patterns to be Unicode Braille rather than the liblouis
+representation. Note that you will not notice any change when setting
+<code>ucBrl</code> unless <code>dotsIO</code> is also set. <code>lou_dotsToChar</code>
+and <code>lou_backTranslate</code> recognize Unicode braille automatically.
 </p>
 <p>The <code>otherTrans</code> mode needs special description. If it is set 
 liblouis will attempt to call a wrapper for another translator. These 
@@ -2720,17 +2691,17 @@ failure (return value of 0).
 <hr>
 <a name="lou_005fbackTranslateString"></a>
 <a name="lou_005fbackTranslateString-1"></a>
-<h3 class="section">6.7 lou_backTranslateString</h3>
+<h3 class="section">6.6 lou_backTranslateString</h3>
 <a name="index-lou_005fbackTranslateString"></a>
 
 <div class="example">
-<pre class="example">int lou_backTranslateString (
+<pre class="example">int lou_backTranslateString(
   const char *tableList,
   const widechar *inbuf,
   int *inlen,
   widechar *outbuf,
   int *outlen,
-  char *typeform,
+  formtype *typeform,
   char *spacing,
   int mode);
 </pre></div>
@@ -2748,17 +2719,17 @@ should be done.
 <hr>
 <a name="lou_005fbackTranslate"></a>
 <a name="lou_005fbackTranslate-1"></a>
-<h3 class="section">6.8 lou_backTranslate</h3>
+<h3 class="section">6.7 lou_backTranslate</h3>
 <a name="index-lou_005fbackTranslate"></a>
 
 <div class="example">
-<pre class="example">int lou_backTranslate (
+<pre class="example">int lou_backTranslate(
   const char *tableList,
   const widechar *inbuf,
   int *inlen,
   widechar *outbuf,
   int *outlen,
-  char *typeform,
+  formtype *typeform,
   char *spacing,
   int *outputPos,
   int *inputPos,
@@ -2771,7 +2742,7 @@ should be done.
 <hr>
 <a name="lou_005fhyphenate"></a>
 <a name="lou_005fhyphenate-1"></a>
-<h3 class="section">6.9 lou_hyphenate</h3>
+<h3 class="section">6.8 lou_hyphenate</h3>
 <a name="index-lou_005fhyphenate"></a>
 
 <div class="example">
@@ -2807,7 +2778,7 @@ use in liblouisutdml.
 <hr>
 <a name="lou_005fcompileString"></a>
 <a name="lou_005fcompileString-1"></a>
-<h3 class="section">6.10 lou_compileString</h3>
+<h3 class="section">6.9 lou_compileString</h3>
 <a name="index-lou_005fcompileString"></a>
 
 <div class="example">
@@ -2821,6 +2792,26 @@ been loaded it is loaded and compiled. <code>inString</code> contains the
 table entry to be added. It may be anything valid. Error messages 
 will be produced if it is invalid. The function returns 1 on success and 
 0 on failure.
+</p>
+<hr>
+<a name="lou_005fgetTypeformForEmphClass"></a>
+<a name="lou_005fgetTypeformForEmphClass-1"></a>
+<h3 class="section">6.10 lou_getTypeformForEmphClass</h3>
+<a name="index-lou_005fgetTypeformForEmphClass"></a>
+
+<div class="example">
+<pre class="example">int lou_getTypeformForEmphClass (const char *tableList, const char *emphClass);
+</pre></div>
+
+<p>This function returns the typeform bit associated with the given
+emphasis class. If the emphasis class is undefined this function
+returns <code>0</code>. If errors are found error messages are logged to the
+log callback (see <code>lou_registerLogCallback</code>) and the return value
+is <code>0</code>. <code>tableList</code> is a list of names of table files
+separated by commas, as explained previously
+(see <a href="#translation_002dtables"><code>tableList</code> parameter in
+<code>lou_translateString</code></a>). <code>emphClass</code> is the name of an
+emphasis class.
 </p>
 <hr>
 <a name="lou_005fdotsToChar"></a>
@@ -3007,10 +2998,10 @@ located. The function returns a pointer to the <code>path</code>.
 
 <div class="example">
 <pre class="example">void *lou_getTable (
-  char *tablelist);
+  char *tableList);
 </pre></div>
 
-<p><code>tablelist</code> is a list of names of table files separated by
+<p><code>tableList</code> is a list of names of table files separated by
 commas, as explained previously
 (see <a href="#translation_002dtables"><code>tableList</code> parameter in
 <code>lou_translateString</code></a>). If no errors are found this function
@@ -3020,9 +3011,29 @@ messages are logged to the log callback (see
 pointer being returned.
 </p>
 <hr>
+<a name="lou_005fcheckTable"></a>
+<a name="lou_005fcheckTable-1"></a>
+<h3 class="section">6.21 lou_checkTable</h3>
+<a name="index-lou_005fcheckTable"></a>
+
+<div class="example">
+<pre class="example">int lou_checkTable (const char *tableList);
+</pre></div>
+
+<p>This function does the same as <code>lou_getTable</code> but does not return
+a pointer to the resulting table. It is to be preferred if only the
+validity of a table needs to be checked. <code>tableList</code> is a list of
+names of table files separated by commas, as explained previously
+(see <a href="#translation_002dtables"><code>tableList</code> parameter in
+<code>lou_translateString</code></a>). If no errors are found this function
+returns a non-zero. If errors are found error messages are logged to
+the log callback (see <code>lou_registerLogCallback</code>) and the return
+value is <code>0</code>.
+</p>
+<hr>
 <a name="lou_005freadCharFromFile"></a>
 <a name="lou_005freadCharFromFile-1"></a>
-<h3 class="section">6.21 lou_readCharFromFile</h3>
+<h3 class="section">6.22 lou_readCharFromFile</h3>
 <a name="index-lou_005freadCharFromFile"></a>
 
 <div class="example">
@@ -3043,7 +3054,7 @@ function takes care of it. On end-of-file the function returns
 <hr>
 <a name="lou_005ffree"></a>
 <a name="lou_005ffree-1"></a>
-<h3 class="section">6.22 lou_free</h3>
+<h3 class="section">6.23 lou_free</h3>
 <a name="index-lou_005ffree"></a>
 
 <div class="example">
@@ -3059,10 +3070,12 @@ tables every time they are used, resulting in great inefficiency.
 <hr>
 <a name="Python-bindings"></a>
 <a name="Python-bindings-1"></a>
-<h3 class="section">6.23 Python bindings</h3>
+<h3 class="section">6.24 Python bindings</h3>
 
 <p>There are Python bindings for <code>lou_translateString</code>,
-<code>lou_translate</code>, <code>lou_backTranslateString</code>, <code>lou_backTranslate</code>, <code>lou_hyphenate</code>, <code>lou_getTable</code> (called <code>checkTable</code>), <code>lou_compileString</code> and <code>lou_version</code>. For installation
+<code>lou_translate</code>, <code>lou_backTranslateString</code>,
+<code>lou_backTranslate</code>, <code>lou_hyphenate</code>, <code>checkTable</code>,
+<code>lou_compileString</code> and <code>lou_version</code>. For installation
 instructions see the the <samp>README</samp> file in the <samp>python</samp>
 directory. Usage information is included in the Python module itself.
 </p>
@@ -3320,11 +3333,13 @@ directory. Usage information is included in the Python module itself.
 <tr><td></td><td valign="top"><a href="#index-lou_005fbackTranslate"><code>lou_backTranslate</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fbackTranslate">lou_backTranslate</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fbackTranslateString"><code>lou_backTranslateString</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fbackTranslateString">lou_backTranslateString</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fcharToDots"><code>lou_charToDots</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fcharToDots">lou_charToDots</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-lou_005fcheckTable"><code>lou_checkTable</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fcheckTable">lou_checkTable</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fcompileString"><code>lou_compileString</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fcompileString">lou_compileString</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fdotsToChar"><code>lou_dotsToChar</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fdotsToChar">lou_dotsToChar</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005ffree"><code>lou_free</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005ffree">lou_free</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fgetDataPath"><code>lou_getDataPath</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fgetDataPath">lou_getDataPath</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fgetTable"><code>lou_getTable</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fgetTable">lou_getTable</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-lou_005fgetTypeformForEmphClass"><code>lou_getTypeformForEmphClass</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fgetTypeformForEmphClass">lou_getTypeformForEmphClass</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fhyphenate"><code>lou_hyphenate</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fhyphenate">lou_hyphenate</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005flogEnd"><code>lou_logEnd</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005flogEnd">lou_logEnd</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005flogFile"><code>lou_logFile</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005flogFile">lou_logFile</a></td></tr>
