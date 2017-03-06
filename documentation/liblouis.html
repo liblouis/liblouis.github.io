@@ -43,49 +43,61 @@ title: Liblouis User's and Programmer's Manual
     <li><a name="toc-Miscellaneous-Opcodes-1" href="#Miscellaneous-Opcodes">2.13 Miscellaneous Opcodes</a></li>
   </ul></li>
   <li><a name="toc-Notes-on-Back_002dTranslation-1" href="#Notes-on-Back_002dTranslation">3 Notes on Back-Translation</a></li>
-  <li><a name="toc-Testing-Translation-Tables-interactively-1" href="#Testing-Translation-Tables-interactively">4 Testing Translation Tables interactively</a>
+  <li><a name="toc-Table-Metadata-1" href="#Table-Metadata">4 Table Metadata</a>
   <ul class="no-bullet">
-    <li><a name="toc-lou_005fdebug-1" href="#lou_005fdebug">4.1 lou_debug</a></li>
-    <li><a name="toc-lou_005ftrace-1" href="#lou_005ftrace">4.2 lou_trace</a></li>
-    <li><a name="toc-lou_005fchecktable-1" href="#lou_005fchecktable">4.3 lou_checktable</a></li>
-    <li><a name="toc-lou_005fallround-1" href="#lou_005fallround">4.4 lou_allround</a></li>
-    <li><a name="toc-lou_005ftranslate-1" href="#lou_005ftranslate-_0028program_0029">4.5 lou_translate</a></li>
-    <li><a name="toc-lou_005fcheckhyphens-1" href="#lou_005fcheckhyphens">4.6 lou_checkhyphens</a></li>
+    <li><a name="toc-Syntax" href="#Syntax">4.1 Syntax</a></li>
+    <li><a name="toc-Query-Syntax-1" href="#Query-Syntax-1">4.2 Query Syntax</a></li>
   </ul></li>
-  <li><a name="toc-Automated-Testing-of-Translation-Tables-1" href="#Automated-Testing-of-Translation-Tables">5 Automated Testing of Translation Tables</a>
+  <li><a name="toc-Testing-Translation-Tables-interactively-1" href="#Testing-Translation-Tables-interactively">5 Testing Translation Tables interactively</a>
   <ul class="no-bullet">
-    <li><a name="toc-YAML-Tests-1" href="#YAML-Tests">5.1 YAML Tests</a>
+    <li><a name="toc-lou_005fdebug-1" href="#lou_005fdebug">5.1 lou_debug</a></li>
+    <li><a name="toc-lou_005ftrace-1" href="#lou_005ftrace">5.2 lou_trace</a></li>
+    <li><a name="toc-lou_005fchecktable-1" href="#lou_005fchecktable">5.3 lou_checktable</a></li>
+    <li><a name="toc-lou_005fallround-1" href="#lou_005fallround">5.4 lou_allround</a></li>
+    <li><a name="toc-lou_005ftranslate-1" href="#lou_005ftranslate-_0028program_0029">5.5 lou_translate</a></li>
+    <li><a name="toc-lou_005fcheckhyphens-1" href="#lou_005fcheckhyphens">5.6 lou_checkhyphens</a></li>
+    <li><a name="toc-lou_005fcheckyaml-1" href="#lou_005fcheckyaml">5.7 lou_checkyaml</a></li>
+  </ul></li>
+  <li><a name="toc-Automated-Testing-of-Translation-Tables-1" href="#Automated-Testing-of-Translation-Tables">6 Automated Testing of Translation Tables</a>
+  <ul class="no-bullet">
+    <li><a name="toc-YAML-Tests-1" href="#YAML-Tests">6.1 YAML Tests</a>
     <ul class="no-bullet">
-      <li><a name="toc-Optional-test-description" href="#Optional-test-description">5.1.1 Optional test description</a></li>
+      <li><a name="toc-Optional-test-description" href="#Optional-test-description">6.1.1 Optional test description</a></li>
+      <li><a name="toc-Testing-multiple-tables-within-the-same-YAML-test-file" href="#Testing-multiple-tables-within-the-same-YAML-test-file">6.1.2 Testing multiple tables within the same YAML test file</a></li>
+      <li><a name="toc-Inline-definition-of-tables" href="#Inline-definition-of-tables">6.1.3 Inline definition of tables</a></li>
+      <li><a name="toc-Running-the-same-test-data-on-multiple-tables" href="#Running-the-same-test-data-on-multiple-tables">6.1.4 Running the same test data on multiple tables</a></li>
     </ul></li>
-    <li><a name="toc-Doctests-1" href="#Doctests">5.2 Doctests</a></li>
+    <li><a name="toc-Doctests-1" href="#Doctests">6.2 Doctests</a></li>
   </ul></li>
-  <li><a name="toc-Programming-with-liblouis-1" href="#Programming-with-liblouis">6 Programming with liblouis</a>
+  <li><a name="toc-Programming-with-liblouis-1" href="#Programming-with-liblouis">7 Programming with liblouis</a>
   <ul class="no-bullet">
-    <li><a name="toc-Overview-2" href="#Overview-_0028library_0029">6.1 Overview</a></li>
-    <li><a name="toc-Data-structure-of-liblouis-tables-1" href="#Data-structure-of-liblouis-tables">6.2 Data structure of liblouis tables</a></li>
-    <li><a name="toc-lou_005fversion-1" href="#lou_005fversion">6.3 lou_version</a></li>
-    <li><a name="toc-lou_005ftranslateString-1" href="#lou_005ftranslateString">6.4 lou_translateString</a></li>
-    <li><a name="toc-lou_005ftranslate-2" href="#lou_005ftranslate">6.5 lou_translate</a></li>
-    <li><a name="toc-lou_005fbackTranslateString-1" href="#lou_005fbackTranslateString">6.6 lou_backTranslateString</a></li>
-    <li><a name="toc-lou_005fbackTranslate-1" href="#lou_005fbackTranslate">6.7 lou_backTranslate</a></li>
-    <li><a name="toc-lou_005fhyphenate-1" href="#lou_005fhyphenate">6.8 lou_hyphenate</a></li>
-    <li><a name="toc-lou_005fcompileString-1" href="#lou_005fcompileString">6.9 lou_compileString</a></li>
-    <li><a name="toc-lou_005fgetTypeformForEmphClass-1" href="#lou_005fgetTypeformForEmphClass">6.10 lou_getTypeformForEmphClass</a></li>
-    <li><a name="toc-lou_005fdotsToChar-1" href="#lou_005fdotsToChar">6.11 lou_dotsToChar</a></li>
-    <li><a name="toc-lou_005fcharToDots-1" href="#lou_005fcharToDots">6.12 lou_charToDots</a></li>
-    <li><a name="toc-lou_005fregisterLogCallback-1" href="#lou_005fregisterLogCallback">6.13 lou_registerLogCallback</a></li>
-    <li><a name="toc-lou_005fsetLogLevel-1" href="#lou_005fsetLogLevel">6.14 lou_setLogLevel</a></li>
-    <li><a name="toc-lou_005flogFile-1" href="#lou_005flogFile">6.15 lou_logFile</a></li>
-    <li><a name="toc-lou_005flogPrint-_0028deprecated_0029" href="#lou_005flogPrint">6.16 lou_logPrint (deprecated)</a></li>
-    <li><a name="toc-lou_005flogEnd-1" href="#lou_005flogEnd">6.17 lou_logEnd</a></li>
-    <li><a name="toc-lou_005fsetDataPath-1" href="#lou_005fsetDataPath">6.18 lou_setDataPath</a></li>
-    <li><a name="toc-lou_005fgetDataPath-1" href="#lou_005fgetDataPath">6.19 lou_getDataPath</a></li>
-    <li><a name="toc-lou_005fgetTable-1" href="#lou_005fgetTable">6.20 lou_getTable</a></li>
-    <li><a name="toc-lou_005fcheckTable-1" href="#lou_005fcheckTable">6.21 lou_checkTable</a></li>
-    <li><a name="toc-lou_005freadCharFromFile-1" href="#lou_005freadCharFromFile">6.22 lou_readCharFromFile</a></li>
-    <li><a name="toc-lou_005ffree-1" href="#lou_005ffree">6.23 lou_free</a></li>
-    <li><a name="toc-Python-bindings-1" href="#Python-bindings">6.24 Python bindings</a></li>
+    <li><a name="toc-Overview-2" href="#Overview-_0028library_0029">7.1 Overview</a></li>
+    <li><a name="toc-Data-structure-of-liblouis-tables-1" href="#Data-structure-of-liblouis-tables">7.2 Data structure of liblouis tables</a></li>
+    <li><a name="toc-lou_005fversion-1" href="#lou_005fversion">7.3 lou_version</a></li>
+    <li><a name="toc-lou_005ftranslateString-1" href="#lou_005ftranslateString">7.4 lou_translateString</a></li>
+    <li><a name="toc-lou_005ftranslate-2" href="#lou_005ftranslate">7.5 lou_translate</a></li>
+    <li><a name="toc-lou_005fbackTranslateString-1" href="#lou_005fbackTranslateString">7.6 lou_backTranslateString</a></li>
+    <li><a name="toc-lou_005fbackTranslate-1" href="#lou_005fbackTranslate">7.7 lou_backTranslate</a></li>
+    <li><a name="toc-lou_005fhyphenate-1" href="#lou_005fhyphenate">7.8 lou_hyphenate</a></li>
+    <li><a name="toc-lou_005fcompileString-1" href="#lou_005fcompileString">7.9 lou_compileString</a></li>
+    <li><a name="toc-lou_005fgetTypeformForEmphClass-1" href="#lou_005fgetTypeformForEmphClass">7.10 lou_getTypeformForEmphClass</a></li>
+    <li><a name="toc-lou_005fdotsToChar-1" href="#lou_005fdotsToChar">7.11 lou_dotsToChar</a></li>
+    <li><a name="toc-lou_005fcharToDots-1" href="#lou_005fcharToDots">7.12 lou_charToDots</a></li>
+    <li><a name="toc-lou_005fregisterLogCallback-1" href="#lou_005fregisterLogCallback">7.13 lou_registerLogCallback</a></li>
+    <li><a name="toc-lou_005fsetLogLevel-1" href="#lou_005fsetLogLevel">7.14 lou_setLogLevel</a></li>
+    <li><a name="toc-lou_005flogFile-1" href="#lou_005flogFile">7.15 lou_logFile</a></li>
+    <li><a name="toc-lou_005flogPrint-_0028deprecated_0029" href="#lou_005flogPrint">7.16 lou_logPrint (deprecated)</a></li>
+    <li><a name="toc-lou_005flogEnd-1" href="#lou_005flogEnd">7.17 lou_logEnd</a></li>
+    <li><a name="toc-lou_005fsetDataPath-1" href="#lou_005fsetDataPath">7.18 lou_setDataPath</a></li>
+    <li><a name="toc-lou_005fgetDataPath-1" href="#lou_005fgetDataPath">7.19 lou_getDataPath</a></li>
+    <li><a name="toc-lou_005fgetTable-1" href="#lou_005fgetTable">7.20 lou_getTable</a></li>
+    <li><a name="toc-lou_005ffindTable-1" href="#lou_005ffindTable">7.21 lou_findTable</a></li>
+    <li><a name="toc-lou_005findexTables-1" href="#lou_005findexTables">7.22 lou_indexTables</a></li>
+    <li><a name="toc-lou_005fcheckTable-1" href="#lou_005fcheckTable">7.23 lou_checkTable</a></li>
+    <li><a name="toc-lou_005freadCharFromFile-1" href="#lou_005freadCharFromFile">7.24 lou_readCharFromFile</a></li>
+    <li><a name="toc-lou_005ffree-1" href="#lou_005ffree">7.25 lou_free</a></li>
+    <li><a name="toc-lou_005fcharSize-1" href="#lou_005fcharSize">7.26 lou_charSize</a></li>
+    <li><a name="toc-Python-bindings-1" href="#Python-bindings">7.27 Python bindings</a></li>
   </ul></li>
   <li><a name="toc-Concept-Index-1" href="#Concept-Index">Concept Index</a></li>
   <li><a name="toc-Opcode-Index-1" href="#Opcode-Index">Opcode Index</a></li>
@@ -99,7 +111,7 @@ title: Liblouis User's and Programmer's Manual
 <a name="Liblouis-User_0027s-and-Programmer_0027s-Manual"></a>
 <h1 class="top">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouis (version 3.0.0, 14 July 2016),
+<p>This manual is for liblouis (version 3.1.0, 6 March 2017),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <acronym>BRLTTY</acronym>. 
 </p>
@@ -166,7 +178,9 @@ translation software.
 <p>If you are mostly interested in writing braille translation tables
 then you want to focus on <a href="#How-to-Write-Translation-Tables">How to Write Translation Tables</a>. You
 might want to look at <a href="#Notes-on-Back_002dTranslation">Notes on Back-Translation</a> if you are
-interested in back-translation. Finally <a href="#Testing-Translation-Tables-interactively">Testing Translation Tables interactively</a> and <a href="#Automated-Testing-of-Translation-Tables">Automated Testing of Translation Tables</a> will show how your braille translation tables can be tested
+interested in back-translation. Read <a href="#Table-Metadata">Table Metadata</a> if you want
+to find out how you can augment your tables with metadata in order to
+make them discoverable by programs. Finally <a href="#Testing-Translation-Tables-interactively">Testing Translation Tables interactively</a> and <a href="#Automated-Testing-of-Translation-Tables">Automated Testing of Translation Tables</a> will show how your braille translation tables can be tested
 interactively and also in an automated fashion.
 </p>
 <p>If you want to use the braille translation library in your own program
@@ -586,20 +600,42 @@ computer braille, etc. The opcodes which define them are followed only
 by a dot pattern, which may be one or more cells.
 </p>
 <dl compact="compact">
-<dd><a name="index-capsign"></a>
-<a name="capsign-opcode"></a></dd>
-<dt><code>capsign dots</code></dt>
+<dd><a name="index-capsletter"></a>
+<a name="capsletter-opcode"></a></dd>
+<dt><code>capsletter dots</code></dt>
 <dd><p>The dot pattern which indicates capitalization of a single letter. In
 English, this is dot 6. For example:
 </p>
 <div class="example">
-<pre class="example">capsign 6
+<pre class="example">capsletter 6
+</pre></div>
+
+<a name="index-begcapsword"></a>
+<a name="begcapsword-opcode"></a></dd>
+<dt><code>begcapsword dots</code></dt>
+<dd><p>The dot pattern which begins a block of capital letters at the
+beginning or within a word. For example:
+</p>
+<div class="example">
+<pre class="example">begcapsword 6-6
+</pre></div>
+
+<a name="index-endcapsword"></a>
+<a name="endcapsword-opcode"></a></dd>
+<dt><code>endcapsword dots</code></dt>
+<dd><p>The dot pattern which ends a block of capital letters within a word.
+For example:
+</p>
+<div class="example">
+<pre class="example">endcapsword 6-3
 </pre></div>
 
 <a name="index-begcaps"></a>
 <a name="begcaps-opcode"></a></dd>
 <dt><code>begcaps dots</code></dt>
-<dd><p>The dot pattern which begins a block of capital letters. For example:
+<dd><p>The dot pattern which begins a block of capital letters defined by the
+provided <code>typeform</code> without regard for any other rules. For
+example:
 </p>
 <div class="example">
 <pre class="example">begcaps 6-6
@@ -608,8 +644,9 @@ English, this is dot 6. For example:
 <a name="index-endcaps"></a>
 <a name="endcaps-opcode"></a></dd>
 <dt><code>endcaps dots</code></dt>
-<dd><p>The dot pattern which ends a block of capital letters within a word.
-For example:
+<dd><p>The dot pattern which ends a block of capital letters defined by the
+provided <code>typeform</code> without regard for any other rules. For
+example:
 </p>
 <div class="example">
 <pre class="example">endcaps 6-3
@@ -1015,8 +1052,8 @@ more consecutive letters between spaces and/or punctuation marks.
 <a name="noback-opcode"></a></dd>
 <dt><code>noback opcode ...</code></dt>
 <dd><p>This is an opcode prefix, that is to say, it modifies the operation of 
-the opcode that follows it on the same line. noback specifies that no 
-back-translation is to be done using this line.
+the opcode that follows it on the same line. noback specifies that
+back-translation is not to use information on this line.
 </p>
 <div class="example">
 <pre class="example">noback always ;\s; 0
@@ -1450,9 +1487,13 @@ over the string to be translated. The number after the word
 <code>pass</code> indicates in which pass the entry is to be applied. If no
 multipass opcodes are given, only the first translation pass is made.
 The <code>context</code> opcode is basically a multipass opcode for the
-first pass. It differs slightly from the multipass opcodes per se. The
-format of all these opcodes is <code>opcode test action</code>. The specific
-opcodes are invoked as follows:
+first pass. It differs slightly from the multipass opcodes per se.
+When back-translating, the passes are performed in the reverse order, i.e.
+<code>pass4</code>, <code>pass3</code>, <code>pass2</code>, <code>context</code>.
+Each of these opcodes must be prefixed by either
+the <code>noback</code> opcode (see <a href="#noback-opcode"><code>noback</code></a>) or the <code>nofor</code> opcode (see <a href="#nofor-opcode"><code>nofor</code></a>).
+The format of all these opcodes is <code>opcode test action</code>.
+The specific opcodes are invoked as follows:
 </p>
 <dl compact="compact">
 <dd><a name="context-opcode"></a><a name="index-context"></a>
@@ -1477,14 +1518,18 @@ their initial characters are as follows.
 double quote. It may contain any characters. If a double quote is
 needed within the string, it must be preceded by a backslash
 (&lsquo;<samp>\</samp>&rsquo;). If a space is needed, it must be represented by the escape
-sequence \s. This suboperand is valid only in the test part of the
-<code>context</code> opcode.
+sequence \s. This suboperand is valid
+in the test and action parts of the <code>correct</code> opcode,
+in the test part of the <code>context</code> opcode when forward translating,
+and in the action part of the <code>context</code> opcode when back translating.
 </p>
 </dd>
 <dt><kbd>@ (at sign)</kbd></dt>
 <dd><p>a sequence of dot patterns. Cells are separated by hyphens as usual.
-This suboperand is not valid in the test part of the context and 
-correct opcodes.
+This suboperand is valid in the test and action parts of
+the <code>pass2</code>, <code>pass3</code>, and <code>pass4</code> opcodes,
+in the action part of the <code>context</code> opcode when forward translating,
+and in the test part of the <code>context</code> opcode when back translating.
 </p>
 </dd>
 <dt><kbd>` (accent mark)</kbd></dt>
@@ -1553,8 +1598,9 @@ if found. This can be used to set a variable.
 </dd>
 <dt><kbd>_ (underscore)</kbd></dt>
 <dd><p>Move backward. If a number follows, move backward that number of
-characters. The program never moves backward beyond the beginning of
-the input string. This suboperand is valid only in test parts.
+characters. The default is to move backward one character. This
+suboperand is valid only in test parts. The test fails if moving
+backward beyond the beginning of the input string.
 </p>
 </dd>
 <dt><kbd>[ (left bracket)</kbd></dt>
@@ -1569,29 +1615,33 @@ left bracket and is valid only in test parts.
 </p>
 </dd>
 <dt><kbd># (number sign or crosshatch)</kbd></dt>
-<dd><p>test or set a variable. Variables are referred to by numbers 1 to 50,
-for example, <code>#1</code>, <code>#2</code>, <code>#25</code>. Variables may be set by
-one <code>context</code> or multipass opcode and tested by another. Thus, an
-operation that occurs at one place in a translation can tell an
-operation that occurs later about itself. This feature will be used in
-math translation, and it may also help to alleviate the need for new
-opcodes. This suboperand is valid everywhere.
+<dd><p>test or set a variable. Variables are referred to by numbers
+(0 through 49), e.g. <code>#1</code>, <code>#2</code>, <code>#25</code>.
+Variables may be set by one <code>context</code> or multipass opcode and tested
+by another. Thus, an operation that occurs at one place in a translation
+can tell an operation that occurs later within the same pass about itself.
+This feature is used in math translation, and may also help to alleviate
+the need for new opcodes. This suboperand is valid everywhere.
 </p>
-<p>Variables are set in the action part. To set a variable use an
-expression like <code>#1=1</code>, <code>#2=5</code>, etc. Variables are also
-incremented and decremented in the action part with expressions like
-<code>#1+</code>, <code>#3-</code>, etc. These operators increment or decrement
-the variable by 1.
+<p>Variables are set in the action part. To set a variable, use an
+expression like <code>#1=1</code>. All of the variables are initialized to 0
+at the start of each pass.
 </p>
-<p>Variables are tested in the test part with expressions like
-<code>#1=2</code>, <code>#3&lt;4</code>, <code>#5&gt;6</code>, etc.
+<p>Variables can also be incremented and decremented by one in the action
+part with expressions like <code>#1+</code> and <code>#3-</code> respectively.
+An attempt to decrement a variable below 0 is silently ignored.
+</p>
+<p>Variables are tested in the test part with conditional expressions like:
+<code>#1=2</code>, <code>#3&lt;4</code>, <code>#5&gt;6</code>, <code>#7&lt;=8</code>, <code>#9&gt;=10</code>.
 </p>
 </dd>
 <dt><kbd>* (asterisk)</kbd></dt>
-<dd><p>Copy the characters or dot patterns in the input within the
-replacement brackets into the output and discard anything else that
-may match. This feature is used, for example, for handling numeric
-subscripts in Nemeth. This suboperand is valid only in action parts.
+<dd><p>Copy the input characters or dot patterns within the replacement brackets
+into the output, and discard anything else that was matched. If there are
+no replacement brackets then copy all of the matched input. This
+suboperand is only valid within the action part. It may be specified any
+number of times. This feature is used, for example, for handling numeric
+subscripts in Nemeth.
 </p>
 </dd>
 <dt><kbd>? (question mark)</kbd></dt>
@@ -1679,8 +1729,10 @@ continue the loop
 systematic errors, it is sometimes advantageous to use a
 pre-translation pass to remove them. The errors and their corrections
 are specified by the <code>correct</code> opcode. If there are no
-<code>correct</code> opcodes in a table, the pre-translation pass is not
-used. The format of the <code>correct</code> opcode is very similar to that
+<code>correct</code> opcodes in a table, the pre-translation pass is not used.
+If any back-translation corrections have been specified then they are
+applied in a post-translation (i.e. the very last) pass.
+The format of the <code>correct</code> opcode is very similar to that
 of the <code>context</code> opcode (see <a href="#context-opcode"><code>context</code></a>). The only difference is that in the action
 part strings may be used and dot patterns may not be used. Some
 examples of <code>correct</code> opcode entries are:
@@ -1763,7 +1815,7 @@ for use with an embosser.
 <dt><code>multind dots opcode opcode ...</code></dt>
 <dd><p>The <code>multind</code> opcode tells the back-translator that a sequence of
 braille cells represents more than one braille indicator. For example,
-in <samp>en-us-g1.ctb</samp> we have <code>multind 56-6 letsign capsign</code>.
+in <samp>en-us-g2.ctb</samp> we have <code>multind 56-6 letsign capsletter</code>.
 The back-translator can generally handle single braille indicators,
 but it cannot apply them when they immediately follow each other. It
 recognizes the letter sign if it is followed by a letter and takes
@@ -1794,9 +1846,78 @@ backtranslation, then corrections. Note that this is exactly the
 inverse of forward translation.
 </p>
 <hr>
+<a name="Table-Metadata"></a>
+<a name="Table-Metadata-1"></a>
+<h2 class="chapter">4 Table Metadata</h2>
+
+<p>Translation tables may contain metadata. This makes them
+discoverable. Programs may for example use the Liblouis function
+<a href="#lou_005ffindTable"><code>lou_findTable</code></a> to find a table based on a
+special query of which the <a href="#Query-Syntax">syntax</a> is described
+below.
+</p>
+<a name="Syntax"></a>
+<h3 class="section">4.1 Syntax</h3>
+
+<p>Metadata must be defined in special comments within the table
+header. The table header is the area at the top of the file, before
+the first translation rule, consisting of only comments or empty
+lines. Any metadata within included tables is ignored.
+</p>
+<p>A metadata field must be defined on its own line, starting with
+<code>#+</code>. It has the following syntax:
+</p>
+<div class="example">
+<pre class="example">#+&lt;key&gt;: &lt;value&gt;
+</pre></div>
+
+<p>where &lsquo;<samp>&lt;key&gt;</samp>&rsquo; and &lsquo;<samp>&lt;value&gt;</samp>&rsquo; are sequences of
+one or more characters <code>0</code> to <code>9</code>, <code>a</code> to <code>z</code>,
+<code>A</code> tot <code>Z</code>, <code>-</code> and <code>_</code>. The colon that separates
+the key and value may have zero or more spaces or tabs on either side.
+</p>
+<p>A value is optional. In case of no value the colon must be omitted as
+well:
+</p>
+<div class="example">
+<pre class="example">#+&lt;key&gt;
+</pre></div>
+
+<p>There is no restriction on which keys and values are allowed, as long
+as the syntax is correct. However in order to be really useful there
+must be some standard keys and values. A possible grammar is proposed
+on the wiki page
+<a href="https://github.com/liblouis/liblouis/wiki/Table-discovery-based-on-table-metadata#standard-metadata-tags">Standard metadata tags</a>.
+</p>
+<a name="Query-Syntax"></a><a name="Query-Syntax-1"></a>
+<h3 class="section">4.2 Query Syntax</h3>
+
+<p>A query that is passed to the <a href="#lou_005ffindTable"><code>lou_findTable</code></a>
+function must have the following syntax:
+</p>
+<div class="example">
+<pre class="example">&lt;feature1&gt; &lt;feature2&gt; &lt;feature3&gt; ...
+</pre></div>
+
+<p>where &lsquo;<samp>&lt;feature&gt;</samp>&rsquo; is either:
+</p>
+<div class="example">
+<pre class="example">&lt;key&gt;: &lt;value&gt;
+</pre></div>
+
+<p>or:
+</p>
+<div class="example">
+<pre class="example">&lt;key&gt;
+</pre></div>
+
+<p>Features are separated by one or more spaces or tabs. No spaces are
+allowed around colons.
+</p>
+<hr>
 <a name="Testing-Translation-Tables-interactively"></a>
 <a name="Testing-Translation-Tables-interactively-1"></a>
-<h2 class="chapter">4 Testing Translation Tables interactively</h2>
+<h2 class="chapter">5 Testing Translation Tables interactively</h2>
 
 <p>A number of test programs are provided as part of the liblouis
 package. They are intended for testing liblouis and for debugging
@@ -1828,7 +1949,7 @@ successfully.
 <hr>
 <a name="lou_005fdebug"></a>
 <a name="lou_005fdebug-1"></a>
-<h3 class="section">4.1 lou_debug</h3>
+<h3 class="section">5.1 lou_debug</h3>
 <a name="index-lou_005fdebug"></a>
 
 <p>The <code>lou_debug</code> tool is intended for debugging liblouis
@@ -1922,7 +2043,7 @@ dot pattern. They include <kbd>h</kbd>, <kbd>f</kbd>, <kbd>b</kbd>, <kbd>c</kbd>
 </dd>
 <dt><kbd>i</kbd></dt>
 <dd><p>Show braille indicators. This shows the dot patterns for various
-opcodes such as the <code>capsign</code> opcode (see <a href="#capsign-opcode"><code>capsign</code></a>) and the <code>numsign</code> opcode (see <a href="#numsign-opcode"><code>numsign</code></a>).
+opcodes such as the <code>capsletter</code> opcode (see <a href="#capsletter-opcode"><code>capsletter</code></a>) and the <code>numsign</code> opcode (see <a href="#numsign-opcode"><code>numsign</code></a>).
 It also shows emphasis dot patterns, such as those for the
 <code>begemphword</code> opcode (see <a href="#begemphword-opcode"><code>begemphword</code></a>), the <code>begemphphrase</code> opcode (see <a href="#begemphphrase-opcode"><code>begemphphrase</code></a>), etc. If a
 given opcode has not been used nothing is printed for it.
@@ -1942,7 +2063,7 @@ there is a hyphenation table.
 <hr>
 <a name="lou_005ftrace"></a>
 <a name="lou_005ftrace-1"></a>
-<h3 class="section">4.2 lou_trace</h3>
+<h3 class="section">5.2 lou_trace</h3>
 <a name="index-lou_005ftrace"></a>
 
 <p>When working on translation tables it is sometimes useful to determine
@@ -2007,7 +2128,7 @@ the u.s. postal service
 <hr>
 <a name="lou_005fchecktable"></a>
 <a name="lou_005fchecktable-1"></a>
-<h3 class="section">4.3 lou_checktable</h3>
+<h3 class="section">5.3 lou_checktable</h3>
 <a name="index-lou_005fchecktable"></a>
 
 <p>To use this program type the following:
@@ -2034,7 +2155,7 @@ shown.
 <hr>
 <a name="lou_005fallround"></a>
 <a name="lou_005fallround-1"></a>
-<h3 class="section">4.4 lou_allround</h3>
+<h3 class="section">5.4 lou_allround</h3>
 <a name="index-lou_005fallround"></a>
 
 <p>This program tests every capability of the liblouis library. It is
@@ -2057,7 +2178,7 @@ and then view the results.
 <hr>
 <a name="lou_005ftranslate-_0028program_0029"></a>
 <a name="lou_005ftranslate-1"></a>
-<h3 class="section">4.5 lou_translate</h3>
+<h3 class="section">5.5 lou_translate</h3>
 <a name="index-lou_005ftranslate-1"></a>
 
 <p>This program translates whatever is on the standard input unit and
@@ -2094,7 +2215,7 @@ also accepts the following options:
 <hr>
 <a name="lou_005fcheckhyphens"></a>
 <a name="lou_005fcheckhyphens-1"></a>
-<h3 class="section">4.6 lou_checkhyphens</h3>
+<h3 class="section">5.6 lou_checkhyphens</h3>
 <a name="index-lou_005fcheckhyphens"></a>
 
 <p>This program checks the accuracy of hyphenation in Braille translation
@@ -2111,9 +2232,27 @@ interactive. Invoke it as follows:
 <p>You will see a few lines telling you how to use the program.
 </p>
 <hr>
+<a name="lou_005fcheckyaml"></a>
+<a name="lou_005fcheckyaml-1"></a>
+<h3 class="section">5.7 lou_checkyaml</h3>
+<a name="index-lou_005fcheckyaml"></a>
+
+<p>This program tests a liblouis table against a corpus of known good
+Braille translations defined in YAML format. For a description of the
+format refer to <a href="#YAML-Tests">YAML Tests</a>. The program returns 0 if all tests
+pass or 1 if any of the tests fail. Invoke it as follows:
+</p>
+<div class="example">
+<pre class="example">lou_checkyaml YAML_TEST_FILE
+</pre></div>
+
+<p>The command line options that are accepted by
+<code>lou_checkyaml</code> are described in <a href="#common-options">common options</a>.
+</p>
+<hr>
 <a name="Automated-Testing-of-Translation-Tables"></a>
 <a name="Automated-Testing-of-Translation-Tables-1"></a>
-<h2 class="chapter">5 Automated Testing of Translation Tables</h2>
+<h2 class="chapter">6 Automated Testing of Translation Tables</h2>
 
 <p>There are a number of automated tests for liblouis and they are
 proving to be of tremendous value. When changing the code the
@@ -2123,10 +2262,6 @@ developers can run the tests to see if anything broke.
 where you define the table that is to be tested and any number of
 words or phrases to translate together with their respective expected
 translation.
-</p>
-<p>The YAML based tests replace older methods for testing the translation
-tables which only work with Python and when compiled with UCS4. They
-are deprecated and will be removed in a future release.
 </p>
 <dl compact="compact">
 <dt>YAML tests</dt>
@@ -2150,7 +2285,7 @@ UCS4.
 <hr>
 <a name="YAML-Tests"></a>
 <a name="YAML-Tests-1"></a>
-<h3 class="section">5.1 YAML Tests</h3>
+<h3 class="section">6.1 YAML Tests</h3>
 
 <p><a href="http://yaml.org/">YAML</a> is a human readable data serialization
 format that allows for an easy and compact way to define tests.
@@ -2165,7 +2300,7 @@ all the tests are defined.
 <div class="example">
 <pre class="example"># comments start with '#' anywhere on a line
 # first define which tables will be used for your tests
-tables: [unicode.dis, en-ueb-g1.ctb]
+table: [unicode.dis, en-ueb-g1.ctb]
 
 # then optionally define flags such as testmode. If no flags are
 # defined forward translation is assumed
@@ -2202,14 +2337,14 @@ table can be required.
 use the following definition:
 </p>
 <div class="example">
-<pre class="example">tables: [unicode.dis, en-ueb-g1.ctb]
+<pre class="example">table: [unicode.dis, en-ueb-g1.ctb]
 </pre></div>
 
 <p>If you wanted to test the <samp>eo-g1.ctb</samp> table using brf notation
 then you would use the following definition:
 </p>
 <div class="example">
-<pre class="example">tables: [en-us-brf.dis, eo-g1.ctb]
+<pre class="example">table: [en-us-brf.dis, eo-g1.ctb]
 </pre></div>
 
 </dd>
@@ -2325,8 +2460,8 @@ passed in using the &ldquo;flow style&rdquo; notation.
 <dd><p>A list of translation modes that should be used for this test. If not
 defined defaults to 0. Valid mode values are &lsquo;<samp>noContractions</samp>&rsquo;,
 &lsquo;<samp>compbrlAtCursor</samp>&rsquo;, &lsquo;<samp>dotsIO</samp>&rsquo;, &lsquo;<samp>comp8Dots</samp>&rsquo;,
-&lsquo;<samp>pass1Only</samp>&rsquo;, &lsquo;<samp>compbrlLeftCursor</samp>&rsquo;, &lsquo;<samp>otherTrans</samp>&rsquo;or
-&lsquo;<samp>ucBrl</samp>&rsquo;.
+&lsquo;<samp>pass1Only</samp>&rsquo;, &lsquo;<samp>compbrlLeftCursor</samp>&rsquo;, &lsquo;<samp>otherTrans</samp>&rsquo;,
+&lsquo;<samp>ucBrl</samp>&rsquo;, &lsquo;<samp>noUndefinedDots</samp>&rsquo; or &lsquo;<samp>partialTrans</samp>&rsquo;.
 </p></dd>
 </dl>
 
@@ -2334,7 +2469,7 @@ defined defaults to 0. Valid mode values are &lsquo;<samp>noContractions</samp>&
 </dl>
 
 <a name="Optional-test-description"></a>
-<h4 class="subsection">5.1.1 Optional test description</h4>
+<h4 class="subsection">6.1.1 Optional test description</h4>
 <p>When a test contains three or four items the first item is assumed to
 be a test description, the second item is the unicode text to be
 tested and the third item is the expected braille output. Again an
@@ -2356,10 +2491,62 @@ the expected and the actual braille output.
 (<samp>*.yaml</samp>) in the <samp>tests</samp> directory of the source
 distribution.
 </p>
+<a name="Testing-multiple-tables-within-the-same-YAML-test-file"></a>
+<h4 class="subsection">6.1.2 Testing multiple tables within the same YAML test file</h4>
+<p>Sometimes you are more focused on testing a particular feature across
+several tables rather than just testing one table. For that reason the
+following is also allowed:
+</p>
+<div class="example">
+<pre class="example">table: ...
+tests:
+  - [..., ...]
+  - [..., ...]
+table: ...
+tests:
+  - [..., ...]
+  - [..., ...]
+</pre></div>
+
+<a name="Inline-definition-of-tables"></a>
+<h4 class="subsection">6.1.3 Inline definition of tables</h4>
+<p>When testing very specific opcode combinations it is sometimes tedious
+to create specific test tables just for that. Hence the YAML tests
+allow for specification of table definitions inline. Instead of
+referring to a table by name you just define the table inline by using
+what the YAML spec calls a
+<a href="http://www.yaml.org/spec/1.2/spec.html#id2795688">Literal Style
+Block</a>. Start the definition with a &lsquo;<samp>|</samp>&rsquo;, then list the opcodes
+with an indentation. The inline table ends when the indentation ends.
+</p>
+<div class="example">
+<pre class="example">table: |
+  sign a 1
+  ...
+tests:
+  - ...
+  - ...
+</pre></div>
+
+<a name="Running-the-same-test-data-on-multiple-tables"></a>
+<h4 class="subsection">6.1.4 Running the same test data on multiple tables</h4>
+<p>Sometimes you maintain multiple tables which are very similar and
+basically contain the same test data. Instead of copying the YAML test
+and changing the table name you can also define multiple tables. This
+will cause the YAML tests to be checked against both tables.
+</p>
+<div class="example">
+<pre class="example">table: nl-NL
+table: nl-BE
+tests:
+  - [..., ...]
+  - [..., ...]
+</pre></div>
+
 <hr>
 <a name="Doctests"></a>
 <a name="Doctests-1"></a>
-<h3 class="section">5.2 Doctests</h3>
+<h3 class="section">6.2 Doctests</h3>
 <p>A doctest looks like you typed a command at the Python command line
 and got some output, e.g.
 </p>
@@ -2387,26 +2574,27 @@ the doctest directory in the source distribution.
 <hr>
 <a name="Programming-with-liblouis"></a>
 <a name="Programming-with-liblouis-1"></a>
-<h2 class="chapter">6 Programming with liblouis</h2>
+<h2 class="chapter">7 Programming with liblouis</h2>
 
 
 <hr>
 <a name="Overview-_0028library_0029"></a>
 <a name="Overview-2"></a>
-<h3 class="section">6.1 Overview</h3>
+<h3 class="section">7.1 Overview</h3>
 
 <p>You use the liblouis library by calling the following functions,
 <code>lou_translateString</code>, <code>lou_backTranslateString</code>,
 <code>lou_translate</code>, <code>lou_backTranslate</code>,
 <code>lou_registerLogCallback</code>, <code>lou_setLogLevel</code>,
 <code>lou_logFile</code>, <code>lou_logPrint</code>, <code>lou_logEnd</code>,
-<code>lou_getTable</code>, <code>lou_checkTable</code>, <code>lou_hyphenate</code>,
-<code>lou_charToDots</code>, <code>lou_dotsToChar</code>,
-<code>lou_compileString</code>, <code>lou_getTypeformForEmphClass</code>,
-<code>lou_readCharFromFile</code>, <code>lou_version</code> and <code>lou_free</code>.
-These are described below. The header file, <samp>liblouis.h</samp>, also
-contains brief descriptions. Liblouis is written in straight C. It has
-four code modules, <samp>compileTranslationTable.c</samp>, <samp>logging.c</samp>,
+<code>lou_getTable</code>, <code>lou_findTable</code>, <code>lou_indexTables</code>,
+<code>lou_checkTable</code>, <code>lou_hyphenate</code>, <code>lou_charToDots</code>,
+<code>lou_dotsToChar</code>, <code>lou_compileString</code>,
+<code>lou_getTypeformForEmphClass</code>, <code>lou_readCharFromFile</code>,
+<code>lou_version</code>, <code>lou_free</code> and <code>lou_charSize</code>. These are
+described below. The header file, <samp>liblouis.h</samp>, also contains
+brief descriptions. Liblouis is written in straight C. It has four
+code modules, <samp>compileTranslationTable.c</samp>, <samp>logging.c</samp>,
 <samp>lou_translateString.c</samp> and <samp>lou_backTranslateString.c</samp>. In
 addition, there are two header files, <samp>liblouis.h</samp>, which defines
 the API, and <samp>louis.h</samp>, used only internally and by
@@ -2445,6 +2633,9 @@ their output in this form. The input to the compiler (tables) is
 unaffected except that two new escape sequences for 20-bit and 32-bit
 characters are recognized.
 </p>
+<p>At runtime, the width of a character specified during compilation may
+be obtained using <code>lou_charSize</code>.
+</p>
 <p>Here are the definitions of the eleven liblouis functions and their
 parameters. They are given in terms of 16-bit Unicode. If liblouis has
 been compiled for 32-bit Unicode simply read 32 instead of 16.
@@ -2452,7 +2643,7 @@ been compiled for 32-bit Unicode simply read 32 instead of 16.
 <hr>
 <a name="Data-structure-of-liblouis-tables"></a>
 <a name="Data-structure-of-liblouis-tables-1"></a>
-<h3 class="section">6.2 Data structure of liblouis tables</h3>
+<h3 class="section">7.2 Data structure of liblouis tables</h3>
 
 <p>The data structure <code>TranslationTableHeader</code> is defined by a
 <code>typedef</code> statement in <samp>louis.h</samp>. To find the beginning,
@@ -2521,7 +2712,7 @@ points.
 <hr>
 <a name="lou_005fversion"></a>
 <a name="lou_005fversion-1"></a>
-<h3 class="section">6.3 lou_version</h3>
+<h3 class="section">7.3 lou_version</h3>
 <a name="index-lou_005fversion"></a>
 
 <div class="example">
@@ -2535,7 +2726,7 @@ and perhaps notable changes.
 <hr>
 <a name="lou_005ftranslateString"></a>
 <a name="lou_005ftranslateString-1"></a>
-<h3 class="section">6.4 lou_translateString</h3>
+<h3 class="section">7.4 lou_translateString</h3>
 <a name="index-lou_005ftranslateString"></a>
 
 <div class="example">
@@ -2627,7 +2818,7 @@ complete translation could not be done.
 <hr>
 <a name="lou_005ftranslate"></a>
 <a name="lou_005ftranslate-2"></a>
-<h3 class="section">6.5 lou_translate</h3>
+<h3 class="section">7.5 lou_translate</h3>
 <a name="index-lou_005ftranslate"></a>
 
 <div class="example">
@@ -2691,7 +2882,7 @@ failure (return value of 0).
 <hr>
 <a name="lou_005fbackTranslateString"></a>
 <a name="lou_005fbackTranslateString-1"></a>
-<h3 class="section">6.6 lou_backTranslateString</h3>
+<h3 class="section">7.6 lou_backTranslateString</h3>
 <a name="index-lou_005fbackTranslateString"></a>
 
 <div class="example">
@@ -2716,10 +2907,21 @@ spacing between the input and output strings. The <code>typeform</code> and
 not needed. <code>mode</code> again specifies how the back-translation
 should be done.
 </p>
+<p>There are two additional modes that only apply to back-translation. By
+default, if a dot pattern in the input is undefined, the dot numbers
+will be included in the output. If the <code>noUndefinedDots</code> mode is
+set, this does not occur; an undefined dot pattern simply produces no
+output. The <code>partialTrans</code> mode specifies that the input should be
+treated as an incomplete word. That is, rules that apply only for
+complete words or at the end of a word will not take effect. This is
+intended to be used when translating input typed on a braille keyboard
+to provide a rough idea to the user of the characters they are typing
+before the word is complete.
+</p>
 <hr>
 <a name="lou_005fbackTranslate"></a>
 <a name="lou_005fbackTranslate-1"></a>
-<h3 class="section">6.7 lou_backTranslate</h3>
+<h3 class="section">7.7 lou_backTranslate</h3>
 <a name="index-lou_005fbackTranslate"></a>
 
 <div class="example">
@@ -2742,7 +2944,7 @@ should be done.
 <hr>
 <a name="lou_005fhyphenate"></a>
 <a name="lou_005fhyphenate-1"></a>
-<h3 class="section">6.8 lou_hyphenate</h3>
+<h3 class="section">7.8 lou_hyphenate</h3>
 <a name="index-lou_005fhyphenate"></a>
 
 <div class="example">
@@ -2778,7 +2980,7 @@ use in liblouisutdml.
 <hr>
 <a name="lou_005fcompileString"></a>
 <a name="lou_005fcompileString-1"></a>
-<h3 class="section">6.9 lou_compileString</h3>
+<h3 class="section">7.9 lou_compileString</h3>
 <a name="index-lou_005fcompileString"></a>
 
 <div class="example">
@@ -2796,7 +2998,7 @@ will be produced if it is invalid. The function returns 1 on success and
 <hr>
 <a name="lou_005fgetTypeformForEmphClass"></a>
 <a name="lou_005fgetTypeformForEmphClass-1"></a>
-<h3 class="section">6.10 lou_getTypeformForEmphClass</h3>
+<h3 class="section">7.10 lou_getTypeformForEmphClass</h3>
 <a name="index-lou_005fgetTypeformForEmphClass"></a>
 
 <div class="example">
@@ -2816,7 +3018,7 @@ emphasis class.
 <hr>
 <a name="lou_005fdotsToChar"></a>
 <a name="lou_005fdotsToChar-1"></a>
-<h3 class="section">6.11 lou_dotsToChar</h3>
+<h3 class="section">7.11 lou_dotsToChar</h3>
 <a name="index-lou_005fdotsToChar"></a>
 
 <div class="example">
@@ -2839,7 +3041,7 @@ and 0 on failure.
 <hr>
 <a name="lou_005fcharToDots"></a>
 <a name="lou_005fcharToDots-1"></a>
-<h3 class="section">6.12 lou_charToDots</h3>
+<h3 class="section">7.12 lou_charToDots</h3>
 <a name="index-lou_005fcharToDots"></a>
 
 <div class="example">
@@ -2863,7 +3065,7 @@ success and 0 on failure.
 <hr>
 <a name="lou_005fregisterLogCallback"></a>
 <a name="lou_005fregisterLogCallback-1"></a>
-<h3 class="section">6.13 lou_registerLogCallback</h3>
+<h3 class="section">7.13 lou_registerLogCallback</h3>
 <a name="index-lou_005fregisterLogCallback"></a>
 
 <div class="example">
@@ -2885,7 +3087,7 @@ callback. Passing <code>NULL</code> resets to the default callback.
 <hr>
 <a name="lou_005fsetLogLevel"></a>
 <a name="lou_005fsetLogLevel-1"></a>
-<h3 class="section">6.14 lou_setLogLevel</h3>
+<h3 class="section">7.14 lou_setLogLevel</h3>
 <a name="index-lou_005fsetLogLevel"></a>
 
 <div class="example">
@@ -2897,7 +3099,7 @@ callback. Passing <code>NULL</code> resets to the default callback.
   LOG_WARN = 30000,
   LOG_ERROR = 40000,
   LOG_FATAL = 50000,
-  LOG_OFF = 6000
+  LOG_OFF = 60000
 } logLevels;
 void lou_setLogLevel (
   logLevels level);
@@ -2914,7 +3116,7 @@ default level is <code>LOG_INFO</code>.
 <hr>
 <a name="lou_005flogFile"></a>
 <a name="lou_005flogFile-1"></a>
-<h3 class="section">6.15 lou_logFile</h3>
+<h3 class="section">7.15 lou_logFile</h3>
 <a name="index-lou_005flogFile"></a>
 
 <div class="example">
@@ -2931,7 +3133,7 @@ the file must be given.
 <hr>
 <a name="lou_005flogPrint"></a>
 <a name="lou_005flogPrint-_0028deprecated_0029"></a>
-<h3 class="section">6.16 lou_logPrint (deprecated)</h3>
+<h3 class="section">7.16 lou_logPrint (deprecated)</h3>
 <a name="index-lou_005flogPrint"></a>
 
 <div class="example">
@@ -2950,7 +3152,7 @@ library liblouisutdml.
 <hr>
 <a name="lou_005flogEnd"></a>
 <a name="lou_005flogEnd-1"></a>
-<h3 class="section">6.17 lou_logEnd</h3>
+<h3 class="section">7.17 lou_logEnd</h3>
 <a name="index-lou_005flogEnd"></a>
 
 <div class="example">
@@ -2963,7 +3165,7 @@ log file, so that it can be read by the rest of the program.
 <hr>
 <a name="lou_005fsetDataPath"></a>
 <a name="lou_005fsetDataPath-1"></a>
-<h3 class="section">6.18 lou_setDataPath</h3>
+<h3 class="section">7.18 lou_setDataPath</h3>
 <a name="index-lou_005fsetDataPath"></a>
 
 <div class="example">
@@ -2980,7 +3182,7 @@ located. The function returns a pointer to the <code>path</code>.
 <hr>
 <a name="lou_005fgetDataPath"></a>
 <a name="lou_005fgetDataPath-1"></a>
-<h3 class="section">6.19 lou_getDataPath</h3>
+<h3 class="section">7.19 lou_getDataPath</h3>
 <a name="index-lou_005fgetDataPath"></a>
 
 <div class="example">
@@ -2993,7 +3195,7 @@ located. The function returns a pointer to the <code>path</code>.
 <hr>
 <a name="lou_005fgetTable"></a>
 <a name="lou_005fgetTable-1"></a>
-<h3 class="section">6.20 lou_getTable</h3>
+<h3 class="section">7.20 lou_getTable</h3>
 <a name="index-lou_005fgetTable"></a>
 
 <div class="example">
@@ -3011,9 +3213,60 @@ messages are logged to the log callback (see
 pointer being returned.
 </p>
 <hr>
+<a name="lou_005ffindTable"></a>
+<a name="lou_005ffindTable-1"></a>
+<h3 class="section">7.21 lou_findTable</h3>
+<a name="index-lou_005ffindTable"></a>
+
+<div class="example">
+<pre class="example">char *lou_findTable (const char *query);
+</pre></div>
+
+<p>This function can be used to find a table based on
+metadata. <code>query</code> is a string in the special <a href="#Query-Syntax">query syntax</a>. It is matched against <a href="#Table-Metadata">table
+metadata</a> inside the tables that were previously indexed with
+<a href="#lou_005findexTables"><code>lou_indexTables</code></a>. Returns the file name of
+the best match. Returns <code>NULL</code> if the query is invalid or if no
+match can be found.
+</p>
+<p>The match algorithm works as follows:
+</p>
+<ul>
+<li> For every table a match quotient with the query is computed. The table
+with the highest (positive) match quotient wins. If no table has a
+positive quotient, there is no match.
+</li><li> A query is a list of features. Features defined first have a higher
+importance (have a higher impact on the final quotient) than features
+defined later.
+</li><li> A feature that matches a metadata field in the table (keys equal and
+values equal, or both values absent) adds to the quotient.
+</li><li> A feature that is undefined in the table (no field with that key)
+creates a medium penalty.
+</li><li> A feature that is defined in the table but does not match (keys equal
+but values not equal) creates the highest penalty.
+</li><li> Every field in the table that has no corresponding feature in the
+query creates a very small penalty.
+</li></ul>
+
+<hr>
+<a name="lou_005findexTables"></a>
+<a name="lou_005findexTables-1"></a>
+<h3 class="section">7.22 lou_indexTables</h3>
+<a name="index-lou_005findexTables"></a>
+
+<div class="example">
+<pre class="example">void lou_indexTables (const char **tables);
+</pre></div>
+
+<p>This function must be called prior to
+<a href="#lou_005ffindTable"><code>lou_findTable</code></a>. It parses, analyzes and
+indexes all specified tables. <code>tables</code> must be an array of file
+names. Tables that contain invalid metadata are ignored.
+</p>
+<hr>
 <a name="lou_005fcheckTable"></a>
 <a name="lou_005fcheckTable-1"></a>
-<h3 class="section">6.21 lou_checkTable</h3>
+<h3 class="section">7.23 lou_checkTable</h3>
 <a name="index-lou_005fcheckTable"></a>
 
 <div class="example">
@@ -3033,7 +3286,7 @@ value is <code>0</code>.
 <hr>
 <a name="lou_005freadCharFromFile"></a>
 <a name="lou_005freadCharFromFile-1"></a>
-<h3 class="section">6.22 lou_readCharFromFile</h3>
+<h3 class="section">7.24 lou_readCharFromFile</h3>
 <a name="index-lou_005freadCharFromFile"></a>
 
 <div class="example">
@@ -3054,7 +3307,7 @@ function takes care of it. On end-of-file the function returns
 <hr>
 <a name="lou_005ffree"></a>
 <a name="lou_005ffree-1"></a>
-<h3 class="section">6.23 lou_free</h3>
+<h3 class="section">7.25 lou_free</h3>
 <a name="index-lou_005ffree"></a>
 
 <div class="example">
@@ -3068,9 +3321,23 @@ translation. This will force liblouis to compile the translation
 tables every time they are used, resulting in great inefficiency.
 </p>
 <hr>
+<a name="lou_005fcharSize"></a>
+<a name="lou_005fcharSize-1"></a>
+<h3 class="section">7.26 lou_charSize</h3>
+<a name="index-lou_005fcharSize"></a>
+
+<div class="example">
+<pre class="example">int lou_charSize ();
+</pre></div>
+
+<p>This function returns the size of <code>widechar</code> in bytes and can
+therefore be used to differentiate between 16-bit and 32bit-Unicode
+builds of liblouis.
+</p>
+<hr>
 <a name="Python-bindings"></a>
 <a name="Python-bindings-1"></a>
-<h3 class="section">6.24 Python bindings</h3>
+<h3 class="section">7.27 Python bindings</h3>
 
 <p>There are Python bindings for <code>lou_translateString</code>,
 <code>lou_translate</code>, <code>lou_backTranslateString</code>,
@@ -3175,6 +3442,7 @@ directory. Usage information is included in the Python module itself.
 <tr><th><a name="Opcode-Index_opcode_letter-B">B</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-before">before</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dClass-Opcodes">Character-Class Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-begcaps">begcaps</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-begcapsword">begcapsword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-begemph">begemph</a>:</td><td>&nbsp;</td><td valign="top"><a href="#None">None</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-begemphphrase">begemphphrase</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Phrase">Phrase</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-begemphword">begemphword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Word">Word</a></td></tr>
@@ -3183,7 +3451,7 @@ directory. Usage information is included in the Python module itself.
 <tr><td></td><td valign="top"><a href="#index-begword">begword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Opcode-Index_opcode_letter-C">C</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-capsign">capsign</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-capsletter">capsletter</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-capsnocont">capsnocont</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Special-Processing-Opcodes">Special Processing Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-class">class</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dClass-Opcodes">Character-Class Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-comp6">comp6</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
@@ -3201,6 +3469,7 @@ directory. Usage information is included in the Python module itself.
 <tr><td></td><td valign="top"><a href="#index-emphclass">emphclass</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-class">Emphasis class</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-emphletter">emphletter</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Letter">Letter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-endcaps">endcaps</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-endcapsword">endcapsword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-endemph">endemph</a>:</td><td>&nbsp;</td><td valign="top"><a href="#None">None</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-endemphphrase-after">endemphphrase after</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Phrase">Phrase</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-endemphphrase-before">endemphphrase before</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Phrase">Phrase</a></td></tr>
@@ -3332,15 +3601,18 @@ directory. Usage information is included in the Python module itself.
 <tr><th><a name="Function-Index_fn_letter-L">L</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fbackTranslate"><code>lou_backTranslate</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fbackTranslate">lou_backTranslate</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fbackTranslateString"><code>lou_backTranslateString</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fbackTranslateString">lou_backTranslateString</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-lou_005fcharSize"><code>lou_charSize</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fcharSize">lou_charSize</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fcharToDots"><code>lou_charToDots</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fcharToDots">lou_charToDots</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fcheckTable"><code>lou_checkTable</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fcheckTable">lou_checkTable</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fcompileString"><code>lou_compileString</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fcompileString">lou_compileString</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fdotsToChar"><code>lou_dotsToChar</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fdotsToChar">lou_dotsToChar</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-lou_005ffindTable"><code>lou_findTable</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005ffindTable">lou_findTable</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005ffree"><code>lou_free</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005ffree">lou_free</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fgetDataPath"><code>lou_getDataPath</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fgetDataPath">lou_getDataPath</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fgetTable"><code>lou_getTable</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fgetTable">lou_getTable</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fgetTypeformForEmphClass"><code>lou_getTypeformForEmphClass</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fgetTypeformForEmphClass">lou_getTypeformForEmphClass</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fhyphenate"><code>lou_hyphenate</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fhyphenate">lou_hyphenate</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-lou_005findexTables"><code>lou_indexTables</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005findexTables">lou_indexTables</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005flogEnd"><code>lou_logEnd</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005flogEnd">lou_logEnd</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005flogFile"><code>lou_logFile</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005flogFile">lou_logFile</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005flogPrint"><code>lou_logPrint</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005flogPrint">lou_logPrint</a></td></tr>
@@ -3371,6 +3643,7 @@ directory. Usage information is included in the Python module itself.
 <tr><td></td><td valign="top"><a href="#index-lou_005fallround"><code>lou_allround</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fallround">lou_allround</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fcheckhyphens"><code>lou_checkhyphens</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fcheckhyphens">lou_checkhyphens</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fchecktable"><code>lou_checktable</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fchecktable">lou_checktable</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-lou_005fcheckyaml"><code>lou_checkyaml</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fcheckyaml">lou_checkyaml</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005fdebug"><code>lou_debug</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fdebug">lou_debug</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005ftrace"><code>lou_trace</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005ftrace">lou_trace</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lou_005ftranslate-1"><code>lou_translate</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005ftranslate-_0028program_0029">lou_translate (program)</a></td></tr>
@@ -3379,3 +3652,4 @@ directory. Usage information is included in the Python module itself.
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Program-Index_pg_letter-L"><b>L</b></a>
  &nbsp; 
 </td></tr></table>
+<hr>
