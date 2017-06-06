@@ -60,44 +60,45 @@ title: Liblouis User's and Programmer's Manual
   </ul></li>
   <li><a name="toc-Automated-Testing-of-Translation-Tables-1" href="#Automated-Testing-of-Translation-Tables">6 Automated Testing of Translation Tables</a>
   <ul class="no-bullet">
-    <li><a name="toc-YAML-Tests-1" href="#YAML-Tests">6.1 YAML Tests</a>
+    <li><a name="toc-YAML-Tests-1" href="#YAML-Tests-1">6.1 YAML Tests</a>
     <ul class="no-bullet">
       <li><a name="toc-Optional-test-description" href="#Optional-test-description">6.1.1 Optional test description</a></li>
       <li><a name="toc-Testing-multiple-tables-within-the-same-YAML-test-file" href="#Testing-multiple-tables-within-the-same-YAML-test-file">6.1.2 Testing multiple tables within the same YAML test file</a></li>
       <li><a name="toc-Inline-definition-of-tables" href="#Inline-definition-of-tables">6.1.3 Inline definition of tables</a></li>
       <li><a name="toc-Running-the-same-test-data-on-multiple-tables" href="#Running-the-same-test-data-on-multiple-tables">6.1.4 Running the same test data on multiple tables</a></li>
     </ul></li>
-    <li><a name="toc-Doctests-1" href="#Doctests">6.2 Doctests</a></li>
   </ul></li>
   <li><a name="toc-Programming-with-liblouis-1" href="#Programming-with-liblouis">7 Programming with liblouis</a>
   <ul class="no-bullet">
     <li><a name="toc-Overview-2" href="#Overview-_0028library_0029">7.1 Overview</a></li>
     <li><a name="toc-Data-structure-of-liblouis-tables-1" href="#Data-structure-of-liblouis-tables">7.2 Data structure of liblouis tables</a></li>
-    <li><a name="toc-lou_005fversion-1" href="#lou_005fversion">7.3 lou_version</a></li>
-    <li><a name="toc-lou_005ftranslateString-1" href="#lou_005ftranslateString">7.4 lou_translateString</a></li>
-    <li><a name="toc-lou_005ftranslate-2" href="#lou_005ftranslate">7.5 lou_translate</a></li>
-    <li><a name="toc-lou_005fbackTranslateString-1" href="#lou_005fbackTranslateString">7.6 lou_backTranslateString</a></li>
-    <li><a name="toc-lou_005fbackTranslate-1" href="#lou_005fbackTranslate">7.7 lou_backTranslate</a></li>
-    <li><a name="toc-lou_005fhyphenate-1" href="#lou_005fhyphenate">7.8 lou_hyphenate</a></li>
-    <li><a name="toc-lou_005fcompileString-1" href="#lou_005fcompileString">7.9 lou_compileString</a></li>
-    <li><a name="toc-lou_005fgetTypeformForEmphClass-1" href="#lou_005fgetTypeformForEmphClass">7.10 lou_getTypeformForEmphClass</a></li>
-    <li><a name="toc-lou_005fdotsToChar-1" href="#lou_005fdotsToChar">7.11 lou_dotsToChar</a></li>
-    <li><a name="toc-lou_005fcharToDots-1" href="#lou_005fcharToDots">7.12 lou_charToDots</a></li>
-    <li><a name="toc-lou_005fregisterLogCallback-1" href="#lou_005fregisterLogCallback">7.13 lou_registerLogCallback</a></li>
-    <li><a name="toc-lou_005fsetLogLevel-1" href="#lou_005fsetLogLevel">7.14 lou_setLogLevel</a></li>
-    <li><a name="toc-lou_005flogFile-1" href="#lou_005flogFile">7.15 lou_logFile</a></li>
-    <li><a name="toc-lou_005flogPrint-_0028deprecated_0029" href="#lou_005flogPrint">7.16 lou_logPrint (deprecated)</a></li>
-    <li><a name="toc-lou_005flogEnd-1" href="#lou_005flogEnd">7.17 lou_logEnd</a></li>
-    <li><a name="toc-lou_005fsetDataPath-1" href="#lou_005fsetDataPath">7.18 lou_setDataPath</a></li>
-    <li><a name="toc-lou_005fgetDataPath-1" href="#lou_005fgetDataPath">7.19 lou_getDataPath</a></li>
-    <li><a name="toc-lou_005fgetTable-1" href="#lou_005fgetTable">7.20 lou_getTable</a></li>
-    <li><a name="toc-lou_005ffindTable-1" href="#lou_005ffindTable">7.21 lou_findTable</a></li>
-    <li><a name="toc-lou_005findexTables-1" href="#lou_005findexTables">7.22 lou_indexTables</a></li>
-    <li><a name="toc-lou_005fcheckTable-1" href="#lou_005fcheckTable">7.23 lou_checkTable</a></li>
-    <li><a name="toc-lou_005freadCharFromFile-1" href="#lou_005freadCharFromFile">7.24 lou_readCharFromFile</a></li>
-    <li><a name="toc-lou_005ffree-1" href="#lou_005ffree">7.25 lou_free</a></li>
-    <li><a name="toc-lou_005fcharSize-1" href="#lou_005fcharSize">7.26 lou_charSize</a></li>
-    <li><a name="toc-Python-bindings-1" href="#Python-bindings">7.27 Python bindings</a></li>
+    <li><a name="toc-How-tables-are-found-1" href="#How-tables-are-found">7.3 How tables are found</a></li>
+    <li><a name="toc-Deprecation-of-the-logging-system-1" href="#Deprecation-of-the-logging-system">7.4 Deprecation of the logging system</a></li>
+    <li><a name="toc-lou_005fversion-1" href="#lou_005fversion">7.5 lou_version</a></li>
+    <li><a name="toc-lou_005ftranslateString-1" href="#lou_005ftranslateString">7.6 lou_translateString</a></li>
+    <li><a name="toc-lou_005ftranslate-2" href="#lou_005ftranslate">7.7 lou_translate</a></li>
+    <li><a name="toc-lou_005fbackTranslateString-1" href="#lou_005fbackTranslateString">7.8 lou_backTranslateString</a></li>
+    <li><a name="toc-lou_005fbackTranslate-1" href="#lou_005fbackTranslate">7.9 lou_backTranslate</a></li>
+    <li><a name="toc-lou_005fhyphenate-1" href="#lou_005fhyphenate">7.10 lou_hyphenate</a></li>
+    <li><a name="toc-lou_005fcompileString-1" href="#lou_005fcompileString">7.11 lou_compileString</a></li>
+    <li><a name="toc-lou_005fgetTypeformForEmphClass-1" href="#lou_005fgetTypeformForEmphClass">7.12 lou_getTypeformForEmphClass</a></li>
+    <li><a name="toc-lou_005fdotsToChar-1" href="#lou_005fdotsToChar">7.13 lou_dotsToChar</a></li>
+    <li><a name="toc-lou_005fcharToDots-1" href="#lou_005fcharToDots">7.14 lou_charToDots</a></li>
+    <li><a name="toc-lou_005fregisterLogCallback-1" href="#lou_005fregisterLogCallback">7.15 lou_registerLogCallback</a></li>
+    <li><a name="toc-lou_005fsetLogLevel-1" href="#lou_005fsetLogLevel">7.16 lou_setLogLevel</a></li>
+    <li><a name="toc-lou_005flogFile-_0028deprecated_0029" href="#lou_005flogFile">7.17 lou_logFile (deprecated)</a></li>
+    <li><a name="toc-lou_005flogPrint-_0028deprecated_0029" href="#lou_005flogPrint">7.18 lou_logPrint (deprecated)</a></li>
+    <li><a name="toc-lou_005flogEnd-_0028deprecated_0029" href="#lou_005flogEnd">7.19 lou_logEnd (deprecated)</a></li>
+    <li><a name="toc-lou_005fsetDataPath-1" href="#lou_005fsetDataPath">7.20 lou_setDataPath</a></li>
+    <li><a name="toc-lou_005fgetDataPath-1" href="#lou_005fgetDataPath">7.21 lou_getDataPath</a></li>
+    <li><a name="toc-lou_005fgetTable-1" href="#lou_005fgetTable">7.22 lou_getTable</a></li>
+    <li><a name="toc-lou_005ffindTable-1" href="#lou_005ffindTable">7.23 lou_findTable</a></li>
+    <li><a name="toc-lou_005findexTables-1" href="#lou_005findexTables">7.24 lou_indexTables</a></li>
+    <li><a name="toc-lou_005fcheckTable-1" href="#lou_005fcheckTable">7.25 lou_checkTable</a></li>
+    <li><a name="toc-lou_005freadCharFromFile-1" href="#lou_005freadCharFromFile">7.26 lou_readCharFromFile</a></li>
+    <li><a name="toc-lou_005ffree-1" href="#lou_005ffree">7.27 lou_free</a></li>
+    <li><a name="toc-lou_005fcharSize-1" href="#lou_005fcharSize">7.28 lou_charSize</a></li>
+    <li><a name="toc-Python-bindings-1" href="#Python-bindings">7.29 Python bindings</a></li>
   </ul></li>
   <li><a name="toc-Concept-Index-1" href="#Concept-Index">Concept Index</a></li>
   <li><a name="toc-Opcode-Index-1" href="#Opcode-Index">Opcode Index</a></li>
@@ -111,7 +112,7 @@ title: Liblouis User's and Programmer's Manual
 <a name="Liblouis-User_0027s-and-Programmer_0027s-Manual"></a>
 <h1 class="top">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouis (version 3.1.0, 6 March 2017),
+<p>This manual is for liblouis (version 3.2.0, 2 June 2017),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <acronym>BRLTTY</acronym>. 
 </p>
@@ -1005,6 +1006,11 @@ to determine the end of individual words.
 <dd><p>This opcode has no operands. If it is specified, words or parts of
 words in all caps are not contracted. This is needed for languages
 such as Norwegian.
+</p>
+<p>Note: If you use the capsnocont opcode and do not define the
+      <code>begcapsword</code> opcode (see <a href="#begcapsword-opcode"><code>begcapsword</code></a>) indicator, every cap will be marked with the
+<code>capsletter</code> opcode (see <a href="#capsletter-opcode"><code>capsletter</code></a>) indicator. This is useful if you need to process caps
+separately in a later pass.
 </p>
 </dd>
 </dl>
@@ -1945,6 +1951,10 @@ successfully.
 </dd>
 </dl>
 
+<p>Most test programs let you specify one or multiple tables to use.
+These tables are usually found in standard locations in the file
+system or local to where the command is executed. See <a href="#How-tables-are-found">How tables are found</a> for a description on how the tables are located.
+</p>
 
 <hr>
 <a name="lou_005fdebug"></a>
@@ -2206,10 +2216,60 @@ also accepts the following options:
 </dd>
 </dl>
 
-<p>To use it to translate or back-translate a file use a line like
+<p>If no options are given forward translation is assumed.
+</p>
+<p>Use the following command to do a forward translation with translation
+table <samp>en-us-g2.ctb</samp>. The resulting braille is ASCII encoded (as
+defined in <samp>en-us-g2.ctb</samp>).
 </p>
 <div class="example">
-<pre class="example">lou_translate --forward en-us-g2.ctb &lt;liblouis.txt &gt;testtrans
+<pre class="example">lou_translate --forward en-us-g2.ctb &lt; input.txt
+</pre></div>
+
+<p>The next example illustrates a forward translation with translation
+table <samp>en-us-g2.ctb</samp> and display table <samp>unicode.dis</samp>. The
+resulting braille is encoded as Unicode dot patterns (as defined in
+<samp>unicode.dis</samp>).
+</p>
+<div class="example">
+<pre class="example">lou_translate --forward unicode.dis,en-us-g2.ctb &lt; input.txt
+</pre></div>
+
+<p>Use a pipe if you would rather just pass some given text to the
+translator.
+</p>
+<div class="example">
+<pre class="example">echo &quot;The quick brown fox jumps over the lazy dog&quot; | lou_translate -f unicode.dis,en-us-g2.ctb
+</pre></div>
+
+<p>The result will be written to standard output:
+</p>
+<div class="example">
+<pre class="example">⠠⠮ ⠟⠅ ⠃⠗⠪⠝ ⠋⠕⠭ ⠚⠥⠍⠏⠎ ⠕⠧⠻ ⠮ ⠇⠁⠵⠽ ⠙⠕⠛
+</pre></div>
+
+<p>Backward translation can be done as follows:
+</p>
+<div class="example">
+<pre class="example">echo &quot;,! qk br{n fox jumps ov} ! lazy dog&quot; | lou_translate --backward en-us-g2.ctb
+</pre></div>
+
+<p>which results in
+</p>
+<div class="example">
+<pre class="example">The quick brown fox jumps over the lazy dog
+</pre></div>
+
+<p>You can also do a backward translation using Unicode dot patterns
+</p>
+<div class="example">
+<pre class="example">echo &quot;⠠⠮ ⠟⠅ ⠃⠗⠪⠝ ⠋⠕⠭&quot; | lou_translate --backward unicode.dis,en-us-g2.ctb
+</pre></div>
+
+<p>resulting in
+</p>
+<div class="example">
+<pre class="example">The quick brown fox
 </pre></div>
 
 <hr>
@@ -2249,6 +2309,18 @@ pass or 1 if any of the tests fail. Invoke it as follows:
 <p>The command line options that are accepted by
 <code>lou_checkyaml</code> are described in <a href="#common-options">common options</a>.
 </p>
+<a name="index-Running-YAML-tests-manually"></a>
+<a name="index-Running-individual-YAML-tests"></a>
+<p>Due to some technical limitations the YAML tests work best if the
+<code>LOUIS_TABLEPATH</code> is set up correctly. By running <code>make</code>
+this is all taken care for you. You can also run individual YAML tests
+as shown in the following example:
+</p>
+<div class="example">
+<pre class="example">cd tests
+make check TESTS=yaml/en-ueb-g2_backward.yaml
+</pre></div>
+
 <hr>
 <a name="Automated-Testing-of-Translation-Tables"></a>
 <a name="Automated-Testing-of-Translation-Tables-1"></a>
@@ -2263,30 +2335,14 @@ where you define the table that is to be tested and any number of
 words or phrases to translate together with their respective expected
 translation.
 </p>
-<dl compact="compact">
-<dt>YAML tests</dt>
-<dd><p>The YAML tests are data driven, i.e. you give the test data, a string
+<p>The YAML tests are data driven, i.e. you give the test data, a string
 to translate and the expected output. The data is in a standard format
 namely YAML. If you have <samp>libyaml</samp> installed they will
 automatically be invoked as part of the standard <code>make check</code>
 command.
 </p>
-</dd>
-<dt>Doctests</dt>
-<dd><p>The doctests are based on a technology used in Python where you define
-your tests as if you were sitting at a terminal session with a Python
-interpreter. They only work with either Python2 and Python3 but not
-from plain C, so you need Python and you will have to compile with
-UCS4.
-</p></dd>
-</dl>
-
-
-<hr>
-<a name="YAML-Tests"></a>
-<a name="YAML-Tests-1"></a>
+<a name="YAML-Tests"></a><a name="YAML-Tests-1"></a>
 <h3 class="section">6.1 YAML Tests</h3>
-
 <p><a href="http://yaml.org/">YAML</a> is a human readable data serialization
 format that allows for an easy and compact way to define tests.
 </p>
@@ -2544,34 +2600,6 @@ tests:
 </pre></div>
 
 <hr>
-<a name="Doctests"></a>
-<a name="Doctests-1"></a>
-<h3 class="section">6.2 Doctests</h3>
-<p>A doctest looks like you typed a command at the Python command line
-and got some output, e.g.
-</p>
-<div class="example">
-<pre class="example">&gt;&gt;&gt; translate(['table.ctb'], &quot;Hello&quot;, mode=compbrlLeftCursor)
-(&quot;HELLO&quot;, [0,1,2,3], [0,1,2,3], 0)
-</pre></div>
-
-<p>There is a convenience wrapper which hides away much of the complexity
-of above example so you can write stuff like 
-</p>
-<div class="example">
-<pre class="example">&gt;&gt;&gt; t.braille('the cat sat on the mat')
-u'! cat sat on ! mat'
-</pre></div>
-
-<p>Essentially you are writing code, so the doctests allow you to do more
-flexible tests that are much closer to the raw iron than any of the
-other tests. However the doctests will only work in either Python2 or
-Python3.
-</p>
-<p>For examples on how to create doctests please see <samp>*_test.txt</samp> in
-the doctest directory in the source distribution.
-</p>
-<hr>
 <a name="Programming-with-liblouis"></a>
 <a name="Programming-with-liblouis-1"></a>
 <h2 class="chapter">7 Programming with liblouis</h2>
@@ -2710,9 +2738,51 @@ various structures are mapped and to which almost everything else
 points.
 </p>
 <hr>
+<a name="How-tables-are-found"></a>
+<a name="How-tables-are-found-1"></a>
+<h3 class="section">7.3 How tables are found</h3>
+<a name="index-Table-search-path"></a>
+<a name="index-LOUIS_005fTABLEPATH"></a>
+<p>liblouis knows where to find all the tables that have been distributed
+with it. So you can just give a table name such as <code>en-us-g2.ctb</code>
+and liblouis will load it. You can also give a table name which
+includes a path. If this is the first table in a list, all the tables
+in the list must be on the same path. You can specify a path on which
+liblouis will look for table names by setting the environment variable
+<code>LOUIS_TABLEPATH</code>. This environment variable can contain one or
+more paths separated by commas. On receiving a table name liblouis
+first checks to see if it can be found on any of these paths. If not,
+it then checks to see if it can be found in the current directory, or,
+if the first (or only) name in a table list, if it contains a
+path name, can be found on that path. If not, it checks to see if it
+can be found on the path where the distributed tables have been
+installed. If a table has already been loaded and compiled this
+path-checking is skipped.
+</p>
+<hr>
+<a name="Deprecation-of-the-logging-system"></a>
+<a name="Deprecation-of-the-logging-system-1"></a>
+<h3 class="section">7.4 Deprecation of the logging system</h3>
+
+<p>As of version 2.6.0 <code>lou_logFile</code>, <code>lou_logPrint</code> and
+<code>lou_logEnd</code> are deprecated. They are replaced by a more powerful,
+abstract API consisting of <code>lou_registerLogCallback</code> and
+<code>lou_setLogLevel</code>. 
+</p>
+<p>Usage of <code>lou_logFile</code>, <code>lou_logPrint</code> and <code>lou_logEnd</code> is
+discouraged as they may not be part of future releases. Applications using
+Liblouis should implement their own logging system.
+</p>
+<p>During the transitional phase, <code>lou_logPrint</code> is registered as default
+callback in <code>lou_registerLogCallback</code>. <code>lou_logPrint</code> is overwritten
+by the first call to <code>lou_registerLogCallback</code> and reattached when
+<code>NULL</code> is set as callback. Note that calling <code>lou_logPrint</code> directly
+will not cause an invokation of the registered callback.
+</p>
+<hr>
 <a name="lou_005fversion"></a>
 <a name="lou_005fversion-1"></a>
-<h3 class="section">7.3 lou_version</h3>
+<h3 class="section">7.5 lou_version</h3>
 <a name="index-lou_005fversion"></a>
 
 <div class="example">
@@ -2726,7 +2796,7 @@ and perhaps notable changes.
 <hr>
 <a name="lou_005ftranslateString"></a>
 <a name="lou_005ftranslateString-1"></a>
-<h3 class="section">7.4 lou_translateString</h3>
+<h3 class="section">7.6 lou_translateString</h3>
 <a name="index-lou_005ftranslateString"></a>
 
 <div class="example">
@@ -2750,25 +2820,11 @@ is indicated by the character-definition and display opcodes in the
 translation table.
 </p>
 <a name="translation_002dtables"></a><p>The <code>tableList</code> parameter points to a list of translation tables
-separated by commas. If only one table is given, no comma should be
-used after it. It is these tables which control just how the
-translation is made, whether in Grade 2, Grade 1, or something else.
-</p>
-<p>liblouis knows where to find all the tables that have been distributed
-with it. So you can just give a table name such as <code>en-us-g2.ctb</code>
-and liblouis will load it. You can also give a table name which
-includes a path. If this is the first table in a list, all the tables
-in the list must be on the same path. You can specify a path on which
-liblouis will look for table names by setting the environment variable
-<code>LOUIS_TABLEPATH</code>. This environment variable can contain one or
-more paths separated by commas. On receiving a table name liblouis
-first checks to see if it can be found on any of these paths. If not,
-it then checks to see if it can be found in the current directory, or,
-if the first (or only) name in a table list, if it contains a
-path name, can be found on that path. If not, it checks to see if it
-can be found on the path where the distributed tables have been
-installed. If a table has already been loaded and compiled this
-path-checking is skipped.
+separated by commas. See <a href="#How-tables-are-found">How tables are found</a> for a description on
+how the tables are located in the file system. If only one table is
+given, no comma should be used after it. It is these tables which
+control just how the translation is made, whether in Grade 2, Grade 1,
+or something else.
 </p>
 <p>The tables in a list are all compiled into the same internal table.
 The list is then regarded as the name of this table. As explained in
@@ -2818,7 +2874,7 @@ complete translation could not be done.
 <hr>
 <a name="lou_005ftranslate"></a>
 <a name="lou_005ftranslate-2"></a>
-<h3 class="section">7.5 lou_translate</h3>
+<h3 class="section">7.7 lou_translate</h3>
 <a name="index-lou_005ftranslate"></a>
 
 <div class="example">
@@ -2882,7 +2938,7 @@ failure (return value of 0).
 <hr>
 <a name="lou_005fbackTranslateString"></a>
 <a name="lou_005fbackTranslateString-1"></a>
-<h3 class="section">7.6 lou_backTranslateString</h3>
+<h3 class="section">7.8 lou_backTranslateString</h3>
 <a name="index-lou_005fbackTranslateString"></a>
 
 <div class="example">
@@ -2921,7 +2977,7 @@ before the word is complete.
 <hr>
 <a name="lou_005fbackTranslate"></a>
 <a name="lou_005fbackTranslate-1"></a>
-<h3 class="section">7.7 lou_backTranslate</h3>
+<h3 class="section">7.9 lou_backTranslate</h3>
 <a name="index-lou_005fbackTranslate"></a>
 
 <div class="example">
@@ -2944,7 +3000,7 @@ before the word is complete.
 <hr>
 <a name="lou_005fhyphenate"></a>
 <a name="lou_005fhyphenate-1"></a>
-<h3 class="section">7.8 lou_hyphenate</h3>
+<h3 class="section">7.10 lou_hyphenate</h3>
 <a name="index-lou_005fhyphenate"></a>
 
 <div class="example">
@@ -2980,7 +3036,7 @@ use in liblouisutdml.
 <hr>
 <a name="lou_005fcompileString"></a>
 <a name="lou_005fcompileString-1"></a>
-<h3 class="section">7.9 lou_compileString</h3>
+<h3 class="section">7.11 lou_compileString</h3>
 <a name="index-lou_005fcompileString"></a>
 
 <div class="example">
@@ -2998,7 +3054,7 @@ will be produced if it is invalid. The function returns 1 on success and
 <hr>
 <a name="lou_005fgetTypeformForEmphClass"></a>
 <a name="lou_005fgetTypeformForEmphClass-1"></a>
-<h3 class="section">7.10 lou_getTypeformForEmphClass</h3>
+<h3 class="section">7.12 lou_getTypeformForEmphClass</h3>
 <a name="index-lou_005fgetTypeformForEmphClass"></a>
 
 <div class="example">
@@ -3018,7 +3074,7 @@ emphasis class.
 <hr>
 <a name="lou_005fdotsToChar"></a>
 <a name="lou_005fdotsToChar-1"></a>
-<h3 class="section">7.11 lou_dotsToChar</h3>
+<h3 class="section">7.13 lou_dotsToChar</h3>
 <a name="index-lou_005fdotsToChar"></a>
 
 <div class="example">
@@ -3041,7 +3097,7 @@ and 0 on failure.
 <hr>
 <a name="lou_005fcharToDots"></a>
 <a name="lou_005fcharToDots-1"></a>
-<h3 class="section">7.12 lou_charToDots</h3>
+<h3 class="section">7.14 lou_charToDots</h3>
 <a name="index-lou_005fcharToDots"></a>
 
 <div class="example">
@@ -3065,7 +3121,7 @@ success and 0 on failure.
 <hr>
 <a name="lou_005fregisterLogCallback"></a>
 <a name="lou_005fregisterLogCallback-1"></a>
-<h3 class="section">7.13 lou_registerLogCallback</h3>
+<h3 class="section">7.15 lou_registerLogCallback</h3>
 <a name="index-lou_005fregisterLogCallback"></a>
 
 <div class="example">
@@ -3087,7 +3143,7 @@ callback. Passing <code>NULL</code> resets to the default callback.
 <hr>
 <a name="lou_005fsetLogLevel"></a>
 <a name="lou_005fsetLogLevel-1"></a>
-<h3 class="section">7.14 lou_setLogLevel</h3>
+<h3 class="section">7.16 lou_setLogLevel</h3>
 <a name="index-lou_005fsetLogLevel"></a>
 
 <div class="example">
@@ -3115,8 +3171,8 @@ default level is <code>LOG_INFO</code>.
 </p>
 <hr>
 <a name="lou_005flogFile"></a>
-<a name="lou_005flogFile-1"></a>
-<h3 class="section">7.15 lou_logFile</h3>
+<a name="lou_005flogFile-_0028deprecated_0029"></a>
+<h3 class="section">7.17 lou_logFile (deprecated)</h3>
 <a name="index-lou_005flogFile"></a>
 
 <div class="example">
@@ -3130,10 +3186,12 @@ in a GUI application or in liblouisutdml. Any error messages generated
 will be printed to the file given in this call. The entire path name of
 the file must be given.
 </p>
+<p>This function is deprecated. See <a href="#Deprecation-of-the-logging-system">Deprecation of the logging system</a>.
+</p>
 <hr>
 <a name="lou_005flogPrint"></a>
 <a name="lou_005flogPrint-_0028deprecated_0029"></a>
-<h3 class="section">7.16 lou_logPrint (deprecated)</h3>
+<h3 class="section">7.18 lou_logPrint (deprecated)</h3>
 <a name="index-lou_005flogPrint"></a>
 
 <div class="example">
@@ -3147,12 +3205,12 @@ libraries to print messages to the file specified by the call to
 <code>lou_logFile</code>. In particular, it is used by the companion
 library liblouisutdml.
 </p>
-<p>This function is deprecated as of version 2.6.0.
+<p>This function is deprecated. See <a href="#Deprecation-of-the-logging-system">Deprecation of the logging system</a>.
 </p>
 <hr>
 <a name="lou_005flogEnd"></a>
-<a name="lou_005flogEnd-1"></a>
-<h3 class="section">7.17 lou_logEnd</h3>
+<a name="lou_005flogEnd-_0028deprecated_0029"></a>
+<h3 class="section">7.19 lou_logEnd (deprecated)</h3>
 <a name="index-lou_005flogEnd"></a>
 
 <div class="example">
@@ -3162,10 +3220,12 @@ library liblouisutdml.
 <p>This function is used at the end of processing a document to close the 
 log file, so that it can be read by the rest of the program.
 </p>
+<p>This function is deprecated. See <a href="#Deprecation-of-the-logging-system">Deprecation of the logging system</a>.
+</p>
 <hr>
 <a name="lou_005fsetDataPath"></a>
 <a name="lou_005fsetDataPath-1"></a>
-<h3 class="section">7.18 lou_setDataPath</h3>
+<h3 class="section">7.20 lou_setDataPath</h3>
 <a name="index-lou_005fsetDataPath"></a>
 
 <div class="example">
@@ -3182,7 +3242,7 @@ located. The function returns a pointer to the <code>path</code>.
 <hr>
 <a name="lou_005fgetDataPath"></a>
 <a name="lou_005fgetDataPath-1"></a>
-<h3 class="section">7.19 lou_getDataPath</h3>
+<h3 class="section">7.21 lou_getDataPath</h3>
 <a name="index-lou_005fgetDataPath"></a>
 
 <div class="example">
@@ -3195,7 +3255,7 @@ located. The function returns a pointer to the <code>path</code>.
 <hr>
 <a name="lou_005fgetTable"></a>
 <a name="lou_005fgetTable-1"></a>
-<h3 class="section">7.20 lou_getTable</h3>
+<h3 class="section">7.22 lou_getTable</h3>
 <a name="index-lou_005fgetTable"></a>
 
 <div class="example">
@@ -3215,7 +3275,7 @@ pointer being returned.
 <hr>
 <a name="lou_005ffindTable"></a>
 <a name="lou_005ffindTable-1"></a>
-<h3 class="section">7.21 lou_findTable</h3>
+<h3 class="section">7.23 lou_findTable</h3>
 <a name="index-lou_005ffindTable"></a>
 
 <div class="example">
@@ -3251,7 +3311,7 @@ query creates a very small penalty.
 <hr>
 <a name="lou_005findexTables"></a>
 <a name="lou_005findexTables-1"></a>
-<h3 class="section">7.22 lou_indexTables</h3>
+<h3 class="section">7.24 lou_indexTables</h3>
 <a name="index-lou_005findexTables"></a>
 
 <div class="example">
@@ -3266,7 +3326,7 @@ names. Tables that contain invalid metadata are ignored.
 <hr>
 <a name="lou_005fcheckTable"></a>
 <a name="lou_005fcheckTable-1"></a>
-<h3 class="section">7.23 lou_checkTable</h3>
+<h3 class="section">7.25 lou_checkTable</h3>
 <a name="index-lou_005fcheckTable"></a>
 
 <div class="example">
@@ -3286,7 +3346,7 @@ value is <code>0</code>.
 <hr>
 <a name="lou_005freadCharFromFile"></a>
 <a name="lou_005freadCharFromFile-1"></a>
-<h3 class="section">7.24 lou_readCharFromFile</h3>
+<h3 class="section">7.26 lou_readCharFromFile</h3>
 <a name="index-lou_005freadCharFromFile"></a>
 
 <div class="example">
@@ -3307,7 +3367,7 @@ function takes care of it. On end-of-file the function returns
 <hr>
 <a name="lou_005ffree"></a>
 <a name="lou_005ffree-1"></a>
-<h3 class="section">7.25 lou_free</h3>
+<h3 class="section">7.27 lou_free</h3>
 <a name="index-lou_005ffree"></a>
 
 <div class="example">
@@ -3323,7 +3383,7 @@ tables every time they are used, resulting in great inefficiency.
 <hr>
 <a name="lou_005fcharSize"></a>
 <a name="lou_005fcharSize-1"></a>
-<h3 class="section">7.26 lou_charSize</h3>
+<h3 class="section">7.28 lou_charSize</h3>
 <a name="index-lou_005fcharSize"></a>
 
 <div class="example">
@@ -3337,7 +3397,7 @@ builds of liblouis.
 <hr>
 <a name="Python-bindings"></a>
 <a name="Python-bindings-1"></a>
-<h3 class="section">7.27 Python bindings</h3>
+<h3 class="section">7.29 Python bindings</h3>
 
 <p>There are Python bindings for <code>lou_translateString</code>,
 <code>lou_translate</code>, <code>lou_backTranslateString</code>,
@@ -3355,9 +3415,15 @@ directory. Usage information is included in the Python module itself.
  &nbsp; 
 <a class="summary-letter" href="#Concept-Index_cp_letter-D"><b>D</b></a>
  &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-L"><b>L</b></a>
+ &nbsp; 
 <a class="summary-letter" href="#Concept-Index_cp_letter-M"><b>M</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Concept-Index_cp_letter-O"><b>O</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-T"><b>T</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Concept-Index_cp_letter-V"><b>V</b></a>
  &nbsp; 
@@ -3371,11 +3437,21 @@ directory. Usage information is included in the Python module itself.
 <tr><th><a name="Concept-Index_cp_letter-D">D</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-dots-operand">dots operand</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Overview">Overview</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-L">L</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-LOUIS_005fTABLEPATH">LOUIS_TABLEPATH</a>:</td><td>&nbsp;</td><td valign="top"><a href="#How-tables-are-found">How tables are found</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Concept-Index_cp_letter-M">M</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-multi_002dcell-dot-pattern">multi-cell dot pattern</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Overview">Overview</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Concept-Index_cp_letter-O">O</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-opcode">opcode</a>:</td><td>&nbsp;</td><td valign="top"><a href="#How-to-Write-Translation-Tables">How to Write Translation Tables</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-R">R</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Running-individual-YAML-tests">Running individual YAML tests</a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fcheckyaml">lou_checkyaml</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Running-YAML-tests-manually">Running YAML tests manually</a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fcheckyaml">lou_checkyaml</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Concept-Index_cp_letter-T">T</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Table-search-path">Table search path</a>:</td><td>&nbsp;</td><td valign="top"><a href="#How-tables-are-found">How tables are found</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Concept-Index_cp_letter-V">V</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-virtual-dots">virtual dots</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Overview">Overview</a></td></tr>
@@ -3385,9 +3461,15 @@ directory. Usage information is included in the Python module itself.
  &nbsp; 
 <a class="summary-letter" href="#Concept-Index_cp_letter-D"><b>D</b></a>
  &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-L"><b>L</b></a>
+ &nbsp; 
 <a class="summary-letter" href="#Concept-Index_cp_letter-M"><b>M</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Concept-Index_cp_letter-O"><b>O</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-T"><b>T</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Concept-Index_cp_letter-V"><b>V</b></a>
  &nbsp; 
@@ -3652,4 +3734,5 @@ directory. Usage information is included in the Python module itself.
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Program-Index_pg_letter-L"><b>L</b></a>
  &nbsp; 
 </td></tr></table>
+
 <hr>
