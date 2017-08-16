@@ -43,6 +43,10 @@ Liblouis is free software licensed under the [GNU Lesser GPL](https://www.gnu.or
 <div class="row">
 <div class="col-md-6">
 
+## Language bindings
+
+The software has interfaces to a number of programming languages. There are known bindings to C, [Python](https://github.com/liblouis/liblouis/tree/master/python), [Java](https://github.com/liblouis/liblouis-java) and [Javascript](https://github.com/liblouis/liblouis-js).
+
 ## Braille formatter
 
 **Liblouisutdml** is an open-source braille formatter. The formatting can be configured via a style sheet. By incorporating Liblouis it provides the capability of translating any XML or plain text file into properly transcribed, embosser-ready braille. This includes translation into grade two, mathematical codes, etc.
