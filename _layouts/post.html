@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<p class="meta">{{ page.date | date_to_string }} - {% for category in post.categories %}{{ category }}{% endfor %}</p>
+<p class="meta">{{ page.date | date_to_string }} - {{ page.category }}</p>
 
 <div class="post">
 {{ content }}

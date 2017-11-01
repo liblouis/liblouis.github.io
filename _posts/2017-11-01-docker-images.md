@@ -1,6 +1,6 @@
 ---
 title: Docker images
-categories: [Liblouis, Liblouisutdml]
+category: Liblouis Liblouisutdml
 ---
 
 We are happy to announce that there are now official docker images for
