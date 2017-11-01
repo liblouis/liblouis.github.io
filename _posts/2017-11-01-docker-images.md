@@ -15,7 +15,7 @@ liblouis tools with `docker run`. To run `lou_translate` for example
 you'd type the following:
 
 ``` console
-docker run --rm -it liblouis/liblouis lou_translate en-ueb-g2.ctb
+$ docker run --rm -it liblouis/liblouis lou_translate en-ueb-g2.ctb
 This is a test
 ,? is a te/
 ```
@@ -42,7 +42,7 @@ tests:
 
 Another interesting use case for this is to run `file2brl`:
 ``` console
-docker run --rm -i liblouis/liblouisutdml file2brl < input.xml > output.xml
+$ docker run --rm -i liblouis/liblouisutdml file2brl < input.xml > output.xml
 ```
 
 Please try this out and give us feedback via the mailing list.
