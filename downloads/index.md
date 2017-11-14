@@ -22,11 +22,11 @@ Up-to-date versions can be checked out directly from the source code repositorie
 |Liblouisutdml|<https://github.com/liblouis/liblouisutdml.git>|
 {: .table}
 
-Recent versions of Liblouis pre-compiled for Windows:
+Nightly builds of Liblouis pre-compiled for Windows:
 
-|Summary|File|md5|
+|Summary|File|
 |---------|
-|Liblouis commit [02ab5a1](https://github.com/liblouis/liblouis/commit/02ab5a19a3e1b17c90da37e2080df21303d49a1c) (Windows 32 bit)|([liblouis-02ab5a1-win32.zip](liblouis-02ab5a1-win32.zip)|32bc8538426f3e291a4d3383285599b1|
+|Liblouis nightly build (Windows 32 bit)|[liblouis-win32-*.zip](https://github.com/liblouis/liblouis/releases/tag/snapshot)|
 {: .table}
 
 ## Old versions
