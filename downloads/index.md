@@ -14,19 +14,23 @@ title: Downloads
 
 ## Development versions
 
-Up-to-date versions can be checked out directly from the source code repositories.
-
-|Summary|Source code repository|
-|---------|
-|Liblouis|<https://github.com/liblouis/liblouis.git>|
-|Liblouisutdml|<https://github.com/liblouis/liblouisutdml.git>|
-{: .table}
+### Pre-built
 
 Nightly builds of Liblouis pre-compiled for Windows:
 
 |Summary|File|
 |---------|
 |Liblouis nightly build (Windows 32 bit)|[liblouis-win32-*.zip](https://github.com/liblouis/liblouis/releases/tag/snapshot)|
+{: .table}
+
+### Source code
+
+Up-to-date versions can be checked out directly from the source code repositories.
+
+|Summary|Source code repository|
+|---------|
+|Liblouis|<https://github.com/liblouis/liblouis.git>|
+|Liblouisutdml|<https://github.com/liblouis/liblouisutdml.git>|
 {: .table}
 
 ## Old versions
