@@ -40,9 +40,14 @@ title: Liblouis User's and Programmer's Manual
     <li><a name="toc-Swap-Opcodes-1" href="#Swap-Opcodes">2.10 Swap Opcodes</a></li>
     <li><a name="toc-The-Context-and-Multipass-Opcodes-1" href="#The-Context-and-Multipass-Opcodes">2.11 The Context and Multipass Opcodes</a></li>
     <li><a name="toc-The-correct-Opcode-1" href="#The-correct-Opcode">2.12 The correct Opcode</a></li>
-    <li><a name="toc-Miscellaneous-Opcodes-1" href="#Miscellaneous-Opcodes">2.13 Miscellaneous Opcodes</a></li>
+    <li><a name="toc-The-match-Opcode-1" href="#The-match-Opcode">2.13 The match Opcode</a></li>
+    <li><a name="toc-Miscellaneous-Opcodes-1" href="#Miscellaneous-Opcodes">2.14 Miscellaneous Opcodes</a></li>
   </ul></li>
-  <li><a name="toc-Notes-on-Back_002dTranslation-1" href="#Notes-on-Back_002dTranslation">3 Notes on Back-Translation</a></li>
+  <li><a name="toc-Notes-on-Back_002dTranslation-1" href="#Notes-on-Back_002dTranslation">3 Notes on Back-Translation</a>
+  <ul class="no-bullet">
+    <li><a name="toc-General-Notes-1" href="#General-Notes-1">3.1 General Notes</a></li>
+    <li><a name="toc-Back_002dtranslation-with-Liblouis-1" href="#Back_002dtranslation-with-Liblouis-1">3.2 Back-translation with Liblouis</a></li>
+  </ul></li>
   <li><a name="toc-Table-Metadata-1" href="#Table-Metadata">4 Table Metadata</a>
   <ul class="no-bullet">
     <li><a name="toc-Syntax" href="#Syntax">4.1 Syntax</a></li>
@@ -112,9 +117,9 @@ title: Liblouis User's and Programmer's Manual
 <a name="Liblouis-User_0027s-and-Programmer_0027s-Manual"></a>
 <h1 class="top">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouis (version 3.3.0, 4 September 2017),
+<p>This manual is for liblouis (version 3.4.0, 4 December 2017),
 a Braille Translation and Back-Translation Library derived from the
-Linux screen reader <acronym>BRLTTY</acronym>. 
+Linux screen reader <acronym>BRLTTY</acronym>.
 </p>
 
 <p>Copyright &copy; 1999-2006 by the BRLTTY Team.
@@ -161,7 +166,7 @@ and in Windows it is a DLL. For installation instructions see the
 README file. Please report bugs and oddities to the mailing list,
 <a href="mailto:liblouis-liblouisxml@freelists.org">liblouis-liblouisxml@freelists.org</a>
 </p>
-<p>This documentation is derived from Chapter 7 of the BRLTTY manual, but
+<p>This documentation is derived from the BRLTTY manual, but
 it has been extensively rewritten to cover new features.
 </p>
 <a name="Who-is-this-manual-for"></a>
@@ -458,6 +463,51 @@ an error message and refuse to continue until the problem is fixed. If
 the translator or back-translator encounters an undefined character in
 its input it produces a succinct error indication in its output, and
 the character is treated as a space.
+</p>
+<p>You may have multiple definitions of a character using the same or
+different dot patterns. If you use different dot patterns for the same
+character, only the first dot pattern will be used during forward
+translation. However, during back-translation, all the relevant dot
+patterns will back-translate to the character you defined.
+</p>
+<p>You can also define a character multiple times using the same dot
+pattern for the character, but using different character classes. The
+following example would define the character &lsquo;<samp>*</samp>&rsquo; (star) as both
+<code>math</code> opcode (see <a href="#math-opcode"><code>math</code></a>) and <code>sign</code> opcode (see <a href="#sign-opcode"><code>sign</code></a>).
+</p>
+<div class="example">
+<pre class="example">math * 16
+sign * 16
+</pre></div>
+
+<p>Likewise, you can define multiple characters as the same dot pattern.
+The characters you define this way will be forward translated to the
+same dot pattern. However, when back-translating, the dot pattern will
+always back-translate to the first character that was defined with
+this pattern.
+</p>
+<p>This technique may be useful when defining characters that have one
+representation in the Windows character set (CP1252) and another
+representation in the Unicode character set, e.g. the Euro sign,
+&lsquo;<samp>€</samp>&rsquo;. It may also be of use when you have to define several
+variants of the same letter with different accents, which may be
+represented in your Braille code by the same dot pattern. This is a
+very common practice for accented letters that are foreign to the
+Braille code. In the following example using the <code>uplow</code> opcode (see <a href="#uplow-opcode"><code>uplow</code></a>)
+opcode, both e acute (&lsquo;<samp>é</samp>&rsquo;) and e grave (&lsquo;<samp>è</samp>&rsquo;) are defined as
+dot 4 followed by dots 1 and 5.
+</p>
+<div class="example">
+<pre class="example">uplow \x00c9\x00e9 4-15 # E acute
+uplow \x00c8\x00e8 4-15 # E grave
+</pre></div>
+
+<p>In this example, the dot pattern would always back-translate to e
+acute, since this is the first definition. You could use the
+<code>correct</code> opcode (see <a href="#correct-opcode"><code>correct</code></a>) opcode to correct at least the most common errors
+on that account. However, there is no fail-safe way to know what
+accented letter to use when you back-translate from a dot pattern
+representing more than one variant.
 </p>
 <dl compact="compact">
 <dd><a name="index-space"></a>
@@ -888,9 +938,10 @@ phrase in your language use the <code>lenemphphrase</code> opcode (see <a href="
 <pre class="example">begemphphrase bold 456-46-46
 </pre></div>
 
+
 <a name="index-endemphphrase-before"></a>
 <a name="endemphphrase-before-opcode"></a></dd>
-<dt><code>endemphphrase before &lt;emphasis class&gt; before &lt;dot pattern&gt;</code></dt>
+<dt><code>endemphphrase &lt;emphasis class&gt; before &lt;dot pattern&gt;</code></dt>
 <dd><p>Braille dot pattern to indicate the end of a phrase. The closing indicator
 will be placed before the last word of the phrase.
 </p>
@@ -900,7 +951,7 @@ will be placed before the last word of the phrase.
 
 <a name="index-endemphphrase-after"></a>
 <a name="endemphphrase-after-opcode"></a></dd>
-<dt><code>endemphphrase after &lt;emphasis class&gt; after &lt;dot pattern&gt;</code></dt>
+<dt><code>endemphphrase &lt;emphasis class&gt; after &lt;dot pattern&gt;</code></dt>
 <dd><p>Braille dot pattern to indicate the end of a phrase. The closing
 indicator will be placed after the last word of the phrase. If both
 <code>endemphphrase &lt;emphasis class&gt; before</code> and <code>endemphphrase
@@ -975,8 +1026,18 @@ require special treatment.
 <dd><a name="index-decpoint"></a>
 <a name="decpoint-opcode"></a></dd>
 <dt><code>decpoint character dots</code></dt>
-<dd><p>This opcode defines the decimal point. The character operand must have
-only one character. For example, in <samp>en-us-g1.ctb</samp> we have: 
+<dd>
+<p>This opcode defines the decimal point. It is useful if your Braille
+code requires the decimal separator to show as a dot pattern different
+from the normal representation of this character, i.e. period or
+comma. In addition, it allows the notation &lsquo;<samp>.001</samp>&rsquo; to be
+translated correctly. This notation is common in some languages
+instead of &lsquo;<samp>0.001</samp>&rsquo; (no leading 0). When you use the
+<code>decpoint</code> opcode, the decimal point will be taken to be part of
+the number and correctly preceded by number sign.
+</p>
+<p>The character operand must have only one character. For example, in
+<samp>en-us-g1.ctb</samp> we have:
 </p>
 <div class="example">
 <pre class="example">decpoint . 46
@@ -1142,11 +1203,11 @@ hyphens or periods. For example:
 <a name="index-repword"></a>
 <a name="repword-opcode"></a></dd>
 <dt><code>repword characters dots</code></dt>
-<dd><p>When characters are encountered check to see if the word before this 
-string matches the word after it. If so, replace characters with dots 
-and eliminate the second word and any word following another occurrence 
-of characters that is the same. This opcode is used in Malaysian 
-braille. In this case the rule is:
+<dd><p>When characters are encountered check to see if the word before this
+string matches the word after it. If so, replace characters with dots
+and eliminate the second word and any word following another
+occurrence of characters that is the same. This opcode is used in
+Malaysian braille. In this case the rule is:
 </p>
 <div class="example">
 <pre class="example">repword - 123456
@@ -1539,14 +1600,14 @@ and in the test part of the <code>context</code> opcode when back translating.
 </p>
 </dd>
 <dt><kbd>` (accent mark)</kbd></dt>
-<dd><p>If this is the beginning of the string being translated this suboperand 
-is true. It is valid only in the test part and must be the first thing 
-in this operand.
+<dd><p>If this is the beginning of the string being translated this
+suboperand is true. It is valid only in the test part and must be the
+first thing in this operand.
 </p>
 </dd>
 <dt><kbd>~ (tilde)</kbd></dt>
-<dd><p>If this is the end of the string being translated this suboperand is 
-true. It is valid only in the test part and must be the last thing in 
+<dd><p>If this is the end of the string being translated this suboperand is
+true. It is valid only in the test part and must be the last thing in
 this operand.
 </p>
 </dd>
@@ -1585,21 +1646,21 @@ only. Swap names are valid everywhere.
 </p>
 </dd>
 <dt><kbd>{ (left brace)</kbd></dt>
-<dd><p>Name: the name of a grouping pair. The left brace indicates that the 
-first (or left) member of the pair is to be used in matching. If this is 
-between replacement brackets it must be the only item. This is also 
+<dd><p>Name: the name of a grouping pair. The left brace indicates that the
+first (or left) member of the pair is to be used in matching. If this
+is between replacement brackets it must be the only item. This is also
 valid in the action part.
 </p>
 </dd>
 <dt><kbd>} (right brace)</kbd></dt>
-<dd><p>Name: the name of a grouping pair. The right brace indicates that the 
-second (or right) member is to be used in matching. See the remarks on 
+<dd><p>Name: the name of a grouping pair. The right brace indicates that the
+second (or right) member is to be used in matching. See the remarks on
 the left brace immediately above.
 </p>
 </dd>
 <dt><kbd>/ (slash)</kbd></dt>
-<dd><p>Search the input for the expression following the slash and return true 
-if found. This can be used to set a variable.
+<dd><p>Search the input for the expression following the slash and return
+true if found. This can be used to set a variable.
 </p>
 </dd>
 <dt><kbd>_ (underscore)</kbd></dt>
@@ -1652,9 +1713,9 @@ subscripts in Nemeth.
 </dd>
 <dt><kbd>? (question mark)</kbd></dt>
 <dd><p>Valid only in the action part. The characters to be replaced are
-simply ignored. That is, they are replaced with nothing. If either 
-member of a grouping pair is in the replace brackets the other member at 
-the same level is also removed.
+simply ignored. That is, they are replaced with nothing. If either
+member of a grouping pair is in the replace brackets the other member
+at the same level is also removed.
 </p>
 </dd>
 </dl>
@@ -1738,28 +1799,189 @@ are specified by the <code>correct</code> opcode. If there are no
 <code>correct</code> opcodes in a table, the pre-translation pass is not used.
 If any back-translation corrections have been specified then they are
 applied in a post-translation (i.e. the very last) pass.
-The format of the <code>correct</code> opcode is very similar to that
+</p>
+<p>Note that like the <code>context</code> opcode (see <a href="#context-opcode"><code>context</code></a>) and multi-pass opcodes, the
+<code>correct</code> opcode must be preceded by <code>noback</code> opcode (see <a href="#noback-opcode"><code>noback</code></a>) or
+<code>nofor</code> opcode (see <a href="#nofor-opcode"><code>nofor</code></a>).
+</p>
+<p>The format of the <code>correct</code> opcode is very similar to that
 of the <code>context</code> opcode (see <a href="#context-opcode"><code>context</code></a>). The only difference is that in the action
 part strings may be used and dot patterns may not be used. Some
 examples of <code>correct</code> opcode entries are:
 </p>
 <div class="example">
-<pre class="example">correct &quot;\\&quot; ? Eliminate backslashes
-correct &quot;cornf&quot; &quot;comf&quot; fix a common &quot;scano&quot;
-correct &quot;cornm&quot; &quot;comm&quot;
-correct &quot;cornp&quot; &quot;comp&quot;
-correct &quot;*&quot; ? Get rid of stray asterisks
-correct &quot;|&quot; ? ditto for vertical bars
-correct &quot;\s?&quot; &quot;?&quot; drop space before question mark
+<pre class="example">noback correct &quot;\\&quot; ? Eliminate backslashes
+noback correct &quot;cornf&quot; &quot;comf&quot; fix a common &quot;scano&quot;
+noback correct &quot;cornm&quot; &quot;comm&quot;
+noback correct &quot;cornp&quot; &quot;comp&quot;
+noback correct &quot;*&quot; ? Get rid of stray asterisks
+noback correct &quot;|&quot; ? ditto for vertical bars
+noback correct &quot;\s?&quot; &quot;?&quot; drop space before question mark
 </pre></div>
 
 </dd>
 </dl>
 
 <hr>
+<a name="The-match-Opcode"></a>
+<a name="The-match-Opcode-1"></a>
+<h3 class="section">2.13 The match Opcode</h3>
+
+<p>The match opcode is similar the multipass opcodes and can be seen as
+the more low-level and powerful cousin to the <code>context</code> opcode (see <a href="#context-opcode"><code>context</code></a>).
+</p>
+<p><strong>Note:</strong> For historical reasons despite being fairly similar in
+syntax and functionality both the <code>context</code> opcode (see <a href="#context-opcode"><code>context</code></a>) and the
+<code>match</code> opcode (see <a href="#match-opcode"><code>match</code></a>) exist and are in use in modern braille tables. But
+in the future they might be merged under some common opcode. For that
+reason consider the match opcode <em>somewhat experimental</em>.
+</p>
+<dl compact="compact">
+<dd><a name="index-match"></a>
+<a name="match-opcode"></a></dd>
+<dt><code>match pre-pattern characters post-pattern dots</code></dt>
+<dd>
+<p>This opcode allows for matching a string of characters via <em>pre</em>
+and <em>post patterns</em>. The patterns are specified using an
+expression syntax somewhat like regular expressions (see <a href="#pattern-expression-syntax">pattern expression syntax</a>). A single hyphen (&lsquo;<samp>-</samp>&rsquo;) by itself means no
+pattern is specified.
+</p>
+<p>The following will replace &lsquo;<samp>xyz</samp>&rsquo; with the dots
+&lsquo;<samp>1346-13456-1356</samp>&rsquo; when it appears in the string &lsquo;<samp>abxyzcd</samp>&rsquo;.
+</p>
+<div class="example">
+<pre class="example">match ab xyz cd 1346-13456-1356
+</pre></div>
+
+<p>The following will replace &lsquo;<samp>ONE</samp>&rsquo; with &lsquo;<samp>3456-1</samp>&rsquo; when it
+starts the input and is followed by &lsquo;<samp>:</samp>&rsquo;
+</p>
+<div class="example">
+<pre class="example">match ^ ONE : 3456-1
+</pre></div>
+</dd>
+</dl>
+
+<a name="pattern-expression-syntax"></a><p>The <code>pre-pattern</code> and the <code>post-pattern</code> can contain
+any of the following expressions:
+</p>
+<dl compact="compact">
+<dt>&lsquo;<samp>[ ]</samp>&rsquo;</dt>
+<dd><p>Expression can be any of the characters between the brackets. If only
+one character present then the brackets are not needed unless it is a
+special character, in which it should be escaped with the backslash.
+</p>
+</dd>
+<dt>&lsquo;<samp>.</samp>&rsquo;</dt>
+<dd><p>Expression can be any character.
+</p>
+</dd>
+<dt>&lsquo;<samp>%[ ]</samp>&rsquo;</dt>
+<dd><p>Expression is a character with the attributes listed between the
+brackets. If only one character is present then the brackets are not
+needed. The set of attributes are specified as follows:
+</p>
+<dl compact="compact">
+<dt>&lsquo;<samp>_</samp>&rsquo;</dt>
+<dd><p>space
+</p></dd>
+<dt>&lsquo;<samp>#</samp>&rsquo;</dt>
+<dd><p>digit
+</p></dd>
+<dt>&lsquo;<samp>a</samp>&rsquo;</dt>
+<dd><p>letter
+</p></dd>
+<dt>&lsquo;<samp>u</samp>&rsquo;</dt>
+<dd><p>uppercase
+</p></dd>
+<dt>&lsquo;<samp>l</samp>&rsquo;</dt>
+<dd><p>lowercase
+</p></dd>
+<dt>&lsquo;<samp>.</samp>&rsquo;</dt>
+<dd><p>punctuation
+</p></dd>
+<dt>&lsquo;<samp>$</samp>&rsquo;</dt>
+<dd><p>sign
+</p></dd>
+</dl>
+
+</dd>
+<dt>&lsquo;<samp>^</samp>&rsquo;</dt>
+<dd><p>Match at the end of input processing (or beginning depending of the
+direction pre or post).
+</p>
+</dd>
+<dt>&lsquo;<samp>$</samp>&rsquo;</dt>
+<dd><p>Same as &lsquo;<samp>^</samp>&rsquo;.
+</p></dd>
+</dl>
+
+<p>For example the following will replace &lsquo;<samp>bb</samp>&rsquo; with the dots &lsquo;<samp>23</samp>&rsquo; when it
+is between letters.
+</p>
+<div class="example">
+<pre class="example">match %a bb %a 23
+</pre></div>
+
+<p>The following will replace &lsquo;<samp>con</samp>&rsquo; with the dots &lsquo;<samp>25</samp>&rsquo; when it
+is preceded by a space or beginning of input, and followed by an
+&lsquo;<samp>s</samp>&rsquo; and then any letter.
+</p>
+<div class="example">
+<pre class="example">match %[^_] con s%a 25
+</pre></div>
+
+<p>Similar to regular expressions the pattern expressions can contain
+grouping, quantifiers and even negation:
+</p>
+<dl compact="compact">
+<dt>&lsquo;<samp>( )</samp>&rsquo;</dt>
+<dd><p>Expressions between parentheses are grouped together as one
+expression.
+</p>
+</dd>
+<dt>&lsquo;<samp>!</samp>&rsquo;</dt>
+<dd><p>The following expression is negated.
+</p>
+</dd>
+<dt>&lsquo;<samp>?</samp>&rsquo;</dt>
+<dd><p>The previous expression must match zero or one times.
+</p>
+</dd>
+<dt>&lsquo;<samp>*</samp>&rsquo;</dt>
+<dd><p>The previous expression must match zero or more times.
+</p>
+</dd>
+<dt>&lsquo;<samp>+</samp>&rsquo;</dt>
+<dd><p>The previous expression must match one or more times.
+</p>
+</dd>
+<dt>&lsquo;<samp>|</samp>&rsquo;</dt>
+<dd><p>Either the previous or the following expressions must match.
+</p></dd>
+</dl>
+
+<p>For example the following will replace &lsquo;<samp>ing</samp>&rsquo; with the dots
+&lsquo;<samp>346</samp>&rsquo; when it is <em>not</em> preceded by a space or beginning of
+input. What follows after the &lsquo;<samp>ing</samp>&rsquo; does not matter, hence the
+&lsquo;<samp>-</samp>&rsquo;.
+</p>
+<div class="example">
+<pre class="example">!%[^_] ing - 346
+</pre></div>
+
+<p>The following will replace &lsquo;<samp>con</samp>&rsquo; with the dots &lsquo;<samp>25</samp>&rsquo; when it
+is preceded by a space, or beginning of input; then followed by a
+&lsquo;<samp>c</samp>&rsquo; that is followed by any character but &lsquo;<samp>h</samp>&rsquo;.
+</p>
+<div class="example">
+<pre class="example">match %[^_] con c!h 25
+</pre></div>
+
+<hr>
 <a name="Miscellaneous-Opcodes"></a>
 <a name="Miscellaneous-Opcodes-1"></a>
-<h3 class="section">2.13 Miscellaneous Opcodes</h3>
+<h3 class="section">2.14 Miscellaneous Opcodes</h3>
 
 <dl compact="compact">
 <dd><a name="index-include"></a>
@@ -1781,10 +2003,11 @@ compatibility.
 <a name="index-undefined"></a>
 <a name="undefined-opcode"></a></dd>
 <dt><code>undefined dots</code></dt>
-<dd><p>If this opcode is used in a table any  characters which have not been 
-defined in the table but are encountered in the text will be replaced by 
-the dot pattern. If this opcode is not used, any undefined characters 
-are replaced by <code>'\xhhhh'</code>, where the h&rsquo;s are hexadecimal digits.
+<dd><p>If this opcode is used in a table any characters which have not been
+defined in the table but are encountered in the text will be replaced
+by the dot pattern. If this opcode is not used, any undefined
+characters are replaced by <code>'\xhhhh'</code>, where the h&rsquo;s are
+hexadecimal digits.
 </p>
 <a name="index-display"></a>
 <a name="display-opcode"></a></dd>
@@ -1840,16 +2063,83 @@ opcode.
 <a name="Notes-on-Back_002dTranslation-1"></a>
 <h2 class="chapter">3 Notes on Back-Translation</h2>
 
+<a name="General-Notes"></a><a name="General-Notes-1"></a>
+<h3 class="section">3.1 General Notes</h3>
+
+<p>Back-translation refers to the process of translating backwards, i.e.
+from Braille to text. For many years, Liblouis was mainly concerned
+with forward translation, and so were most of the authors of the
+translation tables. Today however, Liblouis is being used extensively
+in conjunction with screen reading programs like NVDA and JAWS for
+Windows as well as Braille note-takers like BrailleSense from HIMS and
+BrailleNote from HumanWare. So when writing a translation table for
+Liblouis, it is indeed relevant to consider how the table will work
+when used for back-translation, if anything special must be done, or if
+you want to write separate tables for forward translation and
+back-translation.
+</p>
+<p>Back-translation is generally harder to do in a computer program than
+forward translation. Ideally, any text could be translated to Braille
+and then translated back to text giving exactly the same result as the
+original. However, many Braille codes omit a lot of information and
+leaves it to the reader to fill in the missing bits. An example of this
+is letters with accents. In languages where accents are uncommon, e.g.
+English, Accented letters are usually just marked with a Braille
+indicator stating that there is an accent, but not which accent, even
+though this may be crucial to the meaning of the word or the sentence.
+Another example of this is when not all capital letters are marked in
+the Braille code, but only the &quot;important&quot; capital letters. A third
+example is when a Braille character serves as both a punctuation sign,
+a math sign, and perhaps even as a contraction, and the Braille code
+then leaves it up to the reader to use his/her knowledge of the context
+to decide the meaning of the Braille character.
+</p>
+<p>In some cases, you may need to bend the rules of the Braille code if it
+is important to create Braille that can be properly back-translated.
+This may include marking all capital letters instead of just the
+&quot;important&quot; ones, or perhaps marking a Braille character with an
+indicator stating that this character should in fact be interpreted as
+a math sign and not a punctuation or Braille contraction. In some
+cases, the best solution may be to create two separate sets of tables
+for forward translation: One set for Braille that must be
+back-translatable (for use with screen readers and note-takers), and
+another for good and nice literary Braille (for embossing).
+But no matter how you bend the Braille code, the back-translation
+process may not be perfect.
+</p>
+<a name="Back_002dtranslation-with-Liblouis"></a><a name="Back_002dtranslation-with-Liblouis-1"></a>
+<h3 class="section">3.2 Back-translation with Liblouis</h3>
+
 <p>Back-translation is carried out by the function
 <code>lou_backTranslateString</code>. Its calling sequence is described in
-<a href="#Programming-with-liblouis">Programming with liblouis</a>. Tables containing no
-<code>context</code> opcode (see <a href="#context-opcode"><code>context</code></a>), <code>correct</code> opcode (see <a href="#correct-opcode"><code>correct</code></a>) or multipass opcodes can be
-used for both forward and backward translation. If these opcodes are
-needed different tables will be required.
-<code>lou_backTranslateString</code> first performs <code>pass4</code>, if
+<a href="#Programming-with-liblouis">Programming with liblouis</a>. <code>lou_backTranslateString</code> first
+performs <code>pass4</code>, if
 present, then <code>pass3</code>, then <code>pass2</code>, then the
 backtranslation, then corrections. Note that this is exactly the
 inverse of forward translation.
+</p>
+<p>Most opcodes can be preceded by <code>noback</code> opcode (see <a href="#noback-opcode"><code>noback</code></a>) or <code>nofor</code> opcode (see <a href="#nofor-opcode"><code>nofor</code></a>),
+and the <code>correct</code>, <code>context</code> and multi-pass opcodes must be
+preceded with either <code>noback</code> or <code>nofor</code>. So in most cases,
+it will be perfectly possible to make one table for translation in both
+directions, although a separate table for forward and backward
+translation might be more readable in some cases.
+</p>
+<p>Most of the opcodes associated with pass 1 have two operands, a
+character operand to the left and a dots operand to the right. During
+forward translation, these operands are used to replace the characters
+with the dot pattern according to the conditions of the opcode. The
+opcode works from left to right. When back-translating, these opcodes
+work the opposite way. The dot patterns are replaced by the text. The
+opcodes work from right to left.
+</p>
+<p>On the other hand, the <code>correct</code>, <code>context</code> and multi-pass
+opcodes have a test part to the left and an action part to the right.
+These opcodes work from left to right in both translation directions.
+The test is performed, and if true, the action is executed, i.e.
+replacing, inserting or deleting characters or dots. This is why a
+translation direction always has to be specified with these opcodes
+using <code>noback</code> or <code>nofor</code>.
 </p>
 <hr>
 <a name="Table-Metadata"></a>
@@ -1953,7 +2243,7 @@ successfully.
 
 <p>Most test programs let you specify one or multiple tables to use.
 These tables are usually found in standard locations in the file
-system or local to where the command is executed. See <a href="#How-tables-are-found">How tables are found</a> for a description on how the tables are located.
+system or local to where the command is executed. See <a href="#How-tables-are-found">How tables are found</a>, for a description on how the tables are located.
 </p>
 
 <hr>
@@ -2496,19 +2786,50 @@ for emphasis are &lsquo;<samp>italic</samp>&rsquo;, &lsquo;<samp>underline</samp
 </pre></div>
 
 </dd>
-<dt>&lsquo;<samp>cursorPos</samp>&rsquo;</dt>
-<dd><p>A list of cursor positions for each input position. Useful when
+<dt>&lsquo;<samp>inputPos</samp>&rsquo;</dt>
+<dd><p>A list of 0-based input positions, one for each output position. Useful when
 simulating screen reader interaction, to debug contraction and cursor
-behavior as in the following example from the <samp>en-GB-g2.ctb</samp>
-test. Also note that in this example the additional options are not
-passed in using the &ldquo;flow style&rdquo; notation.
+behavior as in the following example.
+Note that all positions in this and the following examples start at 0.
+Also note that in these examples the additional options are not
+passed using the &ldquo;flow style&rdquo; notation.
 </p>
 <div class="example">
 <pre class="example">  -
-    - you went to
-    - ⠽ ⠺⠑⠝⠞ ⠞⠕
-    - mode: [compbrlAtCursor]
-      cursorPos: [0,1,2,3,4,5,6,7,8,9,10]
+    - went
+    - ⠺⠢⠞
+    - inputPos: [0,1,3]
+</pre></div>
+
+</dd>
+<dt>&lsquo;<samp>outputPos</samp>&rsquo;</dt>
+<dd><p>A list of 0-based output positions, one for each input position. Useful when
+simulating screen reader interaction, to debug contraction and cursor
+behavior as in the following example.
+</p>
+<div class="example">
+<pre class="example">  -
+    - went
+    - ⠺⠢⠞
+    - outputPos: [0,1,1,2]
+</pre></div>
+
+</dd>
+<dt>&lsquo;<samp>cursorPos</samp>&rsquo;</dt>
+<dd><p>A list of cursor positions, one for each input position. Useful when
+simulating screen reader interaction, to debug contraction and cursor
+behavior as in the following example:
+</p>
+<p>Note that compbrlAtCursor is implicitly specified for all cursor
+positions. This makes this test suitable only for testing a single
+word, since the translation would otherwise vary according to the
+cursor position.
+</p>
+<div class="example">
+<pre class="example">  -
+    - went
+    - ⠺⠑⠝⠞
+    - cursorPos: [0,1,2,3]
 </pre></div>
 
 </dd>
@@ -2518,7 +2839,11 @@ defined defaults to 0. Valid mode values are &lsquo;<samp>noContractions</samp>&
 &lsquo;<samp>compbrlAtCursor</samp>&rsquo;, &lsquo;<samp>dotsIO</samp>&rsquo;, &lsquo;<samp>comp8Dots</samp>&rsquo;,
 &lsquo;<samp>pass1Only</samp>&rsquo;, &lsquo;<samp>compbrlLeftCursor</samp>&rsquo;,
 &lsquo;<samp>ucBrl</samp>&rsquo;, &lsquo;<samp>noUndefinedDots</samp>&rsquo; or &lsquo;<samp>partialTrans</samp>&rsquo;.
-</p></dd>
+</p>
+<p>For a description of the various translation mode flags, please see
+the function <a href="#lou_005ftranslateString">lou_translateString</a>.
+</p>
+</dd>
 </dl>
 
 </dd>
@@ -2777,7 +3102,7 @@ Liblouis should implement their own logging system.
 callback in <code>lou_registerLogCallback</code>. <code>lou_logPrint</code> is overwritten
 by the first call to <code>lou_registerLogCallback</code> and reattached when
 <code>NULL</code> is set as callback. Note that calling <code>lou_logPrint</code> directly
-will not cause an invokation of the registered callback.
+will not cause an invocation of the registered callback.
 </p>
 <hr>
 <a name="lou_005fversion"></a>
@@ -2820,7 +3145,7 @@ is indicated by the character-definition and display opcodes in the
 translation table.
 </p>
 <a name="translation_002dtables"></a><p>The <code>tableList</code> parameter points to a list of translation tables
-separated by commas. See <a href="#How-tables-are-found">How tables are found</a> for a description on
+separated by commas. See <a href="#How-tables-are-found">How tables are found</a>, for a description on
 how the tables are located in the file system. If only one table is
 given, no comma should be used after it. It is these tables which
 control just how the translation is made, whether in Grade 2, Grade 1,
@@ -2864,10 +3189,79 @@ is also of the same length as the string pointed to by <code>*inbuf</code>.
 If this parameter is <code>NULL</code>, no spacing information is computed.
 </p>
 <p>The <code>mode</code> parameter specifies how the translation should be
-done. The valid values of mode are listed in <samp>liblouis.h</samp>. They
+done. The valid values of mode are defined in <samp>liblouis.h</samp>. They
 are all powers of 2, so that a combined mode can be specified by
 adding up different values.
 </p>
+<p>Note that the <code>mode</code> parameter is an integer, not a pointer to
+an integer.
+</p>
+<p>A combination of the following mode flags can be used with the
+<code>lou_translateString</code> function:
+</p>
+<dl compact="compact">
+<dt><code>compbrlAtCursor</code></dt>
+<dd><p>If this bit is set in the <code>mode</code> parameter the space-bounded
+characters containing the cursor will be translated in computer
+braille.
+</p>
+</dd>
+<dt><code>compbrlLeftCursor</code></dt>
+<dd><p>If this bit is set, only the characters to the left of the cursor will
+be in computer braille. This bit overrides <code>compbrlAtCursor</code>.
+</p>
+</dd>
+<dt><code>dotsIO</code></dt>
+<dd><p>When this bit is set, during forward translation, Liblouis will produce
+output as dot patterns. During back-translation Liblouis accepts input
+as dot patterns. Note that the produced dot patterns are affected if
+you have any <code>display</code> opcode (see <a href="#display-opcode"><code>display</code></a>) defined in any of your tables.
+</p>
+</dd>
+<dt><code>ucBrl</code></dt>
+<dd><p>The <code>ucBrl</code> (Unicode Braille) bit is used by the functions
+<code>lou_charToDots</code> and <code>lou_translate</code>. It causes the dot
+patterns to be Unicode Braille rather than the liblouis representation.
+Note that you will not notice any change when setting <code>ucBrl</code>
+unless <code>dotsIO</code> is also set. <code>lou_dotsToChar</code> and
+<code>lou_backTranslate</code> recognize Unicode braille automatically.
+</p>
+</dd>
+<dt><code>pass1Only</code></dt>
+<dd><p>When this bit is set, Only pass 1 of the translation will be run. This
+excludes all rules that use the <code>correct</code> and <code>multi-pass</code>
+opcodes as well as some rules using the <code>context</code> opcode. The flag
+was originally introduced for the benefit of screen reading programs,
+but has now been deprecated, and will be removed in the near future.
+</p>
+</dd>
+<dt><code>partialTrans</code></dt>
+<dd><p>This flag specifies that back-translation input should be treated as an
+incomplete word. Rules that apply only for complete words or at the end
+of a word will not take effect. This is intended to be used when
+translating input typed on a braille keyboard to provide a rough idea
+to the user of the characters they are typing before the word is
+complete.
+</p>
+</dd>
+<dt><code>noUndefinedDots</code></dt>
+<dd><p>Setting this bit disables the output of dot numbers when
+back-translating undefined Braille patterns. When back translating
+input from a braille keyboard cell by cell, it is desirable to output
+characters as soon as they are produced. Similarly, when back
+translating contracted braille, it is desirable to provide a &quot;guess&quot; to
+the user of the characters they typed. To achieve this, liblouis needs
+to have the ability to produce no text when indicators (which don&rsquo;t
+produce a character by themselves) are not followed by another cell.
+This works automatically for indicators liblouis knows about such as
+capital sign, number sign, etc., but it does not work for indicators
+which are not (and cannot be) specifically defined as indicators. For
+example, in UEB, dots 4 5 6 alone produces the text &quot;\456/&quot;. Setting
+the noUndefinedDots mode suppresses this dot number output.
+</p>
+</dd>
+</dl>
+
 <p>The function returns 1 if no errors were encountered and 0 if a
 complete translation could not be done.
 </p>
@@ -2904,22 +3298,10 @@ position in <code>inbuf</code> corresponding to each position in
 the position of the cursor in the input. On return, it will contain
 the cursor position in the output. Any parameter after <code>outlen</code>
 may be <code>NULL</code>. In this case, the actions corresponding to it will
-not be carried out. The <code>mode</code> parameter, however, must be
-present and must be an integer, not a pointer to an integer. If the
-<code>compbrlAtCursor</code> bit is set in the <code>mode</code> parameter the
-space-bounded characters containing the cursor will be translated in
-computer braille. If the <code>compbrlLeftCursor</code> bit is set only the
-characters to the left of the cursor will be in computer braille. This
-bit overrides <code>compbrlAtCursor</code>. When the <code>dotsIO</code> bit is
-set, during translation, produce output as dot patterns. During
-back-translation accept input as dot patterns. Note that the produced
-dot patterns are affected if you have any <code>display</code> opcode (see <a href="#display-opcode"><code>display</code></a>) defined
-in any of your tables. The <code>ucBrl</code> (Unicode Braille) bit is used
-by <code>lou_charToDots</code> and <code>lou_translate</code>. It causes the dot
-patterns to be Unicode Braille rather than the liblouis
-representation. Note that you will not notice any change when setting
-<code>ucBrl</code> unless <code>dotsIO</code> is also set. <code>lou_dotsToChar</code>
-and <code>lou_backTranslate</code> recognize Unicode braille automatically.
+not be carried out.
+</p>
+<p>For a description of all other parameters, please see
+<a href="#lou_005ftranslateString">lou_translateString</a>.
 </p>
 <hr>
 <a name="lou_005fbackTranslateString"></a>
@@ -3219,11 +3601,11 @@ log file, so that it can be read by the rest of the program.
   char *path);
 </pre></div>
 
-<p>This function is used to tell liblouis and liblouisutdml where tables 
-and files are located. It thus makes them completely relocatable, even 
-on Linux. The <code>path</code> is the directory where the subdirectories 
-<code>liblouis/tables</code> and <code>liblouisutdml/lbu_files</code> are rooted or 
-located. The function returns a pointer to the <code>path</code>.
+<p>This function is used to tell liblouis and liblouisutdml where tables
+and files are located. It thus makes them completely relocatable, even
+on Linux. The <code>path</code> is the directory where the subdirectories
+<code>liblouis/tables</code> and <code>liblouisutdml/lbu_files</code> are rooted
+or located. The function returns a pointer to the <code>path</code>.
 </p>
 <hr>
 <a name="lou_005fgetDataPath"></a>
@@ -3235,8 +3617,9 @@ located. The function returns a pointer to the <code>path</code>.
 <pre class="example">char *lou_getDataPath ();
 </pre></div>
 
-<p>This function returns a pointer to the path set by 
-<code>lou_setDataPath</code>. If no path has been set it returns <code>NULL</code>.
+<p>This function returns a pointer to the path set by
+<code>lou_setDataPath</code>. If no path has been set it returns
+<code>NULL</code>.
 </p>
 <hr>
 <a name="lou_005fgetTable"></a>
@@ -3570,6 +3953,7 @@ directory. Usage information is included in the Python module itself.
 <tr><td></td><td valign="top"><a href="#index-lowword">lowword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Opcode-Index_opcode_letter-M">M</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-match">match</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-match-Opcode">The match Opcode</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-math">math</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-midendword">midendword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-midnum">midnum</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
