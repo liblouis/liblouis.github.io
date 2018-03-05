@@ -69,7 +69,7 @@ title: Liblouis User's and Programmer's Manual
     <ul class="no-bullet">
       <li><a name="toc-Optional-test-description" href="#Optional-test-description">6.1.1 Optional test description</a></li>
       <li><a name="toc-Testing-multiple-tables-within-the-same-YAML-test-file" href="#Testing-multiple-tables-within-the-same-YAML-test-file">6.1.2 Testing multiple tables within the same YAML test file</a></li>
-      <li><a name="toc-Inline-definition-of-tables" href="#Inline-definition-of-tables">6.1.3 Inline definition of tables</a></li>
+      <li><a name="toc-Inline-definition-of-tables-1" href="#Inline-definition-of-tables-1">6.1.3 Inline definition of tables</a></li>
       <li><a name="toc-Running-the-same-test-data-on-multiple-tables" href="#Running-the-same-test-data-on-multiple-tables">6.1.4 Running the same test data on multiple tables</a></li>
     </ul></li>
   </ul></li>
@@ -117,7 +117,7 @@ title: Liblouis User's and Programmer's Manual
 <a name="Liblouis-User_0027s-and-Programmer_0027s-Manual"></a>
 <h1 class="top">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouis (version 3.4.0, 4 December 2017),
+<p>This manual is for liblouis (version 3.5.0, 5 March 2018),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <acronym>BRLTTY</acronym>.
 </p>
@@ -1106,9 +1106,9 @@ preceded by &lsquo;<samp>\x</samp>&rsquo;.
 operand. It may also be specified as an equals sign (&lsquo;<samp>=</samp>&rsquo;). This
 means that the the default representation for each character
 (see <a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a>) within the sequence is to be
-used. Note however that the &lsquo;<samp>=</samp>&rsquo; shortcut for dot patterns is
-deprecated. Dot patterns should be written out. Otherwise
-back-translation may not be correct.
+used. Note however that the &lsquo;<samp>=</samp>&rsquo; shortcut for dot patterns has a
+known bug<a name="DOCF1" href="#FOOT1"><sup>1</sup></a>
+that might cause problems when back-translating.
 </p>
 <p>In what follows the word &lsquo;<samp>characters</samp>&rsquo; means a sequence of one or
 more consecutive letters between spaces and/or punctuation marks.
@@ -1651,6 +1651,30 @@ first (or left) member of the pair is to be used in matching. If this
 is between replacement brackets it must be the only item. This is also
 valid in the action part.
 </p>
+<p>The brace actions, <code>{name</code> and <code>}name</code>, refer to named
+groupings. A grouping is created with the <code>grouping</code> opcode (see <a href="#grouping-opcode"><code>grouping</code></a>) and
+contains exactly two characters which represent the opening character
+and the matching closing character for a character grouping. The first
+operand is the grouping name, the second is the two (opening and
+closing) characters, and the third is the two dot patterns separated
+by a comma.
+</p>
+<p>Let&rsquo;s say that you&rsquo;d like to define the opening and closing
+parentheses via multipass rules, and that you&rsquo;d like to use dots
+123478 for the opening parenthesis and dots 145678 for the closing
+parenthesis. One way to do so is like this:
+</p>
+<div class="example">
+<pre class="example">grouping parentheses () 123478,145678
+noback correct {parentheses {parentheses
+noback correct }parentheses }parentheses
+</pre></div>
+
+<p>The references within the test part of the multipass rule match
+against the characters (the second operand) of the grouping rule, and
+the references within the action part replace with the dot patterns
+(the third operand) of the grouping.
+</p>
 </dd>
 <dt><kbd>} (right brace)</kbd></dt>
 <dd><p>Name: the name of a grouping pair. The right brace indicates that the
@@ -1772,7 +1796,7 @@ multipass expressions:
 </p>
 <p>Loop over context, pass2, pass3 and pass4 and do the following for each pass:
 </p>
-<ol>
+<ol type="a" start="1">
 <li> Match the text following the cursor against all expressions in the
 current pass
 </li><li> If there is no match: shift the cursor one position to the right and
@@ -2671,26 +2695,55 @@ tests:
   - [Good bye,  ⠠⠛⠕⠕⠙ ⠃⠽⠑]
 </pre></div>
 
-<p>The three basic components of a test file are as follows:
+<p>The four basic components of a test file are as follows:
 </p>
 <dl compact="compact">
-<dt>&lsquo;<samp>tables</samp>&rsquo;</dt>
-<dd><p>A list containing table names, which the tests should be run against.
-This is usually just one table, but for some situations more than one
-table can be required.
-</p>
-<p>To test the <samp>en-ueb-g1.ctb</samp> table using unicode braille you could
-use the following definition:
+<dt>&lsquo;<samp>table</samp>&rsquo;</dt>
+<dd><p>A list containing table files, which the tests should be run against.
+This is usually just one file, but for some situations more than one
+file can be required. For example:
 </p>
 <div class="example">
-<pre class="example">table: [unicode.dis, en-ueb-g1.ctb]
+<pre class="example">table: [hu-hu-g1.ctb, hyph_hu_HU.dic]
 </pre></div>
 
-<p>If you wanted to test the <samp>eo-g1.ctb</samp> table using brf notation
-then you would use the following definition:
+<p>It is also possible to specify a table inline. <a href="#Inline-definition-of-tables">Inline definition of tables</a> below explains how to do this.
+</p>
+<p>A third way to specify a table is by its metadata. A table query,
+which is essentially as list of &ldquo;features&rdquo;, is matched against the
+<a href="#Table-Metadata">table metadata</a> defined inside the tables
+contained in <code>LOUIS_TABLEPATH</code>. Only the best match is used for
+the test.
+</p>
+<p>The syntax of the query is a variation of the <a href="#Query-Syntax">syntax</a> used for the <a href="#lou_005ffindTable"><code>lou_findTable</code></a>
+function:
 </p>
 <div class="example">
-<pre class="example">table: [en-us-brf.dis, eo-g1.ctb]
+<pre class="example">table:
+  locale: fr
+  grade: 1
+</pre></div>
+
+</dd>
+<dt>&lsquo;<samp>display</samp>&rsquo;</dt>
+<dd><p>A display table, which should be used to encode braille in the
+test. This item is optional. If it is present it should be the first
+item of the file. If it is not present, the braille encoding of each
+test is determined by the table that is being tested.
+</p>
+<p>The next example shows how to test the <samp>en-ueb-g1.ctb</samp> table
+using ASCII notation (as defined in <samp>en-ueb-g1.ctb</samp> itself):
+</p>
+<div class="example">
+<pre class="example">table: [en-ueb-g1.ctb]
+</pre></div>
+
+<p>If you wanted to test the <samp>en-ueb-g1.ctb</samp> table using Unicode dot
+patterns then you would use the following definition:
+</p>
+<div class="example">
+<pre class="example">display: unicode.dis
+table: [en-ueb-g1.ctb]
 </pre></div>
 
 </dd>
@@ -2787,12 +2840,12 @@ for emphasis are &lsquo;<samp>italic</samp>&rsquo;, &lsquo;<samp>underline</samp
 
 </dd>
 <dt>&lsquo;<samp>inputPos</samp>&rsquo;</dt>
-<dd><p>A list of 0-based input positions, one for each output position. Useful when
-simulating screen reader interaction, to debug contraction and cursor
-behavior as in the following example.
-Note that all positions in this and the following examples start at 0.
-Also note that in these examples the additional options are not
-passed using the &ldquo;flow style&rdquo; notation.
+<dd><p>A list of 0-based input positions, one for each output position.
+Useful when simulating screen reader interaction, to debug contraction
+and cursor behavior as in the following example. Note that all
+positions in this and the following examples start at 0. Also note
+that in these examples the additional options are not passed using the
+&ldquo;flow style&rdquo; notation.
 </p>
 <div class="example">
 <pre class="example">  -
@@ -2816,28 +2869,48 @@ behavior as in the following example.
 
 </dd>
 <dt>&lsquo;<samp>cursorPos</samp>&rsquo;</dt>
-<dd><p>A list of cursor positions, one for each input position. Useful when
-simulating screen reader interaction, to debug contraction and cursor
-behavior as in the following example:
+<dd><p>The cursor position for the given translation and optionally an
+expected cursor position where the cursor is supposed to be after the
+translation. Useful when simulating screen reader interaction, to
+debug contraction and cursor behavior:
 </p>
-<p>Note that compbrlAtCursor is implicitly specified for all cursor
-positions. This makes this test suitable only for testing a single
-word, since the translation would otherwise vary according to the
-cursor position.
+<p>The cursor position can take two forms: You can either specify a
+single number or alternatively you can give a tuple of two numbers.
+</p>
+<dl compact="compact">
+<dt>single number (e.g. &lsquo;<samp>4</samp>&rsquo;)</dt>
+<dd><p>When you simply want to specify the cursor position for the given
+translation you pass a number as in the following example:
 </p>
 <div class="example">
 <pre class="example">  -
-    - went
-    - ⠺⠑⠝⠞
-    - cursorPos: [0,1,2,3]
+    - you went to
+    - ⠽ ⠺⠑⠝⠞ ⠞⠕
+    - mode: [compbrlAtCursor]
+      cursorPos: 4
 </pre></div>
+
+</dd>
+<dt>a tuple (e.g. &lsquo;<samp>[4,2]</samp>&rsquo;)</dt>
+<dd><p>When you expect the cursor to be in a particular position after the
+translation and you want to check this then pass a tuple of cursor
+positions as in the following example:
+</p>
+<div class="example">
+<pre class="example">  -
+    - you went to
+    - ⠽ ⠺⠑⠝⠞ ⠞⠕
+    - mode: [compbrlAtCursor]
+      cursorPos: [4,2]
+</pre></div>
+</dd>
+</dl>
 
 </dd>
 <dt>&lsquo;<samp>mode</samp>&rsquo;</dt>
 <dd><p>A list of translation modes that should be used for this test. If not
 defined defaults to 0. Valid mode values are &lsquo;<samp>noContractions</samp>&rsquo;,
-&lsquo;<samp>compbrlAtCursor</samp>&rsquo;, &lsquo;<samp>dotsIO</samp>&rsquo;, &lsquo;<samp>comp8Dots</samp>&rsquo;,
-&lsquo;<samp>pass1Only</samp>&rsquo;, &lsquo;<samp>compbrlLeftCursor</samp>&rsquo;,
+&lsquo;<samp>compbrlAtCursor</samp>&rsquo;, &lsquo;<samp>dotsIO</samp>&rsquo;, &lsquo;<samp>compbrlLeftCursor</samp>&rsquo;,
 &lsquo;<samp>ucBrl</samp>&rsquo;, &lsquo;<samp>noUndefinedDots</samp>&rsquo; or &lsquo;<samp>partialTrans</samp>&rsquo;.
 </p>
 <p>For a description of the various translation mode flags, please see
@@ -2889,7 +2962,7 @@ tests:
   - [..., ...]
 </pre></div>
 
-<a name="Inline-definition-of-tables"></a>
+<a name="Inline-definition-of-tables"></a><a name="Inline-definition-of-tables-1"></a>
 <h4 class="subsection">6.1.3 Inline definition of tables</h4>
 <p>When testing very specific opcode combinations it is sometimes tedious
 to create specific test tables just for that. Hence the YAML tests
@@ -3225,14 +3298,6 @@ patterns to be Unicode Braille rather than the liblouis representation.
 Note that you will not notice any change when setting <code>ucBrl</code>
 unless <code>dotsIO</code> is also set. <code>lou_dotsToChar</code> and
 <code>lou_backTranslate</code> recognize Unicode braille automatically.
-</p>
-</dd>
-<dt><code>pass1Only</code></dt>
-<dd><p>When this bit is set, Only pass 1 of the translation will be run. This
-excludes all rules that use the <code>correct</code> and <code>multi-pass</code>
-opcodes as well as some rules using the <code>context</code> opcode. The flag
-was originally introduced for the benefit of screen reading programs,
-but has now been deprecated, and will be removed in the near future.
 </p>
 </dd>
 <dt><code>partialTrans</code></dt>
@@ -4105,4 +4170,12 @@ directory. Usage information is included in the Python module itself.
  &nbsp; 
 </td></tr></table>
 
+<div class="footnote">
+<hr>
+<h4 class="footnotes-heading">Footnotes</h4>
+
+<h3><a name="FOOT1" href="#DOCF1">(1)</a></h3>
+<p>See
+<a href="https://github.com/liblouis/liblouis/issues/500#issuecomment-365753137">https://github.com/liblouis/liblouis/issues/500#issuecomment-365753137</a>.</p>
+</div>
 <hr>
