@@ -69,8 +69,9 @@ title: Liblouis User's and Programmer's Manual
     <ul class="no-bullet">
       <li><a name="toc-Optional-test-description" href="#Optional-test-description">6.1.1 Optional test description</a></li>
       <li><a name="toc-Testing-multiple-tables-within-the-same-YAML-test-file" href="#Testing-multiple-tables-within-the-same-YAML-test-file">6.1.2 Testing multiple tables within the same YAML test file</a></li>
-      <li><a name="toc-Inline-definition-of-tables-1" href="#Inline-definition-of-tables-1">6.1.3 Inline definition of tables</a></li>
-      <li><a name="toc-Running-the-same-test-data-on-multiple-tables" href="#Running-the-same-test-data-on-multiple-tables">6.1.4 Running the same test data on multiple tables</a></li>
+      <li><a name="toc-Multiple-test-sections-for-each-table" href="#Multiple-test-sections-for-each-table">6.1.3 Multiple test sections for each table</a></li>
+      <li><a name="toc-Inline-definition-of-tables-1" href="#Inline-definition-of-tables-1">6.1.4 Inline definition of tables</a></li>
+      <li><a name="toc-Running-the-same-test-data-on-multiple-tables" href="#Running-the-same-test-data-on-multiple-tables">6.1.5 Running the same test data on multiple tables</a></li>
     </ul></li>
   </ul></li>
   <li><a name="toc-Programming-with-liblouis-1" href="#Programming-with-liblouis">7 Programming with liblouis</a>
@@ -117,7 +118,7 @@ title: Liblouis User's and Programmer's Manual
 <a name="Liblouis-User_0027s-and-Programmer_0027s-Manual"></a>
 <h1 class="top">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouis (version 3.5.0, 5 March 2018),
+<p>This manual is for liblouis (version 3.6.0, 4 June 2018),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <acronym>BRLTTY</acronym>.
 </p>
@@ -209,7 +210,7 @@ for, license information and include tables you need for your table.
 <p>Following this, you&rsquo;ll write various translation rules and lastly you
 write special rules to handle certain situations.
 </p>
-<a name="index-opcode"></a>
+<a name="index-Opcode"></a>
 <p>A translation rule is composed of at least three parts: the opcode
 (translation command), character(s) and braille dots. An opcode is a
 command you give to a machine or a program to perform something on
@@ -315,7 +316,7 @@ always world 456-2456 A word and the dot pattern of its contraction
 <p>Most opcodes have both a &quot;characters&quot; operand and a &quot;dots&quot; operand,
 though some have only one and a few have other types.
 </p>
-<a name="index-characters-operand"></a>
+<a name="index-Characters-operand"></a>
 <p>The characters operand consists of any combination of characters and
 escape sequences proceeded and followed by whitespace. Escape
 sequences are used to represent difficult characters. They begin with
@@ -365,17 +366,17 @@ also recognized.
 </dd>
 </dl>
 
-<a name="index-dots-operand"></a>
+<a name="index-Dots-operand"></a>
 <p>The dots operand is a braille dot pattern. The real braille dots, 1
 through 8, must be specified with their standard numbers.
 </p>
-<a name="index-virtual-dots"></a>
+<a name="index-Virtual-dots"></a>
 <a name="virtual-dots"></a><p>liblouis recognizes <em>virtual dots</em>, which are used for special
 purposes, such as distinguishing accent marks. There are seven virtual
 dots. They are specified by the number 9 and the letters &lsquo;<samp>a</samp>&rsquo;
 through &lsquo;<samp>f</samp>&rsquo;.
 </p>
-<a name="index-multi_002dcell-dot-pattern"></a>
+<a name="index-Multi_002dcell-dot-pattern"></a>
 <p>For a multi-cell dot pattern, the cell specifications must be
 separated from one another by a dash (&lsquo;<samp>-</samp>&rsquo;). For example, the
 contraction for the English word &lsquo;<samp>lord</samp>&rsquo; (the letter &lsquo;<samp>l</samp>&rsquo;
@@ -1555,12 +1556,11 @@ over the string to be translated. The number after the word
 multipass opcodes are given, only the first translation pass is made.
 The <code>context</code> opcode is basically a multipass opcode for the
 first pass. It differs slightly from the multipass opcodes per se.
-When back-translating, the passes are performed in the reverse order, i.e.
-<code>pass4</code>, <code>pass3</code>, <code>pass2</code>, <code>context</code>.
-Each of these opcodes must be prefixed by either
-the <code>noback</code> opcode (see <a href="#noback-opcode"><code>noback</code></a>) or the <code>nofor</code> opcode (see <a href="#nofor-opcode"><code>nofor</code></a>).
-The format of all these opcodes is <code>opcode test action</code>.
-The specific opcodes are invoked as follows:
+When back-translating, the passes are performed in the reverse order,
+i.e. <code>pass4</code>, <code>pass3</code>, <code>pass2</code>, <code>context</code>. Each
+of these opcodes must be prefixed by either the <code>noback</code> opcode (see <a href="#noback-opcode"><code>noback</code></a>) or
+the <code>nofor</code> opcode (see <a href="#nofor-opcode"><code>nofor</code></a>). The format of all these opcodes is <code>opcode
+test action</code>. The specific opcodes are invoked as follows:
 </p>
 <dl compact="compact">
 <dd><a name="context-opcode"></a><a name="index-context"></a>
@@ -1991,7 +1991,7 @@ input. What follows after the &lsquo;<samp>ing</samp>&rsquo; does not matter, he
 &lsquo;<samp>-</samp>&rsquo;.
 </p>
 <div class="example">
-<pre class="example">!%[^_] ing - 346
+<pre class="example">match !%[^_] ing - 346
 </pre></div>
 
 <p>The following will replace &lsquo;<samp>con</samp>&rsquo; with the dots &lsquo;<samp>25</samp>&rsquo; when it
@@ -2090,17 +2090,17 @@ opcode.
 <a name="General-Notes"></a><a name="General-Notes-1"></a>
 <h3 class="section">3.1 General Notes</h3>
 
-<p>Back-translation refers to the process of translating backwards, i.e.
-from Braille to text. For many years, Liblouis was mainly concerned
-with forward translation, and so were most of the authors of the
-translation tables. Today however, Liblouis is being used extensively
-in conjunction with screen reading programs like NVDA and JAWS for
-Windows as well as Braille note-takers like BrailleSense from HIMS and
-BrailleNote from HumanWare. So when writing a translation table for
-Liblouis, it is indeed relevant to consider how the table will work
-when used for back-translation, if anything special must be done, or if
-you want to write separate tables for forward translation and
-back-translation.
+<p>Back-translation refers to the process of translating backwards,
+i.e. from Braille to text. For many years, Liblouis was mainly
+concerned with forward translation, and so were most of the authors of
+the translation tables. Today however, Liblouis is being used
+extensively in conjunction with screen reading programs like NVDA and
+JAWS for Windows as well as Braille note-takers like BrailleSense from
+HIMS and BrailleNote from HumanWare. So when writing a translation
+table for Liblouis, it is indeed relevant to consider how the table
+will work when used for back-translation, if anything special must be
+done, or if you want to write separate tables for forward translation
+and back-translation.
 </p>
 <p>Back-translation is generally harder to do in a computer program than
 forward translation. Ideally, any text could be translated to Braille
@@ -2614,7 +2614,8 @@ interactive. Invoke it as follows:
 <p>This program tests a liblouis table against a corpus of known good
 Braille translations defined in YAML format. For a description of the
 format refer to <a href="#YAML-Tests">YAML Tests</a>. The program returns 0 if all tests
-pass or 1 if any of the tests fail. Invoke it as follows:
+pass or 1 if any of the tests fail. If <code>libyaml</code> is not installed
+the program will simply skip all tests. Invoke it as follows:
 </p>
 <div class="example">
 <pre class="example">lou_checkyaml YAML_TEST_FILE
@@ -2663,6 +2664,12 @@ format that allows for an easy and compact way to define tests.
 <p>A YAML file first defines which tables are to be used for the tests.
 Then it optionally defines flags such as the &lsquo;<samp>testmode</samp>&rsquo;. Finally
 all the tests are defined.
+</p>
+<p>You can repeat the cycle as many times as you like (tables, optional
+flags, tests). You can also define several rounds of tests for any
+table, with or without the optional flags. Just remember that the
+flags are reset to their default values each time you start a new
+round of tests or load a new set of tables.
 </p>
 <p>Let&rsquo;s just look at a simple example how tests could be defined:
 </p>
@@ -2749,7 +2756,7 @@ table: [en-ueb-g1.ctb]
 </dd>
 <dt>&lsquo;<samp>flags</samp>&rsquo;</dt>
 <dd><p>The flags that apply for all tests in this file. At the moment only
-the &lsquo;<samp>testmode</samp>&rsquo; flag is supported. It can have three possible
+the &lsquo;<samp>testmode</samp>&rsquo; flag is supported. It can have four possible
 values:
 </p>
 <dl compact="compact">
@@ -2758,6 +2765,9 @@ values:
 </p></dd>
 <dt>&lsquo;<samp>backward</samp>&rsquo;</dt>
 <dd><p>This indicates that the tests are for backward translation
+</p></dd>
+<dt>&lsquo;<samp>bothDirections</samp>&rsquo;</dt>
+<dd><p>This indicates that the tests are for both forward and backward translation.
 </p></dd>
 <dt>&lsquo;<samp>hyphenate</samp>&rsquo;</dt>
 <dd><p>This indicates that the tests are for hyphenation
@@ -2917,6 +2927,12 @@ defined defaults to 0. Valid mode values are &lsquo;<samp>noContractions</samp>&
 the function <a href="#lou_005ftranslateString">lou_translateString</a>.
 </p>
 </dd>
+<dt>&lsquo;<samp>maxOutputLength</samp>&rsquo;</dt>
+<dd><p>Define a maximum length of the output. This can be used to test the
+behavior of liblouis in the face of a limited output buffer, for
+example the length of the refreshable braille display.
+</p>
+</dd>
 </dl>
 
 </dd>
@@ -2962,8 +2978,41 @@ tests:
   - [..., ...]
 </pre></div>
 
+<p>If you specify flags for the tests, remember that the flags are reset
+to their default values when you specify a new table.
+</p>
+<a name="Multiple-test-sections-for-each-table"></a>
+<h4 class="subsection">6.1.3 Multiple test sections for each table</h4>
+<p>You can specify several sections of tests for each table, with or
+without the optional flags. This is useful e.g. if you want to have
+various tests for both forward and backward translation for the same
+set of tables, especially if you are defining the table as part of
+the yaml file (see next section). This feature is also useful if you
+simply want to devide your tests into multiple sections for better
+overview. All flags are reset to their default values when you start
+a new test section.
+</p>
+<p>Thus, a yaml file might look as follows:
+</p>
+<div class="example">
+<pre class="example">table: ...
+tests:
+  - [..., ...]
+  - [..., ...]
+
+# Some more tests
+  tests:
+  - [..., ...]
+  - [..., ...]
+
+# Some tests for back-translation - same table
+flags: {testmode: backward}
+  - [..., ...]
+  - [..., ...]
+</pre></div>
+
 <a name="Inline-definition-of-tables"></a><a name="Inline-definition-of-tables-1"></a>
-<h4 class="subsection">6.1.3 Inline definition of tables</h4>
+<h4 class="subsection">6.1.4 Inline definition of tables</h4>
 <p>When testing very specific opcode combinations it is sometimes tedious
 to create specific test tables just for that. Hence the YAML tests
 allow for specification of table definitions inline. Instead of
@@ -2983,7 +3032,7 @@ tests:
 </pre></div>
 
 <a name="Running-the-same-test-data-on-multiple-tables"></a>
-<h4 class="subsection">6.1.4 Running the same test data on multiple tables</h4>
+<h4 class="subsection">6.1.5 Running the same test data on multiple tables</h4>
 <p>Sometimes you maintain multiple tables which are very similar and
 basically contain the same test data. Instead of copying the YAML test
 and changing the table name you can also define multiple tables. This
@@ -3327,8 +3376,7 @@ the noUndefinedDots mode suppresses this dot number output.
 </dd>
 </dl>
 
-<p>The function returns 1 if no errors were encountered and 0 if a
-complete translation could not be done.
+<p>The function returns 1 if no errors were encountered<a name="DOCF2" href="#FOOT2"><sup>2</sup></a> and 0 otherwise.
 </p>
 <hr>
 <a name="lou_005ftranslate"></a>
@@ -3526,6 +3574,8 @@ consisting of characters according to the specifications in
 <code>outbuf</code>. The dot patterns in <code>inbuf</code> can be in either 
 liblouis format or Unicode braille. The function returns 1 on success 
 and 0 on failure.
+</p>
+<p>Note that the <code>mode</code> parameter has no effect and is deprecated.
 </p>
 <hr>
 <a name="lou_005fcharToDots"></a>
@@ -3866,19 +3916,19 @@ directory. Usage information is included in the Python module itself.
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Concept-Index_cp_letter-C">C</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-characters-operand">characters operand</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Overview">Overview</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Characters-operand">Characters operand</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Overview">Overview</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Concept-Index_cp_letter-D">D</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-dots-operand">dots operand</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Overview">Overview</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Dots-operand">Dots operand</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Overview">Overview</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Concept-Index_cp_letter-L">L</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-LOUIS_005fTABLEPATH">LOUIS_TABLEPATH</a>:</td><td>&nbsp;</td><td valign="top"><a href="#How-tables-are-found">How tables are found</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Concept-Index_cp_letter-M">M</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-multi_002dcell-dot-pattern">multi-cell dot pattern</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Overview">Overview</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Multi_002dcell-dot-pattern">Multi-cell dot pattern</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Overview">Overview</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Concept-Index_cp_letter-O">O</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-opcode">opcode</a>:</td><td>&nbsp;</td><td valign="top"><a href="#How-to-Write-Translation-Tables">How to Write Translation Tables</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Opcode">Opcode</a>:</td><td>&nbsp;</td><td valign="top"><a href="#How-to-Write-Translation-Tables">How to Write Translation Tables</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Concept-Index_cp_letter-R">R</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Running-individual-YAML-tests">Running individual YAML tests</a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fcheckyaml">lou_checkyaml</a></td></tr>
@@ -3888,7 +3938,7 @@ directory. Usage information is included in the Python module itself.
 <tr><td></td><td valign="top"><a href="#index-Table-search-path">Table search path</a>:</td><td>&nbsp;</td><td valign="top"><a href="#How-tables-are-found">How tables are found</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Concept-Index_cp_letter-V">V</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-virtual-dots">virtual dots</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Overview">Overview</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Virtual-dots">Virtual dots</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Overview">Overview</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Concept-Index_cp_letter-C"><b>C</b></a>
@@ -4177,5 +4227,16 @@ directory. Usage information is included in the Python module itself.
 <h3><a name="FOOT1" href="#DOCF1">(1)</a></h3>
 <p>See
 <a href="https://github.com/liblouis/liblouis/issues/500#issuecomment-365753137">https://github.com/liblouis/liblouis/issues/500#issuecomment-365753137</a>.</p>
+<h3><a name="FOOT2" href="#DOCF2">(2)</a></h3>
+<p>When the
+output buffer is not big enough, <code>lou_translateString</code> returns a
+partial translation that is more or less accurate up until the
+returned <code>inlen</code>/<code>outlen</code>, and treats it as a successful
+translation, i.e. also returns 1.</p>
 </div>
 <hr>
+
+
+
+</body>
+</html>
