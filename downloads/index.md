@@ -7,6 +7,7 @@ title: Downloads
 |Summary|File|
 |---------|
 |Liblouis|[liblouis-3.6.0.tar.gz](https://github.com/liblouis/liblouis/releases/download/v3.6.0/liblouis-3.6.0.tar.gz)|
+|Liblouis (Windows build)|[liblouis-3.6.0-win32.zip](https://github.com/liblouis/liblouis/releases/download/v3.6.0/liblouis-3.6.0-win32.zip)|
 |Liblouisutdml|[liblouisutdml-2.7.0.tar.gz](https://github.com/liblouis/liblouisutdml/archive/v2.7.0.tar.gz)|
 {: .table}
 
