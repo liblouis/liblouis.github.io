@@ -118,7 +118,7 @@ title: Liblouis User's and Programmer's Manual
 <a name="Liblouis-User_0027s-and-Programmer_0027s-Manual"></a>
 <h1 class="top">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouis (version 3.6.0, 4 June 2018),
+<p>This manual is for liblouis (version 3.7.0, 31 August 2018),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <acronym>BRLTTY</acronym>.
 </p>
@@ -666,7 +666,15 @@ English, this is dot 6. For example:
 <a name="begcapsword-opcode"></a></dd>
 <dt><code>begcapsword dots</code></dt>
 <dd><p>The dot pattern which begins a block of capital letters at the
-beginning or within a word. For example:
+beginning or within a word. The block is automatically terminated
+by any character that is not a capital letter, e.g. small letters,
+punctuation, numbers etc.
+</p>
+<p>Apart from capital letters, you can define a list of characters that
+can appear within a word in capitals without terminating the block.
+Do this by using the <code>capsmodechars</code> opcode (see <a href="#capsmodechars-opcode"><code>capsmodechars</code></a>) opcode.
+</p>
+<p>Example:
 </p>
 <div class="example">
 <pre class="example">begcapsword 6-6
@@ -676,21 +684,47 @@ beginning or within a word. For example:
 <a name="endcapsword-opcode"></a></dd>
 <dt><code>endcapsword dots</code></dt>
 <dd><p>The dot pattern which ends a block of capital letters within a word.
-For example:
+It is used in cases where the block is not terminated automatically
+by a word boundary, a number or punctuation. A common case is when
+an uppercase block is followed directly by a lowercase letter.
+</p>
+<p>For example:
 </p>
 <div class="example">
 <pre class="example">endcapsword 6-3
+</pre></div>
+
+<a name="index-capsmodechars"></a>
+<a name="capsmodechars-opcode"></a></dd>
+<dt><code>capsmodechars characters</code></dt>
+<dd>
+<p>Normally, any character other than a capital letter will cancel the
+<code>begcapsword</code> opcode (see <a href="#begcapsword-opcode"><code>begcapsword</code></a>) indicator. However, by using the
+<code>capsmodechars</code> opcode, you can specify a list of characters
+that are legal within a capitalized word. In some Braille codes,
+this might be the case for the hyphen character, &lsquo;<samp>-</samp>&rsquo;.
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example">capsmodechars -
 </pre></div>
 
 <a name="index-begcaps"></a>
 <a name="begcaps-opcode"></a></dd>
 <dt><code>begcaps dots</code></dt>
 <dd><p>The dot pattern which begins a block of capital letters defined by the
-provided <code>typeform</code> without regard for any other rules. For
-example:
+provided <code>typeform</code> without regard for any other rules.
+This construct is sometimes also called a capsphrase. It is used
+in some Braille codes to mark a whole phrase or sentence as capital
+letters. The block can contain capital letters as well as
+none-alphabetic characters, punctuation, numbers etc. The
+block is terminated when a small letter is encountered or at the end of the input string.
+</p>
+<p>Example:
 </p>
 <div class="example">
-<pre class="example">begcaps 6-6
+<pre class="example">begcaps 6-6-6
 </pre></div>
 
 <a name="index-endcaps"></a>
@@ -762,10 +796,64 @@ similar to the <code>letsign</code> opcode (see <a href="#letsign-opcode"><code>
 <dt><code>numsign dots</code></dt>
 <dd><p>The translator inserts this indicator before numbers made up of digits
 defined with the <code>litdigit</code> opcode (see <a href="#litdigit-opcode"><code>litdigit</code></a>) to show that they are a number
-and not letters or some other symbols. For example:
+and not letters or some other symbols. A number is terminated when a
+space, a letter or any other none-<code>litdigit</code> opcode (see <a href="#litdigit-opcode"><code>litdigit</code></a>) character is
+encountered.
+</p>
+<p>You can define characters or strings to be part of a number by using
+the <code>midnum</code> opcode (see <a href="#midnum-opcode"><code>midnum</code></a>) opcode, the <code>numericmodechars</code> opcode (see <a href="#numericmodechars-opcode"><code>numericmodechars</code></a>) opcode
+or the <code>midendnumericmodechars</code> opcode (see <a href="#midendnumericmodechars-opcode"><code>midendnumericmodechars</code></a>) opcode.
+</p>
+<p>Example:
 </p>
 <div class="example">
 <pre class="example">numsign 3456
+</pre></div>
+
+<a name="index-numericnocontchars"></a>
+<a name="numericnocontchars-opcode"></a></dd>
+<dt><code>numericnocontchars characters</code></dt>
+<dd>
+<p>This opcode specifies the characters that require a
+<code>nocontractsign</code> opcode (see <a href="#nocontractsign-opcode"><code>nocontractsign</code></a>) if they appear after a number with no
+intervening space, e.g. &lsquo;<samp>1a</samp>&rsquo; or &lsquo;<samp>2-B</samp>&rsquo;.
+</p>
+<p>These characters will typically be the letters a-j, which usually
+constitute the literary digits (see <code>litdigit</code> opcode (see <a href="#litdigit-opcode"><code>litdigit</code></a>)). However,
+in some Braille codes, all letters fall in this category.
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example">numericnocontchars abcdefghij
+</pre></div>
+
+<a name="index-numericmodechars"></a>
+<a name="numericmodechars-opcode"></a></dd>
+<dt><code>numericmodechars characters</code></dt>
+<dd>
+<a name="index-midendnumericmodechars"></a>
+<a name="midendnumericmodechars-opcode"></a></dd>
+<dt><code>midendnumericmodechars characters</code></dt>
+<dd>
+<p>Any of these characters can appear within a number without terminating
+the effect of the number sign (see <a href="#numsign-opcode"><code>numsign</code></a>). In other words, they don&rsquo;t cancel
+numeric mode.
+</p>
+<p>The difference between the two opcodes is that
+<code>numericmodechars</code> opcode (see <a href="#numericmodechars-opcode"><code>numericmodechars</code></a>) characters can appear anywhere in a
+number whereas <code>midendnumericmodechars</code> opcode (see <a href="#midendnumericmodechars-opcode"><code>midendnumericmodechars</code></a>) characters can
+appear only in the middle or at the end of a number. Like
+<code>midendnumericmodechars</code>, <code>numericmodechars</code> characters keep
+numeric mode active, but in addition they activate numeric mode
+immediately when at least one digit follows, and the number sign will
+precede the <code>numericmodechars</code> character in this case.
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example">numericmodechars .,
+midendnumericmodechars -/
 </pre></div>
 
 </dd>
@@ -3098,11 +3186,11 @@ following definition is included in <samp>liblouis.h</samp>. It is correct
 for computers with at least 32-bit processors.
 </p>
 <div class="example">
-<pre class="example">#define widechar unsigned short int
+<pre class="example">typedef unsigned short int widechar
 </pre></div>
 
 <p>To make liblouis handle 32-bit Unicode simply remove the word
-<code>short</code> in the above <code>define</code>. This will cause the translate and
+<code>short</code> in the above <code>typedef</code>. This will cause the translate and
 back-translate functions to expect input in 32-bit form and to deliver
 their output in this form. The input to the compiler (tables) is
 unaffected except that two new escape sequences for 20-bit and 32-bit
@@ -4018,6 +4106,7 @@ directory. Usage information is included in the Python module itself.
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Opcode-Index_opcode_letter-C">C</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-capsletter">capsletter</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-capsmodechars">capsmodechars</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-capsnocont">capsnocont</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Special-Processing-Opcodes">Special Processing Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-class">class</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dClass-Opcodes">Character-Class Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-comp6">comp6</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
@@ -4070,6 +4159,7 @@ directory. Usage information is included in the Python module itself.
 <tr><th><a name="Opcode-Index_opcode_letter-M">M</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-match">match</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-match-Opcode">The match Opcode</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-math">math</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-midendnumericmodechars">midendnumericmodechars</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-midendword">midendword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-midnum">midnum</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-midword">midword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
@@ -4084,6 +4174,8 @@ directory. Usage information is included in the Python module itself.
 <tr><td></td><td valign="top"><a href="#index-noletsign">noletsign</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-noletsignafter">noletsignafter</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-noletsignbefore">noletsignbefore</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-numericmodechars">numericmodechars</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-numericnocontchars">numericnocontchars</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-numsign">numsign</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Opcode-Index_opcode_letter-P">P</a></th><td></td><td></td></tr>
