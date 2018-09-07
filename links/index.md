@@ -4,14 +4,14 @@ title: Links
 
 ## Liblouis
 
-* [Mailing list](http://www.freelists.org/archive/liblouis-liblouisxml)
+* [Mailing list](https://www.freelists.org/list/liblouis-liblouisxml)
 * [Chat](irc://irc.oftc.net/liblouis) (irc.oftc.net/liblouis)
 * [Code repository](https://github.com/liblouis/liblouis)
 * [Issue tracker](https://github.com/liblouis/liblouis/issues)
 
 ## Liblouisutdml
 
-* [Mailing list](http://www.freelists.org/archive/liblouis-liblouisxml)
+* [Mailing list](https://www.freelists.org/list/liblouis-liblouisxml)
 * [Code repository](https://github.com/liblouis/liblouisutdml)
 * [Issue tracker](https://github.com/liblouis/liblouisutdml/issues)
 
@@ -23,7 +23,7 @@ title: Links
 
 ## Liblouisxml (deprecated)
 
-* [Mailing list](http://www.freelists.org/archive/liblouis-liblouisxml)
+* [Mailing list](https://www.freelists.org/archive/liblouis-liblouisxml)
 * [Code repository](https://code.google.com/p/liblouisxml/source/checkout)
 * [Issue tracker](https://code.google.com/p/liblouisxml/issues/list)
 
