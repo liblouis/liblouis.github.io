@@ -58,11 +58,13 @@ Liblouisutdml is free software licensed under the [GNU Lesser GPL](https://www.g
 
 ## Braille production
 
-There are two braille production systems based on Liblouis and Liblouisutdml.
+There are several braille production systems based on Liblouis and/or Liblouisutdml.
 
 [BrailleBlaster](http://www.brailleblaster.org), a joint project between ViewPlus Technologies, American Printing House for the Blind and Abilitiessoft, is aimed at hands-on production where every detail of the Braille is controlled via a graphical user interface.
 
 [DAISY Pipeline](http://www.daisy.org/pipeline2), backed by the DAISY Consortium, is aimed at automated, hands-off, high-volume production on the server.
+
+[Sao Mai Braille](http://saomaicenter.org/en/smsoft/smb), a rich text editing and Braille translation software for Windows, is developed by Sao Mai Center for the Blind, a non-profit organization based in Vietnam.
 
 </div> <!-- /col-md-6 -->
 </div> <!-- /row -->
