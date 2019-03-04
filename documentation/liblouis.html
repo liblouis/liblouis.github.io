@@ -118,7 +118,7 @@ title: Liblouis User's and Programmer's Manual
 <a name="Liblouis-User_0027s-and-Programmer_0027s-Manual"></a>
 <h1 class="top">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouis (version 3.8.0, 27 November 2018),
+<p>This manual is for liblouis (version 3.9.0, 4 March 2019),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <acronym>BRLTTY</acronym>.
 </p>
@@ -1701,7 +1701,7 @@ this operand.
 </dd>
 <dt><kbd>$ (dollar sign)</kbd></dt>
 <dd><p>a string of attributes, such as &lsquo;<samp>d</samp>&rsquo; for digit, &lsquo;<samp>l</samp>&rsquo; for
-letter, etc. More than one attribute can be given. If you wish to
+letter, etc. For a list of all valid attributes see <a href="#valid-attribute-characters">valid attribute characters</a>. More than one attribute can be given. If you wish to
 check characters with any attribute, use the letter &lsquo;<samp>a</samp>&rsquo;. Input
 characters are checked to see if they have at least one of the
 attributes. The attribute string can be followed by numbers specifying
@@ -1832,7 +1832,8 @@ at the same level is also removed.
 </dd>
 </dl>
 
-<p>The characters which can be used in attribute strings are as follows:
+<a name="valid-attribute-characters"></a><p>The valid characters which can be used in attribute strings are as
+follows:
 </p>
 <dl compact="compact">
 <dt><kbd>a</kbd></dt>
@@ -2105,12 +2106,6 @@ which can include other files, etc. For an example, see what files are
 included by the entry include <samp>en-us-g1.ctb</samp> in the table
 <samp>en-us-g2.ctb</samp>. If the included file is not in the same directory
 as the main table, use a full path name for filename.
-</p>
-<a name="index-locale"></a>
-<a name="locale-opcode"></a></dd>
-<dt><code>locale characters</code></dt>
-<dd><p>Not implemented, but recognized and ignored for backward
-compatibility.
 </p>
 <a name="index-undefined"></a>
 <a name="undefined-opcode"></a></dd>
@@ -3720,13 +3715,13 @@ callback. Passing <code>NULL</code> resets to the default callback.
 <div class="example">
 <pre class="example">typedef enum
 {
-  LOG_ALL = 0,
-  LOG_DEBUG = 10000,
-  LOG_INFO = 20000,
-  LOG_WARN = 30000,
-  LOG_ERROR = 40000,
-  LOG_FATAL = 50000,
-  LOG_OFF = 60000
+  LOU_LOG_ALL = 0,
+  LOU_LOG_DEBUG = 10000,
+  LOU_LOG_INFO = 20000,
+  LOU_LOG_WARN = 30000,
+  LOU_LOG_ERROR = 40000,
+  LOU_LOG_FATAL = 50000,
+  LOU_LOG_OFF = 60000
 } logLevels;
 void lou_setLogLevel (
   logLevels level);
@@ -3734,11 +3729,11 @@ void lou_setLogLevel (
 
 <p>This function can be used to influence the amount of logging, from
 fatal error messages only to detailed debugging messages. Supported
-values are <code>LOG_DEBUG</code>, <code>LOG_INFO</code>, <code>LOG_WARN</code>,
-<code>LOG_ERROR</code>, <code>LOG_FATAL</code> and <code>LOG_OFF</code>. Enabling
-logging at a given level also enables logging at all higher
-levels. Setting the level to <code>LOG_OFF</code> disables logging. The
-default level is <code>LOG_INFO</code>.
+values are <code>LOU_LOG_DEBUG</code>, <code>LOU_LOG_INFO</code>,
+<code>LOU_LOG_WARN</code>, <code>LOU_LOG_ERROR</code>, <code>LOU_LOG_FATAL</code> and
+<code>LOU_LOG_OFF</code>. Enabling logging at a given level also enables
+logging at all higher levels. Setting the level to <code>LOU_LOG_OFF</code>
+disables logging. The default level is <code>LOU_LOG_INFO</code>.
 </p>
 <hr>
 <a name="lou_005flogFile"></a>
@@ -4152,7 +4147,6 @@ directory. Usage information is included in the Python module itself.
 <tr><td></td><td valign="top"><a href="#index-letsign">letsign</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-letter">letter</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-litdigit">litdigit</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-locale">locale</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Opcodes">Miscellaneous Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lowercase">lowercase</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lowword">lowword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
