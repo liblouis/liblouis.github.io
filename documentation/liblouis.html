@@ -118,7 +118,7 @@ title: Liblouis User's and Programmer's Manual
 <a name="Liblouis-User_0027s-and-Programmer_0027s-Manual"></a>
 <h1 class="top">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouis (version 3.9.0, 4 March 2019),
+<p>This manual is for liblouis (version 3.10.0, 3 June 2019),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <acronym>BRLTTY</acronym>.
 </p>
@@ -416,8 +416,7 @@ order of entries is generally unimportant. Thus the translation
 entries can be grouped alphabetically or in any other order that is
 convenient. Hyphenation tables may be specified either with an 
 <code>include</code> opcode or as part of a table list. They should come after 
-everything else. Character-definition opcodes are necessary for 
-hyphenation tables to work.
+everything else.
 </p>
 <hr>
 <a name="Hyphenation-Tables"></a>
@@ -448,22 +447,7 @@ the dot pattern is a single cell, it is used to define the mapping
 between dot patterns and characters, unless a <code>display</code> opcode (see <a href="#display-opcode"><code>display</code></a>) for
 that character-dot-pattern pair has been used previously. If only a
 single-cell dot pattern has been given for a character, that dot
-pattern is defined with the character&rsquo;s own attributes. If more than
-one cell is given and some of them have not previously been defined as
-single cells, the undefined cells are entered into the dots table with
-the space attribute. This is done for backward compatibility with
-old tables, but it may cause problems with the above opcodes or
-back-translation. For this reason, every single-cell dot pattern
-should be defined before it is used in a multi-cell character
-representation. The best way to do this is to use the 8-dot computer
-braille representation for the particular braille code. If a character
-or dot pattern used in any rule, except those with the <code>display</code>
-opcode, the <code>repeated</code> opcode (see <a href="#repeated-opcode"><code>repeated</code></a>) or the <code>replace</code> opcode (see <a href="#replace-opcode"><code>replace</code></a>), is not
-defined by one of the character-definition opcodes, liblouis will give
-an error message and refuse to continue until the problem is fixed. If
-the translator or back-translator encounters an undefined character in
-its input it produces a succinct error indication in its output, and
-the character is treated as a space.
+pattern is defined with the character&rsquo;s own attributes.
 </p>
 <p>You may have multiple definitions of a character using the same or
 different dot patterns. If you use different dot patterns for the same
@@ -1003,6 +987,23 @@ emphasis.
 <p>If emphasis ends in the middle of a word the Braille dot pattern
 defined in this opcode is also used.
 </p>
+<a name="index-emphmodechars"></a>
+<a name="emphmodechars-opcode"></a></dd>
+<dt><code>emphmodechars characters</code></dt>
+<dd>
+<p>Normally, only space characters will cancel the
+<code>begemphword</code> opcode (see <a href="#begemphword-opcode"><code>begemphword</code></a>) indicator. However, by using the
+<code>emphmodechars</code> opcode, you can specify the list of characters
+that are legal within a emphasized word. If <code>emphmodechars</code> is
+specified, any character that is not in this list and is not a
+<code>letter</code> will cancel the <code>begemphword</code> opcode (see <a href="#begemphword-opcode"><code>begemphword</code></a>) indicator.
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example">emphmodechars -
+</pre></div>
+
 </dd>
 </dl>
 
@@ -1195,8 +1196,9 @@ preceded by &lsquo;<samp>\x</samp>&rsquo;.
 operand. It may also be specified as an equals sign (&lsquo;<samp>=</samp>&rsquo;). This
 means that the the default representation for each character
 (see <a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a>) within the sequence is to be
-used. Note however that the &lsquo;<samp>=</samp>&rsquo; shortcut for dot patterns has a
-known bug<a name="DOCF1" href="#FOOT1"><sup>1</sup></a>
+used. It is an error if not all the characters in the rule have been
+previously defined in a character-definition rule. Note that the
+&lsquo;<samp>=</samp>&rsquo; shortcut for dot patterns has a known bug<a name="DOCF1" href="#FOOT1"><sup>1</sup></a>
 that might cause problems when back-translating.
 </p>
 <p>In what follows the word &lsquo;<samp>characters</samp>&rsquo; means a sequence of one or
@@ -2111,7 +2113,7 @@ as the main table, use a full path name for filename.
 <a name="undefined-opcode"></a></dd>
 <dt><code>undefined dots</code></dt>
 <dd><p>If this opcode is used in a table any characters which have not been
-defined in the table but are encountered in the text will be replaced
+handled in the table but are encountered in the text will be replaced
 by the dot pattern. If this opcode is not used, any undefined
 characters are replaced by <code>'\xhhhh'</code>, where the h&rsquo;s are
 hexadecimal digits.
@@ -4118,6 +4120,7 @@ directory. Usage information is included in the Python module itself.
 <tr><th><a name="Opcode-Index_opcode_letter-E">E</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-emphclass">emphclass</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-class">Emphasis class</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-emphletter">emphletter</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Letter">Letter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-emphmodechars">emphmodechars</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Word">Word</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-endcaps">endcaps</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-endcapsword">endcapsword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-endemph">endemph</a>:</td><td>&nbsp;</td><td valign="top"><a href="#None">None</a></td></tr>
