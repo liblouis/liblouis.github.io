@@ -21,16 +21,15 @@ title: Liblouis User's and Programmer's Manual
     <li><a id="toc-Braille-Indicator-Opcodes-1" href="#Braille-Indicator-Opcodes">2.4 Braille Indicator Opcodes</a></li>
     <li><a id="toc-Emphasis-Opcodes-1" href="#Emphasis-Opcodes">2.5 Emphasis Opcodes</a>
     <ul class="no-bullet">
-      <li><a id="toc-Emphasis-class-1" href="#Emphasis-class">2.5.1 Emphasis class</a></li>
-      <li><a id="toc-Contexts-1" href="#Contexts">2.5.2 Contexts</a>
+      <li><a id="toc-Emphasis-classes-1" href="#Emphasis-classes">2.5.1 Emphasis classes</a></li>
+      <li><a id="toc-Emphasis-indicators-1" href="#Emphasis-indicators">2.5.2 Emphasis indicators</a>
       <ul class="no-bullet">
-        <li><a id="toc-None-1" href="#None">2.5.2.1 None</a></li>
-        <li><a id="toc-Letter-1" href="#Letter">2.5.2.2 Letter</a></li>
-        <li><a id="toc-Word-1" href="#Word">2.5.2.3 Word</a></li>
-        <li><a id="toc-Phrase-1" href="#Phrase">2.5.2.4 Phrase</a></li>
-        <li><a id="toc-Symbol-1" href="#Symbol">2.5.2.5 Symbol</a></li>
+        <li><a id="toc-Permanent-indicator-1" href="#Permanent-indicator">2.5.2.1 Permanent indicator</a></li>
+        <li><a id="toc-Letter-indicator-1" href="#Letter-indicator">2.5.2.2 Letter indicator</a></li>
+        <li><a id="toc-Word-indicator-1" href="#Word-indicator">2.5.2.3 Word indicator</a></li>
+        <li><a id="toc-Phrase-indicator-1" href="#Phrase-indicator">2.5.2.4 Phrase indicator</a></li>
       </ul></li>
-      <li><a id="toc-Fallback-behavior-1" href="#Fallback-behavior">2.5.3 Fallback behavior</a></li>
+      <li><a id="toc-Note-about-fallback-behavior-1" href="#Note-about-fallback-behavior">2.5.3 Note about fallback behavior</a></li>
       <li><a id="toc-Computer-braille-1" href="#Computer-braille">2.5.4 Computer braille</a></li>
     </ul></li>
     <li><a id="toc-Special-Symbol-Opcodes-1" href="#Special-Symbol-Opcodes">2.6 Special Symbol Opcodes</a></li>
@@ -116,7 +115,7 @@ title: Liblouis User's and Programmer's Manual
 
 <span id="Top"></span><span id="Liblouis-User_0027s-and-Programmer_0027s-Manual"></span><h1 class="top">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouis (version 3.12.0, 2 December 2019),
+<p>This manual is for liblouis (version 3.13.0, 28 February 2020),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <acronym>BRLTTY</acronym>.
 </p>
@@ -637,6 +636,11 @@ English, this is dot 6. For example:
 <pre class="example">capsletter 6
 </pre></div>
 
+<p>In addition, <code>capsletter</code> is used to mark every letter in a
+sequence of uppercase letters when there is no <a href="#begcaps-opcode"><code>begcaps</code></a> definition, or when the sequence happens in the
+middle of a word and <a href="#begcapsword-opcode"><code>begcapsword</code></a> is
+defined but no <a href="#endcapsword-opcode"><code>endcapsword</code></a>
+</p>
 <span id="index-begcapsword"></span>
 <span id="begcapsword-opcode"></span></dd>
 <dt><code>begcapsword dots</code></dt>
@@ -846,22 +850,21 @@ midendnumericmodechars -/
 <span id="Emphasis-Opcodes"></span><span id="Emphasis-Opcodes-1"></span><h3 class="section">2.5 Emphasis Opcodes</h3>
 
 <p>In many braille systems emphasis such as bold, italics or underline is
-indicated using special dot patterns that mark the start and often
-also the end. For some languages these braille indicators differ
-depending on the context, i.e. here is an separate indicator for an
-emphasized word and another one for an emphasized phrase. To
-accommodate for all these usage scenarios liblouis provides a number of
-opcodes for various contexts.
+indicated using special dot patterns that mark the beginning and if
+needed also the end. Some braille systems have several indicators for
+different situations, i.e. an indicator for an emphasized word and
+another one for an emphasized phrase. To accommodate for all these
+usage scenarios liblouis provides a number of opcodes.
 </p>
 <p>At the same time some braille systems use different indicators for
 different kinds of emphasis while others know only one kind of
-emphasis. For that reason liblouis doesn&rsquo;t hard code any emphasis but
-the table author defines which kind of emphasis exist for a specific
-language using the <code>emphclass</code> opcode (see <a href="#emphclass-opcode"><code>emphclass</code></a>) opcode.
+emphasis. For that reason liblouis doesn&rsquo;t hard code any emphasis
+types but the table author defines which kind of emphasis exist for a
+specific language using the <code>emphclass</code> opcode (see <a href="#emphclass-opcode"><code>emphclass</code></a>) opcode.
 </p>
 
 <hr>
-<span id="Emphasis-class"></span><span id="Emphasis-class-1"></span><h4 class="subsection">2.5.1 Emphasis class</h4>
+<span id="Emphasis-classes"></span><span id="Emphasis-classes-1"></span><h4 class="subsection">2.5.1 Emphasis classes</h4>
 
 <p>The <code>emphclass</code> opcode defines the classes of emphasis that are
 relevant for a particular language. For all emphasis that need special
@@ -885,19 +888,29 @@ emphclass transnote
 </dl>
 
 <hr>
-<span id="Contexts"></span><span id="Contexts-1"></span><h4 class="subsection">2.5.2 Contexts</h4>
+<span id="Emphasis-indicators"></span><span id="Emphasis-indicators-1"></span><h4 class="subsection">2.5.2 Emphasis indicators</h4>
 
 <p>In order to understand the capabilities of Liblouis for emphasis
-handling we have to look at the different contexts that are supported.
+handling we have to look at the different kinds of indicators that
+exist and the different scopes. There are various indicators to mark
+the beginning of emphasis. Where the emphasis ends depends on the type
+of start indicator (the scope) and on the possible occurrence of an
+end indicator. Sometimes an indicator appears in the middle of an
+emphasized part in order to change the current scope.
+</p>
+<p>Which indicators Liblouis uses in which situation depends on the
+specific combination of indicators that are defined in the table.
 </p>
 
 <hr>
-<span id="None"></span><span id="None-1"></span><h4 class="subsubsection">2.5.2.1 None</h4>
+<span id="Permanent-indicator"></span><span id="Permanent-indicator-1"></span><h4 class="subsubsection">2.5.2.1 Permanent indicator</h4>
 
-<p>For some languages there is no such concept as contexts. Emphasis is
-always handled the same regardless of context. There is simply an
-indicator for the beginning of emphasis and another one for the end of
-the emphasis.
+<p>Many languages simply have an indicator for the beginning of emphasis
+and another one for the end of the emphasis. The emphasis is
+&ldquo;permanent&rdquo; in the sense that it needs an end indicator to cancel
+it. It is not implicitly cancelled by any character or space.
+</p>
+<p>A table can not specify both a permanent indicator and a <a href="#Word-indicator">word indicator</a> for a certain emphasis class.
 </p>
 <dl compact="compact">
 <dd><span id="index-begemph"></span>
@@ -906,9 +919,12 @@ the emphasis.
 <dd><p>Braille dot pattern to indicate the beginning of emphasis.
 </p>
 <div class="example">
-<pre class="example">begemph italic 46-3
+<pre class="example">begemph italic 46
 </pre></div>
 
+<p>A <code>begemph</code> rule must always be combined with a <code>endemph</code>
+rule.
+</p>
 <span id="index-endemph"></span>
 <span id="endemph-opcode"></span></dd>
 <dt><code>endemph &lt;emphasis class&gt; &lt;dot pattern&gt;</code></dt>
@@ -922,9 +938,23 @@ the emphasis.
 </dl>
 
 <hr>
-<span id="Letter"></span><span id="Letter-1"></span><h4 class="subsubsection">2.5.2.2 Letter</h4>
+<span id="Letter-indicator"></span><span id="Letter-indicator-1"></span><h4 class="subsubsection">2.5.2.2 Letter indicator</h4>
 
-<p>Some languages have special indicators for single letter emphasis.
+<p>Some languages have special indicators for single letter emphasis. The
+letter indicator will be chosen over other indicators when the next
+character is emphasised, but not the characters thereafter.
+</p>
+<p>In some situations the letter indicator is the only way to indicate
+emphasis. For instance when emphasis ends within the middle of a word,
+and a <a href="#Word-indicator">word indicator</a> exists, but no way to cancel
+it explicitly. In this case Liblouis will use the letter indicator for
+every emphasized character in the word.
+</p>
+<p>A table is even allowed to define only a letter indicator and no
+<a href="#Word-indicator">word</a> or <a href="#Permanent-indicator">permanent</a>
+indicators, in which case the letter indicator will used for any
+emphasis. It is not very likely that there are braille systems that
+work this way, but this feature can be useful anyway.
 </p>
 <dl compact="compact">
 <dd><span id="index-emphletter"></span>
@@ -940,13 +970,14 @@ the emphasis.
 </dl>
 
 <hr>
-<span id="Word"></span><span id="Word-1"></span><h4 class="subsubsection">2.5.2.3 Word</h4>
+<span id="Word-indicator"></span><span id="Word-indicator-1"></span><h4 class="subsubsection">2.5.2.3 Word indicator</h4>
 
-<p>Many languages have special indicators for emphasized words. Usually
-they start at the beginning of the word and and implicitly, i.e.
-without a closing indicator at the end of the word. There are also use
-cases where the emphasis starts in the middle of the word and an
-explicit closing indicator is required.
+<p>Many languages have special indicators for emphasized words. The scope
+of a word indicator is normally until the next space. This can be
+changed with the <code>emphmodechars</code> opcode (see <a href="#emphmodechars-opcode"><code>emphmodechars</code></a>). Word emphasis can also be
+cancelled with an explicit closing indicator. Usually a word indicator
+is put at the the beginning of the word, but it may also be used for
+cases where the emphasis starts in the middle of the word.
 </p>
 <dl compact="compact">
 <dd><span id="index-begemphword"></span>
@@ -962,17 +993,18 @@ or the beginning of emphasized characters within a word.
 <span id="index-endemphword"></span>
 <span id="endemphword-opcode"></span></dd>
 <dt><code>endemphword &lt;emphasis class&gt;  &lt;dot pattern&gt;</code></dt>
-<dd><p>Generally emphasis with word context ends when the word ends. However
-when an indication is required to close a word emphasis then this
-opcode defines the Braille dot pattern that indicates the end of a word
-emphasis.
+<dd><p>Word emphasis ends implicitly when the word ends. When an indication
+is required to close word emphasis, i.e. when emphasis ends in the
+middle of a word, then this opcode defines the braille dot pattern
+that is used.
 </p>
 <div class="example">
 <pre class="example">endemphword transnote 6-3
 </pre></div>
 
-<p>If emphasis ends in the middle of a word the Braille dot pattern
-defined in this opcode is also used.
+<p>When emphasis ends in the middle of a word and there is no
+<code>endemphword</code> definition, a <a href="#Letter-indicator">letter
+indicator</a> must be defined.
 </p>
 <span id="index-emphmodechars"></span>
 <span id="emphmodechars-opcode"></span></dd>
@@ -995,13 +1027,17 @@ specified, any character that is not in this list and is not a
 </dl>
 
 <hr>
-<span id="Phrase"></span><span id="Phrase-1"></span><h4 class="subsubsection">2.5.2.4 Phrase</h4>
+<span id="Phrase-indicator"></span><span id="Phrase-indicator-1"></span><h4 class="subsubsection">2.5.2.4 Phrase indicator</h4>
 
-<p>Many languages have a concept of a phrase where the emphasis is valid
+<p>Some languages have a concept of a phrase where the emphasis is valid
 for a number of words. The beginning of the phase is indicated with a
 braille dot pattern and a closing indicator is put before or after the
 last word of the phrase. To define how many words are considered a
 phrase in your language use the <code>lenemphphrase</code> opcode (see <a href="#lenemphphrase-opcode"><code>lenemphphrase</code></a>).
+</p>
+<p>The phrase indicator is a special kind of <a href="#Permanent-indicator">permanent indicator</a> that must be used in combination with a
+<a href="#Word-indicator">word indicator</a>. A phrase only contain whole
+words.
 </p>
 <dl compact="compact">
 <dd><span id="index-begemphphrase"></span>
@@ -1013,6 +1049,9 @@ phrase in your language use the <code>lenemphphrase</code> opcode (see <a href="
 <pre class="example">begemphphrase bold 456-46-46
 </pre></div>
 
+<p>A <code>begemphphrase</code> rule must always be combined with a
+<code>endemphphrase</code> rule.
+</p>
 
 <span id="index-endemphphrase-before"></span>
 <span id="endemphphrase-before-opcode"></span></dd>
@@ -1024,6 +1063,9 @@ will be placed before the last word of the phrase.
 <pre class="example">endemphphrase bold before 456-46
 </pre></div>
 
+<p>If a table specifies both <code>endemphphrase before</code> and
+<code>begemphword</code> and the dot patterns are the same, the <a href="#Word-indicator">word</a> scope applies whenever this indicator is used.
+</p>
 <span id="index-endemphphrase-after"></span>
 <span id="endemphphrase-after-opcode"></span></dd>
 <dt><code>endemphphrase &lt;emphasis class&gt; after &lt;dot pattern&gt;</code></dt>
@@ -1046,31 +1088,31 @@ considered a phrase.
 <pre class="example">lenemphphrase underline 3
 </pre></div>
 
+<p>With the above rule, a sequence of two emphasized words will not be
+indicated as a phrase, but the words will be indicated individually.
+</p>
 </dd>
 </dl>
 
 <hr>
-<span id="Symbol"></span><span id="Symbol-1"></span><h4 class="subsubsection">2.5.2.5 Symbol</h4>
-<p>UEB has a concept of symbols that need special indication. When the
-translator detects an emphasis sequence that needs to be indicated
-with the rules for a symbol then it will use the dots defined with the
-<code>emphletter</code> opcode (see <a href="#emphletter-opcode"><code>emphletter</code></a>). To indicate the end of the symbol it will use
-the dots defined in the <code>endemphword</code> opcode (see <a href="#endemphword-opcode"><code>endemphword</code></a>).
-</p>
-<hr>
-<span id="Fallback-behavior"></span><span id="Fallback-behavior-1"></span><h4 class="subsection">2.5.3 Fallback behavior</h4>
+<span id="Note-about-fallback-behavior"></span><span id="Note-about-fallback-behavior-1"></span><h4 class="subsection">2.5.3 Note about fallback behavior</h4>
 
-<p>Many braille systems either handle emphasis using no contexts or
-otherwise by employing a combination of the letter, word and phrase
-contexts. So if a table defines any opcodes for the letter, word or
-phrase contexts then liblouis will signal an error for opcodes that
-define emphasis with no context. In other words contrary to previous
-versions of liblouis there is no fallback behavior.
+<p>Contrary to older versions of liblouis there is limited fallback
+behavior. Generally opcodes have a very specific purpose. This is done
+for the sake of simplicity. While it would be possible to support more
+combinations of rules, Liblouis chooses to signal an error when
+certain combinations of opcodes are used (or not used).
 </p>
-<p>As a consequence, there will only be emphasis for a context when the
-table defines it. So for example when defining a braille dot pattern
-for phrases and not for words liblouis will not indicate emphasis on
-words that aren&rsquo;t part of a phrase.
+<p>For example, when a <code>begemphphrase</code> rule is defined it is
+required that there is also an <code>endemphphrase</code>
+definition. <code>begemph</code> must be combined with <code>endemph</code>. A
+<code>begemphphrase</code> rule is only allowed if there is also a
+<code>begemphword</code>. <code>begemph</code> and <code>begemphword</code> are mutually
+exclusive. Etc.
+</p>
+<p>When new requirements for indicating emphasis arise that are not
+supported yet, either more opcode combinations might be enabled, or
+more specific opcodes might be added.
 </p>
 <hr>
 <span id="Computer-braille"></span><span id="Computer-braille-1"></span><h4 class="subsection">2.5.4 Computer braille</h4>
@@ -1133,11 +1175,6 @@ to determine the end of individual words.
 words in all caps are not contracted. This is needed for languages
 such as Norwegian.
 </p>
-<p>Note: If you use the capsnocont opcode and do not define the
-      <code>begcapsword</code> opcode (see <a href="#begcapsword-opcode"><code>begcapsword</code></a>) indicator, every cap will be marked with the
-<code>capsletter</code> opcode (see <a href="#capsletter-opcode"><code>capsletter</code></a>) indicator. This is useful if you need to process caps
-separately in a later pass.
-</p>
 </dd>
 </dl>
 
@@ -1196,6 +1233,21 @@ back-translation is not to use information on this line.
 <dd><p>This is an opcode prefix which modifies the operation of the opcode 
 following it on the same line. nofor specifies that forward translation 
 is not to use the information on this line.
+</p>
+<span id="index-nocross"></span>
+<span id="nocross-opcode"></span></dd>
+<dt><code>nocross opcode characters ...</code></dt>
+<dd><p><code>nocross</code> is an opcode prefix which modifies the operation of the
+opcode following it. The following opcode can be <code>always</code> opcode (see <a href="#always-opcode"><code>always</code></a>) or
+any other translation opcode listed below with <code>characters</code> as
+the first operand. <code>nocross</code> specifies that the operation should
+not be done when the characters are not all in one syllable (when they
+cross a syllable boundary). For this opcode to work, a hyphenation
+table must be included. If this is not done, <code>nocross</code> is
+ignored. For example, if the English Grade 2 table is being used and
+the appropriate hyphenation table has been included <code>nocross
+always sh 146</code> will cause the &lsquo;<samp>sh</samp>&rsquo; in &lsquo;<samp>monkshood</samp>&rsquo; not to be
+contracted.
 </p>
 <span id="index-compbrl"></span>
 <span id="compbrl-opcode"></span></dd>
@@ -1267,14 +1319,45 @@ hyphens or periods. For example:
 <span id="index-repword"></span>
 <span id="repword-opcode"></span></dd>
 <dt><code>repword characters dots</code></dt>
-<dd><p>When characters are encountered check to see if the word before this
-string matches the word after it. If so, replace characters with dots
-and eliminate the second word and any word following another
-occurrence of characters that is the same. This opcode is used in
-Malaysian braille. In this case the rule is:
+<dd><p>For some braille systems there is the requirement to remove repeated
+words which are connected by some character. In Malaysian braille for
+example you want to contract as follows:
+</p>
+<dl compact="compact">
+<dt>Text:</dt>
+<dd><p>&lsquo;<samp>tasik-tasik</samp>&rsquo;
+</p></dd>
+<dt>Grade 1:</dt>
+<dd><p>&lsquo;<samp>2345-1-234-24-13-36-2345-1-234-24-13</samp>&rsquo;
+</p></dd>
+<dt>Grade 2:</dt>
+<dd><p>&lsquo;<samp>2345-1-234-24-13-123456</samp>&rsquo;
+</p></dd>
+</dl>
+
+<p>The dash and the second occurrence of &lsquo;<samp>tasik</samp>&rsquo; is replaced with
+dots &lsquo;<samp>123456</samp>&rsquo;. To achieve this you can use the repword opcode as
+follows:
 </p>
 <div class="example">
 <pre class="example">repword - 123456
+</pre></div>
+
+<span id="index-rependword"></span>
+<span id="rependword-opcode"></span></dd>
+<dt><code>rependword characters dots, dots</code></dt>
+<dd><p>Like the <code>repword</code> opcode (see <a href="#repword-opcode"><code>repword</code></a>), but for indicating a repetition of a
+string at the end of a word. When characters are encountered check to
+see if a part of the word before these characters (but not the whole
+word) matches the string after them. If so, insert the first dot
+pattern at the position where the part of the word started, replace
+characters with the second dot pattern and eliminate the repeated
+string and any string following another occurrence of characters that
+is the same. This opcode is used in Malaysian braille. In this case
+the rule is:
+</p>
+<div class="example">
+<pre class="example">rependword - 25,123456
 </pre></div>
 
 <span id="index-largesign"></span>
@@ -1311,17 +1394,6 @@ within the sequence is to be used (see <a href="#Translation-Opcodes">Translatio
 <pre class="example">syllable horse = sawhorse, horseradish
 </pre></div>
 
-<span id="index-nocross"></span>
-<span id="nocross-opcode"></span></dd>
-<dt><code>nocross characters dots</code></dt>
-<dd><p>Replace the characters with the dot pattern if the characters are all
-in one syllable (do not cross a syllable boundary). For this opcode to
-work, a hyphenation table must be included. If this is not done,
-<code>nocross</code> behaves like the <code>always</code> opcode (see <a href="#always-opcode"><code>always</code></a>). For example, if
-the English Grade 2 table is being used and the appropriate
-hyphenation table has been included <code>nocross sh 146</code> will cause
-the &lsquo;<samp>sh</samp>&rsquo; in &lsquo;<samp>monkshood</samp>&rsquo; not to be contracted.
-</p>
 <span id="index-joinword"></span>
 <span id="joinword-opcode"></span></dd>
 <dt><code>joinword characters dots</code></dt>
@@ -1726,8 +1798,8 @@ by a comma.
 </p>
 <p>Let&rsquo;s say that you&rsquo;d like to define the opening and closing
 parentheses via multipass rules, and that you&rsquo;d like to use dots
-123478 for the opening parenthesis and dots 145678 for the closing
-parenthesis. One way to do so is like this:
+&lsquo;<samp>123478</samp>&rsquo; for the opening parenthesis and dots &lsquo;<samp>145678</samp>&rsquo; for
+the closing parenthesis. One way to do so is like this:
 </p>
 <div class="example">
 <pre class="example">grouping parentheses () 123478,145678
@@ -3996,9 +4068,9 @@ directory. Usage information is included in the Python module itself.
 <tr><td></td><td valign="top"><a href="#index-before">before</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dClass-Opcodes">Character-Class Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-begcaps">begcaps</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-begcapsword">begcapsword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-begemph">begemph</a>:</td><td>&nbsp;</td><td valign="top"><a href="#None">None</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-begemphphrase">begemphphrase</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Phrase">Phrase</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-begemphword">begemphword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Word">Word</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-begemph">begemph</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Permanent-indicator">Permanent indicator</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-begemphphrase">begemphphrase</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Phrase-indicator">Phrase indicator</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-begemphword">begemphword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Word-indicator">Word indicator</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-begmidword">begmidword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-begnum">begnum</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-begword">begword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
@@ -4020,15 +4092,15 @@ directory. Usage information is included in the Python module itself.
 <tr><td></td><td valign="top"><a href="#index-display">display</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Miscellaneous-Opcodes">Miscellaneous Opcodes</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Opcode-Index_opcode_letter-E">E</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-emphclass">emphclass</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-class">Emphasis class</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-emphletter">emphletter</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Letter">Letter</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-emphmodechars">emphmodechars</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Word">Word</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-emphclass">emphclass</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Emphasis-classes">Emphasis classes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-emphletter">emphletter</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Letter-indicator">Letter indicator</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-emphmodechars">emphmodechars</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Word-indicator">Word indicator</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-endcaps">endcaps</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-endcapsword">endcapsword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-endemph">endemph</a>:</td><td>&nbsp;</td><td valign="top"><a href="#None">None</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-endemphphrase-after">endemphphrase after</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Phrase">Phrase</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-endemphphrase-before">endemphphrase before</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Phrase">Phrase</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-endemphword">endemphword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Word">Word</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-endemph">endemph</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Permanent-indicator">Permanent indicator</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-endemphphrase-after">endemphphrase after</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Phrase-indicator">Phrase indicator</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-endemphphrase-before">endemphphrase before</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Phrase-indicator">Phrase indicator</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-endemphword">endemphword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Word-indicator">Word indicator</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-endnum">endnum</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-endword">endword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-exactdots">exactdots</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
@@ -4048,7 +4120,7 @@ directory. Usage information is included in the Python module itself.
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Opcode-Index_opcode_letter-L">L</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-largesign">largesign</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-lenemphphrase">lenemphphrase</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Phrase">Phrase</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-lenemphphrase">lenemphphrase</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Phrase-indicator">Phrase indicator</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-letsign">letsign</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-letter">letter</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-litdigit">litdigit</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
@@ -4089,6 +4161,7 @@ directory. Usage information is included in the Python module itself.
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Opcode-Index_opcode_letter-R">R</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-repeated">repeated</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-rependword">rependword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-replace">replace</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-repword">repword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
