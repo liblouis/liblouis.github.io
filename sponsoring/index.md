@@ -2,7 +2,7 @@
 title: Sponsoring
 ---
 
-Hi, we're a group of open-source software developers. We work on
+We're a group of open-source software developers. We work on
 Liblouis, an open-source braille translation library for a large
 number of languages and braille codes, written in C. It is used in
 many products and if you're a braille user, odds are you have come
@@ -31,11 +31,15 @@ healthy and actively maintained.
 
 If you would like to support us in our efforts to move Liblouis
 forward use the sponsoring button on the [Github
-page](https://github.com/liblouis/liblouis). Sponsorship lasts only as
-long as you wish and you can cancel anytime. So if you want to do a
-one-time donation, you can. Also consider funding a Github issue of
-your choice through IssueHunt. This has the additional benefit that
-possibly more developers are attracted.
+page](https://github.com/liblouis/liblouis). These are the options:
+- You can [sponsor us through
+  Github](https://github.com/sponsors/bertfrees). Sponsorship
+  lasts only as long as you wish and you can cancel anytime. So if you
+  want to do a one-time donation, you can.
+- Also consider [funding a Github issue of your choice through
+  IssueHunt](https://issuehunt.io/r/liblouis/liblouis/issues). This
+  has the additional benefit that possibly more developers are
+  attracted.
 
 ## Specific engagements
 
