@@ -19,28 +19,29 @@ title: Liblouis User's and Programmer's Manual
     <li><a id="toc-Hyphenation-Tables-1" href="#Hyphenation-Tables">2.2 Hyphenation Tables</a></li>
     <li><a id="toc-Character_002dDefinition-Opcodes-1" href="#Character_002dDefinition-Opcodes">2.3 Character-Definition Opcodes</a></li>
     <li><a id="toc-Braille-Indicator-Opcodes-1" href="#Braille-Indicator-Opcodes">2.4 Braille Indicator Opcodes</a></li>
-    <li><a id="toc-Emphasis-Opcodes-1" href="#Emphasis-Opcodes">2.5 Emphasis Opcodes</a>
+    <li><a id="toc-Opcodes-for-Standing-Alone-Sequences-1" href="#Opcodes-for-Standing-Alone-Sequences">2.5 Opcodes for <em>Standing Alone</em> Sequences</a></li>
+    <li><a id="toc-Emphasis-Opcodes-1" href="#Emphasis-Opcodes">2.6 Emphasis Opcodes</a>
     <ul class="no-bullet">
-      <li><a id="toc-Emphasis-classes-1" href="#Emphasis-classes">2.5.1 Emphasis classes</a></li>
-      <li><a id="toc-Emphasis-indicators-1" href="#Emphasis-indicators">2.5.2 Emphasis indicators</a>
+      <li><a id="toc-Emphasis-classes-1" href="#Emphasis-classes">2.6.1 Emphasis classes</a></li>
+      <li><a id="toc-Emphasis-indicators-1" href="#Emphasis-indicators">2.6.2 Emphasis indicators</a>
       <ul class="no-bullet">
-        <li><a id="toc-Permanent-indicator-1" href="#Permanent-indicator">2.5.2.1 Permanent indicator</a></li>
-        <li><a id="toc-Letter-indicator-1" href="#Letter-indicator">2.5.2.2 Letter indicator</a></li>
-        <li><a id="toc-Word-indicator-1" href="#Word-indicator">2.5.2.3 Word indicator</a></li>
-        <li><a id="toc-Phrase-indicator-1" href="#Phrase-indicator">2.5.2.4 Phrase indicator</a></li>
+        <li><a id="toc-Permanent-indicator-1" href="#Permanent-indicator">2.6.2.1 Permanent indicator</a></li>
+        <li><a id="toc-Letter-indicator-1" href="#Letter-indicator">2.6.2.2 Letter indicator</a></li>
+        <li><a id="toc-Word-indicator-1" href="#Word-indicator">2.6.2.3 Word indicator</a></li>
+        <li><a id="toc-Phrase-indicator-1" href="#Phrase-indicator">2.6.2.4 Phrase indicator</a></li>
       </ul></li>
-      <li><a id="toc-Note-about-fallback-behavior-1" href="#Note-about-fallback-behavior">2.5.3 Note about fallback behavior</a></li>
-      <li><a id="toc-Computer-braille-1" href="#Computer-braille">2.5.4 Computer braille</a></li>
+      <li><a id="toc-Note-about-fallback-behavior-1" href="#Note-about-fallback-behavior">2.6.3 Note about fallback behavior</a></li>
+      <li><a id="toc-Computer-braille-1" href="#Computer-braille">2.6.4 Computer braille</a></li>
     </ul></li>
-    <li><a id="toc-Special-Symbol-Opcodes-1" href="#Special-Symbol-Opcodes">2.6 Special Symbol Opcodes</a></li>
-    <li><a id="toc-Special-Processing-Opcodes-1" href="#Special-Processing-Opcodes">2.7 Special Processing Opcodes</a></li>
-    <li><a id="toc-Translation-Opcodes-1" href="#Translation-Opcodes">2.8 Translation Opcodes</a></li>
-    <li><a id="toc-Character_002dClass-Opcodes-1" href="#Character_002dClass-Opcodes">2.9 Character-Class Opcodes</a></li>
-    <li><a id="toc-Swap-Opcodes-1" href="#Swap-Opcodes">2.10 Swap Opcodes</a></li>
-    <li><a id="toc-The-Context-and-Multipass-Opcodes-1" href="#The-Context-and-Multipass-Opcodes">2.11 The Context and Multipass Opcodes</a></li>
-    <li><a id="toc-The-correct-Opcode-1" href="#The-correct-Opcode">2.12 The correct Opcode</a></li>
-    <li><a id="toc-The-match-Opcode-1" href="#The-match-Opcode">2.13 The match Opcode</a></li>
-    <li><a id="toc-Miscellaneous-Opcodes-1" href="#Miscellaneous-Opcodes">2.14 Miscellaneous Opcodes</a></li>
+    <li><a id="toc-Special-Symbol-Opcodes-1" href="#Special-Symbol-Opcodes">2.7 Special Symbol Opcodes</a></li>
+    <li><a id="toc-Special-Processing-Opcodes-1" href="#Special-Processing-Opcodes">2.8 Special Processing Opcodes</a></li>
+    <li><a id="toc-Translation-Opcodes-1" href="#Translation-Opcodes">2.9 Translation Opcodes</a></li>
+    <li><a id="toc-Character_002dClass-Opcodes-1" href="#Character_002dClass-Opcodes">2.10 Character-Class Opcodes</a></li>
+    <li><a id="toc-Swap-Opcodes-1" href="#Swap-Opcodes">2.11 Swap Opcodes</a></li>
+    <li><a id="toc-The-Context-and-Multipass-Opcodes-1" href="#The-Context-and-Multipass-Opcodes">2.12 The Context and Multipass Opcodes</a></li>
+    <li><a id="toc-The-correct-Opcode-1" href="#The-correct-Opcode">2.13 The correct Opcode</a></li>
+    <li><a id="toc-The-match-Opcode-1" href="#The-match-Opcode">2.14 The match Opcode</a></li>
+    <li><a id="toc-Miscellaneous-Opcodes-1" href="#Miscellaneous-Opcodes">2.15 Miscellaneous Opcodes</a></li>
   </ul></li>
   <li><a id="toc-Notes-on-Back_002dTranslation-1" href="#Notes-on-Back_002dTranslation">3 Notes on Back-Translation</a>
   <ul class="no-bullet">
@@ -115,7 +116,7 @@ title: Liblouis User's and Programmer's Manual
 
 <span id="Top"></span><span id="Liblouis-User_0027s-and-Programmer_0027s-Manual"></span><h1 class="top">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouis (version 3.13.0, 28 February 2020),
+<p>This manual is for liblouis (version 3.14.0, 2 June 2020),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <acronym>BRLTTY</acronym>.
 </p>
@@ -766,8 +767,13 @@ combined.
 <dt><code>nocontractsign dots</code></dt>
 <dd>
 <p>The dots in this opcode are used to indicate a letter or a sequence of
-letters that are not a contraction, e.g. &lsquo;<samp>CD</samp>&rsquo;. The opcode is
-similar to the <code>letsign</code> opcode (see <a href="#letsign-opcode"><code>letsign</code></a>).
+letters that are not a contraction, e.g. &lsquo;<samp>CD</samp>&rsquo; (see <a href="#contraction-opcode"><code>contraction</code></a>). The opcode is similar to the
+<code>letsign</code> opcode (see <a href="#letsign-opcode"><code>letsign</code></a>).
+</p>
+<p><strong>Note:</strong> This opcode was implemented in Liblouis specifically in
+order to support Unified English Braille (UEB). It may be used in any
+table, but may have unpredicted side-effects if used outside the
+intended context. Use with great care, and test thoroughly.
 </p>
 
 <span id="index-numsign"></span>
@@ -801,13 +807,18 @@ intervening space, e.g. &lsquo;<samp>1a</samp>&rsquo; or &lsquo;<samp>2-B</samp>
 constitute the literary digits (see <code>litdigit</code> opcode (see <a href="#litdigit-opcode"><code>litdigit</code></a>)). However,
 in some Braille codes, all letters fall in this category.
 </p>
-<p>Please, note that this opcode is case sensitive. So, if you need a
+<p><strong>Note:</strong> This opcode is case sensitive. So, if you need a
 <code>nocontractsign</code> opcode (see <a href="#nocontractsign-opcode"><code>nocontractsign</code></a>) to also appear before the capital letters
 A-j, you should include these letters in the definition. This is
 especially relevant if you are also using the <code>begcaps</code> opcode (see <a href="#begcaps-opcode"><code>begcaps</code></a>)
 and <code>endcaps</code> opcode (see <a href="#endcaps-opcode"><code>endcaps</code></a>) opcodes. In this case, you might otherwise
 end up having numbers immediately followed by capital letters with no
 indicator between.
+</p>
+<p><strong>Note:</strong> This opcode was implemented in Liblouis specifically in
+order to support Unified English Braille (UEB). It may be used in any
+table, but may have unpredicted side-effects if used outside the
+intended context. Use with great care, and test thoroughly.
 </p>
 <p>Example:
 </p>
@@ -838,6 +849,11 @@ precede the <code>numericmodechars</code> character in this case.
 </p>
 <p>Example:
 </p>
+<p><strong>Note:</strong> This opcode was implemented in Liblouis specifically in
+order to support Unified English Braille (UEB). It may be used in any
+table, but may have unpredicted side-effects if used outside the
+intended context. Use with great care, and test thoroughly.
+</p>
 <div class="example">
 <pre class="example">numericmodechars .,
 midendnumericmodechars -/
@@ -847,7 +863,106 @@ midendnumericmodechars -/
 </dl>
 
 <hr>
-<span id="Emphasis-Opcodes"></span><span id="Emphasis-Opcodes-1"></span><h3 class="section">2.5 Emphasis Opcodes</h3>
+<span id="Opcodes-for-Standing-Alone-Sequences"></span><span id="Opcodes-for-Standing-Alone-Sequences-1"></span><h3 class="section">2.5 Opcodes for <em>Standing Alone</em> Sequences</h3>
+
+<span id="index-Standing-alone"></span>
+<p>The term &ldquo;standing alone&rdquo; comes from the specification of Unified
+English Braille (UEB). In Liblouis, a letter or letters-sequence is
+considered to be <em>standing alone</em> if it is preceded and followed
+by a space, and/or other characters that you choose as delimiters,
+e.g. &lsquo;<samp>-</samp>&rsquo;. A <em>standing alone</em> sequence can be thought of as a
+word in a very broad sence. With the opcodes described in this
+section, you can decide what characters constitute a delimiter, and
+what characters can attach to the beginning or end of a word or
+<em>standing alone</em> sequence.
+</p>
+<p><strong>Note:</strong> The opcodes in this section were implemented in
+Liblouis specifically in order to support Unified English Braille
+(UEB). They may be used in any table, but may have unpredicted
+side-effects if used outside the intended context. Use with great
+care, and test thoroughly.
+</p>
+<dl compact="compact">
+<dd><span id="index-seqdelimiter"></span>
+<span id="seqdelimiter-opcode"></span></dd>
+<dt><code>seqdelimiter &lt;characters&gt;</code></dt>
+<dd><p>All the characters listed with this opcode designate a valid beginning
+and ending to a letter sequence used to determine when a letter
+sequence is <em>standing alone</em>. This again determines whether word
+contractions (see <a href="#word-opcode"><code>word</code></a>) or nocontractsign
+(see <a href="#nocontractsign-opcode"><code>nocontractsign</code></a>)
+should be applied.
+</p>
+<p>Spaces do not need to be listed as
+they are automatically delimiters.
+</p>
+<p>For example, in UEB (section 2.6.1 page 15), any hyphen or dash count
+as delimiters.
+</p>
+<p>This opcode can be used several times, but the characters must have
+already been defined.
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example">seqdelimiter -—
+</pre></div>
+
+<span id="index-seqbeforechars"></span>
+<span id="seqbeforechars-opcode"></span></dd>
+<dt><code>seqbeforechars &lt;characters&gt;</code></dt>
+<dd><p>Characters specified with this opcode may appear between a beginning
+sequence delimiter and the letter sequence itself.
+</p>
+<p>For example, in UEB (2.6.2, page 15), opening parenthesis and opening
+quotations and such are allowed.
+</p>
+<p>This opcode can be used several times, but the characters must have
+already been defined.
+</p>
+<p>Example:
+</p><div class="example">
+<pre class="example">seqbeforechars ([{&quot;“'‘
+</pre></div>
+
+<span id="index-seqafterchars"></span>
+<span id="seqafterchars-opcode"></span></dd>
+<dt><code>seqafterchars &lt;chars&gt;</code></dt>
+<dd><p>Characters specified with this opcode may appear between a letter
+sequence itself and a end sequence delimiter.
+</p>
+<p>For example, in UEB (2.6.3, page 16), closing parenthesis and closing
+quotations and such are allowed.
+</p>
+<p>This opcode can be used several times, but the characters must have
+already been defined.
+</p>
+<p>Example:
+</p><div class="example">
+<pre class="example">seqafterchars  )]}&quot;”'’.,;:.!?…
+</pre></div>
+
+<span id="index-seqafterpattern"></span>
+<span id="seqafterpattern-opcode"></span></dd>
+<dt><code>seqafterpattern &lt;string&gt;</code></dt>
+<dd><p>Specifies that a specific string of characters can be between the
+letter sequence itself and an ending sequence delimiter.
+</p>
+<p>For example, in UEB (section 2.6.4, page 18), the &lsquo;<samp>'d</samp>&rsquo;,
+&lsquo;<samp>'s</samp>&rsquo;, &lsquo;<samp>'ll</samp>&rsquo;, &lsquo;<samp>'ve</samp>&rsquo;, etc. can be after a letter sequence
+provided the overall sequence is <em>standing alone</em>.
+</p>
+<p>This opcode may be used multiple times, once per pattern.
+</p>
+<p>Example:
+</p><div class="example">
+<pre class="example">seqafterpattern 'd
+</pre></div>
+</dd>
+</dl>
+
+<hr>
+<span id="Emphasis-Opcodes"></span><span id="Emphasis-Opcodes-1"></span><h3 class="section">2.6 Emphasis Opcodes</h3>
 
 <p>In many braille systems emphasis such as bold, italics or underline is
 indicated using special dot patterns that mark the beginning and if
@@ -864,7 +979,7 @@ specific language using the <code>emphclass</code> opcode (see <a href="#emphcla
 </p>
 
 <hr>
-<span id="Emphasis-classes"></span><span id="Emphasis-classes-1"></span><h4 class="subsection">2.5.1 Emphasis classes</h4>
+<span id="Emphasis-classes"></span><span id="Emphasis-classes-1"></span><h4 class="subsection">2.6.1 Emphasis classes</h4>
 
 <p>The <code>emphclass</code> opcode defines the classes of emphasis that are
 relevant for a particular language. For all emphasis that need special
@@ -888,7 +1003,7 @@ emphclass transnote
 </dl>
 
 <hr>
-<span id="Emphasis-indicators"></span><span id="Emphasis-indicators-1"></span><h4 class="subsection">2.5.2 Emphasis indicators</h4>
+<span id="Emphasis-indicators"></span><span id="Emphasis-indicators-1"></span><h4 class="subsection">2.6.2 Emphasis indicators</h4>
 
 <p>In order to understand the capabilities of Liblouis for emphasis
 handling we have to look at the different kinds of indicators that
@@ -903,7 +1018,7 @@ specific combination of indicators that are defined in the table.
 </p>
 
 <hr>
-<span id="Permanent-indicator"></span><span id="Permanent-indicator-1"></span><h4 class="subsubsection">2.5.2.1 Permanent indicator</h4>
+<span id="Permanent-indicator"></span><span id="Permanent-indicator-1"></span><h4 class="subsubsection">2.6.2.1 Permanent indicator</h4>
 
 <p>Many languages simply have an indicator for the beginning of emphasis
 and another one for the end of the emphasis. The emphasis is
@@ -938,7 +1053,7 @@ rule.
 </dl>
 
 <hr>
-<span id="Letter-indicator"></span><span id="Letter-indicator-1"></span><h4 class="subsubsection">2.5.2.2 Letter indicator</h4>
+<span id="Letter-indicator"></span><span id="Letter-indicator-1"></span><h4 class="subsubsection">2.6.2.2 Letter indicator</h4>
 
 <p>Some languages have special indicators for single letter emphasis. The
 letter indicator will be chosen over other indicators when the next
@@ -970,7 +1085,7 @@ work this way, but this feature can be useful anyway.
 </dl>
 
 <hr>
-<span id="Word-indicator"></span><span id="Word-indicator-1"></span><h4 class="subsubsection">2.5.2.3 Word indicator</h4>
+<span id="Word-indicator"></span><span id="Word-indicator-1"></span><h4 class="subsubsection">2.6.2.3 Word indicator</h4>
 
 <p>Many languages have special indicators for emphasized words. The scope
 of a word indicator is normally until the next space. This can be
@@ -1027,7 +1142,7 @@ specified, any character that is not in this list and is not a
 </dl>
 
 <hr>
-<span id="Phrase-indicator"></span><span id="Phrase-indicator-1"></span><h4 class="subsubsection">2.5.2.4 Phrase indicator</h4>
+<span id="Phrase-indicator"></span><span id="Phrase-indicator-1"></span><h4 class="subsubsection">2.6.2.4 Phrase indicator</h4>
 
 <p>Some languages have a concept of a phrase where the emphasis is valid
 for a number of words. The beginning of the phase is indicated with a
@@ -1095,7 +1210,7 @@ indicated as a phrase, but the words will be indicated individually.
 </dl>
 
 <hr>
-<span id="Note-about-fallback-behavior"></span><span id="Note-about-fallback-behavior-1"></span><h4 class="subsection">2.5.3 Note about fallback behavior</h4>
+<span id="Note-about-fallback-behavior"></span><span id="Note-about-fallback-behavior-1"></span><h4 class="subsection">2.6.3 Note about fallback behavior</h4>
 
 <p>Contrary to older versions of liblouis there is limited fallback
 behavior. Generally opcodes have a very specific purpose. This is done
@@ -1115,7 +1230,7 @@ supported yet, either more opcode combinations might be enabled, or
 more specific opcodes might be added.
 </p>
 <hr>
-<span id="Computer-braille"></span><span id="Computer-braille-1"></span><h4 class="subsection">2.5.4 Computer braille</h4>
+<span id="Computer-braille"></span><span id="Computer-braille-1"></span><h4 class="subsection">2.6.4 Computer braille</h4>
 
 <p>For computer braille there are only two braille indicators, for the
 beginning and end of a sequence of characters to be rendered in
@@ -1126,7 +1241,7 @@ sequence of characters is determined to be computer braille because it
 contains a subsequence defined by the <code>compbrl</code> opcode (see <a href="#compbrl-opcode"><code>compbrl</code></a>).
 </p>
 <hr>
-<span id="Special-Symbol-Opcodes"></span><span id="Special-Symbol-Opcodes-1"></span><h3 class="section">2.6 Special Symbol Opcodes</h3>
+<span id="Special-Symbol-Opcodes"></span><span id="Special-Symbol-Opcodes-1"></span><h3 class="section">2.7 Special Symbol Opcodes</h3>
 
 <p>These opcodes define certain symbols, such as the decimal point, which
 require special treatment.
@@ -1163,7 +1278,7 @@ to determine the end of individual words.
 </dl>
 
 <hr>
-<span id="Special-Processing-Opcodes"></span><span id="Special-Processing-Opcodes-1"></span><h3 class="section">2.7 Special Processing Opcodes</h3>
+<span id="Special-Processing-Opcodes"></span><span id="Special-Processing-Opcodes-1"></span><h3 class="section">2.8 Special Processing Opcodes</h3>
 
 <p>These opcodes cause special processing to be carried out.
 </p>
@@ -1179,7 +1294,7 @@ such as Norwegian.
 </dl>
 
 <hr>
-<span id="Translation-Opcodes"></span><span id="Translation-Opcodes-1"></span><h3 class="section">2.8 Translation Opcodes</h3>
+<span id="Translation-Opcodes"></span><span id="Translation-Opcodes-1"></span><h3 class="section">2.9 Translation Opcodes</h3>
 
 <p>These opcodes define the braille representations for character
 sequences. Each of them defines an entry within the contraction table.
@@ -1551,12 +1666,12 @@ joinnum \x00A5 13456 (YEN SIGN)
 </dl>
 
 <hr>
-<span id="Character_002dClass-Opcodes"></span><span id="Character_002dClass-Opcodes-1"></span><h3 class="section">2.9 Character-Class Opcodes</h3>
+<span id="Character_002dClass-Opcodes"></span><span id="Character_002dClass-Opcodes-1"></span><h3 class="section">2.10 Character-Class Opcodes</h3>
 
-<p>These opcodes define and use character classes. A character class
-associates a set of characters with a name. The name then refers to
-any character within the class. A character may belong to more than
-one class.
+<p>These opcodes define and use character classes, also known as
+character attributes. A character class associates a set of characters
+with a name. The name then refers to any character within the class. A
+character may belong to more than one class.
 </p>
 <p>The basic character classes correspond to the character definition
 opcodes, with the exception of the <code>uplow</code> opcode (see <a href="#uplow-opcode"><code>uplow</code></a>), which defines
@@ -1590,9 +1705,6 @@ characters belonging to the two classes <code>uppercase</code> and
 </p></dd>
 <dt><code>litdigit</code></dt>
 <dd><p>Literary digit
-</p></dd>
-<dt><code>undefined</code></dt>
-<dd><p>Not properly defined
 </p>
 </dd>
 </dl>
@@ -1602,13 +1714,23 @@ For examples see <samp>el.ctb</samp>.
 </p>
 <dl compact="compact">
 <dd>
-<span id="index-class"></span>
-<span id="class-opcode"></span></dd>
-<dt><code>class name characters</code></dt>
-<dd><p>Define a new character class. The name operand must contain only
-letters (a-z and A-Z). The letters may be upper or lower-case but the
-case matters. The characters operand must be specified as a string. A
-character class may not be used until it has been defined.
+<span id="index-attribute"></span>
+<span id="attribute-opcode"></span></dd>
+<dt><code>attribute name characters</code></dt>
+<dd><p>Add characters to a character class. The class may be one of the
+predefined classes listed above, a user-defined class previously
+created with this opcode, or a new one. The name operand must contain
+only letters (a-z and A-Z, case matters). For historical reasons and
+to support the <code>match</code> opcode (see <a href="#match-opcode"><code>match</code></a>) it can also be a number between 0 and
+7. The characters operand must be specified as a string. Each
+character in the string, as well as its dot counterpart if it occupies
+a single cell, is added to the character class.
+</p>
+<p>A user-defined character class may not be used in other rules until it
+has been created with a <code>attribute</code> rule. Numbered classes can be
+used in <code>match</code> rules (see <a href="#match-opcode"><code>match</code></a>). Named classes can be used with the
+<code>before</code> and <code>after</code> opcodes and in <code>context</code> and
+multipass rules (see <a href="#The-Context-and-Multipass-Opcodes">The Context and Multipass Opcodes</a>).
 </p>
 <span id="index-after"></span>
 <span id="after-opcode"></span></dd>
@@ -1632,7 +1754,7 @@ classes is used.
 </dl>
 
 <hr>
-<span id="Swap-Opcodes"></span><span id="Swap-Opcodes-1"></span><h3 class="section">2.10 Swap Opcodes</h3>
+<span id="Swap-Opcodes"></span><span id="Swap-Opcodes-1"></span><h3 class="section">2.11 Swap Opcodes</h3>
 
 <p>The swap opcodes are needed to tell the <code>context</code> opcode (see <a href="#context-opcode"><code>context</code></a>), the
 <code>correct</code> opcode (see <a href="#correct-opcode"><code>correct</code></a>) and multipass opcodes which dot patterns to swap
@@ -1682,7 +1804,7 @@ such as formatting phone numbers.
 </dl>
 
 <hr>
-<span id="The-Context-and-Multipass-Opcodes"></span><span id="The-Context-and-Multipass-Opcodes-1"></span><h3 class="section">2.11 The Context and Multipass Opcodes</h3>
+<span id="The-Context-and-Multipass-Opcodes"></span><span id="The-Context-and-Multipass-Opcodes-1"></span><h3 class="section">2.12 The Context and Multipass Opcodes</h3>
 
 <p>The <code>context</code> and multipass opcodes (<code>pass2</code>, <code>pass3</code>
 and <code>pass4</code>) provide translation capabilities beyond those of the
@@ -1775,11 +1897,12 @@ suboperand is valid in test parts only.
 </p>
 </dd>
 <dt><kbd>% (percent sign)</kbd></dt>
-<dd><p>the name of a class defined by the <code>class</code> opcode (see <a href="#class-opcode"><code>class</code></a>) or the name of a
-swap set defined by the swap opcodes (see <a href="#Swap-Opcodes">Swap Opcodes</a>). Names
-must contain only letters (a-z and A-Z). The letters may be upper or
-lower-case but the case matters. Class names may be used in test parts
-only. Swap names are valid everywhere.
+<dd><p>the name of a character class, predefined or defined using the
+<code>attribute</code> opcode (see <a href="#attribute-opcode"><code>attribute</code></a>), or the name of a swap set defined by the swap
+opcodes (see <a href="#Swap-Opcodes">Swap Opcodes</a>). Names must contain only letters (a-z
+and A-Z). The letters may be upper or lower-case but the case
+matters. Character class names may be used in test parts only. Swap
+names are valid everywhere.
 </p>
 </dd>
 <dt><kbd>{ (left brace)</kbd></dt>
@@ -1916,16 +2039,16 @@ follows:
 <dd><p>lowercase
 </p></dd>
 <dt><kbd>w</kbd></dt>
-<dd><p>first user-defined class
+<dd><p>first user-defined character class
 </p></dd>
 <dt><kbd>x</kbd></dt>
-<dd><p>second user-defined class
+<dd><p>second user-defined character class
 </p></dd>
 <dt><kbd>y</kbd></dt>
-<dd><p>third user-defined class
+<dd><p>third user-defined character class
 </p></dd>
 <dt><kbd>z</kbd></dt>
-<dd><p>fourth user-defined class
+<dd><p>fourth user-defined character class
 </p></dd>
 </dl>
 
@@ -1963,7 +2086,7 @@ character to make sure that the program doesn&rsquo;t apply a rule to the
 same characters again and again.
 </p>
 <hr>
-<span id="The-correct-Opcode"></span><span id="The-correct-Opcode-1"></span><h3 class="section">2.12 The correct Opcode</h3>
+<span id="The-correct-Opcode"></span><span id="The-correct-Opcode-1"></span><h3 class="section">2.13 The correct Opcode</h3>
 
 <dl compact="compact">
 <dd><span id="index-correct"></span>
@@ -2000,16 +2123,13 @@ noback correct &quot;\s?&quot; &quot;?&quot; drop space before question mark
 </dl>
 
 <hr>
-<span id="The-match-Opcode"></span><span id="The-match-Opcode-1"></span><h3 class="section">2.13 The match Opcode</h3>
+<span id="The-match-Opcode"></span><span id="The-match-Opcode-1"></span><h3 class="section">2.14 The match Opcode</h3>
 
-<p>The match opcode is similar the multipass opcodes and can be seen as
-the more low-level and powerful cousin to the <code>context</code> opcode (see <a href="#context-opcode"><code>context</code></a>).
-</p>
-<p><strong>Note:</strong> For historical reasons despite being fairly similar in
-syntax and functionality both the <code>context</code> opcode (see <a href="#context-opcode"><code>context</code></a>) and the
-<code>match</code> opcode (see <a href="#match-opcode"><code>match</code></a>) exist and are in use in modern braille tables. But
-in the future they might be merged under some common opcode. For that
-reason consider the match opcode <em>somewhat experimental</em>.
+<p>For historical reasons despite being fairly similar in functionality
+both the <code>context</code> opcode (see <a href="#context-opcode"><code>context</code></a>) and the match opcode exist and are in use
+in modern braille tables. But in the future they might be merged under
+some common opcode. For that reason consider the match opcode
+<em>somewhat experimental</em>.
 </p>
 <dl compact="compact">
 <dd><span id="index-match"></span>
@@ -2154,7 +2274,7 @@ is preceded by a space, or beginning of input; then followed by a
 </pre></div>
 
 <hr>
-<span id="Miscellaneous-Opcodes"></span><span id="Miscellaneous-Opcodes-1"></span><h3 class="section">2.14 Miscellaneous Opcodes</h3>
+<span id="Miscellaneous-Opcodes"></span><span id="Miscellaneous-Opcodes-1"></span><h3 class="section">2.15 Miscellaneous Opcodes</h3>
 
 <dl compact="compact">
 <dd><span id="index-include"></span>
@@ -2850,9 +2970,11 @@ function:
 </dd>
 <dt>&lsquo;<samp>display</samp>&rsquo;</dt>
 <dd><p>A display table, which should be used to encode braille in the
-test. This item is optional. If it is present it should be the first
-item of the file. If it is not present, the braille encoding of each
-test is determined by the table that is being tested.
+test. This item is optional. It is only taken into account for the
+&lsquo;<samp>forward</samp>&rsquo;, &lsquo;<samp>backward</samp>&rsquo; and &lsquo;<samp>bothDirections</samp>&rsquo; test
+modes. If it is present it should be the first item of the file. If it
+is not present, the braille encoding of each test is determined by the
+table that is being tested.
 </p>
 <p>The next example shows how to test the <samp>en-ueb-g1.ctb</samp> table
 using ASCII notation (as defined in <samp>en-ueb-g1.ctb</samp> itself):
@@ -2877,19 +2999,27 @@ values:
 </p>
 <dl compact="compact">
 <dt>&lsquo;<samp>forward</samp>&rsquo;</dt>
-<dd><p>This indicates that the tests are for forward translation
+<dd><p>This indicates that the tests are for forward translation.
 </p></dd>
 <dt>&lsquo;<samp>backward</samp>&rsquo;</dt>
-<dd><p>This indicates that the tests are for backward translation
+<dd><p>This indicates that the tests are for backward translation.
 </p></dd>
 <dt>&lsquo;<samp>bothDirections</samp>&rsquo;</dt>
-<dd><p>This indicates that the tests are for both forward and backward translation.
+<dd><p>Checks that forward translating the input yields the expected output,
+and backward translating the output yields the input again.
+</p></dd>
+<dt>&lsquo;<samp>display</samp>&rsquo;</dt>
+<dd><p>Checks that a display table maps characters to the expected dot
+patterns. The input is a string of characters, the output are the
+corresponding dot patterns, as a string of Unicode braille
+symbols. Virtual dots in the output are ignored.
 </p></dd>
 <dt>&lsquo;<samp>hyphenate</samp>&rsquo;</dt>
-<dd><p>This indicates that the tests are for hyphenation
+<dd><p>This indicates that the tests are for hyphenation.
 </p></dd>
 <dt>&lsquo;<samp>hyphenateBraille</samp>&rsquo;</dt>
-<dd><p>This indicates that the tests are for hyphenation and the input is braille
+<dd><p>This indicates that the tests are for hyphenation and the input is
+braille.
 </p></dd>
 </dl>
 
@@ -2898,11 +3028,12 @@ values:
 </dd>
 <dt>&lsquo;<samp>tests</samp>&rsquo;</dt>
 <dd><p>A list of tests. Each test consists of a list of two, three or in some
-cases even four items. The first item is the unicode text to be
-tested. The second item is the expected braille output. This can be
-either unicode braille or an ASCII-braille like encoding. Quoting
-strings is optional. Comments can be inserted almost anywhere using
-the &lsquo;<samp>#</samp>&rsquo; sign. A simple test would look at follows:
+cases four items. The first item is the test input. The second item is
+the expected output. Braille input and output can be either Unicode
+braille or an ASCII-braille like encoding, depending on the specified
+test mode, translation mode and display table. Quoting strings is
+optional. Comments can be inserted almost anywhere using the &lsquo;<samp>#</samp>&rsquo;
+sign. A simple test would look at follows:
 </p>
 <div class="example">
 <pre class="example">  - # a simple, no-frills test
@@ -3968,6 +4099,8 @@ directory. Usage information is included in the Python module itself.
  &nbsp; 
 <a class="summary-letter" href="#Concept-Index_cp_letter-R"><b>R</b></a>
  &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-S"><b>S</b></a>
+ &nbsp; 
 <a class="summary-letter" href="#Concept-Index_cp_letter-T"><b>T</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Concept-Index_cp_letter-V"><b>V</b></a>
@@ -3995,6 +4128,9 @@ directory. Usage information is included in the Python module itself.
 <tr><td></td><td valign="top"><a href="#index-Running-individual-YAML-tests">Running individual YAML tests</a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fcheckyaml">lou_checkyaml</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Running-YAML-tests-manually">Running YAML tests manually</a>:</td><td>&nbsp;</td><td valign="top"><a href="#lou_005fcheckyaml">lou_checkyaml</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Concept-Index_cp_letter-S">S</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Standing-alone">Standing alone</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Opcodes-for-Standing-Alone-Sequences">Opcodes for Standing Alone Sequences</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Concept-Index_cp_letter-T">T</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Table-search-path">Table search path</a>:</td><td>&nbsp;</td><td valign="top"><a href="#How-tables-are-found">How tables are found</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
@@ -4013,6 +4149,8 @@ directory. Usage information is included in the Python module itself.
 <a class="summary-letter" href="#Concept-Index_cp_letter-O"><b>O</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Concept-Index_cp_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Concept-Index_cp_letter-S"><b>S</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Concept-Index_cp_letter-T"><b>T</b></a>
  &nbsp; 
@@ -4063,6 +4201,7 @@ directory. Usage information is included in the Python module itself.
 <tr><th id="Opcode-Index_opcode_letter-A">A</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-after">after</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dClass-Opcodes">Character-Class Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-always">always</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-attribute">attribute</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dClass-Opcodes">Character-Class Opcodes</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Opcode-Index_opcode_letter-B">B</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-before">before</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dClass-Opcodes">Character-Class Opcodes</a></td></tr>
@@ -4079,7 +4218,6 @@ directory. Usage information is included in the Python module itself.
 <tr><td></td><td valign="top"><a href="#index-capsletter">capsletter</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-capsmodechars">capsmodechars</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-capsnocont">capsnocont</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Special-Processing-Opcodes">Special Processing Opcodes</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-class">class</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dClass-Opcodes">Character-Class Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-comp6">comp6</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-compbrl">compbrl</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-context">context</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Context-and-Multipass-Opcodes">The Context and Multipass Opcodes</a></td></tr>
@@ -4166,6 +4304,10 @@ directory. Usage information is included in the Python module itself.
 <tr><td></td><td valign="top"><a href="#index-repword">repword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Opcode-Index_opcode_letter-S">S</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-seqafterchars">seqafterchars</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Opcodes-for-Standing-Alone-Sequences">Opcodes for Standing Alone Sequences</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-seqafterpattern">seqafterpattern</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Opcodes-for-Standing-Alone-Sequences">Opcodes for Standing Alone Sequences</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-seqbeforechars">seqbeforechars</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Opcodes-for-Standing-Alone-Sequences">Opcodes for Standing Alone Sequences</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-seqdelimiter">seqdelimiter</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Opcodes-for-Standing-Alone-Sequences">Opcodes for Standing Alone Sequences</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-sign">sign</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-space">space</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-sufword">sufword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
