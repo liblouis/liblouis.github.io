@@ -29,7 +29,7 @@ Braille table improvements
     -   Fixed several minor bugs.
 -   New table for Uzbek braille thanks to BAUM Engineering.
 -   New table for Ukrainian computer braille thanks to Andrey Yakuboy and Oleh Shpai.
--   Improvements to Arabic thanks to Ikrami Ahmad.
+-   Improvements to Arabic thanks to Ikrami Ahmad and Mada, Qatar Assistive Technology Center.
     -   Added a lot of new symbols (algebra, geometry, Greek, etc.) to the grade 1 table.
     -   Changed some symbols for less conflicts with grade 2.
     -   Implemented letter sign / grade 1 indicator to cancel numbers and inhibit contractions when in grade 2.
