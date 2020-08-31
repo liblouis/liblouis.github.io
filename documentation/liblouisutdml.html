@@ -2,120 +2,118 @@
 title: Liblouisutdml User's and Programmer's Manual
 ---
 
-<a name="SEC_Contents"></a>
+<span id="SEC_Contents"></span>
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
 
 <ul class="no-bullet">
-  <li><a name="toc-Introduction-1" href="#Introduction">1 Introduction</a></li>
-  <li><a name="toc-Transcribing-Documents-1" href="#Transcribing-Documents">2 Transcribing Documents</a>
+  <li><a id="toc-Introduction-1" href="#Introduction">1 Introduction</a></li>
+  <li><a id="toc-Transcribing-Documents-1" href="#Transcribing-Documents">2 Transcribing Documents</a>
   <ul class="no-bullet">
-    <li><a name="toc-Transcribing-XML-files-with-file2brl-1" href="#Transcribing-XML-files-with-file2brl">2.1 Transcribing XML files with file2brl</a></li>
-    <li><a name="toc-Transcribing-Text-Documents-1" href="#Transcribing-Text-Documents">2.2 Transcribing Text Documents</a></li>
-    <li><a name="toc-Transcribing-Poorly-Formatted-Documents-1" href="#Transcribing-Poorly-Formatted-Documents">2.3 Transcribing Poorly Formatted Documents</a></li>
-    <li><a name="toc-Transcribing-html-Documents-1" href="#Transcribing-html-Documents">2.4 Transcribing html Documents</a></li>
+    <li><a id="toc-Transcribing-XML-files-with-file2brl-1" href="#Transcribing-XML-files-with-file2brl">2.1 Transcribing XML files with file2brl</a></li>
+    <li><a id="toc-Transcribing-Text-Documents-1" href="#Transcribing-Text-Documents">2.2 Transcribing Text Documents</a></li>
+    <li><a id="toc-Transcribing-Poorly-Formatted-Documents-1" href="#Transcribing-Poorly-Formatted-Documents">2.3 Transcribing Poorly Formatted Documents</a></li>
+    <li><a id="toc-Transcribing-html-Documents-1" href="#Transcribing-html-Documents">2.4 Transcribing html Documents</a></li>
   </ul></li>
-  <li><a name="toc-Customization_003a-Configuring-liblouisutdml" href="#Customization-Configuring-liblouisutdml">3 Customization: Configuring liblouisutdml</a>
+  <li><a id="toc-Customization_003a-Configuring-liblouisutdml" href="#Customization-Configuring-liblouisutdml">3 Customization: Configuring liblouisutdml</a>
   <ul class="no-bullet">
-    <li><a name="toc-outputFormat-1" href="#outputFormat">3.1 outputFormat</a></li>
-    <li><a name="toc-translation-1" href="#translation">3.2 translation</a></li>
-    <li><a name="toc-xml-1" href="#xml">3.3 xml</a></li>
-    <li><a name="toc-style-1" href="#style">3.4 style</a>
+    <li><a id="toc-outputFormat-1" href="#outputFormat">3.1 outputFormat</a></li>
+    <li><a id="toc-translation-1" href="#translation">3.2 translation</a></li>
+    <li><a id="toc-xml-1" href="#xml">3.3 xml</a></li>
+    <li><a id="toc-style-1" href="#style">3.4 style</a>
     <ul class="no-bullet">
-      <li><a name="toc-style-document" href="#style-document">3.4.1 style document</a></li>
-      <li><a name="toc-style-contentsheader" href="#style-contentsheader">3.4.2 style contentsheader</a></li>
-      <li><a name="toc-style-contents1" href="#style-contents1">3.4.3 style contents1</a></li>
-      <li><a name="toc-style-contents2" href="#style-contents2">3.4.4 style contents2</a></li>
-      <li><a name="toc-style-contents3" href="#style-contents3">3.4.5 style contents3</a></li>
-      <li><a name="toc-style-contents4" href="#style-contents4">3.4.6 style contents4</a></li>
-      <li><a name="toc-style-heading1" href="#style-heading1">3.4.7 style heading1</a></li>
-      <li><a name="toc-style-heading2" href="#style-heading2">3.4.8 style heading2</a></li>
-      <li><a name="toc-style-heading3" href="#style-heading3">3.4.9 style heading3</a></li>
-      <li><a name="toc-style-heading4" href="#style-heading4">3.4.10 style heading4</a></li>
-      <li><a name="toc-style-para" href="#style-para">3.4.11 style para</a></li>
-      <li><a name="toc-style-boxline" href="#style-boxline">3.4.12 style boxline</a></li>
+      <li><a id="toc-style-document" href="#style-document">3.4.1 style document</a></li>
+      <li><a id="toc-style-contentsheader" href="#style-contentsheader">3.4.2 style contentsheader</a></li>
+      <li><a id="toc-style-contents1" href="#style-contents1">3.4.3 style contents1</a></li>
+      <li><a id="toc-style-contents2" href="#style-contents2">3.4.4 style contents2</a></li>
+      <li><a id="toc-style-contents3" href="#style-contents3">3.4.5 style contents3</a></li>
+      <li><a id="toc-style-contents4" href="#style-contents4">3.4.6 style contents4</a></li>
+      <li><a id="toc-style-heading1" href="#style-heading1">3.4.7 style heading1</a></li>
+      <li><a id="toc-style-heading2" href="#style-heading2">3.4.8 style heading2</a></li>
+      <li><a id="toc-style-heading3" href="#style-heading3">3.4.9 style heading3</a></li>
+      <li><a id="toc-style-heading4" href="#style-heading4">3.4.10 style heading4</a></li>
+      <li><a id="toc-style-para" href="#style-para">3.4.11 style para</a></li>
+      <li><a id="toc-style-boxline" href="#style-boxline">3.4.12 style boxline</a></li>
     </ul></li>
   </ul></li>
-  <li><a name="toc-Connecting-with-the-xml-Document-_002d-Semantic_002dAction-Files" href="#Connecting-with-the-xml-Document">4 Connecting with the xml Document - Semantic-Action Files</a>
+  <li><a id="toc-Connecting-with-the-xml-Document-_002d-Semantic_002dAction-Files" href="#Connecting-with-the-xml-Document">4 Connecting with the xml Document - Semantic-Action Files</a>
   <ul class="no-bullet">
-    <li><a name="toc-Overview-1" href="#Semantic-Actions-Overview">4.1 Overview</a></li>
-    <li><a name="toc-Semantic-Actions-in-detail-1" href="#Semantic-Actions-in-detail">4.2 Semantic Actions in detail</a></li>
-    <li><a name="toc-Pseudo_002dactions-1" href="#Pseudo_002dactions">4.3 Pseudo-actions</a>
+    <li><a id="toc-Overview-1" href="#Semantic-Actions-Overview">4.1 Overview</a></li>
+    <li><a id="toc-Semantic-Actions-in-detail-1" href="#Semantic-Actions-in-detail">4.2 Semantic Actions in detail</a></li>
+    <li><a id="toc-Pseudo_002dactions-1" href="#Pseudo_002dactions">4.3 Pseudo-actions</a>
     <ul class="no-bullet">
-      <li><a name="toc-include-1" href="#include">4.3.1 include</a></li>
-      <li><a name="toc-newentries-1" href="#newentries">4.3.2 newentries</a></li>
-      <li><a name="toc-namespaces-1" href="#namespaces">4.3.3 namespaces</a></li>
+      <li><a id="toc-include-1" href="#include">4.3.1 include</a></li>
+      <li><a id="toc-newentries-1" href="#newentries">4.3.2 newentries</a></li>
+      <li><a id="toc-namespaces-1" href="#namespaces">4.3.3 namespaces</a></li>
     </ul></li>
-    <li><a name="toc-Using-XPath-Expressions-1" href="#Using-XPath-Expressions">4.4 Using XPath Expressions</a></li>
-    <li><a name="toc-Using-Macros-1" href="#Using-Macros">4.5 Using Macros</a></li>
+    <li><a id="toc-Using-XPath-Expressions-1" href="#Using-XPath-Expressions">4.4 Using XPath Expressions</a></li>
+    <li><a id="toc-Using-Macros-1" href="#Using-Macros">4.5 Using Macros</a></li>
   </ul></li>
-  <li><a name="toc-Special-Features-1" href="#Special-Features">5 Special Features</a>
+  <li><a id="toc-Special-Features-1" href="#Special-Features">5 Special Features</a>
   <ul class="no-bullet">
-    <li><a name="toc-Table-of-contents-1" href="#Table-of-contents">5.1 Table of contents</a></li>
-    <li><a name="toc-Back_002dtranslation-1" href="#Back_002dtranslation">5.2 Back-translation</a></li>
-    <li><a name="toc-Reformatting-1" href="#Reformatting">5.3 Reformatting</a></li>
-    <li><a name="toc-Interlining-1" href="#Interlining">5.4 Interlining</a></li>
-    <li><a name="toc-Browser_002dFriendly-Output-1" href="#Browser_002dFriendly-Output">5.5 Browser-Friendly Output</a></li>
-    <li><a name="toc-CDATA-Sections-1" href="#CDATA-Sections">5.6 <code>CDATA</code> Sections</a></li>
-    <li><a name="toc-End-notes-1" href="#End-notes">5.7 End notes</a>
+    <li><a id="toc-Table-of-contents-1" href="#Table-of-contents">5.1 Table of contents</a></li>
+    <li><a id="toc-Back_002dtranslation-1" href="#Back_002dtranslation">5.2 Back-translation</a></li>
+    <li><a id="toc-Reformatting-1" href="#Reformatting">5.3 Reformatting</a></li>
+    <li><a id="toc-Interlining-1" href="#Interlining">5.4 Interlining</a></li>
+    <li><a id="toc-Browser_002dFriendly-Output-1" href="#Browser_002dFriendly-Output">5.5 Browser-Friendly Output</a></li>
+    <li><a id="toc-CDATA-Sections-1" href="#CDATA-Sections">5.6 <code>CDATA</code> Sections</a></li>
+    <li><a id="toc-End-notes-1" href="#End-notes">5.7 End notes</a>
     <ul class="no-bullet">
-      <li><a name="toc-Use-of-Endnotes-1" href="#Use-of-Endnotes">5.7.1 Use of Endnotes</a></li>
-      <li><a name="toc-Output-1" href="#Output">5.7.2 Output</a></li>
-      <li><a name="toc-Configuration-1" href="#Configuration">5.7.3 Configuration</a></li>
-      <li><a name="toc-Styles-1" href="#Styles">5.7.4 Styles</a></li>
-      <li><a name="toc-Semantic-Actions-1" href="#Semantic-Actions">5.7.5 Semantic Actions</a></li>
-      <li><a name="toc-Example-1" href="#Example">5.7.6 Example</a>
+      <li><a id="toc-Use-of-Endnotes-1" href="#Use-of-Endnotes">5.7.1 Use of Endnotes</a></li>
+      <li><a id="toc-Output-1" href="#Output">5.7.2 Output</a></li>
+      <li><a id="toc-Configuration-1" href="#Configuration">5.7.3 Configuration</a></li>
+      <li><a id="toc-Styles-1" href="#Styles">5.7.4 Styles</a></li>
+      <li><a id="toc-Semantic-Actions-1" href="#Semantic-Actions">5.7.5 Semantic Actions</a></li>
+      <li><a id="toc-Example-1" href="#Example">5.7.6 Example</a>
       <ul class="no-bullet">
-        <li><a name="toc-input_002exml" href="#input_002exml">5.7.6.1 input.xml</a></li>
-        <li><a name="toc-liblouisutdml_002eini" href="#liblouisutdml_002eini">5.7.6.2 liblouisutdml.ini</a></li>
-        <li><a name="toc-endnotes_002esem-1" href="#endnotes_002esem-1">5.7.6.3 endnotes.sem</a></li>
-        <li><a name="toc-styles_002ecfg" href="#styles_002ecfg">5.7.6.4 styles.cfg</a></li>
-        <li><a name="toc-output_002etxt" href="#output_002etxt">5.7.6.5 output.txt</a></li>
+        <li><a id="toc-input_002exml" href="#input_002exml">5.7.6.1 input.xml</a></li>
+        <li><a id="toc-liblouisutdml_002eini" href="#liblouisutdml_002eini">5.7.6.2 liblouisutdml.ini</a></li>
+        <li><a id="toc-endnotes_002esem-1" href="#endnotes_002esem-1">5.7.6.3 endnotes.sem</a></li>
+        <li><a id="toc-styles_002ecfg" href="#styles_002ecfg">5.7.6.4 styles.cfg</a></li>
+        <li><a id="toc-output_002etxt" href="#output_002etxt">5.7.6.5 output.txt</a></li>
       </ul></li>
     </ul></li>
   </ul></li>
-  <li><a name="toc-Special-Formats-1" href="#Special-Formats">6 Special Formats</a>
+  <li><a id="toc-Special-Formats-1" href="#Special-Formats">6 Special Formats</a>
   <ul class="no-bullet">
-    <li><a name="toc-Tables-1" href="#Tables">6.1 Tables</a></li>
-    <li><a name="toc-Reserving-Space-for-Graphics-1" href="#Reserving-Space-for-Graphics">6.2 Reserving Space for Graphics</a></li>
-    <li><a name="toc-Displayed-Text-1" href="#Displayed-Text">6.3 Displayed Text</a></li>
-    <li><a name="toc-Displayed-Mathematics-1" href="#Displayed-Mathematics">6.4 Displayed Mathematics</a></li>
-    <li><a name="toc-Spatial-Layouts-in-Mathematics-1" href="#Spatial-Layouts-in-Mathematics">6.5 Spatial Layouts in Mathematics</a></li>
-    <li><a name="toc-Arithmetic-Examples-1" href="#Arithmetic-Examples">6.6 Arithmetic Examples</a></li>
-    <li><a name="toc-Poetry-1" href="#Poetry">6.7 Poetry</a></li>
-    <li><a name="toc-Dividing-a-Book-Into-Volumes-1" href="#Dividing-a-Book-Into-Volumes">6.8 Dividing a Book Into Volumes</a></li>
+    <li><a id="toc-Tables-1" href="#Tables">6.1 Tables</a></li>
+    <li><a id="toc-Reserving-Space-for-Graphics-1" href="#Reserving-Space-for-Graphics">6.2 Reserving Space for Graphics</a></li>
+    <li><a id="toc-Displayed-Text-1" href="#Displayed-Text">6.3 Displayed Text</a></li>
+    <li><a id="toc-Displayed-Mathematics-1" href="#Displayed-Mathematics">6.4 Displayed Mathematics</a></li>
+    <li><a id="toc-Spatial-Layouts-in-Mathematics-1" href="#Spatial-Layouts-in-Mathematics">6.5 Spatial Layouts in Mathematics</a></li>
+    <li><a id="toc-Arithmetic-Examples-1" href="#Arithmetic-Examples">6.6 Arithmetic Examples</a></li>
+    <li><a id="toc-Poetry-1" href="#Poetry">6.7 Poetry</a></li>
+    <li><a id="toc-Dividing-a-Book-Into-Volumes-1" href="#Dividing-a-Book-Into-Volumes">6.8 Dividing a Book Into Volumes</a></li>
   </ul></li>
-  <li><a name="toc-Implementing-Braille-Mathematics-Codes-1" href="#Implementing-Braille-Mathematics-Codes">7 Implementing Braille Mathematics Codes</a></li>
-  <li><a name="toc-Programming-with-liblouisutdml-1" href="#Programming-with-liblouisutdml">8 Programming with liblouisutdml</a>
+  <li><a id="toc-Implementing-Braille-Mathematics-Codes-1" href="#Implementing-Braille-Mathematics-Codes">7 Implementing Braille Mathematics Codes</a></li>
+  <li><a id="toc-Programming-with-liblouisutdml-1" href="#Programming-with-liblouisutdml">8 Programming with liblouisutdml</a>
   <ul class="no-bullet">
-    <li><a name="toc-License-1" href="#License">8.1 License</a></li>
-    <li><a name="toc-Overview-2" href="#Overview">8.2 Overview</a></li>
-    <li><a name="toc-Files-and-Paths-1" href="#Files-and-Paths">8.3 Files and Paths</a></li>
-    <li><a name="toc-lbu_005fversion-1" href="#lbu_005fversion">8.4 lbu_version</a></li>
-    <li><a name="toc-lbu_005finitialize-1" href="#lbu_005finitialize">8.5 lbu_initialize</a></li>
-    <li><a name="toc-lbu_005ftranslateString-1" href="#lbu_005ftranslateString">8.6 lbu_translateString</a></li>
-    <li><a name="toc-lbu_005ftranslateFile-1" href="#lbu_005ftranslateFile">8.7 lbu_translateFile</a></li>
-    <li><a name="toc-lbu_005ftranslateTextFile-1" href="#lbu_005ftranslateTextFile">8.8 lbu_translateTextFile</a></li>
-    <li><a name="toc-lbu_005fbackTranslateFile-1" href="#lbu_005fbackTranslateFile">8.9 lbu_backTranslateFile</a></li>
-    <li><a name="toc-lbu_005ffree-1" href="#lbu_005ffree">8.10 lbu_free</a></li>
+    <li><a id="toc-License-1" href="#License">8.1 License</a></li>
+    <li><a id="toc-Overview-2" href="#Overview">8.2 Overview</a></li>
+    <li><a id="toc-Files-and-Paths-1" href="#Files-and-Paths">8.3 Files and Paths</a></li>
+    <li><a id="toc-lbu_005fversion-1" href="#lbu_005fversion">8.4 lbu_version</a></li>
+    <li><a id="toc-lbu_005finitialize-1" href="#lbu_005finitialize">8.5 lbu_initialize</a></li>
+    <li><a id="toc-lbu_005ftranslateString-1" href="#lbu_005ftranslateString">8.6 lbu_translateString</a></li>
+    <li><a id="toc-lbu_005ftranslateFile-1" href="#lbu_005ftranslateFile">8.7 lbu_translateFile</a></li>
+    <li><a id="toc-lbu_005ftranslateTextFile-1" href="#lbu_005ftranslateTextFile">8.8 lbu_translateTextFile</a></li>
+    <li><a id="toc-lbu_005fbackTranslateFile-1" href="#lbu_005fbackTranslateFile">8.9 lbu_backTranslateFile</a></li>
+    <li><a id="toc-lbu_005ffree-1" href="#lbu_005ffree">8.10 lbu_free</a></li>
   </ul></li>
-  <li><a name="toc-Example-files-1" href="#Example-files">Appendix A Example files</a></li>
-  <li><a name="toc-Configuration-Settings-Index-1" href="#Configuration-Settings-Index">Configuration Settings Index</a></li>
-  <li><a name="toc-Semantic-Action-Index-1" href="#Semantic-Action-Index">Semantic Action Index</a></li>
-  <li><a name="toc-Style-Index-1" href="#Style-Index">Style Index</a></li>
-  <li><a name="toc-Function-Index-1" href="#Function-Index">Function Index</a></li>
-  <li><a name="toc-Program-Index-1" href="#Program-Index">Program Index</a></li>
-  <li><a name="toc-Concept-Index-1" href="#Concept-Index">Concept Index</a></li>
+  <li><a id="toc-Example-files-1" href="#Example-files">Appendix A Example files</a></li>
+  <li><a id="toc-Configuration-Settings-Index-1" href="#Configuration-Settings-Index" rel="index">Configuration Settings Index</a></li>
+  <li><a id="toc-Semantic-Action-Index-1" href="#Semantic-Action-Index" rel="index">Semantic Action Index</a></li>
+  <li><a id="toc-Style-Index-1" href="#Style-Index" rel="index">Style Index</a></li>
+  <li><a id="toc-Function-Index-1" href="#Function-Index" rel="index">Function Index</a></li>
+  <li><a id="toc-Program-Index-1" href="#Program-Index" rel="index">Program Index</a></li>
+  <li><a id="toc-Concept-Index-1" href="#Concept-Index" rel="index">Concept Index</a></li>
 </ul>
 </div>
 
 
-<a name="Top"></a>
-<a name="Liblouisutdml-User_0027s-and-Programmer_0027s-Manual"></a>
-<h1 class="top">Liblouisutdml User&rsquo;s and Programmer&rsquo;s Manual</h1>
+<span id="Top"></span><span id="Liblouisutdml-User_0027s-and-Programmer_0027s-Manual"></span><h1 class="top">Liblouisutdml User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouisutdml (version 2.8.0,
+<p>This manual is for liblouisutdml (version 2.9.0,
 28 August 2017), an xml to Braille Translation Library.
 </p>
 <p>This file may contain code borrowed from the Linux screenreader
@@ -144,11 +142,8 @@ Fifth Floor, Boston, MA 02110-1301, USA.
 </p></blockquote>
 
 
-
 <hr>
-<a name="Introduction"></a>
-<a name="Introduction-1"></a>
-<h2 class="chapter">1 Introduction</h2>
+<span id="Introduction"></span><span id="Introduction-1"></span><h2 class="chapter">1 Introduction</h2>
 
 <p>liblouisutdml is a software component which can be incorporated into
 software packages to provide the capability of translating any file in
@@ -180,16 +175,12 @@ library liblouis, which is a braille translator and back-translator
 Manual</cite>).
 </p>
 <hr>
-<a name="Transcribing-Documents"></a>
-<a name="Transcribing-Documents-1"></a>
-<h2 class="chapter">2 Transcribing Documents</h2>
+<span id="Transcribing-Documents"></span><span id="Transcribing-Documents-1"></span><h2 class="chapter">2 Transcribing Documents</h2>
 
 
 <hr>
-<a name="Transcribing-XML-files-with-file2brl"></a>
-<a name="Transcribing-XML-files-with-file2brl-1"></a>
-<h3 class="section">2.1 Transcribing XML files with file2brl</h3>
-<a name="index-file2brl"></a>
+<span id="Transcribing-XML-files-with-file2brl"></span><span id="Transcribing-XML-files-with-file2brl-1"></span><h3 class="section">2.1 Transcribing XML files with file2brl</h3>
+<span id="index-file2brl"></span>
 
 <p>At the moment, actual transcription with liblouisutdml is done with the
 command-line (or console) program <code>file2brl</code>. The line to type
@@ -358,9 +349,7 @@ configuration file is <samp>preferences.cfg</samp>, input is from the
 standard input unit, and output is to the standard output unit.
 </p>
 <hr>
-<a name="Transcribing-Text-Documents"></a>
-<a name="Transcribing-Text-Documents-1"></a>
-<h3 class="section">2.2 Transcribing Text Documents</h3>
+<span id="Transcribing-Text-Documents"></span><span id="Transcribing-Text-Documents-1"></span><h3 class="section">2.2 Transcribing Text Documents</h3>
 
 <p>See the previous section on using <code>file2brl</code>. This program
 recognizes text files automatically and transcribes them according to
@@ -369,9 +358,7 @@ separated with a blank line. If you want a blank line in the output use
 two blank lines.
 </p>
 <hr>
-<a name="Transcribing-Poorly-Formatted-Documents"></a>
-<a name="Transcribing-Poorly-Formatted-Documents-1"></a>
-<h3 class="section">2.3 Transcribing Poorly Formatted Documents</h3>
+<span id="Transcribing-Poorly-Formatted-Documents"></span><span id="Transcribing-Poorly-Formatted-Documents-1"></span><h3 class="section">2.3 Transcribing Poorly Formatted Documents</h3>
 
 <div class="example">
 <pre class="example">file2brl -p infile outfile
@@ -386,9 +373,7 @@ Its choices are usually good. Note that it does not work with rtf
 files.
 </p>
 <hr>
-<a name="Transcribing-html-Documents"></a>
-<a name="Transcribing-html-Documents-1"></a>
-<h3 class="section">2.4 Transcribing html Documents</h3>
+<span id="Transcribing-html-Documents"></span><span id="Transcribing-html-Documents-1"></span><h3 class="section">2.4 Transcribing html Documents</h3>
 
 <div class="example">
 <pre class="example">file2brl -t infile outfile
@@ -400,9 +385,7 @@ messages. <code>file2brl</code> will then try the html parser. Note that
 xhtml documents are actually xml.
 </p>
 <hr>
-<a name="Customization-Configuring-liblouisutdml"></a>
-<a name="Customization_003a-Configuring-liblouisutdml"></a>
-<h2 class="chapter">3 Customization: Configuring liblouisutdml</h2>
+<span id="Customization-Configuring-liblouisutdml"></span><span id="Customization_003a-Configuring-liblouisutdml"></span><h2 class="chapter">3 Customization: Configuring liblouisutdml</h2>
 
 <p>The operation of liblouisutdml is controlled by two types of files:
 semantic-action files and configuration files. The former are
@@ -486,25 +469,23 @@ by the value of the setting. A few settings have two values.
 </p>
 
 <hr>
-<a name="outputFormat"></a>
-<a name="outputFormat-1"></a>
-<h3 class="section">3.1 outputFormat</h3>
+<span id="outputFormat"></span><span id="outputFormat-1"></span><h3 class="section">3.1 outputFormat</h3>
 
 <p>This section specifies the format of the output file (or string).
 </p>
 <dl compact="compact">
 <dd>
-<a name="index-cellsPerLine"></a>
+<span id="index-cellsPerLine"></span>
 </dd>
 <dt><code>cellsPerLine 40</code></dt>
 <dd><p>The number of cells in a braille line.
 </p>
-<a name="index-linesPerPage"></a>
+<span id="index-linesPerPage"></span>
 </dd>
 <dt><code>linesPerPage 25</code></dt>
 <dd><p>The number of lines on a braille page
 </p>
-<a name="index-interpoint"></a>
+<span id="index-interpoint"></span>
 </dd>
 <dt><code>interpoint no</code></dt>
 <dd><p>Whether or not the output will be used to produce interpoint braille.
@@ -512,7 +493,7 @@ This affects the placement of page numbers and may affect other things
 in the future. The only two values recognized are &lsquo;<samp>yes</samp>&rsquo; and
 &lsquo;<samp>no</samp>&rsquo;.
 </p>
-<a name="index-lineEnd"></a>
+<span id="index-lineEnd"></span>
 </dd>
 <dt><code>lineEnd \r\n</code></dt>
 <dd><p>This specifies the control characters to be placed at the end of each
@@ -522,25 +503,25 @@ combination specified above. However, a braille display may work best
 with just one or the other. Any valid control characters can be
 specified.
 </p>
-<a name="index-pageEnd"></a>
+<span id="index-pageEnd"></span>
 </dd>
 <dt><code>pageEnd \f</code></dt>
 <dd><p>The control Character to be given at the end of a page. Here it is a
 forms-feed character, but it can be something else if deeded.
 </p>
-<a name="index-fileEnd"></a>
+<span id="index-fileEnd"></span>
 </dd>
 <dt><code>fileEnd ^z</code></dt>
 <dd><p>The control character to be placed at the end of the file, here a
 control-z.
 </p>
-<a name="index-printPages"></a>
+<span id="index-printPages"></span>
 </dd>
 <dt><code>printPages yes</code></dt>
 <dd><p>Whether or not to show print page numbers if they are given in the xml
 input. The two valid values are &lsquo;<samp>yes</samp>&rsquo; and &lsquo;<samp>no</samp>&rsquo;.
 </p>
-<a name="index-braillePages"></a>
+<span id="index-braillePages"></span>
 </dd>
 <dt><code>braillePages yes</code></dt>
 <dd><p>Whether or not to format the output into pages. Here the value is
@@ -550,7 +531,7 @@ page numbers and forms feed characters. If no is specified the lines
 will still be of the length given in <code>cellsPerLine</code>, but the
 value of <code>linesPerPage</code> will be ignored.
 </p>
-<a name="index-paragraphs"></a>
+<span id="index-paragraphs"></span>
 </dd>
 <dt><code>paragraphs yes</code></dt>
 <dd><p>Whether or not to format the output into paragraphs, using appropriate
@@ -558,14 +539,14 @@ styles. If &lsquo;<samp>no</samp>&rsquo; is specified, what would be a paragraph
 simply as one long line. Applications that wish to do their own
 formatting may specify &lsquo;<samp>no</samp>&rsquo;.
 </p>
-<a name="index-beginningPageNumber"></a>
+<span id="index-beginningPageNumber"></span>
 </dd>
 <dt><code>beginningPageNumber 1</code></dt>
 <dd><p>This is the number to be placed on the first Braille page if
 <code>braillePages</code> is yes. This is useful when producing multiple
 Braille volumes.
 </p>
-<a name="index-printPageNumberAt"></a>
+<span id="index-printPageNumberAt"></span>
 </dd>
 <dt><code>printPageNumberAt top</code></dt>
 <dd><p>If print page numbers are given in the xml input file they will be
@@ -574,7 +555,7 @@ placed at the top of each braille page in the right-hand corner. If
 also be produced on the Braille page where the print page break
 actually occurs. You may also specify &lsquo;<samp>bottom</samp>&rsquo; for this setting.
 </p>
-<a name="index-braillePageNumberAt"></a>
+<span id="index-braillePageNumberAt"></span>
 </dd>
 <dt><code>braillePageNumberAt bottom</code></dt>
 <dd><p>The braille page number will be placed in the bottom right-hand corner
@@ -584,13 +565,13 @@ this setting. If print page numbers and Braille page numbers are both
 placed at the top or bottom, they are rendered next to each other with
 a space in between.
 </p>
-<a name="continuePages-setting"></a><a name="index-continuePages"></a>
+<span id="continuePages-setting"></span><span id="index-continuePages"></span>
 </dd>
 <dt><code>continuePages yes</code></dt>
 <dd><p>Print page numbers can be prefixed with a letter (a, b, c, etc.) on
 continued pages. The two valid values are &lsquo;<samp>yes</samp>&rsquo; and &lsquo;<samp>no</samp>&rsquo;.
 </p>
-<a name="pageSeparator-setting"></a><a name="index-pageSeparator"></a>
+<span id="pageSeparator-setting"></span><span id="index-pageSeparator"></span>
 </dd>
 <dt><code>pageSeparator yes</code></dt>
 <dd><p>A page separator line (or page break indicator), a line of unspaced
@@ -599,14 +580,14 @@ page separator lines are placed on the first or last line of a Braille
 page, and no page separator lines are shown when the new print page
 coincides with a new Braille page.
 </p>
-<a name="index-pageSeparatorNumber"></a>
+<span id="index-pageSeparatorNumber"></span>
 </dd>
 <dt><code>pageSeparatorNumber yes</code></dt>
 <dd><p>Show a page number at the far right margin of a page separator line.
 No space is left between the separator line and the first symbol of
 the page number.
 </p>
-<a name="index-ignoreEmptyPages"></a>
+<span id="index-ignoreEmptyPages"></span>
 </dd>
 <dt><code>ignoreEmptyPages yes</code></dt>
 <dd><p>An empty page occurs when a <code>pagenum</code> tag is immediately followed
@@ -618,7 +599,7 @@ on which text reappears, e.g. 5-7. If lettered continuation pages are
 required (see <code>continuePages</code>), they carry only the number of the
 page on which text reappears.
 </p>
-<a name="printPageNumberRange-setting"></a><a name="index-printPageNumberRange"></a>
+<span id="printPageNumberRange-setting"></span><span id="index-printPageNumberRange"></span>
 </dd>
 <dt><code>printPageNumberRange no</code></dt>
 <dd><p>By default, only the page number of the <em>first</em> print page on a
@@ -628,14 +609,14 @@ print pages contained in the current Braille page is displayed. If the
 first page in this range is a continued print page, it is prefixed
 with a letter as usual (see <code>continuePages</code>).
 </p>
-<a name="index-mergeUnnumberedPages"></a>
+<span id="index-mergeUnnumberedPages"></span>
 </dd>
 <dt><code>mergeUnnumberedPages yes</code></dt>
 <dd><p>Page breaks without a page number can simply be ignored. This means
 that unnumbered print pages will be treated as if they were a part of
 the preceding page. You can also specify &lsquo;<samp>no</samp>&rsquo; for this setting.
 </p>
-<a name="index-pageNumberTopSeparateLine"></a>
+<span id="index-pageNumberTopSeparateLine"></span>
 </dd>
 <dt><code>pageNumberTopSeparateLine yes</code></dt>
 <dd><p>Whether or not to provide a separate line for page numbers when they
@@ -644,13 +625,13 @@ are placed at the top of a Braille page. The two valid values are
 <code>printPageNumberRange</code>) at the top of a page is always displayed
 on a separate line.
 </p>
-<a name="index-pageNumberBottomSeparateLine"></a>
+<span id="index-pageNumberBottomSeparateLine"></span>
 </dd>
 <dt><code>pageNumberBottomSeparateLine yes</code></dt>
 <dd><p>Whether or not to provide a separate line for page numbers when they
 are placed at the bottom of a Braille page.
 </p>
-<a name="index-hyphenate"></a>
+<span id="index-hyphenate"></span>
 </dd>
 <dt><code>hyphenate no</code></dt>
 <dd><p>If &lsquo;<samp>yes</samp>&rsquo; is specified words will be hyphenated at the ends of
@@ -660,7 +641,7 @@ considerable space. The hyphenation table is specified as part of the
 table list in the <code>literaryTextTable</code> setting of the translation
 section.
 </p>
-<a name="index-outputEncoding"></a>
+<span id="index-outputEncoding"></span>
 </dd>
 <dt><code>outputEncoding ascii8</code></dt>
 <dd><p>This specifies that the output is to be in the form of 8-bit ASCII
@@ -670,13 +651,13 @@ for a braille embosser or display. The other values of encoding are
 application will process the output further, such as for generating
 displays of braille dots on a screen.
 </p>
-<a name="index-inputTextEncoding"></a>
+<span id="index-inputTextEncoding"></span>
 </dd>
 <dt><code>inputTextEncoding ascii8</code></dt>
 <dd><p>This setting is used to specify the encoding of an input text file.
 The valid values are &lsquo;<samp>UTF8</samp>&rsquo; and &lsquo;<samp>ascii8</samp>&rsquo;.
 </p>
-<a name="formatFor-setting"></a><a name="index-formatFor"></a>
+<span id="formatFor-setting"></span><span id="index-formatFor"></span>
 </dd>
 <dt><code>formatFor textDevice</code></dt>
 <dd><p>This setting specifies the type of device the output is intended for.
@@ -690,7 +671,7 @@ These files work well in lynx and Internet Explorer, not so well
 in
 elinks and Firefox (Before Jaws 10).
 </p>
-<a name="index-backFormat"></a>
+<span id="index-backFormat"></span>
 </dd>
 <dt><code>backFormat plain</code></dt>
 <dd><p>This setting specifies the format of back-translated files.
@@ -699,14 +680,14 @@ The latter is always encoded in UTF-8. Plain-text files can be encoded
 in ascii8, UTF-8 or UTF-16. Html is strongly recommended, since it
 will preserve print page numbering and emphasis.
 </p>
-<a name="index-backLineLength"></a>
+<span id="index-backLineLength"></span>
 </dd>
 <dt><code>backLineLength 70</code></dt>
 <dd><p>This setting specifies the length of lines in back-translated files,
 whether in plain-text or html. This is mainly for human readability.
 Lines may sometimes be somewhat longer.
 </p>
-<a name="lineFill-setting"></a><a name="index-lineFill"></a>
+<span id="lineFill-setting"></span><span id="index-lineFill"></span>
 </dd>
 <dt><code>lineFill '</code></dt>
 <dd><p>This setting defines the fill character that will be used before the
@@ -717,35 +698,33 @@ character is an apostrophe (dot 3).
 </dl>
 
 <hr>
-<a name="translation"></a>
-<a name="translation-1"></a>
-<h3 class="section">3.2 translation</h3>
+<span id="translation"></span><span id="translation-1"></span><h3 class="section">3.2 translation</h3>
 
 <p>This section specifies the liblouis translation tables to be used for
 various purposes.
 </p>
 <dl compact="compact">
 <dd>
-<a name="index-literaryTextTable"></a>
+<span id="index-literaryTextTable"></span>
 </dd>
 <dt><code>literaryTextTable en-us-g2.ctb</code></dt>
 <dd><p>The table used for producing literary braille. This may be either
 contracted or uncontracted.
 </p>
-<a name="index-uncontractedTable"></a>
+<span id="index-uncontractedTable"></span>
 </dd>
 <dt><code>uncontractedTable en-us-g1.ctb</code></dt>
 <dd><p>The table used for producing uncontracted or Grade One braille. This
 setting appears to be superfluous and may be eliminated in the future.
 </p>
-<a name="index-compbrailleTable"></a>
+<span id="index-compbrailleTable"></span>
 </dd>
 <dt><code>compbrailleTable en-us-compbrl.ctb</code></dt>
 <dd><p>The table used for producing large amounts of output in computer
 braille, such as computer programs. The computer braille table is
 usually combined with one of the two tables above.
 </p>
-<a name="index-mathtextTable"></a>
+<span id="index-mathtextTable"></span>
 </dd>
 <dt><code>mathtextTable en-us-mathtext.ctb</code></dt>
 <dd><p>This table specifies how the non-mathematical parts of math books are
@@ -754,12 +733,12 @@ literaryTextTable or uncontractedTable. For books translated with the
 Nemeth Code it is different, because this code requires modification
 of standard Grade Two.
 </p>
-<a name="index-MathexpTable"></a>
+<span id="index-MathexpTable"></span>
 </dd>
 <dt><code>MathexpTable nemeth.ctb</code></dt>
 <dd><p>This is the table used to translate mathematical expressions.
 </p>
-<a name="index-editTable"></a>
+<span id="index-editTable"></span>
 </dd>
 <dt><code>editTable nemeth_edit.ctb</code></dt>
 <dd><p>When the output includes both mathematics and text there may be errors
@@ -770,15 +749,13 @@ removes these errors.
 </dl>
 
 <hr>
-<a name="xml"></a>
-<a name="xml-1"></a>
-<h3 class="section">3.3 xml</h3>
+<span id="xml"></span><span id="xml-1"></span><h3 class="section">3.3 xml</h3>
 
 <p>This section provides various information for the processing of xml files.
 </p>
 <dl compact="compact">
 <dd>
-<a name="index-semanticFiles"></a>
+<span id="index-semanticFiles"></span>
 </dd>
 <dt><code>semanticFiles *,nemeth.sem</code></dt>
 <dd><p>This setting gives a list of semantic-action files. These files are
@@ -788,13 +765,13 @@ is to be named by taking the root element of the document and
 appending &lsquo;<samp>.sem</samp>&rsquo;. This asterisk member may occur anywhere in the
 list.
 </p>
-<a name="index-xmlheader"></a>
+<span id="index-xmlheader"></span>
 </dd>
 <dt><code>xmlheader &lt;?xml version='1.0' encoding='UTF8' standalone='yes'?&gt;</code></dt>
 <dd><p>This line gives the xml header to be added to strings produced by
 programs like <code>Mathtype</code> that lack one.
 </p>
-<a name="index-entity"></a>
+<span id="index-entity"></span>
 </dd>
 <dt><code>entity nbsp ^1</code></dt>
 <dd><p>This line defines an entity or substitution in an xml file. It is one
@@ -805,7 +782,7 @@ provided by xmlHeader. In <samp>liblouisutdml.ini</samp> this line is commented
 out, because specifying it at this point would prevent the user from
 specifying his own xmlheader.
 </p>
-<a name="index-internetAccess"></a>
+<span id="index-internetAccess"></span>
 </dd>
 <dt><code>internetAccess yes</code></dt>
 <dd><p>The computer has an internet connection and liblouisutdml may obtain
@@ -814,7 +791,7 @@ Internet. If this setting is &lsquo;<samp>no</samp>&rsquo; liblouisutdml will no
 the internet. The necessary information may, however, be provided on
 the local machine in the form of a &quot;dtd&quot; file.
 </p>
-<a name="index-newEntries"></a>
+<span id="index-newEntries"></span>
 </dd>
 <dt><code>newEntries yes</code></dt>
 <dd><p>liblouisutdml may create a new semantic-action file (beginning with
@@ -831,9 +808,7 @@ with the minutiae of semantic-action files.
 </dl>
 
 <hr>
-<a name="style"></a>
-<a name="style-1"></a>
-<h3 class="section">3.4 style</h3>
+<span id="style"></span><span id="style-1"></span><h3 class="section">3.4 style</h3>
 
 <p>The following sections all deal with styles. Each style has its own
 section. Style section names are unlike other section names in that they
@@ -874,9 +849,8 @@ declared.
 &lsquo;<samp>document</samp>&rsquo; style contains all possible settings. The others contain
 only settings that are different from the defaults.
 </p>
-<a name="style-document"></a>
-<h4 class="subsection">3.4.1 style document</h4>
-<a name="index-document-1"></a>
+<span id="style-document"></span><h4 class="subsection">3.4.1 style document</h4>
+<span id="index-document-1"></span>
 
 <p>This is a predefined style name. All settings have their default values.
 The user must specify any other values. If a &quot;persistent&quot; style setting
@@ -884,7 +858,7 @@ is specified, it will apply to the whole ducument.
 </p>
 <dl compact="compact">
 <dd>
-<a name="index-linesBefore"></a>
+<span id="index-linesBefore"></span>
 </dd>
 <dt><code>linesBefore 0</code></dt>
 <dd>
@@ -892,14 +866,14 @@ is specified, it will apply to the whole ducument.
 before the text to which this style applies. It is set to a non-zero
 value for some header styles.
 </p>
-<a name="index-linesAfter"></a>
+<span id="index-linesAfter"></span>
 </dd>
 <dt><code>linesAfter 0</code></dt>
 <dd>
 <p>The number of blank lines which should be left after the text to which
 this style applies.
 </p>
-<a name="index-leftMargin"></a>
+<span id="index-leftMargin"></span>
 </dd>
 <dt><code>leftMargin 0</code></dt>
 <dd>
@@ -908,14 +882,14 @@ should be indented. Used for hanging indents, among other things. This
 is a &quot;persistent&quot; setting, so by default all nested styles will inherit
 the setting.
 </p>
-<a name="index-rightMargin"></a>
+<span id="index-rightMargin"></span>
 </dd>
 <dt><code>rightMargin 0</code></dt>
 <dd>
 <p>The equivalent of &lsquo;<samp>leftMargin</samp>&rsquo; for the right side of the page.
 This is also a persistent setting.
 </p>
-<a name="index-firstLineIndent"></a>
+<span id="index-firstLineIndent"></span>
 </dd>
 <dt><code>firstLineIndent 0</code></dt>
 <dd>
@@ -923,7 +897,7 @@ This is also a persistent setting.
 to leftMargin. firstLineIndent may be negative. If the result is less
 than 0 it will be set to 0. This setting is persistent.
 </p>
-<a name="index-translate"></a>
+<span id="index-translate"></span>
 </dd>
 <dt><code>translate contracted</code></dt>
 <dd>
@@ -932,7 +906,7 @@ setting tells how text in this style should be translated. Possible
 values are &lsquo;<samp>contracted</samp>&rsquo;, &lsquo;<samp>uncontracted</samp>&rsquo;, &lsquo;<samp>compbrl</samp>&rsquo;,
 &lsquo;<samp>mathtext</samp>&rsquo; and &lsquo;<samp>mathexpr</samp>&rsquo;.
 </p>
-<a name="index-skipNumberLines"></a>
+<span id="index-skipNumberLines"></span>
 </dd>
 <dt><code>skipNumberLines no</code></dt>
 <dd>
@@ -940,7 +914,7 @@ values are &lsquo;<samp>contracted</samp>&rsquo;, &lsquo;<samp>uncontracted</sam
 will be skipped if they contain braille or print page numbers. This is
 useful in some of the mathematical and graphical styles.
 </p>
-<a name="index-format"></a>
+<span id="index-format"></span>
 </dd>
 <dt><code>format leftJustified</code></dt>
 <dd>
@@ -957,7 +931,7 @@ only in styles specifically intended for tables of contents. In the
 case of &lsquo;<samp>leftJustified</samp>&rsquo;, &lsquo;<samp>rightJustified</samp>&rsquo; and &lsquo;<samp>centered</samp>&rsquo;,
 nested styles inherit this setting by default.
 </p>
-<a name="index-newPageBefore"></a>
+<span id="index-newPageBefore"></span>
 </dd>
 <dt><code>newPageBefore no</code></dt>
 <dd>
@@ -965,7 +939,7 @@ nested styles inherit this setting by default.
 is useful for certain mathematical and graphical styles. Page numbers
 are handled properly.
 </p>
-<a name="index-newPageAfter"></a>
+<span id="index-newPageAfter"></span>
 </dd>
 <dt><code>newPageAfter no</code></dt>
 <dd>
@@ -973,7 +947,7 @@ are handled properly.
 the material covered by this style is handled is left blank, except
 for page numbers.
 </p>
-<a name="index-rightHandPage"></a>
+<span id="index-rightHandPage"></span>
 </dd>
 <dt><code>rightHandPage no</code></dt>
 <dd>
@@ -982,7 +956,7 @@ covered by this style will start on a right-hand page. This may cause
 a left-hand page to be left blank except for page numbers. If
 interpoint is &lsquo;<samp>no</samp>&rsquo; this setting is equivalent to newPageBefore.
 </p>
-<a name="index-braillePageNumberFormat"></a>
+<span id="index-braillePageNumberFormat"></span>
 </dd>
 <dt><code>braillePageNumberFormat normal</code></dt>
 <dd>
@@ -992,7 +966,7 @@ means ordinary Arabic numbers. &lsquo;<samp>roman</samp>&rsquo; means Roman numb
 preliminary). Finally, &lsquo;<samp>blank</samp>&rsquo; causes the page number to be blank
 (no page numbers). This is a &quot;persistent&quot; style setting.
 </p>
-<a name="index-dontSplit"></a>
+<span id="index-dontSplit"></span>
 </dd>
 <dt><code>dontSplit no</code></dt>
 <dd>
@@ -1003,7 +977,7 @@ This setting applies to the whole element, including children, so if
 nested styles specify other values for &lsquo;<samp>dontSplit</samp>&rsquo;, these values
 will be ignored.
 </p>
-<a name="index-keepWithNext"></a>
+<span id="index-keepWithNext"></span>
 </dd>
 <dt><code>keepWithNext no</code></dt>
 <dd>
@@ -1011,7 +985,7 @@ will be ignored.
 protected from being split across pages, and in addition it is kept
 together with the first line of text of the next sibling.
 </p>
-<a name="index-orphanControl"></a>
+<span id="index-orphanControl"></span>
 </dd>
 <dt><code>orphanControl 0</code></dt>
 <dd>
@@ -1023,9 +997,8 @@ have a value of &lsquo;<samp>2</samp>&rsquo; or more.
 </dd>
 </dl>
 
-<a name="contentsheader-style"></a><a name="style-contentsheader"></a>
-<h4 class="subsection">3.4.2 style contentsheader</h4>
-<a name="index-contentsheader-1"></a>
+<span id="contentsheader-style"></span><span id="style-contentsheader"></span><h4 class="subsection">3.4.2 style contentsheader</h4>
+<span id="index-contentsheader-1"></span>
 
 <p>This style is used to specify where the table of contents should be
 placed and its title. The xml tag assigned to it in the semantic action
@@ -1034,20 +1007,19 @@ contents, and it should contain the title of that table between its
 starting and ending markers.
 </p>
 <dl compact="compact">
-<dd><a name="index-linesBefore-1"></a>
+<dd><span id="index-linesBefore-1"></span>
 </dd>
 <dt><code>linesBefore 1</code></dt>
-<dd><a name="index-linesAfter-1"></a>
+<dd><span id="index-linesAfter-1"></span>
 </dd>
 <dt><code>linesAfter 1</code></dt>
-<dd><a name="index-format-1"></a>
+<dd><span id="index-format-1"></span>
 </dd>
 <dt><code>format centered</code></dt>
 </dl>
 
-<a name="style-contents1"></a>
-<h4 class="subsection">3.4.3 style contents1</h4>
-<a name="index-contents1"></a>
+<span id="style-contents1"></span><h4 class="subsection">3.4.3 style contents1</h4>
+<span id="index-contents1"></span>
 
 <p>This style and the other contents styles are used for the table of
 contents and correspond to the ten heading levels (&lsquo;<samp>contents5</samp>&rsquo;,
@@ -1055,114 +1027,107 @@ contents and correspond to the ten heading levels (&lsquo;<samp>contents5</samp>
 &lsquo;<samp>contents9</samp>&rsquo; and &lsquo;<samp>contents10</samp>&rsquo; are not showed here).
 </p>
 <dl compact="compact">
-<dd><a name="index-firstLineIndent-1"></a>
+<dd><span id="index-firstLineIndent-1"></span>
 </dd>
 <dt><code>firstLineIndent -2</code></dt>
-<dd><a name="index-leftMargin-1"></a>
+<dd><span id="index-leftMargin-1"></span>
 </dd>
 <dt><code>leftMargin 2</code></dt>
-<dd><a name="index-format-2"></a>
+<dd><span id="index-format-2"></span>
 </dd>
 <dt><code>format contents</code></dt>
 </dl>
 
-<a name="style-contents2"></a>
-<h4 class="subsection">3.4.4 style contents2</h4>
-<a name="index-contents2"></a>
+<span id="style-contents2"></span><h4 class="subsection">3.4.4 style contents2</h4>
+<span id="index-contents2"></span>
 
 <dl compact="compact">
-<dd><a name="index-firstLineIndent-2"></a>
+<dd><span id="index-firstLineIndent-2"></span>
 </dd>
 <dt><code>firstLineIndent -2</code></dt>
-<dd><a name="index-leftMargin-2"></a>
+<dd><span id="index-leftMargin-2"></span>
 </dd>
 <dt><code>leftMargin 4</code></dt>
-<dd><a name="index-format-3"></a>
+<dd><span id="index-format-3"></span>
 </dd>
 <dt><code>format contents</code></dt>
 </dl>
 
-<a name="style-contents3"></a>
-<h4 class="subsection">3.4.5 style contents3</h4>
-<a name="index-contents3"></a>
+<span id="style-contents3"></span><h4 class="subsection">3.4.5 style contents3</h4>
+<span id="index-contents3"></span>
 
 <dl compact="compact">
-<dd><a name="index-firstLineIndent-3"></a>
+<dd><span id="index-firstLineIndent-3"></span>
 </dd>
 <dt><code>firstLineIndent -2</code></dt>
-<dd><a name="index-leftMargin-3"></a>
+<dd><span id="index-leftMargin-3"></span>
 </dd>
 <dt><code>leftMargin 6</code></dt>
-<dd><a name="index-format-4"></a>
+<dd><span id="index-format-4"></span>
 </dd>
 <dt><code>format contents</code></dt>
 </dl>
 
-<a name="style-contents4"></a>
-<h4 class="subsection">3.4.6 style contents4</h4>
-<a name="index-contents4"></a>
+<span id="style-contents4"></span><h4 class="subsection">3.4.6 style contents4</h4>
+<span id="index-contents4"></span>
 
 <dl compact="compact">
-<dd><a name="index-firstLineIndent-4"></a>
+<dd><span id="index-firstLineIndent-4"></span>
 </dd>
 <dt><code>firstLineIndent -2</code></dt>
-<dd><a name="index-leftMargin-4"></a>
+<dd><span id="index-leftMargin-4"></span>
 </dd>
 <dt><code>leftMargin 8</code></dt>
-<dd><a name="index-format-5"></a>
+<dd><span id="index-format-5"></span>
 </dd>
 <dt><code>format contents</code></dt>
 </dl>
 
-<a name="style-heading1"></a>
-<h4 class="subsection">3.4.7 style heading1</h4>
-<a name="index-heading1-1"></a>
+<span id="style-heading1"></span><h4 class="subsection">3.4.7 style heading1</h4>
+<span id="index-heading1-1"></span>
 
 <p>This style is used for main headings, such as chapter titles.
 </p>
 <dl compact="compact">
-<dd><a name="index-linesBefore-2"></a>
+<dd><span id="index-linesBefore-2"></span>
 </dd>
 <dt><code>linesBefore 1</code></dt>
-<dd><a name="index-center"></a>
+<dd><span id="index-center"></span>
 </dd>
 <dt><code>center yes</code></dt>
-<dd><a name="index-linesAfter-2"></a>
+<dd><span id="index-linesAfter-2"></span>
 </dd>
 <dt><code>linesAfter 1</code></dt>
 </dl>
 
-<a name="style-heading2"></a>
-<h4 class="subsection">3.4.8 style heading2</h4>
-<a name="index-heading2-1"></a>
+<span id="style-heading2"></span><h4 class="subsection">3.4.8 style heading2</h4>
+<span id="index-heading2-1"></span>
 
 <p>The first level of subheadings after the main heading.
 </p>
 <dl compact="compact">
-<dd><a name="index-linesBefore-3"></a>
+<dd><span id="index-linesBefore-3"></span>
 </dd>
 <dt><code>linesBefore 1</code></dt>
-<dd><a name="index-firstLineIndent-5"></a>
+<dd><span id="index-firstLineIndent-5"></span>
 </dd>
 <dt><code>firstLineIndent 4</code></dt>
 </dl>
 
-<a name="style-heading3"></a>
-<h4 class="subsection">3.4.9 style heading3</h4>
-<a name="index-heading3-1"></a>
+<span id="style-heading3"></span><h4 class="subsection">3.4.9 style heading3</h4>
+<span id="index-heading3-1"></span>
 
 <p>The third level of headings.
 </p>
 <dl compact="compact">
 <dd>
-<a name="index-firstLineIndent-6"></a>
+<span id="index-firstLineIndent-6"></span>
 </dd>
 <dt><code>firstLineIndent 4</code></dt>
 </dl>
 
-<a name="style-heading4"></a>
-<h4 class="subsection">3.4.10 style heading4</h4>
-<a name="index-heading4-1"></a>
+<span id="style-heading4"></span><h4 class="subsection">3.4.10 style heading4</h4>
+<span id="index-heading4-1"></span>
 
 <p>The fourth level of headings. There are six more levels:
 &lsquo;<samp>heading5</samp>&rsquo;, &lsquo;<samp>heading6</samp>&rsquo;, &lsquo;<samp>heading7</samp>&rsquo;,
@@ -1170,27 +1135,25 @@ contents and correspond to the ten heading levels (&lsquo;<samp>contents5</samp>
 </p>
 <dl compact="compact">
 <dd>
-<a name="index-firstLineIndent-7"></a>
+<span id="index-firstLineIndent-7"></span>
 </dd>
 <dt><code>firstLineIndent 4</code></dt>
 </dl>
 
-<a name="style-para"></a>
-<h4 class="subsection">3.4.11 style para</h4>
-<a name="index-para-1"></a>
+<span id="style-para"></span><h4 class="subsection">3.4.11 style para</h4>
+<span id="index-para-1"></span>
 
 <p>Paragraph. This is ordinary body text.
 </p>
 <dl compact="compact">
 <dd>
-<a name="index-firstLineIndent-8"></a>
+<span id="index-firstLineIndent-8"></span>
 </dd>
 <dt><code>firstLineIndent 2</code></dt>
 </dl>
 
-<a name="style-boxline"></a>
-<h4 class="subsection">3.4.12 style boxline</h4>
-<a name="index-boxline"></a>
+<span id="style-boxline"></span><h4 class="subsection">3.4.12 style boxline</h4>
+<span id="index-boxline"></span>
 
 <p>Typically used to form the top and bottom lines of &quot;boxed&quot; material.
 The character must be chosen to produce the desired dot pattern on the
@@ -1198,14 +1161,14 @@ embosser or display in use.
 </p>
 <dl compact="compact">
 <dd>
-<a name="index-topBoxline"></a>
+<span id="index-topBoxline"></span>
 </dd>
 <dt><code>topBoxline .</code></dt>
 <dd>
 <p>This should be set to the character you want used for the boxline
 which appears before the content.
 </p>
-<a name="index-bottomBoxline"></a>
+<span id="index-bottomBoxline"></span>
 </dd>
 <dt><code>bottomBoxline .</code></dt>
 <dd>
@@ -1216,15 +1179,11 @@ which appears after the content.
 </dl>
 
 <hr>
-<a name="Connecting-with-the-xml-Document"></a>
-<a name="Connecting-with-the-xml-Document-_002d-Semantic_002dAction-Files"></a>
-<h2 class="chapter">4 Connecting with the xml Document - Semantic-Action Files</h2>
+<span id="Connecting-with-the-xml-Document"></span><span id="Connecting-with-the-xml-Document-_002d-Semantic_002dAction-Files"></span><h2 class="chapter">4 Connecting with the xml Document - Semantic-Action Files</h2>
 
 
 <hr>
-<a name="Semantic-Actions-Overview"></a>
-<a name="Overview-1"></a>
-<h3 class="section">4.1 Overview</h3>
+<span id="Semantic-Actions-Overview"></span><span id="Overview-1"></span><h3 class="section">4.1 Overview</h3>
 
 <p>When liblouisutdml (or <code>file2brl</code>) processes an xml document, it
 needs to be told how to use the information in that document to
@@ -1566,9 +1525,7 @@ not limited to mathematics. It can be used to add characters to
 anything enclosed by an xml tag.
 </p>
 <hr>
-<a name="Semantic-Actions-in-detail"></a>
-<a name="Semantic-Actions-in-detail-1"></a>
-<h3 class="section">4.2 Semantic Actions in detail</h3>
+<span id="Semantic-Actions-in-detail"></span><span id="Semantic-Actions-in-detail-1"></span><h3 class="section">4.2 Semantic Actions in detail</h3>
 
 <p>Here is a complete list of the semantic actions which liblouisutdml
 recognizes. Some of them are also the names of styles. These are listed
@@ -1593,8 +1550,8 @@ value.
 </p>
 <dl compact="compact">
 <dd>
-<a name="index-contenss1"></a>
-<a name="contenss1-semantic"></a></dd>
+<span id="index-contenss1"></span>
+<span id="contenss1-semantic"></span></dd>
 <dt><code>contenss1 elementSpecifier</code></dt>
 <dd>
 <p>Note that the <code>contenss1</code>, etc. semantic actions are never
@@ -1603,47 +1560,47 @@ actual <code>elementSpecifier</code>. There used internally by the table of
 contents generator. They should be assigned style settings, however.
 </p>
 
-<a name="index-contenss2"></a>
-<a name="contenss2-semantic"></a></dd>
+<span id="index-contenss2"></span>
+<span id="contenss2-semantic"></span></dd>
 <dt><code>contenss2 elementSpecifier</code></dt>
 <dd>
-<a name="index-contenss3"></a>
-<a name="contenss3-semantic"></a></dd>
+<span id="index-contenss3"></span>
+<span id="contenss3-semantic"></span></dd>
 <dt><code>contenss3 elementSpecifier</code></dt>
 <dd>
-<a name="index-contenss4"></a>
-<a name="contenss4-semantic"></a></dd>
+<span id="index-contenss4"></span>
+<span id="contenss4-semantic"></span></dd>
 <dt><code>contenss4 elementSpecifier</code></dt>
 <dd>
-<a name="index-contentsheader"></a>
-<a name="contentsheader-semantic"></a></dd>
+<span id="index-contentsheader"></span>
+<span id="contentsheader-semantic"></span></dd>
 <dt><code>contentsheader elementSpecifier</code></dt>
 <dd>
 <p>This semantic action must be assigned an element specifier if used.
 See the discussion of it in <a href="#style">style</a>.
 </p>
-<a name="index-document"></a>
-<a name="document-semantic"></a></dd>
+<span id="index-document"></span>
+<span id="document-semantic"></span></dd>
 <dt><code>document elementSpecifier</code></dt>
 <dd>
-<a name="index-heading1"></a>
-<a name="heading1-semantic"></a></dd>
+<span id="index-heading1"></span>
+<span id="heading1-semantic"></span></dd>
 <dt><code>heading1 elementSpecifier</code></dt>
 <dd>
-<a name="index-heading2"></a>
-<a name="heading2-semantic"></a></dd>
+<span id="index-heading2"></span>
+<span id="heading2-semantic"></span></dd>
 <dt><code>heading2 elementSpecifier</code></dt>
 <dd>
-<a name="index-heading3"></a>
-<a name="heading3-semantic"></a></dd>
+<span id="index-heading3"></span>
+<span id="heading3-semantic"></span></dd>
 <dt><code>heading3 elementSpecifier</code></dt>
 <dd>
-<a name="index-heading4"></a>
-<a name="heading4-semantic"></a></dd>
+<span id="index-heading4"></span>
+<span id="heading4-semantic"></span></dd>
 <dt><code>heading4 elementSpecifier</code></dt>
 <dd>
-<a name="index-para"></a>
-<a name="para-semantic"></a></dd>
+<span id="index-para"></span>
+<span id="para-semantic"></span></dd>
 <dt><code>para elementSpecifier</code></dt>
 </dl>
 
@@ -1655,8 +1612,8 @@ any subtree starting from <code>elementSpecifier</code>.
 
 <dl compact="compact">
 <dd>
-<a name="index-blankline"></a>
-<a name="blankline-semantic"></a></dd>
+<span id="index-blankline"></span>
+<span id="blankline-semantic"></span></dd>
 <dt><code>blankline elementSpecifier</code></dt>
 <dd>
 <p>This semantic action causes a blank line to appear in the output
@@ -1665,8 +1622,8 @@ styles. <code>elementSpecifier</code> should be an empty element, that is, of
 the form <code>&lt;elementSpecifier/&gt;</code>. If it is not, any content which it
 may contain will be ignored.
 </p>
-<a name="index-boldx"></a>
-<a name="boldx-semantic"></a></dd>
+<span id="index-boldx"></span>
+<span id="boldx-semantic"></span></dd>
 <dt><code>boldx elementSpecifier</code></dt>
 <dd>
 <p>Enclose the text which follows in braille bold indicators. The &lsquo;<samp>x</samp>&rsquo;
@@ -1674,8 +1631,8 @@ at the end of the semantic action name is there to prevent conflicts
 with names elsewhere in the software. Just where the bold indicators
 will be placed is controlled by the liblouis translation table in use.
 </p>
-<a name="index-chemistry"></a>
-<a name="chemistry-semantic"></a></dd>
+<span id="index-chemistry"></span>
+<span id="chemistry-semantic"></span></dd>
 <dt><code>chemistry elementSpecifier</code></dt>
 <dd>
 <p>When a module to handle chemical notation is ready, this semantic action
@@ -1683,8 +1640,8 @@ will invoke it. The processing will be like that produced by the
 semantic
 action <code>math</code>.
 </p>
-<a name="index-changetable"></a>
-<a name="changetable-semantic"></a></dd>
+<span id="index-changetable"></span>
+<span id="changetable-semantic"></span></dd>
 <dt><code>changetable elementSpecifier</code></dt>
 <dd>
 <p>This semantic action is used to change the active translation table. It
@@ -1703,8 +1660,8 @@ This is uncontracted.
 matter what is
 between the two. The previous table is then restored.
 </p>
-<a name="index-compbrl"></a>
-<a name="compbrl-semantic"></a></dd>
+<span id="index-compbrl"></span>
+<span id="compbrl-semantic"></span></dd>
 <dt><code>compbrl elementSpecifier</code></dt>
 <dd>
 <p>The material between <code>elementSpecifier</code> and
@@ -1712,8 +1669,8 @@ between the two. The previous table is then restored.
 liblouis table in use phovides for it. Beginning and ending computer
 braille indicators are inserted if they are in the table.
 </p>
-<a name="index-configfile"></a>
-<a name="configfile-semantic"></a></dd>
+<span id="index-configfile"></span>
+<span id="configfile-semantic"></span></dd>
 <dt><code>configfile elementSpecifier filename</code></dt>
 <dd>
 <p>The <code>configfile</code>, <code>configstring</code> and <code>configtweak</code>
@@ -1733,8 +1690,8 @@ may contain any configuration settings except those in the xml
 section. These would be ineffective, since the document has already
 been parsed.
 </p>
-<a name="index-configstring"></a>
-<a name="configstring-semantic"></a></dd>
+<span id="index-configstring"></span>
+<span id="configstring-semantic"></span></dd>
 <dt><code>configstring elementSpecifier setting1=value1;setting2=value2;...</code></dt>
 <dd>
 <p>Note that the <code>setting=value</code> pairs are separated by semicolons.
@@ -1744,8 +1701,8 @@ continue to another line. The string must not contain any blanks. Any
 setting which can be specified in a file read with configfile can be
 specified in <code>configstring</code>.
 </p>
-<a name="index-configtweak"></a>
-<a name="configtweak-semantic"></a></dd>
+<span id="index-configtweak"></span>
+<span id="configtweak-semantic"></span></dd>
 <dt><code>configtweak elementSpecifier settings</code></dt>
 <dd>
 <p><code>configtweak</code> is identical to <code>configstring</code> except that it
@@ -1762,12 +1719,12 @@ latter changes the active table and applies to a subtree.
 <code>configtweak</code> remains in effect until changed by another
 <code>configtweak</code>.
 </p>
-<a name="index-contracted"></a>
-<a name="contracted-semantic"></a></dd>
+<span id="index-contracted"></span>
+<span id="contracted-semantic"></span></dd>
 <dt><code>contracted elementSpecifier</code></dt>
 <dd>
-<a name="index-footer"></a>
-<a name="footer-semantic"></a></dd>
+<span id="index-footer"></span>
+<span id="footer-semantic"></span></dd>
 <dt><code>footer elementSpecifier</code></dt>
 <dd>
 <p>This semantic action is used to specify a footer which will be placed at
@@ -1777,8 +1734,8 @@ the bottom of each page.
 <pre class="example">&lt;elemntSpecifier&gt;This is a footer&lt;/elementSpecifier&gt;
 </pre></div>
 
-<a name="index-generic"></a>
-<a name="generic-semantic"></a></dd>
+<span id="index-generic"></span>
+<span id="generic-semantic"></span></dd>
 <dt><code>generic elementSpecifier</code></dt>
 <dd>
 <p>This is a general-purpose semantic action. If the third column is blank
@@ -1789,30 +1746,30 @@ the subtree rooted at this node, the second is placed before the second
 branch, etc. If the last (or only) subcolumn begins with <code>\*</code> it is
 placed after the last branch, no matter how many branches there may be.
 </p>
-<a name="index-graphic"></a>
-<a name="graphic-semantic"></a></dd>
+<span id="index-graphic"></span>
+<span id="graphic-semantic"></span></dd>
 <dt><code>graphic elementSpecifier</code></dt>
 <dd>
 <p>When a module which can handle SVG graphics is ready this semantic
 action will invoke it.
 </p>
-<a name="index-htmllink"></a>
-<a name="htmllink-semantic"></a></dd>
+<span id="index-htmllink"></span>
+<span id="htmllink-semantic"></span></dd>
 <dt><code>htmllink elementSpecifier</code></dt>
 <dd>
 <p>This semantic action is used when the configuration file specifies
 <code>formatFor browser</code>. It sets up a link which the browser can
 follow.
 </p>
-<a name="index-htmltarget"></a>
-<a name="htmltarget-semantic"></a></dd>
+<span id="index-htmltarget"></span>
+<span id="htmltarget-semantic"></span></dd>
 <dt><code>htmltarget elementSpecifier</code></dt>
 <dd>
 <p>This semantic action establishes a target for a link in the same file
 when <code>formatFor browser</code> is specified in the configuration file.
 </p>
-<a name="index-italicx"></a>
-<a name="italicx-semantic"></a></dd>
+<span id="index-italicx"></span>
+<span id="italicx-semantic"></span></dd>
 <dt><code>italicx elementSpecifier</code></dt>
 <dd>
 <p>Enclose the text which follows in braille italic indicators.
@@ -1821,8 +1778,8 @@ prevent conflicts with names elsewhere in the software. Just where the
 italic indicators will be placed is controlled by the liblouis
 translation table in use.
 </p>
-<a name="index-linespacing"></a>
-<a name="linespacing-semantic"></a></dd>
+<span id="index-linespacing"></span>
+<span id="linespacing-semantic"></span></dd>
 <dt><code>linespacing elementSpecifier digit</code></dt>
 <dd>
 <p>This semantic action specifies the numbr of blank lines to be left
@@ -1832,8 +1789,8 @@ spacing. The number cannot be greater than &lsquo;<samp>3</samp>&rsquo;. <code>l
 remains in effect until another <code>linespacing</code> is encountered. It
 should be assigned to an empty element.
 </p>
-<a name="index-maction"></a>
-<a name="maction-semantic"></a></dd>
+<span id="index-maction"></span>
+<span id="maction-semantic"></span></dd>
 <dt><code>maction elementSpecifier</code></dt>
 <dd>
 <p>In the early stages of development I thought that a separate piece of
@@ -1843,16 +1800,16 @@ as noted elsewhere, that most of them could have been handled with the
 compatibi2ity. Therefore, unless this is not the case or additional
 information is needed, they are simlly listed.
 </p>
-<a name="index-maligngroup"></a>
-<a name="maligngroup-semantic"></a></dd>
+<span id="index-maligngroup"></span>
+<span id="maligngroup-semantic"></span></dd>
 <dt><code>maligngroup elementSpecifier</code></dt>
 <dd>
-<a name="index-malignmark"></a>
-<a name="malignmark-semantic"></a></dd>
+<span id="index-malignmark"></span>
+<span id="malignmark-semantic"></span></dd>
 <dt><code>malignmark elementSpecifier</code></dt>
 <dd>
-<a name="index-math"></a>
-<a name="math-semantic"></a></dd>
+<span id="index-math"></span>
+<span id="math-semantic"></span></dd>
 <dt><code>math elementSpecifier</code></dt>
 <dd>
 <p>Every mathematical expression begins with the element
@@ -1865,111 +1822,111 @@ files and strings which consist of nothing but a mathematical expression
 properly. The <code>math</code> semantic action causes liblouisutdml to carry
 out special interpretation actions.
 </p>
-<a name="index-menclose"></a>
-<a name="menclose-semantic"></a></dd>
+<span id="index-menclose"></span>
+<span id="menclose-semantic"></span></dd>
 <dt><code>menclose elementSpecifier</code></dt>
 <dd>
-<a name="index-merror"></a>
-<a name="merror-semantic"></a></dd>
+<span id="index-merror"></span>
+<span id="merror-semantic"></span></dd>
 <dt><code>merror elementSpecifier</code></dt>
 <dd>
-<a name="index-mfenced"></a>
-<a name="mfenced-semantic"></a></dd>
+<span id="index-mfenced"></span>
+<span id="mfenced-semantic"></span></dd>
 <dt><code>mfenced elementSpecifier</code></dt>
 <dd>
-<a name="index-mfrac"></a>
-<a name="mfrac-semantic"></a></dd>
+<span id="index-mfrac"></span>
+<span id="mfrac-semantic"></span></dd>
 <dt><code>mfrac elementSpecifier</code></dt>
 <dd>
-<a name="index-mglyph"></a>
-<a name="mglyph-semantic"></a></dd>
+<span id="index-mglyph"></span>
+<span id="mglyph-semantic"></span></dd>
 <dt><code>mglyph elementSpecifier</code></dt>
 <dd>
-<a name="index-mi"></a>
-<a name="mi-semantic"></a></dd>
+<span id="index-mi"></span>
+<span id="mi-semantic"></span></dd>
 <dt><code>mi elementSpecifier</code></dt>
 <dd>
-<a name="index-mlabeledtr"></a>
-<a name="mlabeledtr-semantic"></a></dd>
+<span id="index-mlabeledtr"></span>
+<span id="mlabeledtr-semantic"></span></dd>
 <dt><code>mlabeledtr elementSpecifier</code></dt>
 <dd>
-<a name="index-mmultiscripts"></a>
-<a name="mmultiscripts-semantic"></a></dd>
+<span id="index-mmultiscripts"></span>
+<span id="mmultiscripts-semantic"></span></dd>
 <dt><code>mmultiscripts elementSpecifier</code></dt>
 <dd>
-<a name="index-mn"></a>
-<a name="mn-semantic"></a></dd>
+<span id="index-mn"></span>
+<span id="mn-semantic"></span></dd>
 <dt><code>mn elementSpecifier</code></dt>
 <dd>
-<a name="index-mo"></a>
-<a name="mo-semantic"></a></dd>
+<span id="index-mo"></span>
+<span id="mo-semantic"></span></dd>
 <dt><code>mo elementSpecifier</code></dt>
 <dd>
 
-<a name="index-mover"></a>
-<a name="mover-semantic"></a></dd>
+<span id="index-mover"></span>
+<span id="mover-semantic"></span></dd>
 <dt><code>mover elementSpecifier</code></dt>
 <dd>
-<a name="index-mpadded"></a>
-<a name="mpadded-semantic"></a></dd>
+<span id="index-mpadded"></span>
+<span id="mpadded-semantic"></span></dd>
 <dt><code>mpadded elementSpecifier</code></dt>
 <dd>
-<a name="index-mphantom"></a>
-<a name="mphantom-semantic"></a></dd>
+<span id="index-mphantom"></span>
+<span id="mphantom-semantic"></span></dd>
 <dt><code>mphantom elementSpecifier</code></dt>
 <dd>
-<a name="index-mprescripts"></a>
-<a name="mprescripts-semantic"></a></dd>
+<span id="index-mprescripts"></span>
+<span id="mprescripts-semantic"></span></dd>
 <dt><code>mprescripts elementSpecifier</code></dt>
 <dd>
-<a name="index-mroot"></a>
-<a name="mroot-semantic"></a></dd>
+<span id="index-mroot"></span>
+<span id="mroot-semantic"></span></dd>
 <dt><code>mroot elementSpecifier</code></dt>
 <dd>
 <p>The MathML element <code>mroot</code> is actually given the semantic action
 <code>reverse</code>.
 </p>
-<a name="index-mrow"></a>
-<a name="mrow-semantic"></a></dd>
+<span id="index-mrow"></span>
+<span id="mrow-semantic"></span></dd>
 <dt><code>mrow elementSpecifier</code></dt>
 <dd>
 <p>This can be important in implementing Math codes because it is often
 used to create visual groups, which may be significant for braille.
 </p>
-<a name="index-ms"></a>
-<a name="ms-semantic"></a></dd>
+<span id="index-ms"></span>
+<span id="ms-semantic"></span></dd>
 <dt><code>ms elementSpecifier</code></dt>
 <dd>
-<a name="index-mspace"></a>
-<a name="mspace-semantic"></a></dd>
+<span id="index-mspace"></span>
+<span id="mspace-semantic"></span></dd>
 <dt><code>mspace elementSpecifier</code></dt>
 <dd>
 <p>This element and its attributes can be helpful for determining spacing.
 </p>
-<a name="index-msqrt"></a>
-<a name="msqrt-semantic"></a></dd>
+<span id="index-msqrt"></span>
+<span id="msqrt-semantic"></span></dd>
 <dt><code>msqrt elementSpecifier</code></dt>
 <dd>
-<a name="index-mstyle"></a>
-<a name="mstyle-semantic"></a></dd>
+<span id="index-mstyle"></span>
+<span id="mstyle-semantic"></span></dd>
 <dt><code>mstyle elementSpecifier</code></dt>
 <dd>
 <p>This MathML element should usually have the semantic action <code>skip</code>.
 </p>
-<a name="index-msub"></a>
-<a name="msub-semantic"></a></dd>
+<span id="index-msub"></span>
+<span id="msub-semantic"></span></dd>
 <dt><code>msub elementSpecifier</code></dt>
 <dd>
-<a name="index-msubsup"></a>
-<a name="msubsup-semantic"></a></dd>
+<span id="index-msubsup"></span>
+<span id="msubsup-semantic"></span></dd>
 <dt><code>msubsup elementSpecifier</code></dt>
 <dd>
-<a name="index-msup"></a>
-<a name="msup-semantic"></a></dd>
+<span id="index-msup"></span>
+<span id="msup-semantic"></span></dd>
 <dt><code>msup elementSpecifier</code></dt>
 <dd>
-<a name="index-mtable"></a>
-<a name="mtable-semantic"></a></dd>
+<span id="index-mtable"></span>
+<span id="mtable-semantic"></span></dd>
 <dt><code>mtable elementSpecifier</code></dt>
 <dd>
 <p>The file <samp>liblouisutdml.ini</samp> defines the style <code>matrix</code>. The
@@ -1978,8 +1935,8 @@ semantic-action files for math codes declare <code>mtable</code> to be
 set to other styles, such as long division. The <code>matrix</code> style
 contains the setting <code>format alignColumnsLeft</code>.
 </p>
-<a name="index-mtd"></a>
-<a name="mtd-semantic"></a></dd>
+<span id="index-mtd"></span>
+<span id="mtd-semantic"></span></dd>
 <dt><code>mtd elementSpecifier</code></dt>
 <dd>
 <p>This element specifies a column in a mathematical table. For the style
@@ -1988,12 +1945,12 @@ must contain <code>\*|ec</code>. This indicates the end of the column. Other
 specifications using the liblouis <code>exactdots</code> feature may also be
 necessary.
 </p>
-<a name="index-mtext"></a>
-<a name="mtext-semantic"></a></dd>
+<span id="index-mtext"></span>
+<span id="mtext-semantic"></span></dd>
 <dt><code>mtext elementSpecifier</code></dt>
 <dd>
-<a name="index-mtr"></a>
-<a name="mtr-semantic"></a></dd>
+<span id="index-mtr"></span>
+<span id="mtr-semantic"></span></dd>
 <dt><code>mtr elementSpecifier</code></dt>
 <dd>
 <p>This element specifies a row in a mathematical table. The entry in a
@@ -2004,23 +1961,23 @@ Note that rows are not declared as styles nested inside the
 <code>matrix</code> style. This is because the table must be considered as a
 whole.
 </p>
-<a name="index-munder"></a>
-<a name="munder-semantic"></a></dd>
+<span id="index-munder"></span>
+<span id="munder-semantic"></span></dd>
 <dt><code>munder elementSpecifier</code></dt>
 <dd>
-<a name="index-munderover"></a>
-<a name="munderover-semantic"></a></dd>
+<span id="index-munderover"></span>
+<span id="munderover-semantic"></span></dd>
 <dt><code>munderover elementSpecifier</code></dt>
 <dd>
-<a name="index-music"></a>
-<a name="music-semantic"></a></dd>
+<span id="index-music"></span>
+<span id="music-semantic"></span></dd>
 <dt><code>music elementSpecifier</code></dt>
 <dd>
 <p>When a module which can interpret MusicML and produce braille music
 notation is ready this semantic action will invoke it.
 </p>
-<a name="index-newpage"></a>
-<a name="newpage-semantic"></a></dd>
+<span id="index-newpage"></span>
+<span id="newpage-semantic"></span></dd>
 <dt><code>newpage elementSpecifier</code></dt>
 <dd>
 <p>This semantic action causes the rest of the current page to be left
@@ -2028,8 +1985,8 @@ blank except for page numbers and footers. A new page is then begun.
 Like <code>blankline</code>, it is useful for fine formatting independent of
 styles.
 </p>
-<a name="index-no"></a>
-<a name="no-semantic"></a></dd>
+<span id="index-no"></span>
+<span id="no-semantic"></span></dd>
 <dt><code>no elementSpecifier</code></dt>
 <dd>
 <p>Originally, this semantic action was intended to be the default and to
@@ -2037,14 +1994,14 @@ do nothing when an <code>elementSpecifier</code> had no meaning for braille
 translation. Later it was found that it should insert a blank space if
 parts of the text would run together, so this is now its action.
 </p>
-<a name="index-none"></a>
-<a name="none-semantic"></a></dd>
+<span id="index-none"></span>
+<span id="none-semantic"></span></dd>
 <dt><code>none elementSpecifier</code></dt>
 <dd>
 <p>This is a MathML element.
 </p>
-<a name="index-notranslate"></a>
-<a name="notranslate-semantic"></a></dd>
+<span id="index-notranslate"></span>
+<span id="notranslate-semantic"></span></dd>
 <dt><code>notranslate elementSpecifier</code></dt>
 <dd>
 <p>Output the text between the start and end tags exactly as written. It
@@ -2053,8 +2010,8 @@ etc. If you want to make sure that things appear on the same line
 separate them with an unbreakable space, &lsquo;<samp>&amp;#160;</samp>&rsquo; or
 &lsquo;<samp>&amp;#xa0;</samp>&rsquo;.
 </p>
-<a name="index-pagenum"></a>
-<a name="pagenum-semantic"></a></dd>
+<span id="index-pagenum"></span>
+<span id="pagenum-semantic"></span></dd>
 <dt><code>pagenum elementSpecifier</code></dt>
 <dd>
 <p>The text between <code>&lt;elementSpecifier&gt;</code> and <code>&lt;/elementSpecifier&gt;</code>
@@ -2066,8 +2023,8 @@ is wanted. This string is inserted so that roman page numbers will be
 handled properly. Unnumbered page breaks are indicated with an empty
 pagenum tag: <code>&lt;elementSpecifier&gt;&lt;/elementSpecifier&gt;</code>.
 </p>
-<a name="index-reverse"></a>
-<a name="reverse-semantic"></a></dd>
+<span id="index-reverse"></span>
+<span id="reverse-semantic"></span></dd>
 <dt><code>reverse elementSpecifier</code></dt>
 <dd>
 <p>The branches of the subtree rooted at this node are reversed in order.
@@ -2075,8 +2032,8 @@ This is used in handling roots, where the arguments in the translation
 are in reverse order to those in MathML. the MathML elemnt <code>mroot</code>
 is declared with this semantic action
 </p>
-<a name="index-righthandpage"></a>
-<a name="righthandpage-semantic"></a></dd>
+<span id="index-righthandpage"></span>
+<span id="righthandpage-semantic"></span></dd>
 <dt><code>righthandpage elementSpecifier</code></dt>
 <dd>
 <p>If <code>interpoint yes</code> has been specified in the configuration file,
@@ -2085,8 +2042,8 @@ skipped except for footer and page number. the following left-hand page
 is similarly skipped. Otherwise, the action is the same as
 <code>newpage</code>.
 </p>
-<a name="index-runninghead"></a>
-<a name="runninghead-semantic"></a></dd>
+<span id="index-runninghead"></span>
+<span id="runninghead-semantic"></span></dd>
 <dt><code>runninghead elementSpecifier</code></dt>
 <dd>
 <p>This semantic action is used to specify a running header, such as a book
@@ -2097,37 +2054,37 @@ it will be truncated.
 <pre class="example">&lt;elementSpecifier&gt;liblouisutdml Manual&lt;/elementSpecifier&gt;
 </pre></div>
 
-<a name="index-semantics"></a>
-<a name="semantics-semantic"></a></dd>
+<span id="index-semantics"></span>
+<span id="semantics-semantic"></span></dd>
 <dt><code>semantics elementSpecifier</code></dt>
 <dd>
 <p>This is a MathML action which seems to be irrelevant to braille
 translation.
 </p>
-<a name="index-skip"></a>
-<a name="skip-semantic"></a></dd>
+<span id="index-skip"></span>
+<span id="skip-semantic"></span></dd>
 <dt><code>skip elementSpecifier</code></dt>
 <dd>
 <p>Skip ahead until encountering the element <code>&lt;/elementSpecifier&gt;</code>.
 Nothing
 in between will have any effect on the braille output.
 </p>
-<a name="index-softreturn"></a>
-<a name="softreturn-semantic"></a></dd>
+<span id="index-softreturn"></span>
+<span id="softreturn-semantic"></span></dd>
 <dt><code>softreturn elementSpecifier</code></dt>
 <dd><p>Do a soft return, that is, start a new line without starting a new
 paragraph. <code>elementSpecifier</code> should be empty, for example,
 <code>&lt;br/&gt;</code>.
 </p>
-<a name="index-uncontracted"></a>
-<a name="uncontracted-semantic"></a></dd>
+<span id="index-uncontracted"></span>
+<span id="uncontracted-semantic"></span></dd>
 <dt><code>uncontracted elementSpecifier</code></dt>
 <dd>
 <p>This semantic action seems superfluous and may be eliminated in the
 future.
 </p>
-<a name="index-underlinex"></a>
-<a name="underlinex-semantic"></a></dd>
+<span id="index-underlinex"></span>
+<span id="underlinex-semantic"></span></dd>
 <dt><code>underlinex elementSpecifier</code></dt>
 <dd>
 <p>Enclose the text which follows in braille underline indicators.
@@ -2136,9 +2093,7 @@ future.
 </dl>
 
 <hr>
-<a name="Pseudo_002dactions"></a>
-<a name="Pseudo_002dactions-1"></a>
-<h3 class="section">4.3 Pseudo-actions</h3>
+<span id="Pseudo_002dactions"></span><span id="Pseudo_002dactions-1"></span><h3 class="section">4.3 Pseudo-actions</h3>
 
 <p>These actions affect the processing of semantic-action files. They are
 not connected with any tag in the document. They are executed when they
@@ -2146,9 +2101,7 @@ are encountered in the processing of semantic-action files.
 </p>
 
 <hr>
-<a name="include"></a>
-<a name="include-1"></a>
-<h4 class="subsection">4.3.1 include</h4>
+<span id="include"></span><span id="include-1"></span><h4 class="subsection">4.3.1 include</h4>
 
 <div class="example">
 <pre class="example">include filename
@@ -2159,9 +2112,7 @@ compiled as though it were part of the file containing the
 <code>include</code> entry. Included files may include other files.
 </p>
 <hr>
-<a name="newentries"></a>
-<a name="newentries-1"></a>
-<h4 class="subsection">4.3.2 newentries</h4>
+<span id="newentries"></span><span id="newentries-1"></span><h4 class="subsection">4.3.2 newentries</h4>
 
 <div class="example">
 <pre class="example">newentries no
@@ -2174,10 +2125,8 @@ semantic-action file. The configuration setting <code>newEntries</code>
 affects all documents.
 </p>
 <hr>
-<a name="namespaces"></a>
-<a name="namespaces-1"></a>
-<h4 class="subsection">4.3.3 namespaces</h4>
-<a name="index-Namespaces"></a>
+<span id="namespaces"></span><span id="namespaces-1"></span><h4 class="subsection">4.3.3 namespaces</h4>
+<span id="index-Namespaces"></span>
 
 <div class="example">
 <pre class="example">namespaces dtb=http://www.daisy.org/z3986/2005/dtbook/
@@ -2189,10 +2138,8 @@ expressions. (see <a href="#Using-XPath-Expressions">Using XPath Expressions</a>
 namespaces may not contain blanks.
 </p>
 <hr>
-<a name="Using-XPath-Expressions"></a>
-<a name="Using-XPath-Expressions-1"></a>
-<h3 class="section">4.4 Using XPath Expressions</h3>
-<a name="index-XPath-Expressions"></a>
+<span id="Using-XPath-Expressions"></span><span id="Using-XPath-Expressions-1"></span><h3 class="section">4.4 Using XPath Expressions</h3>
+<span id="index-XPath-Expressions"></span>
 
 <p>The second column of a semantic action may contain a XPath expression
 for matching nodes. When an XPath expression is to be used the second
@@ -2238,10 +2185,8 @@ semantic action <code>para</code>, no matter what other assignments may be
 made to it.
 </p>
 <hr>
-<a name="Using-Macros"></a>
-<a name="Using-Macros-1"></a>
-<h3 class="section">4.5 Using Macros</h3>
-<a name="index-Macros"></a>
+<span id="Using-Macros"></span><span id="Using-Macros-1"></span><h3 class="section">4.5 Using Macros</h3>
+<span id="index-Macros"></span>
 
 <p>A semantic-action file permits only one action or style to be
 mentioned in the first column. Macros get around this limitation. They
@@ -2331,15 +2276,11 @@ the macro has been reached, and the processing of text is completed.
 </dl>
 
 <hr>
-<a name="Special-Features"></a>
-<a name="Special-Features-1"></a>
-<h2 class="chapter">5 Special Features</h2>
+<span id="Special-Features"></span><span id="Special-Features-1"></span><h2 class="chapter">5 Special Features</h2>
 
 
 <hr>
-<a name="Table-of-contents"></a>
-<a name="Table-of-contents-1"></a>
-<h3 class="section">5.1 Table of contents</h3>
+<span id="Table-of-contents"></span><span id="Table-of-contents-1"></span><h3 class="section">5.1 Table of contents</h3>
 
 <p>A table of contents is produced for an xml file if the file contains a
 tag which has been defined with the <code>contentsheader</code> semantic action (see <a href="#contentsheader-semantic"><code>contentsheader</code></a>) and
@@ -2396,9 +2337,7 @@ will start in cell 2. If the result of adding these two values is
 negative it is set to 0.
 </p>
 <hr>
-<a name="Back_002dtranslation"></a>
-<a name="Back_002dtranslation-1"></a>
-<h3 class="section">5.2 Back-translation</h3>
+<span id="Back_002dtranslation"></span><span id="Back_002dtranslation-1"></span><h3 class="section">5.2 Back-translation</h3>
 
 <div class="example">
 <pre class="example">file2brl -b infile outfile
@@ -2424,9 +2363,7 @@ table must contain the following line:
 liblouisutdml function <code>lbu_backTranslateFile</code>.
 </p>
 <hr>
-<a name="Reformatting"></a>
-<a name="Reformatting-1"></a>
-<h3 class="section">5.3 Reformatting</h3>
+<span id="Reformatting"></span><span id="Reformatting-1"></span><h3 class="section">5.3 Reformatting</h3>
 
 <div class="example">
 <pre class="example">file2brl -r infile outfile
@@ -2441,9 +2378,7 @@ If <code>backFormat html</code> has been specified, print page numbers will be
 reproduced in the appropriate places. Some formatting may be lost.
 </p>
 <hr>
-<a name="Interlining"></a>
-<a name="Interlining-1"></a>
-<h3 class="section">5.4 Interlining</h3>
+<span id="Interlining"></span><span id="Interlining-1"></span><h3 class="section">5.4 Interlining</h3>
 
 <p>Interlining means printing the original text between the lines of
 translated braille. It requires special embossers or special methods.
@@ -2453,9 +2388,7 @@ too much on the quality of the liblouis tables. It is scheduled to be
 replaced, so you should not use it.
 </p>
 <hr>
-<a name="Browser_002dFriendly-Output"></a>
-<a name="Browser_002dFriendly-Output-1"></a>
-<h3 class="section">5.5 Browser-Friendly Output</h3>
+<span id="Browser_002dFriendly-Output"></span><span id="Browser_002dFriendly-Output-1"></span><h3 class="section">5.5 Browser-Friendly Output</h3>
 
 <div class="example">
 <pre class="example">file2brl infile outfile -CformatFor=browser
@@ -2474,9 +2407,7 @@ part of the above example specifies a configuration setting, which of
 course can also be specified in a configuration file.
 </p>
 <hr>
-<a name="CDATA-Sections"></a>
-<a name="CDATA-Sections-1"></a>
-<h3 class="section">5.6 <code>CDATA</code> Sections</h3>
+<span id="CDATA-Sections"></span><span id="CDATA-Sections-1"></span><h3 class="section">5.6 <code>CDATA</code> Sections</h3>
 
 <p>A <code>cdata</code> section may be given the semantic actions <code>skip</code>,
 <code>no</code> or <code>code</code>. In the first case, the data in the
@@ -2486,18 +2417,14 @@ computer braille and inserted into the output. Any other semantic action
 has the same effect as <code>no</code>.
 </p>
 <hr>
-<a name="End-notes"></a>
-<a name="End-notes-1"></a>
-<h3 class="section">5.7 End notes</h3>
+<span id="End-notes"></span><span id="End-notes-1"></span><h3 class="section">5.7 End notes</h3>
 
 <p>An endnote is defined as the link between a reference character in the
 body of the text and a description at the end of the output document.
 </p>
 
 <hr>
-<a name="Use-of-Endnotes"></a>
-<a name="Use-of-Endnotes-1"></a>
-<h4 class="subsection">5.7.1 Use of Endnotes</h4>
+<span id="Use-of-Endnotes"></span><span id="Use-of-Endnotes-1"></span><h4 class="subsection">5.7.1 Use of Endnotes</h4>
 
 <p>The position of the reference character in the body of the text is
 defined by the <code>noteref</code> semantic action (see <a href="#noteref-semantic"><code>noteref</code></a>), which is then linked to a
@@ -2516,9 +2443,7 @@ this heading, but before the endnotes, by using the
 headers, footers) from the last page in the document.
 </p>
 <hr>
-<a name="Output"></a>
-<a name="Output-1"></a>
-<h4 class="subsection">5.7.2 Output</h4>
+<span id="Output"></span><span id="Output-1"></span><h4 class="subsection">5.7.2 Output</h4>
 
 <p>Let&rsquo;s look at an example. The following text in an input file
 </p>
@@ -2548,12 +2473,10 @@ reference to the note, i.e. the reference character appearing on the
 2nd line of the 7th page.
 </p>
 <hr>
-<a name="Configuration"></a>
-<a name="Configuration-1"></a>
-<h4 class="subsection">5.7.3 Configuration</h4>
+<span id="Configuration"></span><span id="Configuration-1"></span><h4 class="subsection">5.7.3 Configuration</h4>
 
 <dl compact="compact">
-<dd><a name="index-endnotes"></a>
+<dd><span id="index-endnotes"></span>
 </dd>
 <dt><code>endnotes yes</code></dt>
 <dd>
@@ -2564,9 +2487,7 @@ anything enclosed by all the semantic actions <a href="#Semantic-Actions">Semant
 </dl>
 
 <hr>
-<a name="Styles"></a>
-<a name="Styles-1"></a>
-<h4 class="subsection">5.7.4 Styles</h4>
+<span id="Styles"></span><span id="Styles-1"></span><h4 class="subsection">5.7.4 Styles</h4>
 
 <p>The semantic actions <code>note</code>, <code>notesdescription</code>, and
 <code>notesheader</code> have corresponding styles.
@@ -2592,13 +2513,11 @@ anything enclosed by all the semantic actions <a href="#Semantic-Actions">Semant
 <p>The <code>noteref</code> semantic action (see <a href="#noteref-semantic"><code>noteref</code></a>) will inherit its style.
 </p>
 <hr>
-<a name="Semantic-Actions"></a>
-<a name="Semantic-Actions-1"></a>
-<h4 class="subsection">5.7.5 Semantic Actions</h4>
+<span id="Semantic-Actions"></span><span id="Semantic-Actions-1"></span><h4 class="subsection">5.7.5 Semantic Actions</h4>
 
 <dl compact="compact">
-<dd><a name="index-note"></a>
-<a name="note-semantic"></a></dd>
+<dd><span id="index-note"></span>
+<span id="note-semantic"></span></dd>
 <dt><code>note elementSpecifier id</code></dt>
 <dd>
 <p>Defines the endnote displayed at the bottom of the file. The id
@@ -2619,8 +2538,8 @@ action if needed.
 <pre class="example">&lt;mynote idref=&quot;1&quot;&gt;This is an endnote&lt;/mynote&gt;
 </pre></div>
 
-<a name="index-noteref"></a>
-<a name="noteref-semantic"></a></dd>
+<span id="index-noteref"></span>
+<span id="noteref-semantic"></span></dd>
 <dt><code>noteref elementSpecifier id</code></dt>
 <dd>
 <p>Defines the position where the endnote reference character should be
@@ -2640,8 +2559,8 @@ determines the order that they appear in the endnote section.
 <pre class="example">&lt;mynoteref idref=&quot;1&quot;&gt;*&lt;/mynoteref&gt;
 </pre></div>
 
-<a name="index-notesheader"></a>
-<a name="notesheader-semantic"></a></dd>
+<span id="index-notesheader"></span>
+<span id="notesheader-semantic"></span></dd>
 <dt><code>notesheader elementSpecifier</code></dt>
 <dd>
 <p>The text enclosed defines the header to be placed at the top of the
@@ -2661,8 +2580,8 @@ input file as follows:
 <pre class="example">&lt;mynotesheader&gt;Endnote Page Header&lt;/mynotesheader&gt;
 </pre></div>
 
-<a name="index-notesdescription"></a>
-<a name="notesdescription-semantic"></a></dd>
+<span id="index-notesdescription"></span>
+<span id="notesdescription-semantic"></span></dd>
 <dt><code>notesdescription elementSpecifier</code></dt>
 <dd>
 <p>Defines some text to be placed after the <code>notesheader</code> semantic action (see <a href="#notesheader-semantic"><code>notesheader</code></a>),
@@ -2685,9 +2604,7 @@ input file as follows:
 </dl>
 
 <hr>
-<a name="Example"></a>
-<a name="Example-1"></a>
-<h4 class="subsection">5.7.6 Example</h4>
+<span id="Example"></span><span id="Example-1"></span><h4 class="subsection">5.7.6 Example</h4>
 
 <p>So, to define end notes we need an input file (see <a href="#endnotes_002exml">endnotes.xml</a>)
 containing end notes and references to them , end notes have to be
@@ -2702,9 +2619,8 @@ notes page and the descriptive text (see <a href="#endnote-styles">endnote style
 and configuration files together with the resulting output
 (see <a href="#endnote-output">endnote output</a>).
 </p>
-<a name="input_002exml"></a>
-<h4 class="subsubsection">5.7.6.1 input.xml</h4>
-<a name="endnotes_002exml"></a>
+<span id="input_002exml"></span><h4 class="subsubsection">5.7.6.1 input.xml</h4>
+<span id="endnotes_002exml"></span>
 <div class="example">
 <pre class="example">&lt;?xml version=&quot;&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;doc&gt;
@@ -2723,16 +2639,14 @@ and configuration files together with the resulting output
 &lt;/doc&gt;
 </pre></div>
 
-<a name="liblouisutdml_002eini"></a>
-<h4 class="subsubsection">5.7.6.2 liblouisutdml.ini</h4>
-<a name="endnotes_002eini"></a>
+<span id="liblouisutdml_002eini"></span><h4 class="subsubsection">5.7.6.2 liblouisutdml.ini</h4>
+<span id="endnotes_002eini"></span>
 <div class="example">
 <pre class="example">endnotes yes
 </pre></div>
 
-<a name="endnotes_002esem-1"></a>
-<h4 class="subsubsection">5.7.6.3 endnotes.sem</h4>
-<a name="endnotes_002esem"></a>
+<span id="endnotes_002esem-1"></span><h4 class="subsubsection">5.7.6.3 endnotes.sem</h4>
+<span id="endnotes_002esem"></span>
 <div class="example">
 <pre class="example">note                note,id
 noteref             noteref,id
@@ -2740,9 +2654,8 @@ notesheader         notesheader
 notesdescription    notesdescription
 </pre></div>
 
-<a name="styles_002ecfg"></a>
-<h4 class="subsubsection">5.7.6.4 styles.cfg</h4>
-<a name="endnote-styles"></a>
+<span id="styles_002ecfg"></span><h4 class="subsubsection">5.7.6.4 styles.cfg</h4>
+<span id="endnote-styles"></span>
 <div class="example">
 <pre class="example">style note
     leftMargin 2
@@ -2755,9 +2668,8 @@ style notesdescription
     format leftJustified
 </pre></div>
 
-<a name="output_002etxt"></a>
-<h4 class="subsubsection">5.7.6.5 output.txt</h4>
-<a name="endnote-output"></a>
+<span id="output_002etxt"></span><h4 class="subsubsection">5.7.6.5 output.txt</h4>
+<span id="endnote-output"></span>
 <div class="example">
 <pre class="example">Foo 99#a Bar.
 Foo 99ref#b Bar.
@@ -2780,15 +2692,11 @@ ref#b p#a#b Endnote
 </pre></div>
 
 <hr>
-<a name="Special-Formats"></a>
-<a name="Special-Formats-1"></a>
-<h2 class="chapter">6 Special Formats</h2>
+<span id="Special-Formats"></span><span id="Special-Formats-1"></span><h2 class="chapter">6 Special Formats</h2>
 
 
 <hr>
-<a name="Tables"></a>
-<a name="Tables-1"></a>
-<h3 class="section">6.1 Tables</h3>
+<span id="Tables"></span><span id="Tables-1"></span><h3 class="section">6.1 Tables</h3>
 
 <p>Various methods of handling tables can be devised. One that is in
 current use requires the following lines in a semantic-action file:
@@ -2812,9 +2720,7 @@ third column. your liblouis table must also contain the following line:
 </pre></div>
 
 <hr>
-<a name="Reserving-Space-for-Graphics"></a>
-<a name="Reserving-Space-for-Graphics-1"></a>
-<h3 class="section">6.2 Reserving Space for Graphics</h3>
+<span id="Reserving-Space-for-Graphics"></span><span id="Reserving-Space-for-Graphics-1"></span><h3 class="section">6.2 Reserving Space for Graphics</h3>
 
 <p>Your configuration files should contain lines like these:
 </p>
@@ -2832,42 +2738,32 @@ at the end to skip to a new page, or the next right-hand page if you are
 using interpoint.
 </p>
 <hr>
-<a name="Displayed-Text"></a>
-<a name="Displayed-Text-1"></a>
-<h3 class="section">6.3 Displayed Text</h3>
+<span id="Displayed-Text"></span><span id="Displayed-Text-1"></span><h3 class="section">6.3 Displayed Text</h3>
 
 <p>Conventions for setting off a block of text from the rest vary. you may
 wish to use the <code>quotation</code> style or devise a style of your own.
 </p>
 <hr>
-<a name="Displayed-Mathematics"></a>
-<a name="Displayed-Mathematics-1"></a>
-<h3 class="section">6.4 Displayed Mathematics</h3>
+<span id="Displayed-Mathematics"></span><span id="Displayed-Mathematics-1"></span><h3 class="section">6.4 Displayed Mathematics</h3>
 
 <p>Again, conventions vary. you can define your own style for this purpose
 and invoke it according to the attributes of the <code>math</code> tag.
 </p>
 <hr>
-<a name="Spatial-Layouts-in-Mathematics"></a>
-<a name="Spatial-Layouts-in-Mathematics-1"></a>
-<h3 class="section">6.5 Spatial Layouts in Mathematics</h3>
+<span id="Spatial-Layouts-in-Mathematics"></span><span id="Spatial-Layouts-in-Mathematics-1"></span><h3 class="section">6.5 Spatial Layouts in Mathematics</h3>
 
 <p>This is also known as 2d mathematics. It spreads out complex fractions
 and other materials for easier viewing. It is being developed based on
 the specifications of MathML 3.
 </p>
 <hr>
-<a name="Arithmetic-Examples"></a>
-<a name="Arithmetic-Examples-1"></a>
-<h3 class="section">6.6 Arithmetic Examples</h3>
+<span id="Arithmetic-Examples"></span><span id="Arithmetic-Examples-1"></span><h3 class="section">6.6 Arithmetic Examples</h3>
 
 <p>This is another format that is being developed using MathML 3. It is
 difficult in earlier versions.
 </p>
 <hr>
-<a name="Poetry"></a>
-<a name="Poetry-1"></a>
-<h3 class="section">6.7 Poetry</h3>
+<span id="Poetry"></span><span id="Poetry-1"></span><h3 class="section">6.7 Poetry</h3>
 
 <p><samp>liblouisutdml.ini</samp> defines two styles which can be used to format
 poetry, as follows:
@@ -2897,9 +2793,7 @@ Coleridge&rsquo;s &quot;Rime of the Ancient Mariner&quot;:
 one blank line between them, not two.
 </p>
 <hr>
-<a name="Dividing-a-Book-Into-Volumes"></a>
-<a name="Dividing-a-Book-Into-Volumes-1"></a>
-<h3 class="section">6.8 Dividing a Book Into Volumes</h3>
+<span id="Dividing-a-Book-Into-Volumes"></span><span id="Dividing-a-Book-Into-Volumes-1"></span><h3 class="section">6.8 Dividing a Book Into Volumes</h3>
 
 <p>Details are still under development. However, this much can be said.
 First, obtain a table of contents for the whole book. This requires that
@@ -2923,9 +2817,7 @@ semantic-action file. Within the volume style you can nest a title page,
 chapters, etc. A volume table of contents is still under development.
 </p>
 <hr>
-<a name="Implementing-Braille-Mathematics-Codes"></a>
-<a name="Implementing-Braille-Mathematics-Codes-1"></a>
-<h2 class="chapter">7 Implementing Braille Mathematics Codes</h2>
+<span id="Implementing-Braille-Mathematics-Codes"></span><span id="Implementing-Braille-Mathematics-Codes-1"></span><h2 class="chapter">7 Implementing Braille Mathematics Codes</h2>
 
 <p>Much information useful in implementing braille mathematical codes is
 given in the sections on styles and on semantic actions, especially in
@@ -3149,15 +3041,11 @@ but some are interesting. for example,
 with just a space.
 </p>
 <hr>
-<a name="Programming-with-liblouisutdml"></a>
-<a name="Programming-with-liblouisutdml-1"></a>
-<h2 class="chapter">8 Programming with liblouisutdml</h2>
+<span id="Programming-with-liblouisutdml"></span><span id="Programming-with-liblouisutdml-1"></span><h2 class="chapter">8 Programming with liblouisutdml</h2>
 
 
 <hr>
-<a name="License"></a>
-<a name="License-1"></a>
-<h3 class="section">8.1 License</h3>
+<span id="License"></span><span id="License-1"></span><h3 class="section">8.1 License</h3>
 
 <p>Liblouisutdml may contain code borrowed from the Linux screenreader
 BRLTTY, Copyright &copy; 1999-2009
@@ -3184,9 +3072,7 @@ License along with Liblouisutdml. If not, see
 <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.
 </p>
 <hr>
-<a name="Overview"></a>
-<a name="Overview-2"></a>
-<h3 class="section">8.2 Overview</h3>
+<span id="Overview"></span><span id="Overview-2"></span><h3 class="section">8.2 Overview</h3>
 
 <p>liblouisutdml is an &quot;extensible renderer&quot;, designed to translate a wide
 variety of xml and text documents into braille, but with a special
@@ -3239,9 +3125,7 @@ compiled first and then liblouisutdml. Wherever 16 bits are mentioned in
 this document, read 32 if you have compiled the library for 32 bits.
 </p>
 <hr>
-<a name="Files-and-Paths"></a>
-<a name="Files-and-Paths-1"></a>
-<h3 class="section">8.3 Files and Paths</h3>
+<span id="Files-and-Paths"></span><span id="Files-and-Paths-1"></span><h3 class="section">8.3 Files and Paths</h3>
 
 <p>liblouisutdml uses three kinds of
 files, configuration files, semantic-action files, and liblouis
@@ -3277,11 +3161,9 @@ function <code>set_paths</code>, which is called from <code>readconfig.c</code> 
 in turn calls <code>addPath</code> in the <code>paths.c</code> module.
 </p>
 <hr>
-<a name="lbu_005fversion"></a>
-<a name="lbu_005fversion-1"></a>
-<h3 class="section">8.4 lbu_version</h3>
+<span id="lbu_005fversion"></span><span id="lbu_005fversion-1"></span><h3 class="section">8.4 lbu_version</h3>
 
-<a name="index-lbu_005fversion"></a>
+<span id="index-lbu_005fversion"></span>
 <div class="example">
 <pre class="example">char *lbu_version (void)
 </pre></div>
@@ -3291,11 +3173,9 @@ version of liblouisutdml. Other information such as the release
 date and perhaps notable changes may be added later.
 </p>
 <hr>
-<a name="lbu_005finitialize"></a>
-<a name="lbu_005finitialize-1"></a>
-<h3 class="section">8.5 lbu_initialize</h3>
+<span id="lbu_005finitialize"></span><span id="lbu_005finitialize-1"></span><h3 class="section">8.5 lbu_initialize</h3>
 
-<a name="index-lbu_005finitialize"></a>
+<span id="index-lbu_005finitialize"></span>
 <div class="example">
 <pre class="example">void * lbu_initialize (
 const char *configFilelist,
@@ -3320,11 +3200,9 @@ access the information in this structure you must include
 <samp>louisutdml.h</samp>. This function is used by <code>file2brl</code>.
 </p>
 <hr>
-<a name="lbu_005ftranslateString"></a>
-<a name="lbu_005ftranslateString-1"></a>
-<h3 class="section">8.6 lbu_translateString</h3>
+<span id="lbu_005ftranslateString"></span><span id="lbu_005ftranslateString-1"></span><h3 class="section">8.6 lbu_translateString</h3>
 
-<a name="index-lbu_005ftranslateString"></a>
+<span id="index-lbu_005ftranslateString"></span>
 <div class="example">
 <pre class="example">int lbu_translateString (
 const char *configfilelist,
@@ -3365,11 +3243,9 @@ function returns 1 if no errors were encountered and a negative number
 if a complete translation could not be done.
 </p>
 <hr>
-<a name="lbu_005ftranslateFile"></a>
-<a name="lbu_005ftranslateFile-1"></a>
-<h3 class="section">8.7 lbu_translateFile</h3>
+<span id="lbu_005ftranslateFile"></span><span id="lbu_005ftranslateFile-1"></span><h3 class="section">8.7 lbu_translateFile</h3>
 
-<a name="index-lbu_005ftranslateFile"></a>
+<span id="index-lbu_005ftranslateFile"></span>
 <div class="example">
 <pre class="example">int lbu_translateFile (
 char *configfilelist,
@@ -3395,11 +3271,9 @@ UTF-8, UTF-16, UTF-32 or Ascii-8. This is specified by the
 successful.
 </p>
 <hr>
-<a name="lbu_005ftranslateTextFile"></a>
-<a name="lbu_005ftranslateTextFile-1"></a>
-<h3 class="section">8.8 lbu_translateTextFile</h3>
+<span id="lbu_005ftranslateTextFile"></span><span id="lbu_005ftranslateTextFile-1"></span><h3 class="section">8.8 lbu_translateTextFile</h3>
 
-<a name="index-lbu_005ftranslateTextFile"></a>
+<span id="index-lbu_005ftranslateTextFile"></span>
 <div class="example">
 <pre class="example">int lbu_translateTextFile (
 char *configfilelist,
@@ -3421,11 +3295,9 @@ whether complete initialization is to be done or simply initialization
 for a new document.
 </p>
 <hr>
-<a name="lbu_005fbackTranslateFile"></a>
-<a name="lbu_005fbackTranslateFile-1"></a>
-<h3 class="section">8.9 lbu_backTranslateFile</h3>
+<span id="lbu_005fbackTranslateFile"></span><span id="lbu_005fbackTranslateFile-1"></span><h3 class="section">8.9 lbu_backTranslateFile</h3>
 
-<a name="index-lbu_005fbackTranslateFile"></a>
+<span id="index-lbu_005fbackTranslateFile"></span>
 <div class="example">
 <pre class="example">int lbu_backTranslateFile (
 char *configfilelist,
@@ -3448,11 +3320,9 @@ with new configuration information, as described in the section on
 <code>lbu_translateString</code> (see <a href="#lbu_005ftranslateString">lbu_translateString</a>).
 </p>
 <hr>
-<a name="lbu_005ffree"></a>
-<a name="lbu_005ffree-1"></a>
-<h3 class="section">8.10 lbu_free</h3>
+<span id="lbu_005ffree"></span><span id="lbu_005ffree-1"></span><h3 class="section">8.10 lbu_free</h3>
 
-<a name="index-lbu_005ffree"></a>
+<span id="index-lbu_005ffree"></span>
 <div class="example">
 <pre class="example">void lbu_free (void)
 </pre></div>
@@ -3464,9 +3334,7 @@ parameter of 0 on the function call using the new configuration
 information. This will call the <code>lbu_free</code> function automatically.
 </p>
 <hr>
-<a name="Example-files"></a>
-<a name="Example-files-1"></a>
-<h2 class="appendix">Appendix A Example files</h2>
+<span id="Example-files"></span><span id="Example-files-1"></span><h2 class="appendix">Appendix A Example files</h2>
 
 <p>This manual refers to files to files contained in liblouisutdml and
 liblouis. You might want to look up these files in the source
@@ -3525,9 +3393,7 @@ given.
 </dl>
 
 <hr>
-<a name="Configuration-Settings-Index"></a>
-<a name="Configuration-Settings-Index-1"></a>
-<h2 class="unnumbered">Configuration Settings Index</h2>
+<span id="Configuration-Settings-Index"></span><span id="Configuration-Settings-Index-1"></span><h2 class="unnumbered">Configuration Settings Index</h2>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Configuration-Settings-Index_tp_letter-B"><b>B</b></a>
  &nbsp; 
@@ -3569,7 +3435,7 @@ given.
 <table class="index-tp" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Configuration-Settings-Index_tp_letter-B">B</a></th><td></td><td></td></tr>
+<tr><th id="Configuration-Settings-Index_tp_letter-B">B</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-backFormat"><code>backFormat</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-backLineLength"><code>backLineLength</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-beginningPageNumber"><code>beginningPageNumber</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
@@ -3578,21 +3444,21 @@ given.
 <tr><td></td><td valign="top"><a href="#index-braillePageNumberFormat"><code>braillePageNumberFormat</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-braillePages"><code>braillePages</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Configuration-Settings-Index_tp_letter-C">C</a></th><td></td><td></td></tr>
+<tr><th id="Configuration-Settings-Index_tp_letter-C">C</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-cellsPerLine"><code>cellsPerLine</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-center"><code>center</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-compbrailleTable"><code>compbrailleTable</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#translation">translation</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-continuePages"><code>continuePages</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Configuration-Settings-Index_tp_letter-D">D</a></th><td></td><td></td></tr>
+<tr><th id="Configuration-Settings-Index_tp_letter-D">D</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-dontSplit"><code>dontSplit</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Configuration-Settings-Index_tp_letter-E">E</a></th><td></td><td></td></tr>
+<tr><th id="Configuration-Settings-Index_tp_letter-E">E</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-editTable"><code>editTable</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#translation">translation</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-endnotes"><code>endnotes</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Configuration">Configuration</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-entity"><code>entity</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#xml">xml</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Configuration-Settings-Index_tp_letter-F">F</a></th><td></td><td></td></tr>
+<tr><th id="Configuration-Settings-Index_tp_letter-F">F</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-fileEnd"><code>fileEnd</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-firstLineIndent"><code>firstLineIndent</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-firstLineIndent-1"><code>firstLineIndent</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
@@ -3611,19 +3477,19 @@ given.
 <tr><td></td><td valign="top"><a href="#index-format-5"><code>format</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-formatFor"><code>formatFor</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Configuration-Settings-Index_tp_letter-H">H</a></th><td></td><td></td></tr>
+<tr><th id="Configuration-Settings-Index_tp_letter-H">H</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-hyphenate"><code>hyphenate</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Configuration-Settings-Index_tp_letter-I">I</a></th><td></td><td></td></tr>
+<tr><th id="Configuration-Settings-Index_tp_letter-I">I</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ignoreEmptyPages"><code>ignoreEmptyPages</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-inputTextEncoding"><code>inputTextEncoding</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-internetAccess"><code>internetAccess</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#xml">xml</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-interpoint"><code>interpoint</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Configuration-Settings-Index_tp_letter-K">K</a></th><td></td><td></td></tr>
+<tr><th id="Configuration-Settings-Index_tp_letter-K">K</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-keepWithNext"><code>keepWithNext</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Configuration-Settings-Index_tp_letter-L">L</a></th><td></td><td></td></tr>
+<tr><th id="Configuration-Settings-Index_tp_letter-L">L</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-leftMargin"><code>leftMargin</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-leftMargin-1"><code>leftMargin</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-leftMargin-2"><code>leftMargin</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
@@ -3641,21 +3507,21 @@ given.
 <tr><td></td><td valign="top"><a href="#index-linesPerPage"><code>linesPerPage</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-literaryTextTable"><code>literaryTextTable</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#translation">translation</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Configuration-Settings-Index_tp_letter-M">M</a></th><td></td><td></td></tr>
+<tr><th id="Configuration-Settings-Index_tp_letter-M">M</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-MathexpTable"><code>MathexpTable</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#translation">translation</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mathtextTable"><code>mathtextTable</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#translation">translation</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mergeUnnumberedPages"><code>mergeUnnumberedPages</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Configuration-Settings-Index_tp_letter-N">N</a></th><td></td><td></td></tr>
+<tr><th id="Configuration-Settings-Index_tp_letter-N">N</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-newEntries"><code>newEntries</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#xml">xml</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-newPageAfter"><code>newPageAfter</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-newPageBefore"><code>newPageBefore</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Configuration-Settings-Index_tp_letter-O">O</a></th><td></td><td></td></tr>
+<tr><th id="Configuration-Settings-Index_tp_letter-O">O</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-orphanControl"><code>orphanControl</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-outputEncoding"><code>outputEncoding</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Configuration-Settings-Index_tp_letter-P">P</a></th><td></td><td></td></tr>
+<tr><th id="Configuration-Settings-Index_tp_letter-P">P</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-pageEnd"><code>pageEnd</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-pageNumberBottomSeparateLine"><code>pageNumberBottomSeparateLine</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-pageNumberTopSeparateLine"><code>pageNumberTopSeparateLine</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
@@ -3666,22 +3532,22 @@ given.
 <tr><td></td><td valign="top"><a href="#index-printPageNumberRange"><code>printPageNumberRange</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-printPages"><code>printPages</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#outputFormat">outputFormat</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Configuration-Settings-Index_tp_letter-R">R</a></th><td></td><td></td></tr>
+<tr><th id="Configuration-Settings-Index_tp_letter-R">R</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-rightHandPage"><code>rightHandPage</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-rightMargin"><code>rightMargin</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Configuration-Settings-Index_tp_letter-S">S</a></th><td></td><td></td></tr>
+<tr><th id="Configuration-Settings-Index_tp_letter-S">S</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-semanticFiles"><code>semanticFiles</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#xml">xml</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-skipNumberLines"><code>skipNumberLines</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Configuration-Settings-Index_tp_letter-T">T</a></th><td></td><td></td></tr>
+<tr><th id="Configuration-Settings-Index_tp_letter-T">T</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-topBoxline"><code>topBoxline</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-translate"><code>translate</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Configuration-Settings-Index_tp_letter-U">U</a></th><td></td><td></td></tr>
+<tr><th id="Configuration-Settings-Index_tp_letter-U">U</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-uncontractedTable"><code>uncontractedTable</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#translation">translation</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Configuration-Settings-Index_tp_letter-X">X</a></th><td></td><td></td></tr>
+<tr><th id="Configuration-Settings-Index_tp_letter-X">X</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-xmlheader"><code>xmlheader</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#xml">xml</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
@@ -3724,9 +3590,7 @@ given.
 </td></tr></table>
 
 <hr>
-<a name="Semantic-Action-Index"></a>
-<a name="Semantic-Action-Index-1"></a>
-<h2 class="unnumbered">Semantic Action Index</h2>
+<span id="Semantic-Action-Index"></span><span id="Semantic-Action-Index-1"></span><h2 class="unnumbered">Semantic Action Index</h2>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Semantic-Action-Index_semantic_letter-B"><b>B</b></a>
  &nbsp; 
@@ -3760,11 +3624,11 @@ given.
 <table class="index-semantic" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Semantic-Action-Index_semantic_letter-B">B</a></th><td></td><td></td></tr>
+<tr><th id="Semantic-Action-Index_semantic_letter-B">B</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-blankline">blankline</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-boldx">boldx</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Semantic-Action-Index_semantic_letter-C">C</a></th><td></td><td></td></tr>
+<tr><th id="Semantic-Action-Index_semantic_letter-C">C</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-changetable">changetable</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-chemistry">chemistry</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-compbrl">compbrl</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
@@ -3778,17 +3642,17 @@ given.
 <tr><td></td><td valign="top"><a href="#index-contentsheader">contentsheader</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-contracted">contracted</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Semantic-Action-Index_semantic_letter-D">D</a></th><td></td><td></td></tr>
+<tr><th id="Semantic-Action-Index_semantic_letter-D">D</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-document">document</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Semantic-Action-Index_semantic_letter-F">F</a></th><td></td><td></td></tr>
+<tr><th id="Semantic-Action-Index_semantic_letter-F">F</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-footer">footer</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Semantic-Action-Index_semantic_letter-G">G</a></th><td></td><td></td></tr>
+<tr><th id="Semantic-Action-Index_semantic_letter-G">G</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-generic">generic</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-graphic">graphic</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Semantic-Action-Index_semantic_letter-H">H</a></th><td></td><td></td></tr>
+<tr><th id="Semantic-Action-Index_semantic_letter-H">H</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-heading1">heading1</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-heading2">heading2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-heading3">heading3</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
@@ -3796,13 +3660,13 @@ given.
 <tr><td></td><td valign="top"><a href="#index-htmllink">htmllink</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-htmltarget">htmltarget</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Semantic-Action-Index_semantic_letter-I">I</a></th><td></td><td></td></tr>
+<tr><th id="Semantic-Action-Index_semantic_letter-I">I</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-italicx">italicx</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Semantic-Action-Index_semantic_letter-L">L</a></th><td></td><td></td></tr>
+<tr><th id="Semantic-Action-Index_semantic_letter-L">L</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-linespacing">linespacing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Semantic-Action-Index_semantic_letter-M">M</a></th><td></td><td></td></tr>
+<tr><th id="Semantic-Action-Index_semantic_letter-M">M</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-maction">maction</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-maligngroup">maligngroup</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-malignmark">malignmark</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
@@ -3838,7 +3702,7 @@ given.
 <tr><td></td><td valign="top"><a href="#index-munderover">munderover</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-music">music</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Semantic-Action-Index_semantic_letter-N">N</a></th><td></td><td></td></tr>
+<tr><th id="Semantic-Action-Index_semantic_letter-N">N</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-newpage">newpage</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-no">no</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-none">none</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
@@ -3848,21 +3712,21 @@ given.
 <tr><td></td><td valign="top"><a href="#index-notesheader">notesheader</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions">Semantic Actions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-notranslate">notranslate</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Semantic-Action-Index_semantic_letter-P">P</a></th><td></td><td></td></tr>
+<tr><th id="Semantic-Action-Index_semantic_letter-P">P</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-pagenum">pagenum</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-para">para</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Semantic-Action-Index_semantic_letter-R">R</a></th><td></td><td></td></tr>
+<tr><th id="Semantic-Action-Index_semantic_letter-R">R</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-reverse">reverse</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-righthandpage">righthandpage</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-runninghead">runninghead</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Semantic-Action-Index_semantic_letter-S">S</a></th><td></td><td></td></tr>
+<tr><th id="Semantic-Action-Index_semantic_letter-S">S</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-semantics">semantics</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-skip">skip</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-softreturn">softreturn</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Semantic-Action-Index_semantic_letter-U">U</a></th><td></td><td></td></tr>
+<tr><th id="Semantic-Action-Index_semantic_letter-U">U</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-uncontracted">uncontracted</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-underlinex">underlinex</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
@@ -3898,9 +3762,7 @@ given.
 </td></tr></table>
 
 <hr>
-<a name="Style-Index"></a>
-<a name="Style-Index-1"></a>
-<h2 class="unnumbered">Style Index</h2>
+<span id="Style-Index"></span><span id="Style-Index-1"></span><h2 class="unnumbered">Style Index</h2>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Style-Index_style_letter-B"><b>B</b></a>
  &nbsp; 
@@ -3916,26 +3778,26 @@ given.
 <table class="index-style" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Style-Index_style_letter-B">B</a></th><td></td><td></td></tr>
+<tr><th id="Style-Index_style_letter-B">B</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-boxline">boxline</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Style-Index_style_letter-C">C</a></th><td></td><td></td></tr>
+<tr><th id="Style-Index_style_letter-C">C</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-contents1">contents1</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-contents2">contents2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-contents3">contents3</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-contents4">contents4</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-contentsheader-1">contentsheader</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Style-Index_style_letter-D">D</a></th><td></td><td></td></tr>
+<tr><th id="Style-Index_style_letter-D">D</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-document-1">document</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Style-Index_style_letter-H">H</a></th><td></td><td></td></tr>
+<tr><th id="Style-Index_style_letter-H">H</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-heading1-1">heading1</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-heading2-1">heading2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-heading3-1">heading3</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-heading4-1">heading4</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Style-Index_style_letter-P">P</a></th><td></td><td></td></tr>
+<tr><th id="Style-Index_style_letter-P">P</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-para-1">para</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
@@ -3952,9 +3814,7 @@ given.
 </td></tr></table>
 
 <hr>
-<a name="Function-Index"></a>
-<a name="Function-Index-1"></a>
-<h2 class="unnumbered">Function Index</h2>
+<span id="Function-Index"></span><span id="Function-Index-1"></span><h2 class="unnumbered">Function Index</h2>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Function-Index_fn_letter-L"><b>L</b></a>
  &nbsp; 
@@ -3962,7 +3822,7 @@ given.
 <table class="index-fn" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Function-Index_fn_letter-L">L</a></th><td></td><td></td></tr>
+<tr><th id="Function-Index_fn_letter-L">L</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lbu_005fbackTranslateFile"><code>lbu_backTranslateFile</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lbu_005fbackTranslateFile">lbu_backTranslateFile</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lbu_005ffree"><code>lbu_free</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lbu_005ffree">lbu_free</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lbu_005finitialize"><code>lbu_initialize</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#lbu_005finitialize">lbu_initialize</a></td></tr>
@@ -3977,9 +3837,7 @@ given.
 </td></tr></table>
 
 <hr>
-<a name="Program-Index"></a>
-<a name="Program-Index-1"></a>
-<h2 class="unnumbered">Program Index</h2>
+<span id="Program-Index"></span><span id="Program-Index-1"></span><h2 class="unnumbered">Program Index</h2>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Program-Index_pg_letter-F"><b>F</b></a>
  &nbsp; 
@@ -3987,7 +3845,7 @@ given.
 <table class="index-pg" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Program-Index_pg_letter-F">F</a></th><td></td><td></td></tr>
+<tr><th id="Program-Index_pg_letter-F">F</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-file2brl"><code>file2brl</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Transcribing-XML-files-with-file2brl">Transcribing XML files with file2brl</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
@@ -3996,9 +3854,7 @@ given.
 </td></tr></table>
 
 <hr>
-<a name="Concept-Index"></a>
-<a name="Concept-Index-1"></a>
-<h2 class="unnumbered">Concept Index</h2>
+<span id="Concept-Index"></span><span id="Concept-Index-1"></span><h2 class="unnumbered">Concept Index</h2>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Concept-Index_cp_letter-M"><b>M</b></a>
  &nbsp; 
@@ -4010,13 +3866,13 @@ given.
 <table class="index-cp" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-M">M</a></th><td></td><td></td></tr>
+<tr><th id="Concept-Index_cp_letter-M">M</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Macros">Macros</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-Macros">Using Macros</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-N">N</a></th><td></td><td></td></tr>
+<tr><th id="Concept-Index_cp_letter-N">N</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Namespaces">Namespaces</a>:</td><td>&nbsp;</td><td valign="top"><a href="#namespaces">namespaces</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-X">X</a></th><td></td><td></td></tr>
+<tr><th id="Concept-Index_cp_letter-X">X</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-XPath-Expressions">XPath Expressions</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-XPath-Expressions">Using XPath Expressions</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
