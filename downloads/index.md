@@ -10,8 +10,8 @@ binary contains the library and all the tools and can be used as-is.
 
 |Summary|File|
 |---------|
-|Liblouis (source)|[liblouis-3.14.0.tar.gz](https://github.com/liblouis/liblouis/releases/download/v3.14.0/liblouis-3.14.0.tar.gz), [liblouis-3.14.0.zip](https://github.com/liblouis/liblouis/releases/download/v3.14.0/liblouis-3.14.0.zip)|
-|Liblouis (Windows build)|[liblouis-win32.zip](https://github.com/liblouis/liblouis/releases/download/v3.14.0/liblouis-win32.zip), [liblouis-win64.zip](https://github.com/liblouis/liblouis/releases/download/v3.14.0/liblouis-win64.zip)|
+|Liblouis (source)|[liblouis-3.15.0.tar.gz](https://github.com/liblouis/liblouis/releases/download/v3.15.0/liblouis-3.15.0.tar.gz), [liblouis-3.15.0.zip](https://github.com/liblouis/liblouis/releases/download/v3.15.0/liblouis-3.15.0.zip)|
+|Liblouis (Windows build)|[liblouis-3.15.0-win32.zip](https://github.com/liblouis/liblouis/releases/download/v3.15.0/liblouis-3.15.0-win32.zip), [liblouis-3.15.0-win64.zip](https://github.com/liblouis/liblouis/releases/download/v3.15.0/liblouis-3.15.0-win64.zip)|
 |Liblouisutdml (source)|[liblouisutdml-2.8.0.tar.gz](https://github.com/liblouis/liblouisutdml/releases/download/v2.8.0/liblouisutdml-2.8.0.tar.gz)|
 {: .table}
 
