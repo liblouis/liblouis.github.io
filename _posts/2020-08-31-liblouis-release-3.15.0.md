@@ -23,7 +23,7 @@ None
 Braille table improvements
 --------------------------
 
--   New computer braille table for the Coptic language thanks to Ibraam Nasif
+-   New computer braille table for the Coptic language thanks to Ibraam Nasif from Coptic Bishopric of Youth
 -   Improvements to Afrikaans thanks to Christo de Klerk
     -   Fixed correct handling of the ŉ character (0x149)
     -   Prevent contraction of
