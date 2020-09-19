@@ -76,5 +76,28 @@ body {
 				border-color: #333;
 			}
 		}
+		#link-to-github {
+			position: absolute;
+			color: transparent;
+			font-size: 1px;
+			width: 35px;
+			height: 35px;
+			outline-color: #777;
+			top: 10px;
+			right: -11px;
+			width: 35px;
+			border-radius: 16px;
+			height: 35px;
+			background:
+				linear-gradient(rgba(242, 242, 242, 0.5), rgba(242, 242, 242, 0.5)),
+					url({{site.baseurl}}/images/github.png);
+			background-repeat: no-repeat;
+			background-size: 35px 35px;
+			background-position: top 0 right 0;
+			&:hover,
+			&:focus {
+				background-image: url({{site.baseurl}}/images/github.png);
+			}
+		}
 	}
 }
