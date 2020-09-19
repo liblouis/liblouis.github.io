@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ site.description }}">
+
+    <title>{{ site.name }} - {{ site.description }}</title>
+
+    <link href="{{ site.baseurl }}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ site.baseurl }}/css/sticky-footer-navbar.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="{{ site.baseurl }}/assets/js/html5shiv.js"></script>
+      <script src="{{ site.baseurl }}/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="alternate" type="application/atom+xml" href="{{ site.baseurl }}/atom.xml" title="Atom feed">
+  </head>
+
+  <body>
+    <a href="#content" class="sr-only">Skip to content</a>
+
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.name }}</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="{{ site.baseurl }}/news">News</a></li>
+              <li><a href="{{ site.baseurl }}/documentation">Documentation</a></li>
+              <li><a href="{{ site.baseurl }}/downloads">Downloads</a></li>
+              <li><a href="{{ site.baseurl }}/links">Links</a></li>
+              <li><a href="{{ site.baseurl }}/sponsoring">Sponsoring</a></li>
+            </ul>
+          </div> <!-- /.navbar-collapse -->
+        </div> <!-- /.container -->
+      </div> <!-- /.navbar -->
+
+      {{ content }}
+
+    </div> <!-- /wrap -->
+
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted credit">Copyright &copy; {{ site.name }} 2010 - {{ site.time | date: "%Y" }}</p>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ site.baseurl }}/assets/js/jquery.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/bootstrap.min.js"></script>
+    {% include analyticstracking.html %}
+  </body>
+</html>
