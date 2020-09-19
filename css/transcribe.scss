@@ -1,0 +1,128 @@
+---
+---
+@font-face {
+	font-family: "odt2braille";
+	src: url("fonts/odt2braille8.ttf") format('truetype');
+}
+@-webkit-keyframes borderBlink {
+	50% {
+		border-color: transparent;
+	}
+}
+@keyframes borderBlink {
+	50% {
+		border-color: transparent;
+	}
+}
+#input-wrapper,
+#output-wrapper {
+	margin: 0 10px;
+	height: 200px;
+	border: 1px solid #cccccc;
+	padding: 0;
+}
+#input-wrapper {
+	margin-top: 20px;
+	position: relative;
+	border-bottom: none;
+	#textarea-wrapper {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		overflow: hidden;
+		textarea {
+			width: 100000px;
+		}
+	}
+}
+#input,
+#output {
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	margin: 0;
+	padding: 5px;
+	line-height: 32px;
+	font-size: 2em;
+	white-space: pre-wrap;
+	word-break: break-word;
+	overflow-x: hidden;
+	overflow-y: auto;
+	cursor: text;
+	position: relative;
+	// .caret already taken by bootstrap
+	.my-caret {
+		position: absolute;
+		&::after {
+			content: ' ';
+		}
+	}
+}
+#input.focus,
+#input:active,
+#output.input-has-focus {
+	.selection {
+		color: black;
+		background-color: #eebbff;
+	}
+	.contraction {
+		color: black;
+		background-color: #99ffdd;
+	}
+	.exact-position {
+		position: absolute;
+		&::after {
+			content: ' ';
+			border-left: 1px solid #8888ff;
+		}
+	}
+}
+#input {
+	background-color: white;
+	font-family: monospace;
+	&.focus, &:active {
+		// only blink input and only when focused as to not make it seem as if output is also editable
+		.my-caret::after {
+			border-left: 1px solid black;
+			animation: borderBlink 1.14s step-end infinite;
+			-webkit-animation: borderBlink 1.14s step-end infinite;
+		}
+	}
+	&.initial-state {
+		color: #ddd;
+		&::after {
+			content: "Type something...";
+		}
+	}
+}
+#output {
+	font-family: "odt2braille";
+	background-color: #f7f7f7;
+	.my-caret::after {
+		border-left: 1px solid #8888ff;
+	}
+	&.empty,
+	&.initial-state {
+		color: #aaa;
+		font-family: sans-serif;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 184px;
+	}
+	&.empty {
+		&::after {
+			content: "No input";
+		}
+		.my-caret::after {
+			border-left: none;
+		}
+	}
+	&.initial-state {
+		&::after {
+			content: "No table selected";
+		}
+	}
+}
