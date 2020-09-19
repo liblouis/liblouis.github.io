@@ -1,0 +1,66 @@
+---
+---
+
+body {
+	padding-top: 70px;
+}
+
+#wrap > .container {
+	padding-top: 10px;
+}
+
+.navbar {
+	z-index: 99;
+	&.navbar-default {
+		.navbar-brand,
+		.navbar-brand:hover,
+		.navbar-brand:focus {
+			color: transparent;
+			size: 1px;
+			width: 50px;
+			background-image: url({{site.baseurl}}/images/louis.png);
+			background-position: left top;
+			background-repeat: no-repeat;
+			background-size: 51px 50px;
+			outline-color: #777;
+		}
+	}
+	.nav > li > span {
+		display: block;
+		color: #777;
+		padding: 10px 15px;
+		&:hover,
+		&:focus {
+			color: #333;
+		}
+	}
+}
+
+@media(min-width:768px) {
+	.navbar {
+		font-size: 105%;
+		&.navbar-default {
+			.navbar-brand,
+			.navbar-brand:hover,
+			.navbar-brand:focus {
+				background-size: 93px 90px;
+				height: 91px;
+				width: 90px;
+			}
+		}
+		> .container > .navbar-collapse.collapse {
+			position: relative;
+			padding-top: 10px;
+			margin-left: 90px;
+		}
+		.nav {
+			margin-right: 120px;
+			> li {
+				position: static;
+				> a {
+					padding: 7px 15px;
+				}
+			}
+		}
+	}
+}
