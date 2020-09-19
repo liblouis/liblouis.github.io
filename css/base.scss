@@ -62,5 +62,17 @@ body {
 				}
 			}
 		}
+		#sponsor-button {
+			text-transform: uppercase;
+			margin: 2px 15px;
+			padding: 4px 8px;
+			border: 1px solid #ccc;
+			&:hover,
+			&:focus {
+				background-color: #333;
+				color: white;
+				border-color: #333;
+			}
+		}
 	}
 }
