@@ -1,4 +1,4 @@
-name: Liblouis*
+name: Liblouis
 description: An open-source braille translator and back-translator.
 markdown: kramdown
 highlighter: rouge
@@ -21,3 +21,5 @@ defaults:
       type: "post"
     values:
       layout: "post"
+sass:
+    style: expanded

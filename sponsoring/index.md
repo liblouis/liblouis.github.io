@@ -30,8 +30,9 @@ healthy and actively maintained.
 ## How to sponsor?
 
 If you would like to support us in our efforts to move Liblouis
-forward use the sponsoring button on the [Github
-page](https://github.com/liblouis/liblouis). These are the options:
+forward use the {% include sponsor-button.html %} button on the
+[Github page](https://github.com/liblouis/liblouis). These are the
+options:
 - You can [sponsor us through
   Github](https://github.com/sponsors/bertfrees). Sponsorship
   lasts only as long as you wish and you can cancel anytime. So if you
