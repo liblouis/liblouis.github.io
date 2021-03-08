@@ -116,7 +116,7 @@ title: Liblouis User's and Programmer's Manual
 
 <span id="Top"></span><span id="Liblouis-User_0027s-and-Programmer_0027s-Manual"></span><h1 class="top">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouis (version 3.16.1, 30 November 2020),
+<p>This manual is for liblouis (version 3.17.0, 22 February 2021),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <acronym>BRLTTY</acronym>.
 </p>
@@ -694,13 +694,15 @@ be the case for the hyphen character, &lsquo;<samp>-</samp>&rsquo;.
 <span id="index-begcaps"></span>
 <span id="begcaps-opcode"></span></dd>
 <dt><code>begcaps dots</code></dt>
-<dd><p>The dot pattern which begins a block of capital letters defined by the
-provided <code>typeform</code> without regard for any other rules.
-This construct is sometimes also called a capsphrase. It is used
-in some Braille codes to mark a whole phrase or sentence as capital
-letters. The block can contain capital letters as well as
+<dd><p>The dot pattern which begins a block of capital letters. It is used
+in some Braille codes to mark a whole sentence or several words as
+capital letters. The block can contain capital letters as well as
 none-alphabetic characters, punctuation, numbers etc. The
-block is terminated when a small letter is encountered or at the end of the input string.
+block is terminated when a small letter is encountered or at the end
+of the input string.
+</p>
+<p>This is the most general opening mark, i.e. it can be used for opening
+at any position.
 </p>
 <p>Example:
 </p>
@@ -711,9 +713,11 @@ block is terminated when a small letter is encountered or at the end of the inpu
 <span id="index-endcaps"></span>
 <span id="endcaps-opcode"></span></dd>
 <dt><code>endcaps dots</code></dt>
-<dd><p>The dot pattern which ends a block of capital letters defined by the
-provided <code>typeform</code> without regard for any other rules. For
-example:
+<dd><p>The dot pattern which ends a block of capital letters. If the
+capital letters stop at the end of a word, this indicator will be
+placed immediately before the space to the next word. If the capital
+letters stop in the middle of a word, the indicator will be placed
+immediately before the first occurring small letter.
 </p>
 <div class="example">
 <pre class="example">endcaps 6-3
