@@ -113,8 +113,8 @@ title: Liblouisutdml User's and Programmer's Manual
 
 <span id="Top"></span><span id="Liblouisutdml-User_0027s-and-Programmer_0027s-Manual"></span><h1 class="top">Liblouisutdml User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouisutdml (version 2.9.0,
-28 August 2017), an xml to Braille Translation Library.
+<p>This manual is for liblouisutdml (version 2.10.0,
+8 March 2021), an xml to Braille Translation Library.
 </p>
 <p>This file may contain code borrowed from the Linux screenreader
 <acronym>BRLTTY</acronym>, Copyright &copy; 1999-2009 by the
@@ -317,12 +317,12 @@ transcribed. The file may be either an xml file or a text file. The
 <samp>-b</samp>, <samp>-r</samp> and <samp>-p</samp> options discussed above
 provide for other types of files and processing. Typical xml files are
 those provided by <a href="www.bookshare.org">www.bookshare.org</a> or those derived from a
-word processor by saving in xml format. If a text file is used
+word processor by saving in xml format. If a text file is used,
 paragraphs and headings should be separated by blank lines. In such a
 file there is no way to distinguish between paragraphs and headings,
 so they will all be formatted as paragraphs, as specified by the
 configuration file. However, if you want a blank line in the braille
-transcription use two consecutive blank lines in the text file.
+transcription, use two consecutive blank lines in the text file.
 </p>
 </dd>
 <dt><samp>outfile</samp></dt>
@@ -394,7 +394,8 @@ Semantic-action Files (see <a href="#Connecting-with-the-xml-Document">Connectin
 with the xml Document - Semantic-Action Files</a>). The latter are
 discussed in this section. A third type of file, braille translation
 tables, is discussed in the liblouis documentation (see <a href="liblouis.html#Top">Overview</a> in <cite>Liblouis User&rsquo;s and Programmer&rsquo;s Manual</cite>).
-Another section of the present document which may be of interest is
+</p>
+<p>Another section of the present document which may be of interest is
 Implementing Braille Mathematical Codes (see <a href="#Implementing-Braille-Mathematics-Codes">Implementing Braille Mathematics Codes</a>).
 </p>
 <p>Besides files, liblouisutdml can also be controlled by configuration
@@ -457,7 +458,7 @@ program if no configuration file is given.
 <p>Here, then, is an explanation of each section and setting in the
 <samp>preferences.cfg</samp> file. When you look at this file you will see
 that the section names start at the left margin, while the settings
-are indented one tab stop. This is done for readability. it has no
+are indented one tab stop. This is done for readability, it has no
 effect on the meaning of the lines. You will also see lines beginning
 with a number sign (&lsquo;<samp>#</samp>&rsquo;), which are comments. Blank lines can
 also be used anywhere in a configuration file. In general, a section
@@ -636,7 +637,7 @@ are placed at the bottom of a Braille page.
 <dt><code>hyphenate no</code></dt>
 <dd><p>If &lsquo;<samp>yes</samp>&rsquo; is specified words will be hyphenated at the ends of
 lines if a hyphenation table is available. In contracted English
-Braille hyphenation is not generally used, but it can save
+Braille, hyphenation is not generally used, but it can save
 considerable space. The hyphenation table is specified as part of the
 table list in the <code>literaryTextTable</code> setting of the translation
 section.
@@ -840,7 +841,7 @@ numbers. However, the titlePage style might have the setting
 <code>braillePageNumberFormat blank</code>. This will apply to all styles
 nested within it. When the titlePage section ends, the frontMatter
 setting &lsquo;<samp>roman</samp>&rsquo; will be restored. The
-&lsquo;<samp>braiblePageNumberFormat</samp>&rsquo; setting is an example of a &quot;persistent&quot;
+&lsquo;<samp>braillePageNumberFormat</samp>&rsquo; setting is an example of a &quot;persistent&quot;
 style setting. Most settings apply only to the style for which they are
 declared.
 </p>
@@ -854,7 +855,7 @@ only settings that are different from the defaults.
 
 <p>This is a predefined style name. All settings have their default values.
 The user must specify any other values. If a &quot;persistent&quot; style setting
-is specified, it will apply to the whole ducument.
+is specified, it will apply to the whole document.
 </p>
 <dl compact="compact">
 <dd>
@@ -1019,7 +1020,7 @@ starting and ending markers.
 </dl>
 
 <span id="style-contents1"></span><h4 class="subsection">3.4.3 style contents1</h4>
-<span id="index-contents1"></span>
+<span id="index-contents1-1"></span>
 
 <p>This style and the other contents styles are used for the table of
 contents and correspond to the ten heading levels (&lsquo;<samp>contents5</samp>&rsquo;,
@@ -1039,7 +1040,7 @@ contents and correspond to the ten heading levels (&lsquo;<samp>contents5</samp>
 </dl>
 
 <span id="style-contents2"></span><h4 class="subsection">3.4.4 style contents2</h4>
-<span id="index-contents2"></span>
+<span id="index-contents2-1"></span>
 
 <dl compact="compact">
 <dd><span id="index-firstLineIndent-2"></span>
@@ -1054,7 +1055,7 @@ contents and correspond to the ten heading levels (&lsquo;<samp>contents5</samp>
 </dl>
 
 <span id="style-contents3"></span><h4 class="subsection">3.4.5 style contents3</h4>
-<span id="index-contents3"></span>
+<span id="index-contents3-1"></span>
 
 <dl compact="compact">
 <dd><span id="index-firstLineIndent-3"></span>
@@ -1069,7 +1070,7 @@ contents and correspond to the ten heading levels (&lsquo;<samp>contents5</samp>
 </dl>
 
 <span id="style-contents4"></span><h4 class="subsection">3.4.6 style contents4</h4>
-<span id="index-contents4"></span>
+<span id="index-contents4-1"></span>
 
 <dl compact="compact">
 <dd><span id="index-firstLineIndent-4"></span>
@@ -1165,14 +1166,14 @@ embosser or display in use.
 </dd>
 <dt><code>topBoxline .</code></dt>
 <dd>
-<p>This should be set to the character you want used for the boxline
+<p>This should be set to the character you want to be used for the boxline
 which appears before the content.
 </p>
 <span id="index-bottomBoxline"></span>
 </dd>
 <dt><code>bottomBoxline .</code></dt>
 <dd>
-<p>This should be set to the character you want used for the boxline
+<p>This should be set to the character you want to be used for the boxline
 which appears after the content.
 </p>
 </dd>
@@ -1188,7 +1189,7 @@ which appears after the content.
 <p>When liblouisutdml (or <code>file2brl</code>) processes an xml document, it
 needs to be told how to use the information in that document to
 produce a properly translated and formatted braille document. These
-instructions are provided by a semantic-action file, so called because
+instructions are provided by a semantic-action file, called so because
 it explains the meaning, or semantics, of the various specifications
 in the xml document. To understand how this works, it is necessary to
 have a basic knowledge of the organization of an xml document.
@@ -1318,7 +1319,7 @@ starting a new paragraph.
 
 <p>This tells liblouisutdml that when it encounters the element <code>&lt;h1&gt;</code>
 it is to format the text which follows as a first-level braille
-heading, that is, the text will be centered and preceeded and followed
+heading, that is, the text will be centered and preceded and followed
 by blank lines. (You can change this by changing the definition of the
 heading1 style).
 </p>
@@ -1384,7 +1385,6 @@ element of this document, so this is logical.
 <div class="example">
 <pre class="example">heading1 title
 </pre></div>
-
 
 <p>this causes the title of the document to also be treated as a braille
 level 1 heading.
@@ -1543,34 +1543,33 @@ triplet, separated by commas. This specifies where a semantic action
 is to be applied. If it is solely an element then the action is
 applied if this element is encountered. If it is an element-attribute
 pair then the action is applied if the given element also has the
-specified attribute. In the last case with a element-attribute-value
+specified attribute. In the last case with an element-attribute-value
 triplet the action is only applied if the element has the specified
 attribute and the value of this attribute is equal to the specified
 value.
 </p>
 <dl compact="compact">
 <dd>
-<span id="index-contenss1"></span>
-<span id="contenss1-semantic"></span></dd>
-<dt><code>contenss1 elementSpecifier</code></dt>
+<span id="index-contents1"></span>
+<span id="contents1-semantic"></span></dd>
+<dt><code>contents1 elementSpecifier</code></dt>
 <dd>
-<p>Note that the <code>contenss1</code>, etc. semantic actions are never
+<p>Note that the <code>contents1</code>, etc. semantic actions are never
 assigned an
 actual <code>elementSpecifier</code>. There used internally by the table of
 contents generator. They should be assigned style settings, however.
 </p>
-
-<span id="index-contenss2"></span>
-<span id="contenss2-semantic"></span></dd>
-<dt><code>contenss2 elementSpecifier</code></dt>
+<span id="index-contents2"></span>
+<span id="contents2-semantic"></span></dd>
+<dt><code>contents2 elementSpecifier</code></dt>
 <dd>
-<span id="index-contenss3"></span>
-<span id="contenss3-semantic"></span></dd>
-<dt><code>contenss3 elementSpecifier</code></dt>
+<span id="index-contents3"></span>
+<span id="contents3-semantic"></span></dd>
+<dt><code>contents3 elementSpecifier</code></dt>
 <dd>
-<span id="index-contenss4"></span>
-<span id="contenss4-semantic"></span></dd>
-<dt><code>contenss4 elementSpecifier</code></dt>
+<span id="index-contents4"></span>
+<span id="contents4-semantic"></span></dd>
+<dt><code>contents4 elementSpecifier</code></dt>
 <dd>
 <span id="index-contentsheader"></span>
 <span id="contentsheader-semantic"></span></dd>
@@ -1604,7 +1603,7 @@ See the discussion of it in <a href="#style">style</a>.
 <dt><code>para elementSpecifier</code></dt>
 </dl>
 
-<p>The following table expbains each of the non-style semantic actions. In
+<p>The following table explains each of the non-style semantic actions. In
 general, each one performs a particular function. If a third column is
 given, the subcolumns will be inserted in order before each branch of
 any subtree starting from <code>elementSpecifier</code>.
@@ -1637,8 +1636,7 @@ will be placed is controlled by the liblouis translation table in use.
 <dd>
 <p>When a module to handle chemical notation is ready, this semantic action
 will invoke it. The processing will be like that produced by the
-semantic
-action <code>math</code>.
+semantic action <code>math</code>.
 </p>
 <span id="index-changetable"></span>
 <span id="changetable-semantic"></span></dd>
@@ -1666,7 +1664,7 @@ between the two. The previous table is then restored.
 <dd>
 <p>The material between <code>elementSpecifier</code> and
 <code>/elementSpecifier</code> is translated as computer braille, if the
-liblouis table in use phovides for it. Beginning and ending computer
+liblouis table in use provides for it. Beginning and ending computer
 braille indicators are inserted if they are in the table.
 </p>
 <span id="index-configfile"></span>
@@ -1731,7 +1729,7 @@ latter changes the active table and applies to a subtree.
 the bottom of each page.
 </p>
 <div class="example">
-<pre class="example">&lt;elemntSpecifier&gt;This is a footer&lt;/elementSpecifier&gt;
+<pre class="example">&lt;elementSpecifier&gt;This is a footer&lt;/elementSpecifier&gt;
 </pre></div>
 
 <span id="index-generic"></span>
@@ -1782,7 +1780,7 @@ translation table in use.
 <span id="linespacing-semantic"></span></dd>
 <dt><code>linespacing elementSpecifier digit</code></dt>
 <dd>
-<p>This semantic action specifies the numbr of blank lines to be left
+<p>This semantic action specifies the number of blank lines to be left
 between adjacent lines in the output. For example if the third column is
 &lsquo;<samp>1</samp>&rsquo;, lines will be double-spaced. &lsquo;<samp>0</samp>&rsquo; specifies normal
 spacing. The number cannot be greater than &lsquo;<samp>3</samp>&rsquo;. <code>linespacing</code>
@@ -1797,7 +1795,7 @@ should be assigned to an empty element.
 code might be needed for each of the MathML element tags. It turned out,
 as noted elsewhere, that most of them could have been handled with the
 <code>generic</code> semantic action. They are retained for backward
-compatibi2ity. Therefore, unless this is not the case or additional
+compatibility. Therefore, unless this is not the case or additional
 information is needed, they are simlly listed.
 </p>
 <span id="index-maligngroup"></span>
@@ -1862,7 +1860,6 @@ out special interpretation actions.
 <span id="mo-semantic"></span></dd>
 <dt><code>mo elementSpecifier</code></dt>
 <dd>
-
 <span id="index-mover"></span>
 <span id="mover-semantic"></span></dd>
 <dt><code>mover elementSpecifier</code></dt>
@@ -2029,7 +2026,7 @@ pagenum tag: <code>&lt;elementSpecifier&gt;&lt;/elementSpecifier&gt;</code>.
 <dd>
 <p>The branches of the subtree rooted at this node are reversed in order.
 This is used in handling roots, where the arguments in the translation
-are in reverse order to those in MathML. the MathML elemnt <code>mroot</code>
+are in reverse order to those in MathML. the MathML element <code>mroot</code>
 is declared with this semantic action
 </p>
 <span id="index-righthandpage"></span>
@@ -2066,8 +2063,7 @@ translation.
 <dt><code>skip elementSpecifier</code></dt>
 <dd>
 <p>Skip ahead until encountering the element <code>&lt;/elementSpecifier&gt;</code>.
-Nothing
-in between will have any effect on the braille output.
+Nothing in between will have any effect on the braille output.
 </p>
 <span id="index-softreturn"></span>
 <span id="softreturn-semantic"></span></dd>
@@ -2141,7 +2137,7 @@ namespaces may not contain blanks.
 <span id="Using-XPath-Expressions"></span><span id="Using-XPath-Expressions-1"></span><h3 class="section">4.4 Using XPath Expressions</h3>
 <span id="index-XPath-Expressions"></span>
 
-<p>The second column of a semantic action may contain a XPath expression
+<p>The second column of a semantic action may contain an XPath expression
 for matching nodes. When an XPath expression is to be used the second
 column should be of the format: &lsquo;<samp>&amp;xpath(&lt;expression&gt;)</samp>&rsquo; where
 &lsquo;<samp>&lt;expression&gt;</samp>&rsquo; is the XPath expression to match nodes.
@@ -2162,14 +2158,14 @@ then you must define the namespace in the semantic action file
 for a namespace with alias &lsquo;<samp>xhtml</samp>&rsquo; and node with name &lsquo;<samp>p</samp>&rsquo;,
 this would be &lsquo;<samp>xhtml:p</samp>&rsquo;)
 
-</li><li> You should be careful to not create XPath expressions which give
+</li><li> You should be careful not to create XPath expressions which give
 overlapping node set results. When liblouisutdml finds a match for a
 node it assigns the semantic action to that node and this will not be
 changed subsequently. Note that this is unlike XSLT, where for each
 matcher a priority is calculated from the XPath expression while in
 liblouisutdml it is unpredictable which rule will win.
 
-</li><li> XPath expressions take precedence over ordinary semantic-fie entries.
+</li><li> XPath expressions take precedence over ordinary semantic-file entries.
 
 </li></ul>
 
@@ -2403,8 +2399,8 @@ configuration specifications. If the file contains mathematics expressed
 as MathML it will be translated according to the mathematics code
 specified by the configuration. outfile should have the extension
 &lsquo;<samp>.html</samp>&rsquo;. It will actually be xhtml. The <code>-CformatFor=browser</code>
-part of the above example specifies a configuration setting, which of
-course can also be specified in a configuration file.
+part of the above example specifies a configuration setting, which, of
+course, can also be specified in a configuration file.
 </p>
 <hr>
 <span id="CDATA-Sections"></span><span id="CDATA-Sections-1"></span><h3 class="section">5.6 <code>CDATA</code> Sections</h3>
@@ -2772,7 +2768,7 @@ poetry, as follows:
 <pre class="example">style stanza
 linesBefore 1
 linesAfter 1
-ttyle line
+style line
 leftMargin 2
 firstLineIndent -2
 </pre></div>
@@ -2782,7 +2778,7 @@ Coleridge&rsquo;s &quot;Rime of the Ancient Mariner&quot;:
 </p>
 <div class="example">
 <pre class="example">&lt;stanza&gt;
-&lt;lino&gt;He holds him with his glittering eye&lt;/line&gt;
+&lt;line&gt;He holds him with his glittering eye&lt;/line&gt;
 &lt;line&gt;The wedding guest stands still&lt;/line&gt;
 &lt;line&gt;And listens like a three-years' child.&lt;/line&gt;
 &lt;line&gt;He has no force nor will.&lt;/line&gt;
@@ -2812,7 +2808,7 @@ reader, it is desirable to avoid splitting chapters between volumes.
 </p>
 <p>At this point you will probably have to edit the source xml file to
 indicate the beginning and end of volumes. You can define a liblouisutdml
-style called &lsquo;<samp>volume</samp>&rsquo; and assign appopriate xml tags to it in a
+style called &lsquo;<samp>volume</samp>&rsquo; and assign appropriate xml tags to it in a
 semantic-action file. Within the volume style you can nest a title page,
 chapters, etc. A volume table of contents is still under development.
 </p>
@@ -2916,7 +2912,6 @@ how many there are.
 children of this tag. The entry says to put an escape character (hex
 1b), plus the letter &lsquo;<samp>c</samp>&rsquo;, after the very last of them.
 </p>
-
 <p>As a final example consider:
 </p>
 <div class="example">
@@ -3143,9 +3138,9 @@ to process xml documents. The latter two are useful for debugging.
 <p>liblouisutdml determines the paths on which it will search for files at
 run time, as part of its initialization. First, if the first file in a
 configuration file list includes a path, liblouisutdml will search first
-on this path. The path may be either absolune or relative. Only the
+on this path. The path may be either absolute or relative. Only the
 first filename in a configuration file list may have a path. Next, in
-Windows liblouisutdml determines the path to itself. this is the second
+Windows, liblouisutdml determines the path to itself. this is the second
 path on which it will look for files. The liblouis <samp>tables</samp>
 directory and the liblouisutdml <samp>lbu_files</samp> directory are relative to
 this path. In Unix systems, including the Mac,, these directories are
@@ -3635,10 +3630,10 @@ given.
 <tr><td></td><td valign="top"><a href="#index-configfile">configfile</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-configstring">configstring</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-configtweak">configtweak</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-contenss1">contenss1</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-contenss2">contenss2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-contenss3">contenss3</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-contenss4">contenss4</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-contents1">contents1</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-contents2">contents2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-contents3">contents3</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-contents4">contents4</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-contentsheader">contentsheader</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-contracted">contracted</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Semantic-Actions-in-detail">Semantic Actions in detail</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
@@ -3782,10 +3777,10 @@ given.
 <tr><td></td><td valign="top"><a href="#index-boxline">boxline</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Style-Index_style_letter-C">C</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-contents1">contents1</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-contents2">contents2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-contents3">contents3</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-contents4">contents4</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-contents1-1">contents1</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-contents2-1">contents2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-contents3-1">contents3</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-contents4-1">contents4</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-contentsheader-1">contentsheader</a>:</td><td>&nbsp;</td><td valign="top"><a href="#style">style</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Style-Index_style_letter-D">D</th><td></td><td></td></tr>
