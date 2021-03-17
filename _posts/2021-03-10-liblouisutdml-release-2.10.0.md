@@ -9,10 +9,9 @@ also adds support for liblouis 3.17.
 
 For a detailed list of all the changes refer to [the list of closed issues](https://github.com/liblouis/liblouisutdml/milestone/6?closed=1).
 
-```{=markdown}
 * Will be replaced with the ToC
 {:toc}
-```
+
 New features
 ------------
 
