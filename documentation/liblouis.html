@@ -116,7 +116,7 @@ title: Liblouis User's and Programmer's Manual
 
 <span id="Top"></span><span id="Liblouis-User_0027s-and-Programmer_0027s-Manual"></span><h1 class="top">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouis (version 3.17.0, 22 February 2021),
+<p>This manual is for liblouis (version 3.18.0, 7 June 2021),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <acronym>BRLTTY</acronym>.
 </p>
@@ -876,7 +876,7 @@ English Braille (UEB). In Liblouis, a letter or letters-sequence is
 considered to be <em>standing alone</em> if it is preceded and followed
 by a space, and/or other characters that you choose as delimiters,
 e.g. &lsquo;<samp>-</samp>&rsquo;. A <em>standing alone</em> sequence can be thought of as a
-word in a very broad sence. With the opcodes described in this
+word in a very broad sense. With the opcodes described in this
 section, you can decide what characters constitute a delimiter, and
 what characters can attach to the beginning or end of a word or
 <em>standing alone</em> sequence.
@@ -1027,7 +1027,7 @@ specific combination of indicators that are defined in the table.
 <p>Many languages simply have an indicator for the beginning of emphasis
 and another one for the end of the emphasis. The emphasis is
 &ldquo;permanent&rdquo; in the sense that it needs an end indicator to cancel
-it. It is not implicitly cancelled by any character or space.
+it. It is not implicitly canceled by any character or space.
 </p>
 <p>Characters that are defined as <em>not emphasizable</em> in braille
 (see <a href="#noemphchars-opcode"><code>noemphchars</code></a>) are not indicated as such by Liblouis. This
@@ -1092,7 +1092,7 @@ the list contains space characters (escaped, e.g. <code>\s</code>).
 
 <p>Some languages have special indicators for single letter emphasis. The
 letter indicator will be chosen over other indicators when the next
-character is emphasised, but not the characters thereafter.
+character is emphasized, but not the characters thereafter.
 </p>
 <p>In some situations the letter indicator is the only way to indicate
 emphasis. For instance when emphasis ends within the middle of a word,
@@ -1127,7 +1127,7 @@ of a word indicator is normally until the next unemphasizable
 character, however this can be changed with the <code>emphmodechars</code>
 opcode (see <a href="#noemphchars-opcode"><code>noemphchars</code></a> and <a href="#emphmodechars-opcode"><code>emphmodechars</code></a>).
 </p>
-<p>Word emphasis can also be cancelled with an explicit closing
+<p>Word emphasis can also be canceled with an explicit closing
 indicator. Usually a word indicator is put at the the beginning of the
 word, but it may also be used for cases where the emphasis starts in
 the middle of the word.
@@ -1286,6 +1286,28 @@ is indicated in the <code>typeform</code> parameter, but also when a
 sequence of characters is determined to be computer braille because it
 contains a subsequence defined by the <code>compbrl</code> opcode (see <a href="#compbrl-opcode"><code>compbrl</code></a>).
 </p>
+<dl compact="compact">
+<dd><span id="index-begcomp"></span>
+<span id="begcomp-opcode"></span></dd>
+<dt><code>begcomp dots</code></dt>
+<dd>
+<p>This braille indicator is placed before a sequence of characters
+translated in computer braille, whether this sequence is indicated in
+the <code>typeform</code> parameter (see <a href="#typeform-parameter"><code>typeform</code> parameter</a>) or inferred because it
+contains a subsequence specified by the <code>compbrl</code> opcode (see <a href="#compbrl-opcode"><code>compbrl</code></a>).
+</p>
+<span id="index-endcomp"></span>
+<span id="endcomp-opcode"></span></dd>
+<dt><code>endcomp dots</code></dt>
+<dd>
+<p>This braille indicator is placed after a sequence of characters
+translated in computer braille, whether this sequence is indicated in
+the <code>typeform</code> parameter (see <a href="#typeform-parameter"><code>typeform</code> parameter</a>) or inferred because it
+contains a subsequence specified by the <code>compbrl</code> opcode (see <a href="#compbrl-opcode"><code>compbrl</code></a>).
+</p>
+</dd>
+</dl>
+
 <hr>
 <span id="Special-Symbol-Opcodes"></span><span id="Special-Symbol-Opcodes-1"></span><h3 class="section">2.7 Special Symbol Opcodes</h3>
 
@@ -2244,6 +2266,16 @@ needed. The set of attributes are specified as follows:
 <dt>&lsquo;<samp>$</samp>&rsquo;</dt>
 <dd><p>sign
 </p></dd>
+<dt>&lsquo;<samp>~</samp>&rsquo;</dt>
+<dd><p>seqdelimiter
+</p></dd>
+<dt>&lsquo;<samp>&lt;</samp>&rsquo;</dt>
+<dd><p>seqbeforechars
+</p></dd>
+<dt>&lsquo;<samp>&gt;</samp>&rsquo;</dt>
+<dd><p>seqafterchars
+</p> 
+</dd>
 </dl>
 
 </dd>
@@ -3281,7 +3313,7 @@ without the optional flags. This is useful e.g. if you want to have
 various tests for both forward and backward translation for the same
 set of tables, especially if you are defining the table as part of
 the yaml file (see next section). This feature is also useful if you
-simply want to devide your tests into multiple sections for better
+simply want to divide your tests into multiple sections for better
 overview. All flags are reset to their default values when you start
 a new test section.
 </p>
@@ -3395,7 +3427,7 @@ their output in this form. The input to the compiler (tables) is
 unaffected except that two new escape sequences for 20-bit and 32-bit
 characters are recognized.
 </p>
-<p>At runtime, the width of a character specified during compilation may
+<p>At run time, the width of a character specified during compilation may
 be obtained using <code>lou_charSize</code>.
 </p>
 <p>Here are the definitions of the eleven liblouis functions and their
@@ -3567,7 +3599,7 @@ pointers to integers. When the function is called, these integers
 contain the maximum input and output lengths, respectively. When it
 returns, they are set to the actual lengths used.
 </p>
-<p>The <code>typeform</code> parameter is used to indicate italic type,
+<span id="typeform-parameter"></span><p>The <code>typeform</code> parameter is used to indicate italic type,
 boldface type, computer braille, etc. It is an array of <code>formtype</code>
 with the same length as the input buffer pointed to by <code>*inbuf</code>.
 However, it is used to pass back character-by-character results, so
@@ -4253,6 +4285,7 @@ directory. Usage information is included in the Python module itself.
 <tr><td></td><td valign="top"><a href="#index-before">before</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Character_002dClass-Opcodes">Character-Class Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-begcaps">begcaps</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-begcapsword">begcapsword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-begcomp">begcomp</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Computer-braille">Computer braille</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-begemph">begemph</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Permanent-indicator">Permanent indicator</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-begemphphrase">begemphphrase</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Phrase-indicator">Phrase indicator</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-begemphword">begemphword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Word-indicator">Word indicator</a></td></tr>
@@ -4281,6 +4314,7 @@ directory. Usage information is included in the Python module itself.
 <tr><td></td><td valign="top"><a href="#index-emphmodechars">emphmodechars</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Word-indicator">Word indicator</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-endcaps">endcaps</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-endcapsword">endcapsword</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-endcomp">endcomp</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Computer-braille">Computer braille</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-endemph">endemph</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Permanent-indicator">Permanent indicator</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-endemphphrase-after">endemphphrase after</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Phrase-indicator">Phrase indicator</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-endemphphrase-before">endemphphrase before</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Phrase-indicator">Phrase indicator</a></td></tr>
