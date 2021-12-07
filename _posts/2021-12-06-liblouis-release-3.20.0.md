@@ -11,8 +11,6 @@ I\'d like to thank everybody for helping to bring liblouis forward.
 
 For a detailed list of all the changes refer to [the list of closed issues](https://github.com/liblouis/liblouis/milestone/30?closed=1).
 
-- auto-gen TOC:
-
 {:toc}
 
 
