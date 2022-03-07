@@ -116,7 +116,7 @@ title: Liblouis User's and Programmer's Manual
 
 <span id="Top"></span><span id="Liblouis-User_0027s-and-Programmer_0027s-Manual"></span><h1 class="top">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouis (version 3.20.0, 6 December 2021),
+<p>This manual is for liblouis (version 3.21.0, 7 March 2022),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <acronym>BRLTTY</acronym>.
 </p>
@@ -257,12 +257,6 @@ normative) are listed in the following table:
 </p></dd>
 <dt><samp>en-us-comp6.ctb</samp></dt>
 <dd><p>6-dot computer braille
-</p></dd>
-<dt><samp>nemeth.ctb</samp></dt>
-<dd><p>Nemeth Code translation for use with liblouisutdml
-</p></dd>
-<dt><samp>nemeth_edit.ctb</samp></dt>
-<dd><p>Fixes errors at the boundaries of math and text
 </p>
 </dd>
 </dl>
@@ -594,14 +588,14 @@ grouping mfrac \x0003\x0004 3e,4e
 
 <span id="index-base"></span>
 <span id="base-opcode"></span></dd>
-<dt><code>base attribute character character</code></dt>
+<dt><code>base attribute &lt;derived character&gt; &lt;base character&gt;</code></dt>
 <dd>
 <p>This opcode is different in that it does not associate a character
 with a dot pattern, but it associates a character with another already
 defined character. The derived character inherits the dot pattern of
 the base character, and braille indicators (see <a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a>) are used to distinguish them. The attribute operand refers
-to the character class (see <a href="#Character_002dClass-Opcodes">Character-Class Opcodes</a>) the character
-should be added to. By defining braille indicator rules associated
+to the character class (see <a href="#Character_002dClass-Opcodes">Character-Class Opcodes</a>) to which the
+character should be added. By defining braille indicator rules associated
 with this character class, you can determine the braille indicators to
 be inserted. The character operands are the derived character and the
 base character, respectively. A typical use of this opcode is for
@@ -886,12 +880,12 @@ numeric mode active, but in addition they activate numeric mode
 immediately when at least one digit follows, and the number sign will
 precede the <code>numericmodechars</code> character in this case.
 </p>
-<p>Example:
-</p>
 <p><strong>Note:</strong> This opcode was implemented in Liblouis specifically in
 order to support Unified English Braille (UEB). It may be used in any
 table, but may have unpredicted side-effects if used outside the
 intended context. Use with great care, and test thoroughly.
+</p>
+<p>Example:
 </p>
 <div class="example">
 <pre class="example">numericmodechars .,
@@ -2566,6 +2560,8 @@ well:
 <pre class="example">#+&lt;key&gt;
 </pre></div>
 
+<p>The same key may appear multiple times in a table.
+</p>
 <p>There is no restriction on which keys and values are allowed, as long
 as the syntax is correct. However in order to be really useful there
 must be some standard keys and values. A possible grammar is proposed
@@ -2584,7 +2580,7 @@ function must have the following syntax:
 <p>where &lsquo;<samp>&lt;feature&gt;</samp>&rsquo; is either:
 </p>
 <div class="example">
-<pre class="example">&lt;key&gt;: &lt;value&gt;
+<pre class="example">&lt;key&gt;:&lt;value&gt;
 </pre></div>
 
 <p>or:
@@ -4099,8 +4095,9 @@ defined later.
 values equal, or both values absent) adds to the quotient.
 </li><li> A feature that is undefined in the table (no field with that key)
 creates a medium penalty.
-</li><li> A feature that is defined in the table but does not match (keys equal
-but values not equal) creates the highest penalty.
+</li><li> A feature that is defined in the table (one or more metadata fields
+with that key) but does not match (no metadata field with the right
+value) creates the highest penalty.
 </li><li> Every field in the table that has no corresponding feature in the
 query creates a very small penalty.
 </li></ul>
