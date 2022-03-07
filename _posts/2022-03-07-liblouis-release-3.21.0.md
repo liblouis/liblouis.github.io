@@ -3,28 +3,16 @@ category: Liblouis
 title: Liblouis Release 3.21.0
 ---
 
--   [New features](#new-features)
--   [Bug fixes](#bug-fixes)
--   [Braille table improvements](#braille-table-improvements)
--   [Other changes](#other-changes)
--   [Deprecation notice](#deprecation-notice)
--   [Backwards incompatible changes](#backwards-incompatible-changes)
--   [Invisible changes](#invisible-changes)
--   [New, renamed or removed tables](#new-renamed-or-removed-tables)
-    -   [New](#new)
-    -   [Renamed](#renamed)
-    -   [Removed](#removed)
-
 This release sees major updates for Hungarian and German. The Swiss Library for the Blind, Visually Impaired and Print Disabled has agreed to upstream their tables and Attila Hammer has adapted Hungarian to the latest standard. A bug in numeric mode was fixed which should it make more useful for languages other than UEB. Finally there are fixes for Norwegian and Danish.
 
 I\'d like to thank everybody for helping to bring liblouis forward.
 
 For a detailed list of all the changes refer to [the list of closed issues](https://github.com/liblouis/liblouis/milestone/31?closed=1).
 
-```{=markdown}
 * Will be replaced with the ToC
 {:toc}
-```
+
+
 New features
 ------------
 
