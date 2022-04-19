@@ -163,7 +163,7 @@ louis = (function() {
 				},
 				callback: getIdForCallback(function(result) {
 					callback(result.output, function(pos) {
-						inpos = pos;
+						var inpos = pos;
 						data = {
 							outpos: {},
 							inpos: {}

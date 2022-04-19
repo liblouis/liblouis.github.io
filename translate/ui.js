@@ -140,7 +140,26 @@ document.addEventListener(
 				}, function(output, posMapping) {
 					currentText = text;
 					currentTable = table;
-					currentBraille = output;
+					currentBraille = ""; {
+						inpos = 0;
+						outpos = 0;
+						text.textSegments.join('').split(/\n/).forEach(line => {
+							inpos += line.length;
+							if (inpos < text.length) {
+								newlineOutpos = posMapping(inpos).outpos;
+								afterNewlineOutpos = posMapping(inpos + 1).outpos;
+								if (newlineOutpos.left == newlineOutpos.right
+									&& afterNewlineOutpos.left == afterNewlineOutpos.right
+									&& output.substring(newlineOutpos.left, afterNewlineOutpos.left) == "⠀") {
+									currentBraille += output.substring(outpos, newlineOutpos.left);
+									currentBraille += '\n';
+									outpos = afterNewlineOutpos.left;
+								}
+							}
+							inpos += 1;
+						});
+						currentBraille += output.substring(outpos, output.length);
+					}
 					currentPosMapping = posMapping;
 					renderCurrent(selectionStart, selectionEnd, inputCallback, outputCallback);
 				});
