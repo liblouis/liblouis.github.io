@@ -378,5 +378,15 @@ document.addEventListener(
 					tableSelect.focus();
 			};
 		})());
+		downloadBraille = function() {
+			var a = document.createElement("a");
+			a.download = "braille.txt";
+			a.href = window.URL.createObjectURL(
+				new Blob([outputField.textContent], {
+					type: "text/plain"
+				})
+			);
+			a.click();
+		};
 	}
 );
