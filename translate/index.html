@@ -1,0 +1,27 @@
+---
+title: Try Liblouis online
+---
+
+<script type="text/javascript" src="{{ site.baseurl }}/translate/liblouis.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/translate/ui.js"></script>
+<link href="{{ site.baseurl }}/css/translate.css" rel="stylesheet" type="text/css">
+
+<p>This page is designed for testing the braille codes supported by Liblouis but does not function as a complete braille transcription tool and should not be used for commercial or casual purposes. Liblouis is free to use and can be obtained from our <a href="{{ site.baseurl }}/downloads">Downloads page</a>.</p>
+
+<div id="table-select-wrapper">
+  <label for="table">Table:</label>
+  <select id="table" disabled>
+    <option value="" disabled selected>Select a table</option>
+  </select>
+</div>
+<div id="input-wrapper">
+  <div id="textarea-wrapper">
+    <textarea spellcheck="false" placeholder="Type something..."></textarea>
+  </div>
+</div>
+<div id="output-wrapper">
+  <div id="output" class="initial-state empty"></div>
+  <button id="download-braille"
+          title="Download the braille translation as a text file"
+          onclick="downloadBraille()">Download braille</button>
+</div>
