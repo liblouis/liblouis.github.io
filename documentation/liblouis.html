@@ -2,7 +2,45 @@
 title: Liblouis User's and Programmer's Manual
 ---
 
-<span id="SEC_Contents"></span>
+<div class="top" id="Top">
+<span id="Liblouis-User_0027s-and-Programmer_0027s-Manual"></span><h1 class="top">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
+
+<p>This manual is for liblouis (version 3.22.0, 7 June 2022),
+a Braille Translation and Back-Translation Library derived from the
+Linux screen reader <acronym>BRLTTY</acronym>.
+</p>
+
+<p>Copyright &copy; 1999-2006 by the BRLTTY Team.
+</p>
+<p>Copyright &copy; 2004-2007 ViewPlus Technologies, Inc.
+<a href="www.viewplus.com">www.viewplus.com</a>.
+</p>
+<p>Copyright &copy; 2007, 2009 Abilitiessoft, Inc.
+<a href="www.abilitiessoft.org">www.abilitiessoft.org</a>.
+</p>
+<p>Copyright &copy; 2014, 2016 Swiss Library for the Blind, Visually
+Impaired and Print Disabled. <a href="www.sbs.ch">www.sbs.ch</a>.
+</p>
+
+<blockquote>
+<p>This file is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser (or library) General Public License
+(LGPL) as published by the Free Software Foundation; either version 3,
+or (at your option) any later version.
+</p>
+<p>This file is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+Lesser (or Library) General Public License LGPL for more details.
+</p>
+<p>You should have received a copy of the GNU Lesser (or Library) General
+Public License (LGPL) along with this program; see the file COPYING.
+If not, write to the Free Software Foundation, 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301, USA.
+</p></blockquote>
+
+
+<div class="Contents_element" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
@@ -112,47 +150,10 @@ title: Liblouis User's and Programmer's Manual
   <li><a id="toc-Program-Index-1" href="#Program-Index" rel="index">Program Index</a></li>
 </ul>
 </div>
-
-
-<span id="Top"></span><span id="Liblouis-User_0027s-and-Programmer_0027s-Manual"></span><h1 class="top">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
-
-<p>This manual is for liblouis (version 3.21.0, 7 March 2022),
-a Braille Translation and Back-Translation Library derived from the
-Linux screen reader <acronym>BRLTTY</acronym>.
-</p>
-
-<p>Copyright &copy; 1999-2006 by the BRLTTY Team.
-</p>
-<p>Copyright &copy; 2004-2007 ViewPlus Technologies, Inc.
-<a href="www.viewplus.com">www.viewplus.com</a>.
-</p>
-<p>Copyright &copy; 2007, 2009 Abilitiessoft, Inc.
-<a href="www.abilitiessoft.org">www.abilitiessoft.org</a>.
-</p>
-<p>Copyright &copy; 2014, 2016 Swiss Library for the Blind, Visually
-Impaired and Print Disabled. <a href="www.sbs.ch">www.sbs.ch</a>.
-</p>
-
-<blockquote>
-<p>This file is free software; you can redistribute it and/or modify it
-under the terms of the GNU Lesser (or library) General Public License
-(LGPL) as published by the Free Software Foundation; either version 3,
-or (at your option) any later version.
-</p>
-<p>This file is distributed in the hope that it will be useful, but
-WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-Lesser (or Library) General Public License LGPL for more details.
-</p>
-<p>You should have received a copy of the GNU Lesser (or Library) General
-Public License (LGPL) along with this program; see the file COPYING.
-If not, write to the Free Software Foundation, 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301, USA.
-</p></blockquote>
-
-
+</div>
 <hr>
-<span id="Introduction"></span><span id="Introduction-1"></span><h2 class="chapter">1 Introduction</h2>
+<div class="chapter" id="Introduction">
+<span id="Introduction-1"></span><h2 class="chapter">1 Introduction</h2>
 
 <p>Liblouis is an open-source braille translator and back-translator
 derived from the translation routines in the BRLTTY screen reader for
@@ -165,7 +166,8 @@ README file. Please report bugs and oddities to the mailing list,
 <p>This documentation is derived from the BRLTTY manual, but
 it has been extensively rewritten to cover new features.
 </p>
-<span id="Who-is-this-manual-for"></span><h3 class="section">1.1 Who is this manual for</h3>
+<div class="section" id="Who-is-this-manual-for">
+<h3 class="section">1.1 Who is this manual for</h3>
 
 <p>This manual has two main audiences: People who want to write or
 improve a braille translation table and people who want to use the
@@ -173,7 +175,9 @@ braille translator library in their own programs. This manual is
 probably not for people who are looking for some turn-key braille
 translation software.
 </p>
-<span id="How-to-read-this-manual"></span><h3 class="section">1.2 How to read this manual</h3>
+</div>
+<div class="section" id="How-to-read-this-manual">
+<h3 class="section">1.2 How to read this manual</h3>
 
 <p>If you are mostly interested in writing braille translation tables
 then you want to focus on <a href="#How-to-Write-Translation-Tables">How to Write Translation Tables</a>. You
@@ -188,7 +192,10 @@ or you are interested in enhancing the braille translation library
 itself then you will want to look at <a href="#Programming-with-liblouis">Programming with liblouis</a>.
 </p>
 <hr>
-<span id="How-to-Write-Translation-Tables"></span><span id="How-to-Write-Translation-Tables-1"></span><h2 class="chapter">2 How to Write Translation Tables</h2>
+</div>
+</div>
+<div class="chapter" id="How-to-Write-Translation-Tables">
+<span id="How-to-Write-Translation-Tables-1"></span><h2 class="chapter">2 How to Write Translation Tables</h2>
 
 <p>For many languages there is already a translation table, so before
 creating a new table start by looking at existing tables to modify
@@ -229,7 +236,8 @@ program in which you can test your work.
 </p>
 
 <hr>
-<span id="Overview"></span><span id="Overview-1"></span><h3 class="section">2.1 Overview</h3>
+<div class="section" id="Overview">
+<span id="Overview-1"></span><h3 class="section">2.1 Overview</h3>
 
 <p>Many translation (contraction) tables have already been made up. They
 are included in the distribution in the tables directory and can be
@@ -237,25 +245,25 @@ studied as part of the documentation. Some of the more helpful (and
 normative) are listed in the following table:
 </p>
 <dl compact="compact">
-<dt><samp>chardefs.cti</samp></dt>
+<dt><span><samp>chardefs.cti</samp></span></dt>
 <dd><p>Character definitions for U.S. tables
 </p></dd>
-<dt><samp>compress.ctb</samp></dt>
+<dt><span><samp>compress.ctb</samp></span></dt>
 <dd><p>Remove excessive whitespace
 </p></dd>
-<dt><samp>en-us-g1.ctb</samp></dt>
+<dt><span><samp>en-us-g1.ctb</samp></span></dt>
 <dd><p>Uncontracted American English
 </p></dd>
-<dt><samp>en-us-g2.ctb</samp></dt>
+<dt><span><samp>en-us-g2.ctb</samp></span></dt>
 <dd><p>Contracted or Grade 2 American English
 </p></dd>
-<dt><samp>en-us-brf.dis</samp></dt>
+<dt><span><samp>en-us-brf.dis</samp></span></dt>
 <dd><p>Make liblouis output conform to BRF standard
 </p></dd>
-<dt><samp>en-us-comp8.ctb</samp></dt>
+<dt><span><samp>en-us-comp8.ctb</samp></span></dt>
 <dd><p>8-dot computer braille for use in coding examples
 </p></dd>
-<dt><samp>en-us-comp6.ctb</samp></dt>
+<dt><span><samp>en-us-comp6.ctb</samp></span></dt>
 <dd><p>6-dot computer braille
 </p>
 </dd>
@@ -306,31 +314,31 @@ sequences are used to represent difficult characters. They begin with
 a backslash (&lsquo;<samp>\</samp>&rsquo;). They are:
 </p>
 <dl compact="compact">
-<dt><kbd>\</kbd></dt>
+<dt><span><kbd>\</kbd></span></dt>
 <dd><p>backslash
 </p></dd>
-<dt><kbd>\f</kbd></dt>
+<dt><span><kbd>\f</kbd></span></dt>
 <dd><p>form feed
 </p></dd>
-<dt><kbd>\n</kbd></dt>
+<dt><span><kbd>\n</kbd></span></dt>
 <dd><p>new line
 </p></dd>
-<dt><kbd>\r</kbd></dt>
+<dt><span><kbd>\r</kbd></span></dt>
 <dd><p>carriage return
 </p></dd>
-<dt><kbd>\s</kbd></dt>
+<dt><span><kbd>\s</kbd></span></dt>
 <dd><p>blank (space)
 </p></dd>
-<dt><kbd>\t</kbd></dt>
+<dt><span><kbd>\t</kbd></span></dt>
 <dd><p>horizontal tab
 </p></dd>
-<dt><kbd>\v</kbd></dt>
+<dt><span><kbd>\v</kbd></span></dt>
 <dd><p>vertical tab
 </p></dd>
-<dt><kbd>\e</kbd></dt>
+<dt><span><kbd>\e</kbd></span></dt>
 <dd><p>&quot;escape&quot; character (hex 1b, dec 27)
 </p></dd>
-<dt><kbd>\xhhhh</kbd></dt>
+<dt><span><kbd>\xhhhh</kbd></span></dt>
 <dd><p>4-digit hexadecimal value of a character
 </p>
 </dd>
@@ -340,10 +348,10 @@ a backslash (&lsquo;<samp>\</samp>&rsquo;). They are:
 also recognized.
 </p>
 <dl compact="compact">
-<dt><kbd>\yhhhhh</kbd></dt>
+<dt><span><kbd>\yhhhhh</kbd></span></dt>
 <dd><p>5-digit (20 bit) character
 </p></dd>
-<dt><kbd>\zhhhhhhhh</kbd></dt>
+<dt><span><kbd>\zhhhhhhhh</kbd></span></dt>
 <dd><p>Full 32-bit value.
 </p>
 <p>Please take a look at the
@@ -409,7 +417,9 @@ convenient. Hyphenation tables may be specified either with an
 everything else.
 </p>
 <hr>
-<span id="Hyphenation-Tables"></span><span id="Hyphenation-Tables-1"></span><h3 class="section">2.2 Hyphenation Tables</h3>
+</div>
+<div class="section" id="Hyphenation-Tables">
+<span id="Hyphenation-Tables-1"></span><h3 class="section">2.2 Hyphenation Tables</h3>
 
 <p>Hyphenation tables are necessary to make opcodes such as the
 <code>nocross</code> opcode (see <a href="#nocross-opcode"><code>nocross</code></a>) function properly. There are no opcodes for
@@ -422,7 +432,9 @@ character definitions and should preferably be the last. For an example
 of a hyphenation table, see <samp>hyph_en_US.dic</samp>.
 </p>
 <hr>
-<span id="Character_002dDefinition-Opcodes"></span><span id="Character_002dDefinition-Opcodes-1"></span><h3 class="section">2.3 Character-Definition Opcodes</h3>
+</div>
+<div class="section" id="Character_002dDefinition-Opcodes">
+<span id="Character_002dDefinition-Opcodes-1"></span><h3 class="section">2.3 Character-Definition Opcodes</h3>
 
 <p>These opcodes are needed to define attributes such as digit,
 punctuation, letter, etc. for all characters and their dot patterns.
@@ -482,7 +494,7 @@ more than one variant.
 <dl compact="compact">
 <dd><span id="index-space"></span>
 <span id="space-opcode"></span></dd>
-<dt><code>space character dots</code></dt>
+<dt><span><code>space character dots</code></span></dt>
 <dd><p>Defines a character as a space and also defines the dot pattern as
 such. for example:
 </p>
@@ -492,7 +504,7 @@ such. for example:
 
 <span id="index-punctuation"></span>
 <span id="punctuation-opcode"></span></dd>
-<dt><code>punctuation character dots</code></dt>
+<dt><span><code>punctuation character dots</code></span></dt>
 <dd><p>Associates a punctuation mark in the particular language with a
 braille representation and defines the character and dot pattern as
 punctuation. For example:
@@ -503,7 +515,7 @@ punctuation. For example:
 
 <span id="index-digit"></span>
 <span id="digit-opcode"></span></dd>
-<dt><code>digit character dots</code></dt>
+<dt><span><code>digit character dots</code></span></dt>
 <dd><p>Associates a digit with a dot pattern and defines the character as a
 digit. For example:
 </p>
@@ -513,28 +525,28 @@ digit. For example:
 
 <span id="index-letter"></span>
 <span id="letter-opcode"></span></dd>
-<dt><code>letter character dots</code></dt>
+<dt><span><code>letter character dots</code></span></dt>
 <dd><p>Associates a letter in the language with a braille representation and
 defines the character as a letter. This is intended for letters which
 are neither uppercase nor lowercase.
 </p>
 <span id="index-lowercase"></span>
 <span id="lowercase-opcode"></span></dd>
-<dt><code>lowercase character dots</code></dt>
+<dt><span><code>lowercase character dots</code></span></dt>
 <dd><p>Associates a character with a dot pattern and defines the character as
 a lowercase letter. Both the character and the dot pattern have the
 attributes lowercase and letter.
 </p>
 <span id="index-uppercase"></span>
 <span id="uppercase-opcode"></span></dd>
-<dt><code>uppercase character dots</code></dt>
+<dt><span><code>uppercase character dots</code></span></dt>
 <dd><p>Associates a character with a dot pattern and defines the character as
 an uppercase letter. Both the character and the dot pattern have the
 attributes uppercase and letter.
 </p>
 <span id="index-litdigit"></span>
 <span id="litdigit-opcode"></span></dd>
-<dt><code>litdigit digit dots</code></dt>
+<dt><span><code>litdigit digit dots</code></span></dt>
 <dd><p>Associates a digit with the dot pattern which should be used to
 represent it in literary texts. For example:
 </p>
@@ -545,7 +557,7 @@ litdigit 1 1
 
 <span id="index-sign"></span>
 <span id="sign-opcode"></span></dd>
-<dt><code>sign character dots</code></dt>
+<dt><span><code>sign character dots</code></span></dt>
 <dd><p>Associates a character with a dot pattern and defines both as a sign.
 This opcode should be used for things like at sign (&lsquo;<samp>@</samp>&rsquo;),
 percent (&lsquo;<samp>%</samp>&rsquo;), dollar sign (&lsquo;<samp>$</samp>&rsquo;), etc. Do not use it to
@@ -557,7 +569,7 @@ define ordinary punctuation such as period and comma. For example:
 
 <span id="index-math"></span>
 <span id="math-opcode"></span></dd>
-<dt><code>math character dots</code></dt>
+<dt><span><code>math character dots</code></span></dt>
 <dd><p>Associates a character and a dot pattern and defines them as a
 mathematical symbol. It should be used for less than (&lsquo;<samp>&lt;</samp>&rsquo;),
 greater than(&lsquo;<samp>&gt;</samp>&rsquo;), equals(&lsquo;<samp>=</samp>&rsquo;), plus(&lsquo;<samp>+</samp>&rsquo;), etc. For
@@ -569,7 +581,7 @@ example:
 
 <span id="index-grouping"></span>
 <span id="grouping-opcode"></span></dd>
-<dt><code>grouping name characters dots ,dots</code></dt>
+<dt><span><code>grouping name characters dots ,dots</code></span></dt>
 <dd><p>This opcode is different from the previous ones in that it defines two
 characters in one rule, and associates them with each other. The
 opcode is used to indicate pairs of grouping symbols used in
@@ -588,7 +600,7 @@ grouping mfrac \x0003\x0004 3e,4e
 
 <span id="index-base"></span>
 <span id="base-opcode"></span></dd>
-<dt><code>base attribute &lt;derived character&gt; &lt;base character&gt;</code></dt>
+<dt><span><code>base attribute &lt;derived character&gt; &lt;base character&gt;</code></span></dt>
 <dd>
 <p>This opcode is different in that it does not associate a character
 with a dot pattern, but it associates a character with another already
@@ -611,7 +623,9 @@ base uppercase A a
 </dl>
 
 <hr>
-<span id="Braille-Indicator-Opcodes"></span><span id="Braille-Indicator-Opcodes-1"></span><h3 class="section">2.4 Braille Indicator Opcodes</h3>
+</div>
+<div class="section" id="Braille-Indicator-Opcodes">
+<span id="Braille-Indicator-Opcodes-1"></span><h3 class="section">2.4 Braille Indicator Opcodes</h3>
 
 <p>Braille indicators are dot patterns which are inserted into the
 braille text to indicate such things as capitalization, italic type,
@@ -621,10 +635,9 @@ by a dot pattern, which may be one or more cells.
 <dl compact="compact">
 <dd><span id="index-modeletter"></span>
 <span id="modeletter-opcode"></span></dd>
-<dt><code>modeletter attribute dots</code></dt>
-<dd><span id="index-capsletter"></span>
-<span id="capsletter-opcode"></span></dd>
-<dt><code>capsletter dots</code></dt>
+<dt id='index-capsletter'><span><code>modeletter attribute dots</code><a href='#index-capsletter' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="capsletter-opcode"></span></dd>
+<dt><span><code>capsletter dots</code></span></dt>
 <dd><p>The dot pattern which indicates that a certain mode is entered and
 ends after a single character. A &ldquo;mode&rdquo; is a state in which dot
 patterns must be interpreted a certain way. For example, in uppercase
@@ -656,10 +669,9 @@ following two examples are equivalent:
 </p>
 <span id="index-begmodeword"></span>
 <span id="begmodeword-opcode"></span></dd>
-<dt><code>begmodeword attribute dots</code></dt>
-<dd><span id="index-begcapsword"></span>
-<span id="begcapsword-opcode"></span></dd>
-<dt><code>begcapsword dots</code></dt>
+<dt id='index-begcapsword'><span><code>begmodeword attribute dots</code><a href='#index-begcapsword' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="begcapsword-opcode"></span></dd>
+<dt><span><code>begcapsword dots</code></span></dt>
 <dd><p>The dot pattern which indicates that a certain mode is entered for the
 following word or remainder of the current word. The mode is
 automatically terminated by the first character that is not a letter.
@@ -679,10 +691,9 @@ this by using the <code>capsmodechars</code> opcode (see <a href="#capsmodechars
 </p>
 <span id="index-endmodeword"></span>
 <span id="endmodeword-opcode"></span></dd>
-<dt><code>endmodeword attribute dots</code></dt>
-<dd><span id="index-endcapsword"></span>
-<span id="endcapsword-opcode"></span></dd>
-<dt><code>endcapsword dots</code></dt>
+<dt id='index-endcapsword'><span><code>endmodeword attribute dots</code><a href='#index-endcapsword' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="endcapsword-opcode"></span></dd>
+<dt><span><code>endcapsword dots</code></span></dt>
 <dd><p>The dot pattern which terminates a mode within a word. It is used in
 cases where the block is not terminated automatically by a word
 boundary, a number or punctuation. A common case is when an uppercase
@@ -699,7 +710,7 @@ block is followed directly by a lowercase letter.
 </p>
 <span id="index-capsmodechars"></span>
 <span id="capsmodechars-opcode"></span></dd>
-<dt><code>capsmodechars characters</code></dt>
+<dt><span><code>capsmodechars characters</code></span></dt>
 <dd><p>Normally, any character other than a letter will automatically cancel the
 <code>begcapsword</code> indicator. However, by using the
 <code>capsmodechars</code> opcode, you can specify a list of characters that
@@ -714,10 +725,9 @@ be the case for the hyphen character, &lsquo;<samp>-</samp>&rsquo;.
 
 <span id="index-begmode"></span>
 <span id="begmode-opcode"></span></dd>
-<dt><code>begmode attribute dots</code></dt>
-<dd><span id="index-begcaps"></span>
-<span id="begcaps-opcode"></span></dd>
-<dt><code>begcaps dots</code></dt>
+<dt id='index-begcaps'><span><code>begmode attribute dots</code><a href='#index-begcaps' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="begcaps-opcode"></span></dd>
+<dt><span><code>begcaps dots</code></span></dt>
 <dd><p>The dot pattern which indicates that a mode is entered until it is
 terminated by a <code>endmode</code> indicator. It is used in some Braille
 codes to mark a whole sentence or several words as capital
@@ -738,10 +748,9 @@ at any position.
 </p>
 <span id="index-endmode"></span>
 <span id="endmode-opcode"></span></dd>
-<dt><code>endmode attribute dots</code></dt>
-<dd><span id="index-endcaps"></span>
-<span id="endcaps-opcode"></span></dd>
-<dt><code>endcaps dots</code></dt>
+<dt id='index-endcaps'><span><code>endmode attribute dots</code><a href='#index-endcaps' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="endcaps-opcode"></span></dd>
+<dt><span><code>endcaps dots</code></span></dt>
 <dd><p>The dot pattern which terminates a mode.
 </p>
 <div class="example">
@@ -753,7 +762,7 @@ at any position.
 </p>
 <span id="index-letsign"></span>
 <span id="letsign-opcode"></span></dd>
-<dt><code>letsign dots</code></dt>
+<dt><span><code>letsign dots</code></span></dt>
 <dd><p>This indicator is needed in Grade 2 to show that a single letter is
 not a contraction. It is also used when an abbreviation happens to be
 a sequence of letters that is the same as a contraction. For example:
@@ -764,7 +773,7 @@ a sequence of letters that is the same as a contraction. For example:
 
 <span id="index-noletsign"></span>
 <span id="noletsign-opcode"></span></dd>
-<dt><code>noletsign letters</code></dt>
+<dt><span><code>noletsign letters</code></span></dt>
 <dd>
 <p>The letters in the operand will not be proceeded by a letter sign.
 More than one <code>noletsign</code> opcode can be used. This is equivalent
@@ -776,7 +785,7 @@ entry.
 </p>
 <span id="index-noletsignbefore"></span>
 <span id="noletsignbefore-opcode"></span></dd>
-<dt><code>noletsignbefore characters</code></dt>
+<dt><span><code>noletsignbefore characters</code></span></dt>
 <dd><p>If any of the characters proceeds a single letter without a space a
 letter sign is not used. By default the characters apostrophe
 (&lsquo;<samp>'</samp>&rsquo;) and period (&lsquo;<samp>.</samp>&rsquo;) have this property. Use of a
@@ -786,7 +795,7 @@ are combined.
 </p>
 <span id="index-noletsignafter"></span>
 <span id="noletsignafter-opcode"></span></dd>
-<dt><code>noletsignafter characters</code></dt>
+<dt><span><code>noletsignafter characters</code></span></dt>
 <dd><p>If any of the characters follows a single letter without a space a
 letter sign is not used. By default the characters apostrophe
 (&lsquo;<samp>'</samp>&rsquo;) and period (&lsquo;<samp>.</samp>&rsquo;) have this property. Use of a
@@ -796,7 +805,7 @@ combined.
 </p>
 <span id="index-nocontractsign"></span>
 <span id="nocontractsign-opcode"></span></dd>
-<dt><code>nocontractsign dots</code></dt>
+<dt><span><code>nocontractsign dots</code></span></dt>
 <dd>
 <p>The dots in this opcode are used to indicate a letter or a sequence of
 letters that are not a contraction, e.g. &lsquo;<samp>CD</samp>&rsquo;
@@ -811,7 +820,7 @@ intended context. Use with great care, and test thoroughly.
 
 <span id="index-numsign"></span>
 <span id="numsign-opcode"></span></dd>
-<dt><code>numsign dots</code></dt>
+<dt><span><code>numsign dots</code></span></dt>
 <dd><p>The translator inserts this indicator before numbers made up of digits
 defined with the <code>litdigit</code> opcode (see <a href="#litdigit-opcode"><code>litdigit</code></a>) to show that they are a number
 and not letters or some other symbols. A number is terminated when a
@@ -828,12 +837,30 @@ the <code>midnum</code> opcode (see <a href="#midnum-opcode"><code>midnum</code>
 <pre class="example">numsign 3456
 </pre></div>
 
+<span id="index-nonumsign"></span>
+<span id="nonumsign-opcode"></span></dd>
+<dt><span><code>nonumsign dots</code></span></dt>
+<dd><p>Usually the end of a number doesn&rsquo;t need to be indicated as the reader
+expects the the number to end at a space character. However for mixed
+number word combinations you might want to have an indicator that lets
+the reader notice the end of the number.
+</p>
+<p>For a word like &ldquo;123abc&rdquo; for example the reader expects an indicator
+between the number &ldquo;123&rdquo; and the characters &ldquo;abc&rdquo;. This can be
+achieved using the <code>nonumsign</code>.
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example">numsign 56
+</pre></div>
+
 <span id="index-numericnocontchars"></span>
 <span id="numericnocontchars-opcode"></span></dd>
-<dt><code>numericnocontchars characters</code></dt>
+<dt><span><code>numericnocontchars characters</code></span></dt>
 <dd>
 <p>This opcode specifies the characters that require a
-<code>nocontractsign</code> opcode (see <a href="#nocontractsign-opcode"><code>nocontractsign</code></a>) if they appear after a number with no
+<code>nonumsign</code> opcode (see <a href="#nonumsign-opcode"><code>nonumsign</code></a>) if they appear after a number with no
 intervening space, e.g. &lsquo;<samp>1a</samp>&rsquo; or &lsquo;<samp>2-B</samp>&rsquo;.
 </p>
 <p>These characters will typically be the letters a-j, which usually
@@ -841,7 +868,7 @@ constitute the literary digits (see <code>litdigit</code> opcode (see <a href="#
 in some Braille codes, all letters fall in this category.
 </p>
 <p><strong>Note:</strong> This opcode is case sensitive. So, if you need a
-<code>nocontractsign</code> opcode (see <a href="#nocontractsign-opcode"><code>nocontractsign</code></a>) to also appear before the capital letters
+<code>nonumsign</code> opcode (see <a href="#nonumsign-opcode"><code>nonumsign</code></a>) to also appear before the capital letters
 a-j, you should include these letters in the definition. This is
 especially relevant if you are also using the <code>begcaps</code> and
 <code>endcaps</code> opcodes (see <a href="#begcaps-opcode"><code>begcaps</code></a> and <a href="#endcaps-opcode"><code>endcaps</code></a>). In
@@ -861,11 +888,11 @@ intended context. Use with great care, and test thoroughly.
 
 <span id="index-numericmodechars"></span>
 <span id="numericmodechars-opcode"></span></dd>
-<dt><code>numericmodechars characters</code></dt>
+<dt><span><code>numericmodechars characters</code></span></dt>
 <dd>
 <span id="index-midendnumericmodechars"></span>
 <span id="midendnumericmodechars-opcode"></span></dd>
-<dt><code>midendnumericmodechars characters</code></dt>
+<dt><span><code>midendnumericmodechars characters</code></span></dt>
 <dd>
 <p>Any of these characters can appear within a number without terminating
 the effect of the number sign (see <a href="#numsign-opcode"><code>numsign</code></a>). In other words,
@@ -896,7 +923,9 @@ midendnumericmodechars -/
 </dl>
 
 <hr>
-<span id="Opcodes-for-Standing-Alone-Sequences"></span><span id="Opcodes-for-Standing-Alone-Sequences-1"></span><h3 class="section">2.5 Opcodes for <em>Standing Alone</em> Sequences</h3>
+</div>
+<div class="section" id="Opcodes-for-Standing-Alone-Sequences">
+<span id="Opcodes-for-Standing-Alone-Sequences-1"></span><h3 class="section">2.5 Opcodes for <em>Standing Alone</em> Sequences</h3>
 
 <span id="index-Standing-alone"></span>
 <p>The term &ldquo;standing alone&rdquo; comes from the specification of Unified
@@ -918,7 +947,7 @@ care, and test thoroughly.
 <dl compact="compact">
 <dd><span id="index-seqdelimiter"></span>
 <span id="seqdelimiter-opcode"></span></dd>
-<dt><code>seqdelimiter &lt;characters&gt; All the characters listed with</code></dt>
+<dt><span><code>seqdelimiter &lt;characters&gt; All the characters listed with</code></span></dt>
 <dd><p>this opcode designate a valid beginning and ending to a letter
 sequence used to determine when a letter sequence is <em>standing
 alone</em>. This again determines whether word contractions
@@ -942,7 +971,7 @@ already been defined.
 
 <span id="index-seqbeforechars"></span>
 <span id="seqbeforechars-opcode"></span></dd>
-<dt><code>seqbeforechars &lt;characters&gt;</code></dt>
+<dt><span><code>seqbeforechars &lt;characters&gt;</code></span></dt>
 <dd><p>Characters specified with this opcode may appear between a beginning
 sequence delimiter and the letter sequence itself.
 </p>
@@ -959,7 +988,7 @@ already been defined.
 
 <span id="index-seqafterchars"></span>
 <span id="seqafterchars-opcode"></span></dd>
-<dt><code>seqafterchars &lt;chars&gt;</code></dt>
+<dt><span><code>seqafterchars &lt;chars&gt;</code></span></dt>
 <dd><p>Characters specified with this opcode may appear between a letter
 sequence itself and a end sequence delimiter.
 </p>
@@ -976,7 +1005,7 @@ already been defined.
 
 <span id="index-seqafterpattern"></span>
 <span id="seqafterpattern-opcode"></span></dd>
-<dt><code>seqafterpattern &lt;string&gt;</code></dt>
+<dt><span><code>seqafterpattern &lt;string&gt;</code></span></dt>
 <dd><p>Specifies that a specific string of characters can be between the
 letter sequence itself and an ending sequence delimiter.
 </p>
@@ -994,7 +1023,9 @@ provided the overall sequence is <em>standing alone</em>.
 </dl>
 
 <hr>
-<span id="Emphasis-Opcodes"></span><span id="Emphasis-Opcodes-1"></span><h3 class="section">2.6 Emphasis Opcodes</h3>
+</div>
+<div class="section" id="Emphasis-Opcodes">
+<span id="Emphasis-Opcodes-1"></span><h3 class="section">2.6 Emphasis Opcodes</h3>
 
 <p>In many braille systems emphasis such as bold, italics or underline is
 indicated using special dot patterns that mark the beginning and if
@@ -1011,7 +1042,8 @@ specific language using the <code>emphclass</code> opcode (see <a href="#emphcla
 </p>
 
 <hr>
-<span id="Emphasis-classes"></span><span id="Emphasis-classes-1"></span><h4 class="subsection">2.6.1 Emphasis classes</h4>
+<div class="subsection" id="Emphasis-classes">
+<span id="Emphasis-classes-1"></span><h4 class="subsection">2.6.1 Emphasis classes</h4>
 
 <p>The <code>emphclass</code> opcode defines the classes of emphasis that are
 relevant for a particular language. For all emphasis that need special
@@ -1020,7 +1052,7 @@ indicators an emphasis class has to be declared.
 <dl compact="compact">
 <dd><span id="index-emphclass"></span>
 <span id="emphclass-opcode"></span></dd>
-<dt><code>emphclass &lt;emphasis class&gt;</code></dt>
+<dt><span><code>emphclass &lt;emphasis class&gt;</code></span></dt>
 <dd><p>Define an emphasis class to be used later in other emphasis related
 opcodes in the table.
 </p>
@@ -1035,7 +1067,9 @@ emphclass transnote
 </dl>
 
 <hr>
-<span id="Emphasis-indicators"></span><span id="Emphasis-indicators-1"></span><h4 class="subsection">2.6.2 Emphasis indicators</h4>
+</div>
+<div class="subsection" id="Emphasis-indicators">
+<span id="Emphasis-indicators-1"></span><h4 class="subsection">2.6.2 Emphasis indicators</h4>
 
 <p>In order to understand the capabilities of Liblouis for emphasis
 handling we have to look at the different kinds of indicators that
@@ -1050,7 +1084,8 @@ specific combination of indicators that are defined in the table.
 </p>
 
 <hr>
-<span id="Permanent-indicator"></span><span id="Permanent-indicator-1"></span><h4 class="subsubsection">2.6.2.1 Permanent indicator</h4>
+<div class="subsubsection" id="Permanent-indicator">
+<span id="Permanent-indicator-1"></span><h4 class="subsubsection">2.6.2.1 Permanent indicator</h4>
 
 <p>Many languages simply have an indicator for the beginning of emphasis
 and another one for the end of the emphasis. The emphasis is
@@ -1072,7 +1107,7 @@ indicator (see <a href="#Word-indicator">Word indicator</a>) for a certain empha
 <dl compact="compact">
 <dd><span id="index-begemph"></span>
 <span id="begemph-opcode"></span></dd>
-<dt><code>begemph &lt;emphasis class&gt; &lt;dot pattern&gt;</code></dt>
+<dt><span><code>begemph &lt;emphasis class&gt; &lt;dot pattern&gt;</code></span></dt>
 <dd><p>Braille dot pattern to indicate the beginning of emphasis.
 </p>
 <div class="example">
@@ -1084,7 +1119,7 @@ rule.
 </p>
 <span id="index-endemph"></span>
 <span id="endemph-opcode"></span></dd>
-<dt><code>endemph &lt;emphasis class&gt; &lt;dot pattern&gt;</code></dt>
+<dt><span><code>endemph &lt;emphasis class&gt; &lt;dot pattern&gt;</code></span></dt>
 <dd><p>Braille dot pattern to indicate the end of emphasis.
 </p>
 <div class="example">
@@ -1097,7 +1132,7 @@ rule.
 <dl compact="compact">
 <dd><span id="index-noemphchars"></span>
 <span id="noemphchars-opcode"></span></dd>
-<dt><code>noemphchars &lt;emphasis class&gt; characters</code></dt>
+<dt><span><code>noemphchars &lt;emphasis class&gt; characters</code></span></dt>
 <dd>
 <p>Normally, emphasis is indicated on all characters except spaces
 (characters with a <code>space</code> attribute, see <a href="#space-opcode"><code>space</code></a>). You can
@@ -1116,7 +1151,9 @@ the list contains space characters (escaped, e.g. <code>\s</code>).
 </dl>
 
 <hr>
-<span id="Letter-indicator"></span><span id="Letter-indicator-1"></span><h4 class="subsubsection">2.6.2.2 Letter indicator</h4>
+</div>
+<div class="subsubsection" id="Letter-indicator">
+<span id="Letter-indicator-1"></span><h4 class="subsubsection">2.6.2.2 Letter indicator</h4>
 
 <p>Some languages have special indicators for single letter emphasis. The
 letter indicator will be chosen over other indicators when the next
@@ -1137,7 +1174,7 @@ can be useful anyway.
 <dl compact="compact">
 <dd><span id="index-emphletter"></span>
 <span id="emphletter-opcode"></span></dd>
-<dt><code>emphletter &lt;emphasis class&gt; &lt;dot pattern&gt;</code></dt>
+<dt><span><code>emphletter &lt;emphasis class&gt; &lt;dot pattern&gt;</code></span></dt>
 <dd><p>Braille dot pattern to indicate that the next character is emphasized.
 </p>
 <div class="example">
@@ -1148,7 +1185,9 @@ can be useful anyway.
 </dl>
 
 <hr>
-<span id="Word-indicator"></span><span id="Word-indicator-1"></span><h4 class="subsubsection">2.6.2.3 Word indicator</h4>
+</div>
+<div class="subsubsection" id="Word-indicator">
+<span id="Word-indicator-1"></span><h4 class="subsubsection">2.6.2.3 Word indicator</h4>
 
 <p>Many languages have special indicators for emphasized words. The scope
 of a word indicator is normally until the next unemphasizable
@@ -1163,7 +1202,7 @@ the middle of the word.
 <dl compact="compact">
 <dd><span id="index-begemphword"></span>
 <span id="begemphword-opcode"></span></dd>
-<dt><code>begemphword &lt;emphasis class&gt; &lt;dot pattern&gt;</code></dt>
+<dt><span><code>begemphword &lt;emphasis class&gt; &lt;dot pattern&gt;</code></span></dt>
 <dd><p>Braille dot pattern to indicate the beginning of an emphasized word
 or the beginning of emphasized characters within a word.
 </p>
@@ -1173,7 +1212,7 @@ or the beginning of emphasized characters within a word.
 
 <span id="index-endemphword"></span>
 <span id="endemphword-opcode"></span></dd>
-<dt><code>endemphword &lt;emphasis class&gt;  &lt;dot pattern&gt;</code></dt>
+<dt><span><code>endemphword &lt;emphasis class&gt;  &lt;dot pattern&gt;</code></span></dt>
 <dd><p>Word emphasis ends implicitly when the word ends. When an indication
 is required to close word emphasis, i.e. when emphasis ends in the
 middle of a word, then this opcode defines the braille dot pattern
@@ -1189,7 +1228,7 @@ that is used.
 </p>
 <span id="index-emphmodechars"></span>
 <span id="emphmodechars-opcode"></span></dd>
-<dt><code>emphmodechars &lt;emphasis class&gt; characters</code></dt>
+<dt><span><code>emphmodechars &lt;emphasis class&gt; characters</code></span></dt>
 <dd>
 <p>Normally, only spaces and unemphasizable characters (see <a href="#space-opcode"><code>space</code></a>
 and <a href="#noemphchars-opcode"><code>noemphchars</code></a>) will cancel the <code>begemphword</code> indicator
@@ -1210,7 +1249,9 @@ that are in the list will not cancel the word indicator.
 </dl>
 
 <hr>
-<span id="Phrase-indicator"></span><span id="Phrase-indicator-1"></span><h4 class="subsubsection">2.6.2.4 Phrase indicator</h4>
+</div>
+<div class="subsubsection" id="Phrase-indicator">
+<span id="Phrase-indicator-1"></span><h4 class="subsubsection">2.6.2.4 Phrase indicator</h4>
 
 <p>Some languages have a concept of a phrase where the emphasis is valid
 for a number of words. The beginning of the phrase is indicated with a
@@ -1230,7 +1271,7 @@ the <code>lenemphphrase</code> opcode (see <a href="#lenemphphrase-opcode"><code
 <dl compact="compact">
 <dd><span id="index-begemphphrase"></span>
 <span id="begemphphrase-opcode"></span></dd>
-<dt><code>begemphphrase &lt;emphasis class&gt; &lt;dot pattern&gt;</code></dt>
+<dt><span><code>begemphphrase &lt;emphasis class&gt; &lt;dot pattern&gt;</code></span></dt>
 <dd><p>Braille dot pattern to indicate the beginning of a phrase.
 </p>
 <div class="example">
@@ -1243,7 +1284,7 @@ the <code>lenemphphrase</code> opcode (see <a href="#lenemphphrase-opcode"><code
 
 <span id="index-endemphphrase-before"></span>
 <span id="endemphphrase-before-opcode"></span></dd>
-<dt><code>endemphphrase &lt;emphasis class&gt; before &lt;dot pattern&gt;</code></dt>
+<dt><span><code>endemphphrase &lt;emphasis class&gt; before &lt;dot pattern&gt;</code></span></dt>
 <dd><p>Braille dot pattern to indicate the end of a phrase. The closing indicator
 will be placed before the last word of the phrase.
 </p>
@@ -1257,7 +1298,7 @@ whenever this indicator is used (see <a href="#Word-indicator">Word indicator</a
 </p>
 <span id="index-endemphphrase-after"></span>
 <span id="endemphphrase-after-opcode"></span></dd>
-<dt><code>endemphphrase &lt;emphasis class&gt; after &lt;dot pattern&gt;</code></dt>
+<dt><span><code>endemphphrase &lt;emphasis class&gt; after &lt;dot pattern&gt;</code></span></dt>
 <dd><p>Braille dot pattern to indicate the end of a phrase. The closing
 indicator will be placed after the last word of the phrase. If both
 <code>endemphphrase &lt;emphasis class&gt; before</code> and <code>endemphphrase
@@ -1269,7 +1310,7 @@ indicator will be placed after the last word of the phrase. If both
 
 <span id="index-lenemphphrase"></span>
 <span id="lenemphphrase-opcode"></span></dd>
-<dt><code>lenemphphrase &lt;emphasis class&gt; &lt;number&gt;</code></dt>
+<dt><span><code>lenemphphrase &lt;emphasis class&gt; &lt;number&gt;</code></span></dt>
 <dd><p>Define how many words are required before a sequence of words is
 considered a phrase.
 </p>
@@ -1284,7 +1325,10 @@ indicated as a phrase, but the words will be indicated individually.
 </dl>
 
 <hr>
-<span id="Note-about-fallback-behavior"></span><span id="Note-about-fallback-behavior-1"></span><h4 class="subsection">2.6.3 Note about fallback behavior</h4>
+</div>
+</div>
+<div class="subsection" id="Note-about-fallback-behavior">
+<span id="Note-about-fallback-behavior-1"></span><h4 class="subsection">2.6.3 Note about fallback behavior</h4>
 
 <p>Contrary to older versions of liblouis there is limited fallback
 behavior. Generally opcodes have a very specific purpose. This is done
@@ -1304,7 +1348,9 @@ supported yet, either more opcode combinations might be enabled, or
 more specific opcodes might be added.
 </p>
 <hr>
-<span id="Computer-braille"></span><span id="Computer-braille-1"></span><h4 class="subsection">2.6.4 Computer braille</h4>
+</div>
+<div class="subsection" id="Computer-braille">
+<span id="Computer-braille-1"></span><h4 class="subsection">2.6.4 Computer braille</h4>
 
 <p>For computer braille there are only two braille indicators, for the
 beginning and end of a sequence of characters to be rendered in
@@ -1317,7 +1363,7 @@ contains a subsequence defined by the <code>compbrl</code> opcode (see <a href="
 <dl compact="compact">
 <dd><span id="index-begcomp"></span>
 <span id="begcomp-opcode"></span></dd>
-<dt><code>begcomp dots</code></dt>
+<dt><span><code>begcomp dots</code></span></dt>
 <dd>
 <p>This braille indicator is placed before a sequence of characters
 translated in computer braille, whether this sequence is indicated in
@@ -1326,7 +1372,7 @@ contains a subsequence specified by the <code>compbrl</code> opcode (see <a href
 </p>
 <span id="index-endcomp"></span>
 <span id="endcomp-opcode"></span></dd>
-<dt><code>endcomp dots</code></dt>
+<dt><span><code>endcomp dots</code></span></dt>
 <dd>
 <p>This braille indicator is placed after a sequence of characters
 translated in computer braille, whether this sequence is indicated in
@@ -1337,7 +1383,10 @@ contains a subsequence specified by the <code>compbrl</code> opcode (see <a href
 </dl>
 
 <hr>
-<span id="Special-Symbol-Opcodes"></span><span id="Special-Symbol-Opcodes-1"></span><h3 class="section">2.7 Special Symbol Opcodes</h3>
+</div>
+</div>
+<div class="section" id="Special-Symbol-Opcodes">
+<span id="Special-Symbol-Opcodes-1"></span><h3 class="section">2.7 Special Symbol Opcodes</h3>
 
 <p>These opcodes define certain symbols, such as the decimal point, which
 require special treatment.
@@ -1345,7 +1394,7 @@ require special treatment.
 <dl compact="compact">
 <dd><span id="index-decpoint"></span>
 <span id="decpoint-opcode"></span></dd>
-<dt><code>decpoint character dots</code></dt>
+<dt><span><code>decpoint character dots</code></span></dt>
 <dd>
 <p>This opcode defines the decimal point. It is useful if your Braille
 code requires the decimal separator to show as a dot pattern different
@@ -1365,7 +1414,7 @@ the number and correctly preceded by number sign.
 
 <span id="index-hyphen"></span>
 <span id="hyphen-opcode"></span></dd>
-<dt><code>hyphen character dots</code></dt>
+<dt><span><code>hyphen character dots</code></span></dt>
 <dd><p>This opcode defines the hyphen, that is, the character used in
 compound words such as &lsquo;<samp>have-nots</samp>&rsquo;. The back-translator uses it
 to determine the end of individual words.
@@ -1374,14 +1423,16 @@ to determine the end of individual words.
 </dl>
 
 <hr>
-<span id="Special-Processing-Opcodes"></span><span id="Special-Processing-Opcodes-1"></span><h3 class="section">2.8 Special Processing Opcodes</h3>
+</div>
+<div class="section" id="Special-Processing-Opcodes">
+<span id="Special-Processing-Opcodes-1"></span><h3 class="section">2.8 Special Processing Opcodes</h3>
 
 <p>These opcodes cause special processing to be carried out.
 </p>
 <dl compact="compact">
 <dd><span id="index-capsnocont"></span>
 <span id="capsnocont-opcode"></span></dd>
-<dt><code>capsnocont</code></dt>
+<dt><span><code>capsnocont</code></span></dt>
 <dd><p>This opcode has no operands. If it is specified, words or parts of
 words in all caps are not contracted. This is needed for languages
 such as Norwegian.
@@ -1390,7 +1441,9 @@ such as Norwegian.
 </dl>
 
 <hr>
-<span id="Translation-Opcodes"></span><span id="Translation-Opcodes-1"></span><h3 class="section">2.9 Translation Opcodes</h3>
+</div>
+<div class="section" id="Translation-Opcodes">
+<span id="Translation-Opcodes-1"></span><h3 class="section">2.9 Translation Opcodes</h3>
 
 <p>These opcodes define the braille representations for character
 sequences. Each of them defines an entry within the contraction table.
@@ -1429,7 +1482,7 @@ more consecutive letters between spaces and/or punctuation marks.
 <dd>
 <span id="index-noback"></span>
 <span id="noback-opcode"></span></dd>
-<dt><code>noback opcode ...</code></dt>
+<dt><span><code>noback opcode ...</code></span></dt>
 <dd><p>This is an opcode prefix, that is to say, it modifies the operation of 
 the opcode that follows it on the same line. noback specifies that
 back-translation is not to use information on this line.
@@ -1440,14 +1493,14 @@ back-translation is not to use information on this line.
 
 <span id="index-nofor"></span>
 <span id="nofor-opcode"></span></dd>
-<dt><code>nofor opcode ...</code></dt>
+<dt><span><code>nofor opcode ...</code></span></dt>
 <dd><p>This is an opcode prefix which modifies the operation of the opcode 
 following it on the same line. nofor specifies that forward translation 
 is not to use the information on this line.
 </p>
 <span id="index-nocross"></span>
 <span id="nocross-opcode"></span></dd>
-<dt><code>nocross opcode characters ...</code></dt>
+<dt><span><code>nocross opcode characters ...</code></span></dt>
 <dd><p><code>nocross</code> is an opcode prefix which modifies the operation of the
 opcode following it. The following opcode can be <code>always</code> opcode (see <a href="#always-opcode"><code>always</code></a>) or
 any other translation opcode listed below with <code>characters</code> as
@@ -1462,7 +1515,7 @@ contracted.
 </p>
 <span id="index-compbrl"></span>
 <span id="compbrl-opcode"></span></dd>
-<dt><code>compbrl characters</code></dt>
+<dt><span><code>compbrl characters</code></span></dt>
 <dd><p>If the characters are found within a block of text surrounded by
 whitespace the entire block is translated according to the default
 braille representations defined by the <a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a>, if 8-dot computer braille is enabled or according to the dot
@@ -1475,7 +1528,7 @@ enabled. For example:
 
 <span id="index-comp6"></span>
 <span id="comp6-opcode"></span></dd>
-<dt><code>comp6 character dots</code></dt>
+<dt><span><code>comp6 character dots</code></span></dt>
 <dd><p>This opcode specifies the translation of characters in 6-dot computer
 braille. The first operand must be a single character. The second
 operand may specify as many cells as necessary. The opcode is somewhat
@@ -1484,7 +1537,7 @@ specified. This even includes virtual dots (see <a href="#virtual-dots">virtual 
 </p>
 <span id="index-nocont"></span>
 <span id="nocont-opcode"></span></dd>
-<dt><code>nocont characters</code></dt>
+<dt><span><code>nocont characters</code></span></dt>
 <dd><p>Like <code>compbrl</code>, except that the string is uncontracted.
 <code>prepunc</code> opcode (see <a href="#prepunc-opcode"><code>prepunc</code></a>) and <code>postpunc</code> opcode (see <a href="#postpunc-opcode"><code>postpunc</code></a>) rules are applied,
 however. This is useful for specifying that foreign words should not
@@ -1492,7 +1545,7 @@ be contracted in an entire document.
 </p>
 <span id="index-replace"></span>
 <span id="replace-opcode"></span></dd>
-<dt><code>replace characters {characters}</code></dt>
+<dt><span><code>replace characters {characters}</code></span></dt>
 <dd><p>Replace the first set of characters, no matter where they appear, with
 the second. Note that the second operand is <em>NOT</em> a dot pattern.
 It is also optional. If it is omitted the character(s) in the first
@@ -1503,7 +1556,7 @@ translation indirectly. Therefore, it is preferable to use
 </p>
 <span id="index-always"></span>
 <span id="always-opcode"></span></dd>
-<dt><code>always characters dots</code></dt>
+<dt><span><code>always characters dots</code></span></dt>
 <dd><p>Replace the characters with the dot pattern no matter where they
 appear. Do <em>NOT</em> use an entry such as <code>always a 1</code>. Use the
 character definition opcodes instead. For example:
@@ -1514,7 +1567,7 @@ character definition opcodes instead. For example:
 
 <span id="index-repeated"></span>
 <span id="repeated-opcode"></span></dd>
-<dt><code>repeated characters dots</code></dt>
+<dt><span><code>repeated characters dots</code></span></dt>
 <dd><p>Replace the characters with the dot pattern no matter where they
 appear. Ignore any consecutive repetitions of the same character
 sequence. This is useful for shortening long strings of spaces or
@@ -1526,19 +1579,19 @@ hyphens or periods. For example:
 
 <span id="index-repword"></span>
 <span id="repword-opcode"></span></dd>
-<dt><code>repword characters dots</code></dt>
+<dt><span><code>repword characters dots</code></span></dt>
 <dd><p>For some braille systems there is the requirement to remove repeated
 words which are connected by some character. In Malaysian braille for
 example you want to contract as follows:
 </p>
 <dl compact="compact">
-<dt>Text:</dt>
+<dt><span>Text:</span></dt>
 <dd><p>&lsquo;<samp>tasik-tasik</samp>&rsquo;
 </p></dd>
-<dt>Grade 1:</dt>
+<dt><span>Grade 1:</span></dt>
 <dd><p>&lsquo;<samp>2345-1-234-24-13-36-2345-1-234-24-13</samp>&rsquo;
 </p></dd>
-<dt>Grade 2:</dt>
+<dt><span>Grade 2:</span></dt>
 <dd><p>&lsquo;<samp>2345-1-234-24-13-123456</samp>&rsquo;
 </p></dd>
 </dl>
@@ -1553,7 +1606,7 @@ follows:
 
 <span id="index-rependword"></span>
 <span id="rependword-opcode"></span></dd>
-<dt><code>rependword characters dots, dots</code></dt>
+<dt><span><code>rependword characters dots, dots</code></span></dt>
 <dd><p>Like the <code>repword</code> opcode (see <a href="#repword-opcode"><code>repword</code></a>), but for indicating a repetition of a
 string at the end of a word. When characters are encountered check to
 see if a part of the word before these characters (but not the whole
@@ -1570,7 +1623,7 @@ the rule is:
 
 <span id="index-largesign"></span>
 <span id="largesign-opcode"></span></dd>
-<dt><code>largesign characters dots</code></dt>
+<dt><span><code>largesign characters dots</code></span></dt>
 <dd><p>Replace the characters with the dot pattern no matter where they
 appear. In addition, if two words defined as large signs follow each
 other, remove the space between them. For example, in
@@ -1583,13 +1636,13 @@ braille jargon that pleases braille experts.
 </p>
 <span id="index-word"></span>
 <span id="word-opcode"></span></dd>
-<dt><code>word characters dots</code></dt>
+<dt><span><code>word characters dots</code></span></dt>
 <dd><p>Replace the characters with the dot pattern if they are a word, that
 is, are surrounded by whitespace and/or punctuation.
 </p>
 <span id="index-syllable"></span>
 <span id="syllable-opcode"></span></dd>
-<dt><code>syllable characters dots</code></dt>
+<dt><span><code>syllable characters dots</code></span></dt>
 <dd><p>As its name indicates, this opcode defines a &quot;syllable&quot; which must be
 represented by exactly the dot patterns given. Contractions may not
 cross the boundaries of this &quot;syllable&quot; either from left or right. The
@@ -1604,7 +1657,7 @@ within the sequence is to be used (see <a href="#Translation-Opcodes">Translatio
 
 <span id="index-joinword"></span>
 <span id="joinword-opcode"></span></dd>
-<dt><code>joinword characters dots</code></dt>
+<dt><span><code>joinword characters dots</code></span></dt>
 <dd><p>Replace the characters with the dot pattern if they are a word which
 is followed by whitespace and a letter. In addition remove the
 whitespace. For example, <samp>en-us-g2.ctb</samp> has <code>joinword to
@@ -1615,7 +1668,7 @@ other opcodes that may apply to it.
 </p>
 <span id="index-lowword"></span>
 <span id="lowword-opcode"></span></dd>
-<dt><code>lowword characters dots</code></dt>
+<dt><span><code>lowword characters dots</code></span></dt>
 <dd><p>Replace the characters with the dot pattern if they are a word
 preceded and followed by whitespace. No punctuation either before or
 after the word is allowed. The term <code>lowword</code> derives from the
@@ -1628,7 +1681,7 @@ of the cell. For example:
 
 <span id="index-contraction"></span>
 <span id="contraction-opcode"></span></dd>
-<dt><code>contraction characters</code></dt>
+<dt><span><code>contraction characters</code></span></dt>
 <dd><p>If you look at <samp>en-us-g2.ctb</samp> you will see that some words are
 actually contracted into some of their own letters. A famous example
 among braille transcribers is &lsquo;<samp>also</samp>&rsquo;, which is contracted as
@@ -1643,56 +1696,56 @@ The <code>contraction</code> opcode tells the translator to do this.
 </p>
 <span id="index-sufword"></span>
 <span id="sufword-opcode"></span></dd>
-<dt><code>sufword characters dots</code></dt>
+<dt><span><code>sufword characters dots</code></span></dt>
 <dd><p>Replace the characters with the dot pattern if they are either a word
 or at the beginning of a word.
 </p>
 <span id="index-prfword"></span>
 <span id="prfword-opcode"></span></dd>
-<dt><code>prfword characters dots</code></dt>
+<dt><span><code>prfword characters dots</code></span></dt>
 <dd><p>Replace the characters with the dot pattern if they are either a word
 or at the end of a word.
 </p>
 <span id="index-begword"></span>
 <span id="begword-opcode"></span></dd>
-<dt><code>begword characters dots</code></dt>
+<dt><span><code>begword characters dots</code></span></dt>
 <dd><p>Replace the characters with the dot pattern if they are at the
 beginning of a word.
 </p>
 <span id="index-begmidword"></span>
 <span id="begmidword-opcode"></span></dd>
-<dt><code>begmidword characters dots</code></dt>
+<dt><span><code>begmidword characters dots</code></span></dt>
 <dd><p>Replace the characters with the dot pattern if they are either at the
 beginning or in the middle of a word.
 </p>
 <span id="index-midword"></span>
 <span id="midword-opcode"></span></dd>
-<dt><code>midword characters dots</code></dt>
+<dt><span><code>midword characters dots</code></span></dt>
 <dd><p>Replace the characters with the dot pattern if they are in the middle
 of a word.
 </p>
 <span id="index-midendword"></span>
 <span id="midendword-opcode"></span></dd>
-<dt><code>midendword characters dots</code></dt>
+<dt><span><code>midendword characters dots</code></span></dt>
 <dd><p>Replace the characters with the dot pattern if they are either in the
 middle or at the end of a word.
 </p>
 <span id="index-endword"></span>
 <span id="endword-opcode"></span></dd>
-<dt><code>endword characters dots</code></dt>
+<dt><span><code>endword characters dots</code></span></dt>
 <dd><p>Replace the characters with the dot pattern if they are at the end of
 a word.
 </p>
 <span id="index-partword"></span>
 <span id="partword-opcode"></span></dd>
-<dt><code>partword characters dots</code></dt>
+<dt><span><code>partword characters dots</code></span></dt>
 <dd><p>Replace the characters with the dot pattern if the characters are
 anywhere in a word, that is, if they are proceeded or followed by a
 letter.
 </p>
 <span id="index-exactdots"></span>
 <span id="exactdots-opcode"></span></dd>
-<dt><code>exactdots @dots</code></dt>
+<dt><span><code>exactdots @dots</code></span></dt>
 <dd><p>Note that the operand must begin with an at sign (&lsquo;<samp>@</samp>&rsquo;). The dot
 pattern following it is evaluated for validity. If it is valid,
 whenever an at sign followed by this dot pattern appears in the source
@@ -1708,26 +1761,26 @@ mathematical codes. For example:
 </p>
 <span id="index-prepunc"></span>
 <span id="prepunc-opcode"></span></dd>
-<dt><code>prepunc characters dots</code></dt>
+<dt><span><code>prepunc characters dots</code></span></dt>
 <dd><p>Replace the characters with the dot pattern if they are part of
 punctuation at the beginning of a word.
 </p>
 <span id="index-postpunc"></span>
 <span id="postpunc-opcode"></span></dd>
-<dt><code>postpunc characters dots</code></dt>
+<dt><span><code>postpunc characters dots</code></span></dt>
 <dd><p>Replace the characters with the dot pattern if they are part of
 punctuation at the end of a word.
 </p>
 <span id="index-begnum"></span>
 <span id="begnum-opcode"></span></dd>
-<dt><code>begnum characters dots</code></dt>
+<dt><span><code>begnum characters dots</code></span></dt>
 <dd><p>Replace the characters with the dot pattern if they are at the
 beginning of a number, that is, before all its digits. For example, in
 <samp>en-us-g1.ctb</samp> we have <code>begnum # 4</code>.
 </p>
 <span id="index-midnum"></span>
 <span id="midnum-opcode"></span></dd>
-<dt><code>midnum characters dots</code></dt>
+<dt><span><code>midnum characters dots</code></span></dt>
 <dd><p>Replace the characters with the dot pattern if they are in the middle
 of a number. For example, <samp>en-us-g1.ctb</samp> has <code>midnum . 46</code>.
 This is because the decimal point has a different dot pattern than the
@@ -1735,7 +1788,7 @@ period.
 </p>
 <span id="index-endnum"></span>
 <span id="endnum-opcode"></span></dd>
-<dt><code>endnum characters dots</code></dt>
+<dt><span><code>endnum characters dots</code></span></dt>
 <dd><p>Replace the characters with the dot pattern if they are at the end of
 a number. For example <samp>en-us-g1.ctb</samp> has <code>endnum th 1456</code>.
 This handles things like &lsquo;<samp>4th</samp>&rsquo;. A letter sign is <em>NOT</em>
@@ -1743,7 +1796,7 @@ inserted.
 </p>
 <span id="index-joinnum"></span>
 <span id="joinnum-opcode"></span></dd>
-<dt><code>joinnum characters dots</code></dt>
+<dt><span><code>joinnum characters dots</code></span></dt>
 <dd><p>Replace the characters with the dot pattern. In addition, if
 whitespace and a number follows omit the whitespace. This opcode can
 be used to join currency symbols to numbers for example:
@@ -1759,7 +1812,9 @@ joinnum \x00A5 13456 (YEN SIGN)
 </dl>
 
 <hr>
-<span id="Character_002dClass-Opcodes"></span><span id="Character_002dClass-Opcodes-1"></span><h3 class="section">2.10 Character-Class Opcodes</h3>
+</div>
+<div class="section" id="Character_002dClass-Opcodes">
+<span id="Character_002dClass-Opcodes-1"></span><h3 class="section">2.10 Character-Class Opcodes</h3>
 
 <p>These opcodes define and use character classes, also known as
 character attributes. A character class associates a set of characters
@@ -1770,31 +1825,31 @@ character may belong to more than one class.
 opcodes. These classes are:
 </p>
 <dl compact="compact">
-<dt><code>space</code></dt>
+<dt><span><code>space</code></span></dt>
 <dd><p>Whitespace characters such as blank and tab
 </p></dd>
-<dt><code>digit</code></dt>
+<dt><span><code>digit</code></span></dt>
 <dd><p>Numeric characters
 </p></dd>
-<dt><code>letter</code></dt>
+<dt><span><code>letter</code></span></dt>
 <dd><p>Both uppercase and lowercase alphabetic characters
 </p></dd>
-<dt><code>lowercase</code></dt>
+<dt><span><code>lowercase</code></span></dt>
 <dd><p>Lowercase alphabetic characters
 </p></dd>
-<dt><code>uppercase</code></dt>
+<dt><span><code>uppercase</code></span></dt>
 <dd><p>Uppercase alphabetic characters
 </p></dd>
-<dt><code>punctuation</code></dt>
+<dt><span><code>punctuation</code></span></dt>
 <dd><p>Punctuation marks
 </p></dd>
-<dt><code>sign</code></dt>
+<dt><span><code>sign</code></span></dt>
 <dd><p>Signs such as percent (&lsquo;<samp>%</samp>&rsquo;)
 </p></dd>
-<dt><code>math</code></dt>
+<dt><span><code>math</code></span></dt>
 <dd><p>Mathematical symbols
 </p></dd>
-<dt><code>litdigit</code></dt>
+<dt><span><code>litdigit</code></span></dt>
 <dd><p>Literary digit
 </p>
 </dd>
@@ -1807,7 +1862,7 @@ For examples see <samp>el.ctb</samp>.
 <dd>
 <span id="index-attribute"></span>
 <span id="attribute-opcode"></span></dd>
-<dt><code>attribute name characters</code></dt>
+<dt><span><code>attribute name characters</code></span></dt>
 <dd><p>Add characters to a character class. The class may be one of the
 predefined classes listed above, a user-defined class previously
 created with this opcode, or a new one. The name operand must contain
@@ -1825,7 +1880,7 @@ multipass rules (see <a href="#The-Context-and-Multipass-Opcodes">The Context an
 </p>
 <span id="index-after"></span>
 <span id="after-opcode"></span></dd>
-<dt><code>after class opcode ...</code></dt>
+<dt><span><code>after class opcode ...</code></span></dt>
 <dd><p>The specified opcode is further constrained in that the matched
 character sequence must be immediately preceded by a character
 belonging to the specified class. If this opcode is used more than
@@ -1834,7 +1889,7 @@ classes is used.
 </p>
 <span id="index-before"></span>
 <span id="before-opcode"></span></dd>
-<dt><code>before class opcode ...</code></dt>
+<dt><span><code>before class opcode ...</code></span></dt>
 <dd><p>The specified opcode is further constrained in that the matched
 character sequence must be immediately followed by a character
 belonging to the specified class. If this opcode is used more than
@@ -1845,7 +1900,9 @@ classes is used.
 </dl>
 
 <hr>
-<span id="Swap-Opcodes"></span><span id="Swap-Opcodes-1"></span><h3 class="section">2.11 Swap Opcodes</h3>
+</div>
+<div class="section" id="Swap-Opcodes">
+<span id="Swap-Opcodes-1"></span><h3 class="section">2.11 Swap Opcodes</h3>
 
 <p>The swap opcodes are needed to tell the <code>context</code> opcode (see <a href="#context-opcode"><code>context</code></a>), the
 <code>correct</code> opcode (see <a href="#correct-opcode"><code>correct</code></a>) and multipass opcodes which dot patterns to swap
@@ -1867,7 +1924,7 @@ cell.
 <dd>
 <span id="index-swapcd"></span>
 <span id="swapcd-opcode"></span></dd>
-<dt><code>swapcd name characters dots, dots, dots, ...</code></dt>
+<dt><span><code>swapcd name characters dots, dots, dots, ...</code></span></dt>
 <dd><p>See above paragraph for explanation. For example:
 </p>
 <div class="example">
@@ -1876,7 +1933,7 @@ cell.
 
 <span id="index-swapdd"></span>
 <span id="swapdd-opcode"></span></dd>
-<dt><code>swapdd name dots, dots, dots ... dotpattern1, dotpattern2, dotpattern3, ...</code></dt>
+<dt><span><code>swapdd name dots, dots, dots ... dotpattern1, dotpattern2, dotpattern3, ...</code></span></dt>
 <dd><p>The <code>swapdd</code> opcode defines substitutions for the multipass
 opcodes. In the second operand the dot patterns must be single cells,
 but in the third operand multi-cell dot patterns are allowed. This is
@@ -1885,7 +1942,7 @@ ambiguities.
 </p>
 <span id="index-swapcc"></span>
 <span id="swapcc-opcode"></span></dd>
-<dt><code>swapcc name characters characters</code></dt>
+<dt><span><code>swapcc name characters characters</code></span></dt>
 <dd><p>The <code>swapcc</code> opcode swaps characters in its second operand for
 characters in the corresponding places in its third operand. It is
 intended for use with <code>correct</code> opcodes and can solve problems
@@ -1895,7 +1952,9 @@ such as formatting phone numbers.
 </dl>
 
 <hr>
-<span id="The-Context-and-Multipass-Opcodes"></span><span id="The-Context-and-Multipass-Opcodes-1"></span><h3 class="section">2.12 The Context and Multipass Opcodes</h3>
+</div>
+<div class="section" id="The-Context-and-Multipass-Opcodes">
+<span id="The-Context-and-Multipass-Opcodes-1"></span><h3 class="section">2.12 The Context and Multipass Opcodes</h3>
 
 <p>The <code>context</code> and multipass opcodes (<code>pass2</code>, <code>pass3</code>
 and <code>pass4</code>) provide translation capabilities beyond those of the
@@ -1918,10 +1977,10 @@ test action</code>. The specific opcodes are invoked as follows:
 <span id="index-pass3"></span>
 <span id="index-pass4"></span>
 </dd>
-<dt><code>context test action</code></dt>
-<dt><code>pass2 test action</code></dt>
-<dt><code>pass3 test action</code></dt>
-<dt><code>pass4 test action</code></dt>
+<dt><span><code>context test action</code></span></dt>
+<dt><span><code>pass2 test action</code></span></dt>
+<dt><span><code>pass3 test action</code></span></dt>
+<dt><span><code>pass4 test action</code></span></dt>
 </dl>
 
 <p>The <code>test</code> and <code>action</code> operands have suboperands. Each
@@ -1930,7 +1989,7 @@ another non-alphanumeric character is encountered. The suboperands and
 their initial characters are as follows.
 </p>
 <dl compact="compact">
-<dt><kbd>&quot; (double quote)</kbd></dt>
+<dt><span><kbd>&quot; (double quote)</kbd></span></dt>
 <dd><p>a string of characters. This string must be terminated by another
 double quote. It may contain any characters. If a double quote is
 needed within the string, it must be preceded by a backslash
@@ -1941,7 +2000,7 @@ in the test part of the <code>context</code> opcode when forward translating,
 and in the action part of the <code>context</code> opcode when back translating.
 </p>
 </dd>
-<dt><kbd>@ (at sign)</kbd></dt>
+<dt><span><kbd>@ (at sign)</kbd></span></dt>
 <dd><p>a sequence of dot patterns. Cells are separated by hyphens as usual.
 This suboperand is valid in the test and action parts of
 the <code>pass2</code>, <code>pass3</code>, and <code>pass4</code> opcodes,
@@ -1949,19 +2008,19 @@ in the action part of the <code>context</code> opcode when forward translating,
 and in the test part of the <code>context</code> opcode when back translating.
 </p>
 </dd>
-<dt><kbd>` (accent mark)</kbd></dt>
+<dt><span><kbd>` (accent mark)</kbd></span></dt>
 <dd><p>If this is the beginning of the string being translated this
 suboperand is true. It is valid only in the test part and must be the
 first thing in this operand.
 </p>
 </dd>
-<dt><kbd>~ (tilde)</kbd></dt>
+<dt><span><kbd>~ (tilde)</kbd></span></dt>
 <dd><p>If this is the end of the string being translated this suboperand is
 true. It is valid only in the test part and must be the last thing in
 this operand.
 </p>
 </dd>
-<dt><kbd>$ (dollar sign)</kbd></dt>
+<dt><span><kbd>$ (dollar sign)</kbd></span></dt>
 <dd><p>a string of attributes, such as &lsquo;<samp>d</samp>&rsquo; for digit, &lsquo;<samp>l</samp>&rsquo; for
 letter, etc. For a list of all valid attributes see <a href="#valid-attribute-characters">valid attribute characters</a>. More than one attribute can be given. If you wish to
 check characters with any attribute, use the letter &lsquo;<samp>a</samp>&rsquo;. Input
@@ -1981,13 +2040,13 @@ For the characters which can be used in attribute strings, see the
 following table.
 </p>
 </dd>
-<dt><kbd>! (exclamation point)</kbd></dt>
+<dt><span><kbd>! (exclamation point)</kbd></span></dt>
 <dd><p>reverses the logical meaning of the suboperand which follows. For
 example, !$d is true only if the character is <em>NOT</em> a digit. This
 suboperand is valid in test parts only.
 </p>
 </dd>
-<dt><kbd>% (percent sign)</kbd></dt>
+<dt><span><kbd>% (percent sign)</kbd></span></dt>
 <dd><p>the name of a character class, predefined or defined using the
 <code>attribute</code> opcode (see <a href="#attribute-opcode"><code>attribute</code></a>), or the name of a swap set defined by the swap
 opcodes (see <a href="#Swap-Opcodes">Swap Opcodes</a>). Names must contain only letters (a-z
@@ -1996,7 +2055,7 @@ matters. Character class names may be used in test parts only. Swap
 names are valid everywhere.
 </p>
 </dd>
-<dt><kbd>{ (left brace)</kbd></dt>
+<dt><span><kbd>{ (left brace)</kbd></span></dt>
 <dd><p>Name: the name of a grouping pair. The left brace indicates that the
 first (or left) member of the pair is to be used in matching. If this
 is between replacement brackets it must be the only item. This is also
@@ -2027,36 +2086,36 @@ the references within the action part replace with the dot patterns
 (the third operand) of the grouping.
 </p>
 </dd>
-<dt><kbd>} (right brace)</kbd></dt>
+<dt><span><kbd>} (right brace)</kbd></span></dt>
 <dd><p>Name: the name of a grouping pair. The right brace indicates that the
 second (or right) member is to be used in matching. See the remarks on
 the left brace immediately above.
 </p>
 </dd>
-<dt><kbd>/ (slash)</kbd></dt>
+<dt><span><kbd>/ (slash)</kbd></span></dt>
 <dd><p>Search the input for the expression following the slash and return
 true if found. This can be used to set a variable.
 </p>
 </dd>
-<dt><kbd>_ (underscore)</kbd></dt>
+<dt><span><kbd>_ (underscore)</kbd></span></dt>
 <dd><p>Move backward. If a number follows, move backward that number of
 characters. The default is to move backward one character. This
 suboperand is valid only in test parts. The test fails if moving
 backward beyond the beginning of the input string.
 </p>
 </dd>
-<dt><kbd>[ (left bracket)</kbd></dt>
+<dt><span><kbd>[ (left bracket)</kbd></span></dt>
 <dd><p>start replacement here. This suboperand must always be paired with a
 right bracket and is valid only in test parts. Multiple pairs of
 square brackets in a single expression are not allowed.
 </p>
 </dd>
-<dt><kbd>] (right bracket)</kbd></dt>
+<dt><span><kbd>] (right bracket)</kbd></span></dt>
 <dd><p>end replacement here. This suboperand must always be paired with a
 left bracket and is valid only in test parts.
 </p>
 </dd>
-<dt><kbd># (number sign or crosshatch)</kbd></dt>
+<dt><span><kbd># (number sign or crosshatch)</kbd></span></dt>
 <dd><p>test or set a variable. Variables are referred to by numbers
 (0 through 49), e.g. <code>#1</code>, <code>#2</code>, <code>#25</code>.
 Variables may be set by one <code>context</code> or multipass opcode and tested
@@ -2077,7 +2136,7 @@ An attempt to decrement a variable below 0 is silently ignored.
 <code>#1=2</code>, <code>#3&lt;4</code>, <code>#5&gt;6</code>, <code>#7&lt;=8</code>, <code>#9&gt;=10</code>.
 </p>
 </dd>
-<dt><kbd>* (asterisk)</kbd></dt>
+<dt><span><kbd>* (asterisk)</kbd></span></dt>
 <dd><p>Copy the input characters or dot patterns within the replacement brackets
 into the output, and discard anything else that was matched. If there are
 no replacement brackets then copy all of the matched input. This
@@ -2086,7 +2145,7 @@ number of times. This feature is used, for example, for handling numeric
 subscripts in Nemeth.
 </p>
 </dd>
-<dt><kbd>? (question mark)</kbd></dt>
+<dt><span><kbd>? (question mark)</kbd></span></dt>
 <dd><p>Valid only in the action part. The characters to be replaced are
 simply ignored. That is, they are replaced with nothing. If either
 member of a grouping pair is in the replace brackets the other member
@@ -2099,46 +2158,46 @@ at the same level is also removed.
 follows:
 </p>
 <dl compact="compact">
-<dt><kbd>a</kbd></dt>
+<dt><span><kbd>a</kbd></span></dt>
 <dd><p>any attribute
 </p></dd>
-<dt><kbd>d</kbd></dt>
+<dt><span><kbd>d</kbd></span></dt>
 <dd><p>digit
 </p></dd>
-<dt><kbd>D</kbd></dt>
+<dt><span><kbd>D</kbd></span></dt>
 <dd><p>literary digit
 </p></dd>
-<dt><kbd>l</kbd></dt>
+<dt><span><kbd>l</kbd></span></dt>
 <dd><p>letter
 </p></dd>
-<dt><kbd>m</kbd></dt>
+<dt><span><kbd>m</kbd></span></dt>
 <dd><p>math
 </p></dd>
-<dt><kbd>p</kbd></dt>
+<dt><span><kbd>p</kbd></span></dt>
 <dd><p>punctuation
 </p></dd>
-<dt><kbd>S</kbd></dt>
+<dt><span><kbd>S</kbd></span></dt>
 <dd><p>sign
 </p></dd>
-<dt><kbd>s</kbd></dt>
+<dt><span><kbd>s</kbd></span></dt>
 <dd><p>space
 </p></dd>
-<dt><kbd>U</kbd></dt>
+<dt><span><kbd>U</kbd></span></dt>
 <dd><p>uppercase
 </p></dd>
-<dt><kbd>u</kbd></dt>
+<dt><span><kbd>u</kbd></span></dt>
 <dd><p>lowercase
 </p></dd>
-<dt><kbd>w</kbd></dt>
+<dt><span><kbd>w</kbd></span></dt>
 <dd><p>first user-defined character class
 </p></dd>
-<dt><kbd>x</kbd></dt>
+<dt><span><kbd>x</kbd></span></dt>
 <dd><p>second user-defined character class
 </p></dd>
-<dt><kbd>y</kbd></dt>
+<dt><span><kbd>y</kbd></span></dt>
 <dd><p>third user-defined character class
 </p></dd>
-<dt><kbd>z</kbd></dt>
+<dt><span><kbd>z</kbd></span></dt>
 <dd><p>fourth user-defined character class
 </p></dd>
 </dl>
@@ -2177,12 +2236,14 @@ character to make sure that the program doesn&rsquo;t apply a rule to the
 same characters again and again.
 </p>
 <hr>
-<span id="The-correct-Opcode"></span><span id="The-correct-Opcode-1"></span><h3 class="section">2.13 The correct Opcode</h3>
+</div>
+<div class="section" id="The-correct-Opcode">
+<span id="The-correct-Opcode-1"></span><h3 class="section">2.13 The correct Opcode</h3>
 
 <dl compact="compact">
 <dd><span id="index-correct"></span>
 <span id="correct-opcode"></span></dd>
-<dt><code>correct test action</code></dt>
+<dt><span><code>correct test action</code></span></dt>
 <dd><p>Because some input (such as that from an OCR program) may contain
 systematic errors, it is sometimes advantageous to use a
 pre-translation pass to remove them. The errors and their corrections
@@ -2214,7 +2275,9 @@ noback correct &quot;\s?&quot; &quot;?&quot; drop space before question mark
 </dl>
 
 <hr>
-<span id="The-match-Opcode"></span><span id="The-match-Opcode-1"></span><h3 class="section">2.14 The match Opcode</h3>
+</div>
+<div class="section" id="The-match-Opcode">
+<span id="The-match-Opcode-1"></span><h3 class="section">2.14 The match Opcode</h3>
 
 <p>For historical reasons despite being fairly similar in functionality
 both the <code>context</code> opcode (see <a href="#context-opcode"><code>context</code></a>) and the match opcode exist and are in use
@@ -2225,7 +2288,7 @@ some common opcode. For that reason consider the match opcode
 <dl compact="compact">
 <dd><span id="index-match"></span>
 <span id="match-opcode"></span></dd>
-<dt><code>match pre-pattern characters post-pattern dots</code></dt>
+<dt><span><code>match pre-pattern characters post-pattern dots</code></span></dt>
 <dd>
 <p>This opcode allows for matching a string of characters via <em>pre</em>
 and <em>post patterns</em>. The patterns are specified using an
@@ -2252,62 +2315,62 @@ starts the input and is followed by &lsquo;<samp>:</samp>&rsquo;
 any of the following expressions:
 </p>
 <dl compact="compact">
-<dt>&lsquo;<samp>[ ]</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>[ ]</samp>&rsquo;</span></dt>
 <dd><p>Expression can be any of the characters between the brackets. If only
 one character present then the brackets are not needed unless it is a
 special character, in which it should be escaped with the backslash.
 </p>
 </dd>
-<dt>&lsquo;<samp>.</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>.</samp>&rsquo;</span></dt>
 <dd><p>Expression can be any character.
 </p>
 </dd>
-<dt>&lsquo;<samp>%[ ]</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>%[ ]</samp>&rsquo;</span></dt>
 <dd><p>Expression is a character with the attributes listed between the
 brackets. If only one character is present then the brackets are not
 needed. The set of attributes are specified as follows:
 </p>
 <dl compact="compact">
-<dt>&lsquo;<samp>_</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>_</samp>&rsquo;</span></dt>
 <dd><p>space
 </p></dd>
-<dt>&lsquo;<samp>#</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>#</samp>&rsquo;</span></dt>
 <dd><p>digit
 </p></dd>
-<dt>&lsquo;<samp>a</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>a</samp>&rsquo;</span></dt>
 <dd><p>letter
 </p></dd>
-<dt>&lsquo;<samp>u</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>u</samp>&rsquo;</span></dt>
 <dd><p>uppercase
 </p></dd>
-<dt>&lsquo;<samp>l</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>l</samp>&rsquo;</span></dt>
 <dd><p>lowercase
 </p></dd>
-<dt>&lsquo;<samp>.</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>.</samp>&rsquo;</span></dt>
 <dd><p>punctuation
 </p></dd>
-<dt>&lsquo;<samp>$</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>$</samp>&rsquo;</span></dt>
 <dd><p>sign
 </p></dd>
-<dt>&lsquo;<samp>~</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>~</samp>&rsquo;</span></dt>
 <dd><p>seqdelimiter
 </p></dd>
-<dt>&lsquo;<samp>&lt;</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>&lt;</samp>&rsquo;</span></dt>
 <dd><p>seqbeforechars
 </p></dd>
-<dt>&lsquo;<samp>&gt;</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>&gt;</samp>&rsquo;</span></dt>
 <dd><p>seqafterchars
 </p> 
 </dd>
 </dl>
 
 </dd>
-<dt>&lsquo;<samp>^</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>^</samp>&rsquo;</span></dt>
 <dd><p>Match at the end of input processing (or beginning depending of the
 direction pre or post).
 </p>
 </dd>
-<dt>&lsquo;<samp>$</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>$</samp>&rsquo;</span></dt>
 <dd><p>Same as &lsquo;<samp>^</samp>&rsquo;.
 </p></dd>
 </dl>
@@ -2331,28 +2394,28 @@ is preceded by a space or beginning of input, and followed by an
 grouping, quantifiers and even negation:
 </p>
 <dl compact="compact">
-<dt>&lsquo;<samp>( )</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>( )</samp>&rsquo;</span></dt>
 <dd><p>Expressions between parentheses are grouped together as one
 expression.
 </p>
 </dd>
-<dt>&lsquo;<samp>!</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>!</samp>&rsquo;</span></dt>
 <dd><p>The following expression is negated.
 </p>
 </dd>
-<dt>&lsquo;<samp>?</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>?</samp>&rsquo;</span></dt>
 <dd><p>The previous expression must match zero or one times.
 </p>
 </dd>
-<dt>&lsquo;<samp>*</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>*</samp>&rsquo;</span></dt>
 <dd><p>The previous expression must match zero or more times.
 </p>
 </dd>
-<dt>&lsquo;<samp>+</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>+</samp>&rsquo;</span></dt>
 <dd><p>The previous expression must match one or more times.
 </p>
 </dd>
-<dt>&lsquo;<samp>|</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>|</samp>&rsquo;</span></dt>
 <dd><p>Either the previous or the following expressions must match.
 </p></dd>
 </dl>
@@ -2375,12 +2438,14 @@ is preceded by a space, or beginning of input; then followed by a
 </pre></div>
 
 <hr>
-<span id="Miscellaneous-Opcodes"></span><span id="Miscellaneous-Opcodes-1"></span><h3 class="section">2.15 Miscellaneous Opcodes</h3>
+</div>
+<div class="section" id="Miscellaneous-Opcodes">
+<span id="Miscellaneous-Opcodes-1"></span><h3 class="section">2.15 Miscellaneous Opcodes</h3>
 
 <dl compact="compact">
 <dd><span id="index-include"></span>
 <span id="include-opcode"></span></dd>
-<dt><code>include filename</code></dt>
+<dt><span><code>include filename</code></span></dt>
 <dd><p>Read the file indicated by <code>filename</code> and incorporate or include
 its entries into the table. Included files can include other files,
 which can include other files, etc. For an example, see what files are
@@ -2390,7 +2455,7 @@ as the main table, use a full path name for filename.
 </p>
 <span id="index-undefined"></span>
 <span id="undefined-opcode"></span></dd>
-<dt><code>undefined dots</code></dt>
+<dt><span><code>undefined dots</code></span></dt>
 <dd><p>If this opcode is used in a table any characters which have not been
 handled in the table but are encountered in the text will be replaced
 by the dot pattern. If this opcode is not used, any undefined
@@ -2399,7 +2464,7 @@ hexadecimal digits.
 </p>
 <span id="index-display"></span>
 <span id="display-opcode"></span></dd>
-<dt><code>display character dots</code></dt>
+<dt><span><code>display character dots</code></span></dt>
 <dd><p>Associates dot patterns with the characters which will be sent to a
 braille embosser, display or screen font. The character must be in the
 range 0-255 and the dots must specify a single cell. Here are some
@@ -2429,7 +2494,7 @@ for use with an embosser.
 </p>
 <span id="index-multind"></span>
 <span id="multind-opcode"></span></dd>
-<dt><code>multind dots opcode opcode ...</code></dt>
+<dt><span><code>multind dots opcode opcode ...</code></span></dt>
 <dd><p>The <code>multind</code> opcode tells the back-translator that a sequence of
 braille cells represents more than one braille indicator. For example,
 in <samp>en-us-g2.ctb</samp> we have <code>multind 56-6 letsign capsletter</code>.
@@ -2447,9 +2512,13 @@ opcode.
 </dl>
 
 <hr>
-<span id="Notes-on-Back_002dTranslation"></span><span id="Notes-on-Back_002dTranslation-1"></span><h2 class="chapter">3 Notes on Back-Translation</h2>
+</div>
+</div>
+<div class="chapter" id="Notes-on-Back_002dTranslation">
+<span id="Notes-on-Back_002dTranslation-1"></span><h2 class="chapter">3 Notes on Back-Translation</h2>
 
-<span id="General-Notes"></span><span id="General-Notes-1"></span><h3 class="section">3.1 General Notes</h3>
+<span id="General-Notes"></span><div class="section" id="General-Notes-1">
+<h3 class="section">3.1 General Notes</h3>
 
 <p>Back-translation refers to the process of translating backwards,
 i.e. from Braille to text. For many years, Liblouis was mainly
@@ -2492,7 +2561,9 @@ another for good and nice literary Braille (for embossing).
 But no matter how you bend the Braille code, the back-translation
 process may not be perfect.
 </p>
-<span id="Back_002dtranslation-with-Liblouis"></span><span id="Back_002dtranslation-with-Liblouis-1"></span><h3 class="section">3.2 Back-translation with Liblouis</h3>
+<span id="Back_002dtranslation-with-Liblouis"></span></div>
+<div class="section" id="Back_002dtranslation-with-Liblouis-1">
+<h3 class="section">3.2 Back-translation with Liblouis</h3>
 
 <p>Back-translation is carried out by the function
 <code>lou_backTranslateString</code>. Its calling sequence is described in
@@ -2526,7 +2597,10 @@ translation direction always has to be specified with these opcodes
 using <code>noback</code> or <code>nofor</code>.
 </p>
 <hr>
-<span id="Table-Metadata"></span><span id="Table-Metadata-1"></span><h2 class="chapter">4 Table Metadata</h2>
+</div>
+</div>
+<div class="chapter" id="Table-Metadata">
+<span id="Table-Metadata-1"></span><h2 class="chapter">4 Table Metadata</h2>
 
 <p>Translation tables may contain metadata. This makes them
 discoverable. Programs may for example use the Liblouis function
@@ -2534,7 +2608,8 @@ discoverable. Programs may for example use the Liblouis function
 special query of which the <a href="#Query-Syntax">syntax</a> is described
 below.
 </p>
-<span id="Syntax"></span><h3 class="section">4.1 Syntax</h3>
+<div class="section" id="Syntax">
+<h3 class="section">4.1 Syntax</h3>
 
 <p>Metadata must be defined in special comments within the table
 header. The table header is the area at the top of the file, before
@@ -2568,7 +2643,9 @@ must be some standard keys and values. A possible grammar is proposed
 on the wiki page
 <a href="https://github.com/liblouis/liblouis/wiki/Table-discovery-based-on-table-metadata#standard-metadata-tags">Standard metadata tags</a>.
 </p>
-<span id="Query-Syntax"></span><span id="Query-Syntax-1"></span><h3 class="section">4.2 Query Syntax</h3>
+<span id="Query-Syntax"></span></div>
+<div class="section" id="Query-Syntax-1">
+<h3 class="section">4.2 Query Syntax</h3>
 
 <p>A query that is passed to the <a href="#lou_005ffindTable"><code>lou_findTable</code></a>
 function must have the following syntax:
@@ -2593,13 +2670,16 @@ function must have the following syntax:
 allowed around colons.
 </p>
 <hr>
-<span id="Testing-Translation-Tables-interactively"></span><span id="Testing-Translation-Tables-interactively-1"></span><h2 class="chapter">5 Testing Translation Tables interactively</h2>
+</div>
+</div>
+<div class="chapter" id="Testing-Translation-Tables-interactively">
+<span id="Testing-Translation-Tables-interactively-1"></span><h2 class="chapter">5 Testing Translation Tables interactively</h2>
 
 <p>A number of test programs are provided as part of the liblouis
 package. They are intended for testing liblouis and for debugging
 tables. None of them is suitable for braille transcription. An
 application that can be used for transcription is <code>file2brl</code>,
-which is part of the liblouisutdml package (see <a href="liblouisutdml.html#Top">Introduction</a> in <cite>Liblouisutdml User&rsquo;s and Programmer&rsquo;s Manual</cite>). The source
+which is part of the liblouisutdml package (see <a data-manual="liblouisutdml" href="liblouisutdml.html#Top">Introduction</a> in <cite>Liblouisutdml User&rsquo;s and Programmer&rsquo;s Manual</cite>). The source
 code of the test programs can be studied to learn how to use the
 liblouis library and they can be used to perform the following
 functions.
@@ -2608,14 +2688,14 @@ functions.
 <samp>--version</samp> options.
 </p>
 <dl compact="compact">
-<dt><samp>--help</samp></dt>
-<dt><samp>-h</samp></dt>
+<dt><span><samp>--help</samp></span></dt>
+<dt><span><samp>-h</samp></span></dt>
 <dd><p>Print a usage message listing all available options, then exit
 successfully.
 </p>
 </dd>
-<dt><samp>--version</samp></dt>
-<dt><samp>-v</samp></dt>
+<dt><span><samp>--version</samp></span></dt>
+<dt><span><samp>-v</samp></span></dt>
 <dd><p>Print the version number, then exit successfully.
 </p>
 </dd>
@@ -2627,7 +2707,8 @@ system or local to where the command is executed. See <a href="#How-tables-are-f
 </p>
 
 <hr>
-<span id="lou_005fdebug"></span><span id="lou_005fdebug-1"></span><h3 class="section">5.1 lou_debug</h3>
+<div class="section" id="lou_005fdebug">
+<span id="lou_005fdebug-1"></span><h3 class="section">5.1 lou_debug</h3>
 <span id="index-lou_005fdebug"></span>
 
 <p>The <code>lou_debug</code> tool is intended for debugging liblouis
@@ -2656,11 +2737,11 @@ skip to the next hash chain. You can also press <kbd>e</kbd> to exit the
 command and go back to the &lsquo;<samp>command:</samp>&rsquo; prompt.
 </p>
 <dl compact="compact">
-<dt><kbd>h</kbd></dt>
+<dt><span><kbd>h</kbd></span></dt>
 <dd><p>Brings up a screen of somewhat more extensive help.
 </p>
 </dd>
-<dt><kbd>f</kbd></dt>
+<dt><span><kbd>f</kbd></span></dt>
 <dd><p>Display the first forward-translation rule in the first non-empty hash
 bucket. The number of the bucket is displayed at the beginning of the
 chain. Each rule is identified by the word &lsquo;<samp>Rule:</samp>&rsquo;. The fields
@@ -2675,41 +2756,41 @@ prompt, where you can press <kbd>f</kbd> and then type in the string. The
 whole hash chain containing the string will be displayed.
 </p>
 </dd>
-<dt><kbd>b</kbd></dt>
+<dt><span><kbd>b</kbd></span></dt>
 <dd><p>Display back-translation rules. This display is very similar to that
 of forward translation rules except that the dot pattern is displayed
 before the character string.
 </p>
 </dd>
-<dt><kbd>c</kbd></dt>
+<dt><span><kbd>c</kbd></span></dt>
 <dd><p>Display character definitions, again within their hash chains.
 </p>
 </dd>
-<dt><kbd>d</kbd></dt>
+<dt><span><kbd>d</kbd></span></dt>
 <dd><p>Displays single-cell dot definitions. If a character-definition opcode
 gives a multi-cell dot pattern, it is displayed among the
 back-translation rules.
 </p>
 </dd>
-<dt><kbd>C</kbd></dt>
+<dt><span><kbd>C</kbd></span></dt>
 <dd><p>Display the character-to-dots map. This is set up by the
 character-definition opcodes and can also be influenced by the
 <code>display</code> opcode (see <a href="#display-opcode"><code>display</code></a>).
 </p>
 </dd>
-<dt><kbd>D</kbd></dt>
+<dt><span><kbd>D</kbd></span></dt>
 <dd><p>Display the dot to character map, which shows which single-cell dot
 patterns map to which characters.
 </p>
 </dd>
-<dt><kbd>z</kbd></dt>
+<dt><span><kbd>z</kbd></span></dt>
 <dd><p>Show the multi-cell dot patterns which have been assigned to the
 characters from 0 to 255 to comply with computer braille codes such as
 a 6-dot code. Note that the character-definition opcodes should use
 8-dot computer braille.
 </p>
 </dd>
-<dt><kbd>p</kbd></dt>
+<dt><span><kbd>p</kbd></span></dt>
 <dd><p>Bring up a secondary (&lsquo;<samp>particular:</samp>&rsquo;) prompt from which you can
 examine particular character strings, dot patterns, etc. The commands
 (given in its own command summary) are very similar to those of the
@@ -2719,7 +2800,7 @@ dot pattern. They include <kbd>h</kbd>, <kbd>f</kbd>, <kbd>b</kbd>, <kbd>c</kbd>
 <kbd>p</kbd>, <kbd>i</kbd> and <kbd>m</kbd>.
 </p>
 </dd>
-<dt><kbd>i</kbd></dt>
+<dt><span><kbd>i</kbd></span></dt>
 <dd><p>Show braille indicators. This shows the dot patterns for various
 opcodes such as the <code>capsletter</code> opcode (see <a href="#capsletter-opcode"><code>capsletter</code></a>) and the <code>numsign</code> opcode (see <a href="#numsign-opcode"><code>numsign</code></a>).
 It also shows emphasis dot patterns, such as those for the
@@ -2727,19 +2808,21 @@ It also shows emphasis dot patterns, such as those for the
 given opcode has not been used nothing is printed for it.
 </p>
 </dd>
-<dt><kbd>m</kbd></dt>
+<dt><span><kbd>m</kbd></span></dt>
 <dd><p>Display various miscellaneous information about the table, such as the
 number of passes, whether certain opcodes have been used, and whether
 there is a hyphenation table.
 </p>
 </dd>
-<dt><kbd>q</kbd></dt>
+<dt><span><kbd>q</kbd></span></dt>
 <dd><p>Exit the program.
 </p></dd>
 </dl>
 
 <hr>
-<span id="lou_005ftrace"></span><span id="lou_005ftrace-1"></span><h3 class="section">5.2 lou_trace</h3>
+</div>
+<div class="section" id="lou_005ftrace">
+<span id="lou_005ftrace-1"></span><h3 class="section">5.2 lou_trace</h3>
 <span id="index-lou_005ftrace"></span>
 
 <p>When working on translation tables it is sometimes useful to determine
@@ -2755,13 +2838,13 @@ translation table and an input string.
 <code>lou_trace</code> also accepts the following options:
 </p>
 <dl compact="compact">
-<dt><samp>--forward</samp></dt>
-<dt><samp>-f</samp></dt>
+<dt><span><samp>--forward</samp></span></dt>
+<dt><span><samp>-f</samp></span></dt>
 <dd><p>Trace a forward translation.
 </p>
 </dd>
-<dt><samp>--backward</samp></dt>
-<dt><samp>-b</samp></dt>
+<dt><span><samp>--backward</samp></span></dt>
+<dt><span><samp>-b</samp></span></dt>
 <dd><p>Trace a backward translation.
 </p>
 </dd>
@@ -2802,7 +2885,9 @@ the u.s. postal service
 </pre></div>
 
 <hr>
-<span id="lou_005fchecktable"></span><span id="lou_005fchecktable-1"></span><h3 class="section">5.3 lou_checktable</h3>
+</div>
+<div class="section" id="lou_005fchecktable">
+<span id="lou_005fchecktable-1"></span><h3 class="section">5.3 lou_checktable</h3>
 <span id="index-lou_005fchecktable"></span>
 
 <p>To use this program type the following:
@@ -2815,8 +2900,8 @@ the u.s. postal service
 <code>lou_checktable</code> also accepts the following options:
 </p>
 <dl compact="compact">
-<dt><samp>--quiet</samp></dt>
-<dt><samp>-q</samp></dt>
+<dt><span><samp>--quiet</samp></span></dt>
+<dt><span><samp>-q</samp></span></dt>
 <dd><p>Do not write to standard error if there are no errors.
 </p>
 </dd>
@@ -2827,7 +2912,9 @@ If there are no errors the message &lsquo;<samp>no errors found.</samp>&rsquo; w
 shown.
 </p>
 <hr>
-<span id="lou_005fallround"></span><span id="lou_005fallround-1"></span><h3 class="section">5.4 lou_allround</h3>
+</div>
+<div class="section" id="lou_005fallround">
+<span id="lou_005fallround-1"></span><h3 class="section">5.4 lou_allround</h3>
 <span id="index-lou_005fallround"></span>
 
 <p>This program tests every capability of the liblouis library. It is
@@ -2848,7 +2935,9 @@ to a screen where you can enter a line to be processed by the library
 and then view the results.
 </p>
 <hr>
-<span id="lou_005ftranslate-_0028program_0029"></span><span id="lou_005ftranslate-1"></span><h3 class="section">5.5 lou_translate</h3>
+</div>
+<div class="section" id="lou_005ftranslate-_0028program_0029">
+<span id="lou_005ftranslate-1"></span><h3 class="section">5.5 lou_translate</h3>
 <span id="index-lou_005ftranslate-1"></span>
 
 <p>This program translates whatever is on the standard input unit and
@@ -2864,13 +2953,13 @@ command line for <code>lou_translate</code> is:
 also accepts the following options:
 </p>
 <dl compact="compact">
-<dt><samp>--forward</samp></dt>
-<dt><samp>-f</samp></dt>
+<dt><span><samp>--forward</samp></span></dt>
+<dt><span><samp>-f</samp></span></dt>
 <dd><p>Do a forward translation.
 </p>
 </dd>
-<dt><samp>--backward</samp></dt>
-<dt><samp>-b</samp></dt>
+<dt><span><samp>--backward</samp></span></dt>
+<dt><span><samp>-b</samp></span></dt>
 <dd><p>Do a backward translation.
 </p>
 </dd>
@@ -2933,7 +3022,9 @@ translator.
 </pre></div>
 
 <hr>
-<span id="lou_005fcheckhyphens"></span><span id="lou_005fcheckhyphens-1"></span><h3 class="section">5.6 lou_checkhyphens</h3>
+</div>
+<div class="section" id="lou_005fcheckhyphens">
+<span id="lou_005fcheckhyphens-1"></span><h3 class="section">5.6 lou_checkhyphens</h3>
 <span id="index-lou_005fcheckhyphens"></span>
 
 <p>This program checks the accuracy of hyphenation in Braille translation
@@ -2950,7 +3041,9 @@ interactive. Invoke it as follows:
 <p>You will see a few lines telling you how to use the program.
 </p>
 <hr>
-<span id="lou_005fcheckyaml"></span><span id="lou_005fcheckyaml-1"></span><h3 class="section">5.7 lou_checkyaml</h3>
+</div>
+<div class="section" id="lou_005fcheckyaml">
+<span id="lou_005fcheckyaml-1"></span><h3 class="section">5.7 lou_checkyaml</h3>
 <span id="index-lou_005fcheckyaml"></span>
 
 <p>This program tests a liblouis table against a corpus of known good
@@ -2979,7 +3072,10 @@ make check TESTS=yaml/en-ueb-g2_backward.yaml
 </pre></div>
 
 <hr>
-<span id="Automated-Testing-of-Translation-Tables"></span><span id="Automated-Testing-of-Translation-Tables-1"></span><h2 class="chapter">6 Automated Testing of Translation Tables</h2>
+</div>
+</div>
+<div class="chapter" id="Automated-Testing-of-Translation-Tables">
+<span id="Automated-Testing-of-Translation-Tables-1"></span><h2 class="chapter">6 Automated Testing of Translation Tables</h2>
 
 <p>There are a number of automated tests for liblouis and they are
 proving to be of tremendous value. When changing the code the
@@ -2996,7 +3092,8 @@ namely YAML. If you have <samp>libyaml</samp> installed they will
 automatically be invoked as part of the standard <code>make check</code>
 command.
 </p>
-<span id="YAML-Tests"></span><span id="YAML-Tests-1"></span><h3 class="section">6.1 YAML Tests</h3>
+<span id="YAML-Tests"></span><div class="section" id="YAML-Tests-1">
+<h3 class="section">6.1 YAML Tests</h3>
 <p><a href="http://yaml.org/">YAML</a> is a human readable data serialization
 format that allows for an easy and compact way to define tests.
 </p>
@@ -3044,7 +3141,7 @@ tests:
 <p>The four basic components of a test file are as follows:
 </p>
 <dl compact="compact">
-<dt>&lsquo;<samp>table</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>table</samp>&rsquo;</span></dt>
 <dd><p>A list containing table files, which the tests should be run against.
 This is usually just one file, but for some situations more than one
 file can be required. For example:
@@ -3071,7 +3168,7 @@ function:
 </pre></div>
 
 </dd>
-<dt>&lsquo;<samp>display</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>display</samp>&rsquo;</span></dt>
 <dd><p>A display table, which should be used to encode braille in the
 test. This item is optional. It is only taken into account for the
 &lsquo;<samp>forward</samp>&rsquo;, &lsquo;<samp>backward</samp>&rsquo; and &lsquo;<samp>bothDirections</samp>&rsquo; test
@@ -3095,32 +3192,32 @@ table: [en-ueb-g1.ctb]
 </pre></div>
 
 </dd>
-<dt>&lsquo;<samp>flags</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>flags</samp>&rsquo;</span></dt>
 <dd><p>The flags that apply for all tests in this file. At the moment only
 the &lsquo;<samp>testmode</samp>&rsquo; flag is supported. It can have four possible
 values:
 </p>
 <dl compact="compact">
-<dt>&lsquo;<samp>forward</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>forward</samp>&rsquo;</span></dt>
 <dd><p>This indicates that the tests are for forward translation.
 </p></dd>
-<dt>&lsquo;<samp>backward</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>backward</samp>&rsquo;</span></dt>
 <dd><p>This indicates that the tests are for backward translation.
 </p></dd>
-<dt>&lsquo;<samp>bothDirections</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>bothDirections</samp>&rsquo;</span></dt>
 <dd><p>Checks that forward translating the input yields the expected output,
 and backward translating the output yields the input again.
 </p></dd>
-<dt>&lsquo;<samp>display</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>display</samp>&rsquo;</span></dt>
 <dd><p>Checks that a display table maps characters to the expected dot
 patterns. The input is a string of characters, the output are the
 corresponding dot patterns, as a string of Unicode braille
 symbols. Virtual dots in the output are ignored.
 </p></dd>
-<dt>&lsquo;<samp>hyphenate</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>hyphenate</samp>&rsquo;</span></dt>
 <dd><p>This indicates that the tests are for hyphenation.
 </p></dd>
-<dt>&lsquo;<samp>hyphenateBraille</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>hyphenateBraille</samp>&rsquo;</span></dt>
 <dd><p>This indicates that the tests are for hyphenation and the input is
 braille.
 </p></dd>
@@ -3129,7 +3226,7 @@ braille.
 <p>If no flags are defined forward translation is assumed.
 </p>
 </dd>
-<dt>&lsquo;<samp>tests</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>tests</samp>&rsquo;</span></dt>
 <dd><p>A list of tests. Each test consists of a list of two, three or in some
 cases four items. The first item is the test input. The second item is
 the expected output. Braille input and output can be either Unicode
@@ -3167,7 +3264,7 @@ shows a typical example:
 <p>The valid additional options for a test are as follows:
 </p>
 <dl compact="compact">
-<dt>&lsquo;<samp>xfail</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>xfail</samp>&rsquo;</span></dt>
 <dd><p>Whether a test is expected to fail. If you expect a test to fail, set
 this to &lsquo;<samp>true</samp>&rsquo;. If you prefer you can also specify a reason for
 the failure:
@@ -3181,7 +3278,7 @@ the failure:
 &lsquo;<samp>false</samp>&rsquo; or &lsquo;<samp>off</samp>&rsquo;.
 </p>
 </dd>
-<dt>&lsquo;<samp>typeform</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>typeform</samp>&rsquo;</span></dt>
 <dd><p>The typeform used for a translation. It consists of one or more
 emphasis specifications. For each character in the specifications that
 is not a space the corresponding emphasis will be set. Valid options
@@ -3202,7 +3299,7 @@ for emphasis are &lsquo;<samp>italic</samp>&rsquo;, &lsquo;<samp>underline</samp
 </pre></div>
 
 </dd>
-<dt>&lsquo;<samp>inputPos</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>inputPos</samp>&rsquo;</span></dt>
 <dd><p>A list of 0-based input positions, one for each output position.
 Useful when simulating screen reader interaction, to debug contraction
 and cursor behavior as in the following example. Note that all
@@ -3218,7 +3315,7 @@ that in these examples the additional options are not passed using the
 </pre></div>
 
 </dd>
-<dt>&lsquo;<samp>outputPos</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>outputPos</samp>&rsquo;</span></dt>
 <dd><p>A list of 0-based output positions, one for each input position. Useful when
 simulating screen reader interaction, to debug contraction and cursor
 behavior as in the following example.
@@ -3231,7 +3328,7 @@ behavior as in the following example.
 </pre></div>
 
 </dd>
-<dt>&lsquo;<samp>cursorPos</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>cursorPos</samp>&rsquo;</span></dt>
 <dd><p>The cursor position for the given translation and optionally an
 expected cursor position where the cursor is supposed to be after the
 translation. Useful when simulating screen reader interaction, to
@@ -3241,7 +3338,7 @@ debug contraction and cursor behavior:
 single number or alternatively you can give a tuple of two numbers.
 </p>
 <dl compact="compact">
-<dt>single number (e.g. &lsquo;<samp>4</samp>&rsquo;)</dt>
+<dt><span>single number (e.g. &lsquo;<samp>4</samp>&rsquo;)</span></dt>
 <dd><p>When you simply want to specify the cursor position for the given
 translation you pass a number as in the following example:
 </p>
@@ -3254,7 +3351,7 @@ translation you pass a number as in the following example:
 </pre></div>
 
 </dd>
-<dt>a tuple (e.g. &lsquo;<samp>[4,2]</samp>&rsquo;)</dt>
+<dt><span>a tuple (e.g. &lsquo;<samp>[4,2]</samp>&rsquo;)</span></dt>
 <dd><p>When you expect the cursor to be in a particular position after the
 translation and you want to check this then pass a tuple of cursor
 positions as in the following example:
@@ -3270,7 +3367,7 @@ positions as in the following example:
 </dl>
 
 </dd>
-<dt>&lsquo;<samp>mode</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>mode</samp>&rsquo;</span></dt>
 <dd><p>A list of translation modes that should be used for this test. If not
 defined defaults to 0. Valid mode values are &lsquo;<samp>noContractions</samp>&rsquo;,
 &lsquo;<samp>compbrlAtCursor</samp>&rsquo;, &lsquo;<samp>dotsIO</samp>&rsquo;, &lsquo;<samp>compbrlLeftCursor</samp>&rsquo;,
@@ -3280,7 +3377,7 @@ defined defaults to 0. Valid mode values are &lsquo;<samp>noContractions</samp>&
 the function <a href="#lou_005ftranslateString">lou_translateString</a>.
 </p>
 </dd>
-<dt>&lsquo;<samp>maxOutputLength</samp>&rsquo;</dt>
+<dt><span>&lsquo;<samp>maxOutputLength</samp>&rsquo;</span></dt>
 <dd><p>Define a maximum length of the output. This can be used to test the
 behavior of liblouis in the face of a limited output buffer, for
 example the length of the refreshable braille display.
@@ -3291,7 +3388,8 @@ example the length of the refreshable braille display.
 </dd>
 </dl>
 
-<span id="Optional-test-description"></span><h4 class="subsection">6.1.1 Optional test description</h4>
+<div class="subsection" id="Optional-test-description">
+<h4 class="subsection">6.1.1 Optional test description</h4>
 <p>When a test contains three or four items the first item is assumed to
 be a test description, the second item is the unicode text to be
 tested and the third item is the expected braille output. Again an
@@ -3313,7 +3411,9 @@ the expected and the actual braille output.
 (<samp>*.yaml</samp>) in the <samp>tests</samp> directory of the source
 distribution.
 </p>
-<span id="Testing-multiple-tables-within-the-same-YAML-test-file"></span><h4 class="subsection">6.1.2 Testing multiple tables within the same YAML test file</h4>
+</div>
+<div class="subsection" id="Testing-multiple-tables-within-the-same-YAML-test-file">
+<h4 class="subsection">6.1.2 Testing multiple tables within the same YAML test file</h4>
 <p>Sometimes you are more focused on testing a particular feature across
 several tables rather than just testing one table. For that reason the
 following is also allowed:
@@ -3332,7 +3432,9 @@ tests:
 <p>If you specify flags for the tests, remember that the flags are reset
 to their default values when you specify a new table.
 </p>
-<span id="Multiple-test-sections-for-each-table"></span><h4 class="subsection">6.1.3 Multiple test sections for each table</h4>
+</div>
+<div class="subsection" id="Multiple-test-sections-for-each-table">
+<h4 class="subsection">6.1.3 Multiple test sections for each table</h4>
 <p>You can specify several sections of tests for each table, with or
 without the optional flags. This is useful e.g. if you want to have
 various tests for both forward and backward translation for the same
@@ -3361,7 +3463,9 @@ flags: {testmode: backward}
   - [..., ...]
 </pre></div>
 
-<span id="Inline-definition-of-tables"></span><span id="Inline-definition-of-tables-1"></span><h4 class="subsection">6.1.4 Inline definition of tables</h4>
+<span id="Inline-definition-of-tables"></span></div>
+<div class="subsection" id="Inline-definition-of-tables-1">
+<h4 class="subsection">6.1.4 Inline definition of tables</h4>
 <p>When testing very specific opcode combinations it is sometimes tedious
 to create specific test tables just for that. Hence the YAML tests
 allow for specification of table definitions inline. Instead of
@@ -3380,7 +3484,9 @@ tests:
   - ...
 </pre></div>
 
-<span id="Running-the-same-test-data-on-multiple-tables"></span><h4 class="subsection">6.1.5 Running the same test data on multiple tables</h4>
+</div>
+<div class="subsection" id="Running-the-same-test-data-on-multiple-tables">
+<h4 class="subsection">6.1.5 Running the same test data on multiple tables</h4>
 <p>Sometimes you maintain multiple tables which are very similar and
 basically contain the same test data. Instead of copying the YAML test
 and changing the table name you can also define multiple tables. This
@@ -3395,11 +3501,16 @@ tests:
 </pre></div>
 
 <hr>
-<span id="Programming-with-liblouis"></span><span id="Programming-with-liblouis-1"></span><h2 class="chapter">7 Programming with liblouis</h2>
+</div>
+</div>
+</div>
+<div class="chapter" id="Programming-with-liblouis">
+<span id="Programming-with-liblouis-1"></span><h2 class="chapter">7 Programming with liblouis</h2>
 
 
 <hr>
-<span id="Overview-_0028library_0029"></span><span id="Overview-2"></span><h3 class="section">7.1 Overview</h3>
+<div class="section" id="Overview-_0028library_0029">
+<span id="Overview-2"></span><h3 class="section">7.1 Overview</h3>
 
 <p>You use the liblouis library by calling the following functions,
 <code>lou_translateString</code>, <code>lou_backTranslateString</code>,
@@ -3460,7 +3571,9 @@ parameters. They are given in terms of 16-bit Unicode. If liblouis has
 been compiled for 32-bit Unicode simply read 32 instead of 16.
 </p>
 <hr>
-<span id="Data-structure-of-liblouis-tables"></span><span id="Data-structure-of-liblouis-tables-1"></span><h3 class="section">7.2 Data structure of liblouis tables</h3>
+</div>
+<div class="section" id="Data-structure-of-liblouis-tables">
+<span id="Data-structure-of-liblouis-tables-1"></span><h3 class="section">7.2 Data structure of liblouis tables</h3>
 
 <p>The data structure <code>TranslationTableHeader</code> is defined by a
 <code>typedef</code> statement in <samp>louis.h</samp>. To find the beginning,
@@ -3527,7 +3640,9 @@ various structures are mapped and to which almost everything else
 points.
 </p>
 <hr>
-<span id="How-tables-are-found"></span><span id="How-tables-are-found-1"></span><h3 class="section">7.3 How tables are found</h3>
+</div>
+<div class="section" id="How-tables-are-found">
+<span id="How-tables-are-found-1"></span><h3 class="section">7.3 How tables are found</h3>
 <span id="index-Table-search-path"></span>
 <span id="index-LOUIS_005fTABLEPATH"></span>
 <p>liblouis knows where to find all the tables that have been distributed
@@ -3547,7 +3662,9 @@ installed. If a table has already been loaded and compiled this
 path-checking is skipped.
 </p>
 <hr>
-<span id="Deprecation-of-the-logging-system"></span><span id="Deprecation-of-the-logging-system-1"></span><h3 class="section">7.4 Deprecation of the logging system</h3>
+</div>
+<div class="section" id="Deprecation-of-the-logging-system">
+<span id="Deprecation-of-the-logging-system-1"></span><h3 class="section">7.4 Deprecation of the logging system</h3>
 
 <p>As of version 2.6.0 <code>lou_logFile</code>, <code>lou_logPrint</code> and
 <code>lou_logEnd</code> are deprecated. They are replaced by a more powerful,
@@ -3565,7 +3682,9 @@ by the first call to <code>lou_registerLogCallback</code> and reattached when
 will not cause an invocation of the registered callback.
 </p>
 <hr>
-<span id="lou_005fversion"></span><span id="lou_005fversion-1"></span><h3 class="section">7.5 lou_version</h3>
+</div>
+<div class="section" id="lou_005fversion">
+<span id="lou_005fversion-1"></span><h3 class="section">7.5 lou_version</h3>
 <span id="index-lou_005fversion"></span>
 
 <div class="example">
@@ -3577,7 +3696,9 @@ version of liblouis, plus other information, such as the release date
 and perhaps notable changes.
 </p>
 <hr>
-<span id="lou_005ftranslateString"></span><span id="lou_005ftranslateString-1"></span><h3 class="section">7.6 lou_translateString</h3>
+</div>
+<div class="section" id="lou_005ftranslateString">
+<span id="lou_005ftranslateString-1"></span><h3 class="section">7.6 lou_translateString</h3>
 <span id="index-lou_005ftranslateString"></span>
 
 <div class="example">
@@ -3656,25 +3777,25 @@ an integer.
 <code>lou_translateString</code> function:
 </p>
 <dl compact="compact">
-<dt><code>compbrlAtCursor</code></dt>
+<dt><span><code>compbrlAtCursor</code></span></dt>
 <dd><p>If this bit is set in the <code>mode</code> parameter the space-bounded
 characters containing the cursor will be translated in computer
 braille.
 </p>
 </dd>
-<dt><code>compbrlLeftCursor</code></dt>
+<dt><span><code>compbrlLeftCursor</code></span></dt>
 <dd><p>If this bit is set, only the characters to the left of the cursor will
 be in computer braille. This bit overrides <code>compbrlAtCursor</code>.
 </p>
 </dd>
-<dt><code>dotsIO</code></dt>
+<dt><span><code>dotsIO</code></span></dt>
 <dd><p>When this bit is set, during forward translation, Liblouis will produce
 output as dot patterns. During back-translation Liblouis accepts input
 as dot patterns. Note that the produced dot patterns are affected if
 you have any <code>display</code> opcode (see <a href="#display-opcode"><code>display</code></a>) defined in any of your tables.
 </p>
 </dd>
-<dt><code>ucBrl</code></dt>
+<dt><span><code>ucBrl</code></span></dt>
 <dd><p>The <code>ucBrl</code> (Unicode Braille) bit is used by the functions
 <code>lou_charToDots</code> and <code>lou_translate</code>. It causes the dot
 patterns to be Unicode Braille rather than the liblouis representation.
@@ -3683,7 +3804,7 @@ unless <code>dotsIO</code> is also set. <code>lou_dotsToChar</code> and
 <code>lou_backTranslate</code> recognize Unicode braille automatically.
 </p>
 </dd>
-<dt><code>partialTrans</code></dt>
+<dt><span><code>partialTrans</code></span></dt>
 <dd><p>This flag specifies that back-translation input should be treated as an
 incomplete word. Rules that apply only for complete words or at the end
 of a word will not take effect. This is intended to be used when
@@ -3692,7 +3813,7 @@ to the user of the characters they are typing before the word is
 complete.
 </p>
 </dd>
-<dt><code>noUndefined</code></dt>
+<dt><span><code>noUndefined</code></span></dt>
 <dd><p>Setting this bit disables the output of hexadecimal values when
 forward-translating undefined characters (characters that are not
 matched by any rule), and dot numbers when back-translating undefined
@@ -3721,7 +3842,9 @@ suppresses this dot number output.
 <p>The function returns 1 if no errors were encountered<a id="DOCF2" href="#FOOT2"><sup>2</sup></a> and 0 otherwise.
 </p>
 <hr>
-<span id="lou_005ftranslate"></span><span id="lou_005ftranslate-2"></span><h3 class="section">7.7 lou_translate</h3>
+</div>
+<div class="section" id="lou_005ftranslate">
+<span id="lou_005ftranslate-2"></span><h3 class="section">7.7 lou_translate</h3>
 <span id="index-lou_005ftranslate"></span>
 
 <div class="example">
@@ -3757,7 +3880,9 @@ not be carried out.
 <a href="#lou_005ftranslateString">lou_translateString</a>.
 </p>
 <hr>
-<span id="lou_005fbackTranslateString"></span><span id="lou_005fbackTranslateString-1"></span><h3 class="section">7.8 lou_backTranslateString</h3>
+</div>
+<div class="section" id="lou_005fbackTranslateString">
+<span id="lou_005fbackTranslateString-1"></span><h3 class="section">7.8 lou_backTranslateString</h3>
 <span id="index-lou_005fbackTranslateString"></span>
 
 <div class="example">
@@ -3795,7 +3920,9 @@ to provide a rough idea to the user of the characters they are typing
 before the word is complete.
 </p>
 <hr>
-<span id="lou_005fbackTranslate"></span><span id="lou_005fbackTranslate-1"></span><h3 class="section">7.9 lou_backTranslate</h3>
+</div>
+<div class="section" id="lou_005fbackTranslate">
+<span id="lou_005fbackTranslate-1"></span><h3 class="section">7.9 lou_backTranslate</h3>
 <span id="index-lou_005fbackTranslate"></span>
 
 <div class="example">
@@ -3816,7 +3943,9 @@ before the word is complete.
 <p>This function is exactly the inverse of <code>lou_translate</code>.
 </p>
 <hr>
-<span id="lou_005fhyphenate"></span><span id="lou_005fhyphenate-1"></span><h3 class="section">7.10 lou_hyphenate</h3>
+</div>
+<div class="section" id="lou_005fhyphenate">
+<span id="lou_005fhyphenate-1"></span><h3 class="section">7.10 lou_hyphenate</h3>
 <span id="index-lou_005fhyphenate"></span>
 
 <div class="example">
@@ -3850,7 +3979,9 @@ successful and 0 otherwise. In the latter case, the contents of the
 use in liblouisutdml.
 </p>
 <hr>
-<span id="lou_005fcompileString"></span><span id="lou_005fcompileString-1"></span><h3 class="section">7.11 lou_compileString</h3>
+</div>
+<div class="section" id="lou_005fcompileString">
+<span id="lou_005fcompileString-1"></span><h3 class="section">7.11 lou_compileString</h3>
 <span id="index-lou_005fcompileString"></span>
 
 <div class="example">
@@ -3866,7 +3997,9 @@ will be produced if it is invalid. The function returns 1 on success and
 0 on failure.
 </p>
 <hr>
-<span id="lou_005fgetTypeformForEmphClass"></span><span id="lou_005fgetTypeformForEmphClass-1"></span><h3 class="section">7.12 lou_getTypeformForEmphClass</h3>
+</div>
+<div class="section" id="lou_005fgetTypeformForEmphClass">
+<span id="lou_005fgetTypeformForEmphClass-1"></span><h3 class="section">7.12 lou_getTypeformForEmphClass</h3>
 <span id="index-lou_005fgetTypeformForEmphClass"></span>
 
 <div class="example">
@@ -3884,7 +4017,9 @@ separated by commas, as explained previously
 emphasis class.
 </p>
 <hr>
-<span id="lou_005fdotsToChar"></span><span id="lou_005fdotsToChar-1"></span><h3 class="section">7.13 lou_dotsToChar</h3>
+</div>
+<div class="section" id="lou_005fdotsToChar">
+<span id="lou_005fdotsToChar-1"></span><h3 class="section">7.13 lou_dotsToChar</h3>
 <span id="index-lou_005fdotsToChar"></span>
 
 <div class="example">
@@ -3907,7 +4042,9 @@ and 0 on failure.
 <p>Note that the <code>mode</code> parameter has no effect and is deprecated.
 </p>
 <hr>
-<span id="lou_005fcharToDots"></span><span id="lou_005fcharToDots-1"></span><h3 class="section">7.14 lou_charToDots</h3>
+</div>
+<div class="section" id="lou_005fcharToDots">
+<span id="lou_005fcharToDots-1"></span><h3 class="section">7.14 lou_charToDots</h3>
 <span id="index-lou_005fcharToDots"></span>
 
 <div class="example">
@@ -3929,7 +4066,9 @@ not set and in Unicode format if it is set. The function returns 1 on
 success and 0 on failure.
 </p>
 <hr>
-<span id="lou_005fregisterLogCallback"></span><span id="lou_005fregisterLogCallback-1"></span><h3 class="section">7.15 lou_registerLogCallback</h3>
+</div>
+<div class="section" id="lou_005fregisterLogCallback">
+<span id="lou_005fregisterLogCallback-1"></span><h3 class="section">7.15 lou_registerLogCallback</h3>
 <span id="index-lou_005fregisterLogCallback"></span>
 
 <div class="example">
@@ -3949,7 +4088,9 @@ file. <code>lou_registerLogCallback</code> overrides the default
 callback. Passing <code>NULL</code> resets to the default callback.
 </p>
 <hr>
-<span id="lou_005fsetLogLevel"></span><span id="lou_005fsetLogLevel-1"></span><h3 class="section">7.16 lou_setLogLevel</h3>
+</div>
+<div class="section" id="lou_005fsetLogLevel">
+<span id="lou_005fsetLogLevel-1"></span><h3 class="section">7.16 lou_setLogLevel</h3>
 <span id="index-lou_005fsetLogLevel"></span>
 
 <div class="example">
@@ -3976,7 +4117,9 @@ logging at all higher levels. Setting the level to <code>LOU_LOG_OFF</code>
 disables logging. The default level is <code>LOU_LOG_INFO</code>.
 </p>
 <hr>
-<span id="lou_005flogFile"></span><span id="lou_005flogFile-_0028deprecated_0029"></span><h3 class="section">7.17 lou_logFile (deprecated)</h3>
+</div>
+<div class="section" id="lou_005flogFile">
+<span id="lou_005flogFile-_0028deprecated_0029"></span><h3 class="section">7.17 lou_logFile (deprecated)</h3>
 <span id="index-lou_005flogFile"></span>
 
 <div class="example">
@@ -3993,7 +4136,9 @@ the file must be given.
 <p>This function is deprecated. See <a href="#Deprecation-of-the-logging-system">Deprecation of the logging system</a>.
 </p>
 <hr>
-<span id="lou_005flogPrint"></span><span id="lou_005flogPrint-_0028deprecated_0029"></span><h3 class="section">7.18 lou_logPrint (deprecated)</h3>
+</div>
+<div class="section" id="lou_005flogPrint">
+<span id="lou_005flogPrint-_0028deprecated_0029"></span><h3 class="section">7.18 lou_logPrint (deprecated)</h3>
 <span id="index-lou_005flogPrint"></span>
 
 <div class="example">
@@ -4010,7 +4155,9 @@ library liblouisutdml.
 <p>This function is deprecated. See <a href="#Deprecation-of-the-logging-system">Deprecation of the logging system</a>.
 </p>
 <hr>
-<span id="lou_005flogEnd"></span><span id="lou_005flogEnd-_0028deprecated_0029"></span><h3 class="section">7.19 lou_logEnd (deprecated)</h3>
+</div>
+<div class="section" id="lou_005flogEnd">
+<span id="lou_005flogEnd-_0028deprecated_0029"></span><h3 class="section">7.19 lou_logEnd (deprecated)</h3>
 <span id="index-lou_005flogEnd"></span>
 
 <div class="example">
@@ -4023,7 +4170,9 @@ log file, so that it can be read by the rest of the program.
 <p>This function is deprecated. See <a href="#Deprecation-of-the-logging-system">Deprecation of the logging system</a>.
 </p>
 <hr>
-<span id="lou_005fsetDataPath"></span><span id="lou_005fsetDataPath-1"></span><h3 class="section">7.20 lou_setDataPath</h3>
+</div>
+<div class="section" id="lou_005fsetDataPath">
+<span id="lou_005fsetDataPath-1"></span><h3 class="section">7.20 lou_setDataPath</h3>
 <span id="index-lou_005fsetDataPath"></span>
 
 <div class="example">
@@ -4038,7 +4187,9 @@ on Linux. The <code>path</code> is the directory where the subdirectories
 or located. The function returns a pointer to the <code>path</code>.
 </p>
 <hr>
-<span id="lou_005fgetDataPath"></span><span id="lou_005fgetDataPath-1"></span><h3 class="section">7.21 lou_getDataPath</h3>
+</div>
+<div class="section" id="lou_005fgetDataPath">
+<span id="lou_005fgetDataPath-1"></span><h3 class="section">7.21 lou_getDataPath</h3>
 <span id="index-lou_005fgetDataPath"></span>
 
 <div class="example">
@@ -4050,7 +4201,9 @@ or located. The function returns a pointer to the <code>path</code>.
 <code>NULL</code>.
 </p>
 <hr>
-<span id="lou_005fgetTable"></span><span id="lou_005fgetTable-1"></span><h3 class="section">7.22 lou_getTable</h3>
+</div>
+<div class="section" id="lou_005fgetTable">
+<span id="lou_005fgetTable-1"></span><h3 class="section">7.22 lou_getTable</h3>
 <span id="index-lou_005fgetTable"></span>
 
 <div class="example">
@@ -4068,7 +4221,9 @@ messages are logged to the log callback (see
 pointer being returned.
 </p>
 <hr>
-<span id="lou_005ffindTable"></span><span id="lou_005ffindTable-1"></span><h3 class="section">7.23 lou_findTable</h3>
+</div>
+<div class="section" id="lou_005ffindTable">
+<span id="lou_005ffindTable-1"></span><h3 class="section">7.23 lou_findTable</h3>
 <span id="index-lou_005ffindTable"></span>
 
 <div class="example">
@@ -4103,7 +4258,9 @@ query creates a very small penalty.
 </li></ul>
 
 <hr>
-<span id="lou_005findexTables"></span><span id="lou_005findexTables-1"></span><h3 class="section">7.24 lou_indexTables</h3>
+</div>
+<div class="section" id="lou_005findexTables">
+<span id="lou_005findexTables-1"></span><h3 class="section">7.24 lou_indexTables</h3>
 <span id="index-lou_005findexTables"></span>
 
 <div class="example">
@@ -4116,7 +4273,9 @@ indexes all specified tables. <code>tables</code> must be an array of file
 names. Tables that contain invalid metadata are ignored.
 </p>
 <hr>
-<span id="lou_005fcheckTable"></span><span id="lou_005fcheckTable-1"></span><h3 class="section">7.25 lou_checkTable</h3>
+</div>
+<div class="section" id="lou_005fcheckTable">
+<span id="lou_005fcheckTable-1"></span><h3 class="section">7.25 lou_checkTable</h3>
 <span id="index-lou_005fcheckTable"></span>
 
 <div class="example">
@@ -4134,7 +4293,9 @@ the log callback (see <code>lou_registerLogCallback</code>) and the return
 value is <code>0</code>.
 </p>
 <hr>
-<span id="lou_005freadCharFromFile"></span><span id="lou_005freadCharFromFile-1"></span><h3 class="section">7.26 lou_readCharFromFile</h3>
+</div>
+<div class="section" id="lou_005freadCharFromFile">
+<span id="lou_005freadCharFromFile-1"></span><h3 class="section">7.26 lou_readCharFromFile</h3>
 <span id="index-lou_005freadCharFromFile"></span>
 
 <div class="example">
@@ -4153,7 +4314,9 @@ function takes care of it. On end-of-file the function returns
 <code>EOF</code>.
 </p>
 <hr>
-<span id="lou_005ffree"></span><span id="lou_005ffree-1"></span><h3 class="section">7.27 lou_free</h3>
+</div>
+<div class="section" id="lou_005ffree">
+<span id="lou_005ffree-1"></span><h3 class="section">7.27 lou_free</h3>
 <span id="index-lou_005ffree"></span>
 
 <div class="example">
@@ -4167,7 +4330,9 @@ translation. This will force liblouis to compile the translation
 tables every time they are used, resulting in great inefficiency.
 </p>
 <hr>
-<span id="lou_005fcharSize"></span><span id="lou_005fcharSize-1"></span><h3 class="section">7.28 lou_charSize</h3>
+</div>
+<div class="section" id="lou_005fcharSize">
+<span id="lou_005fcharSize-1"></span><h3 class="section">7.28 lou_charSize</h3>
 <span id="index-lou_005fcharSize"></span>
 
 <div class="example">
@@ -4179,7 +4344,9 @@ therefore be used to differentiate between 16-bit and 32bit-Unicode
 builds of liblouis.
 </p>
 <hr>
-<span id="Python-bindings"></span><span id="Python-bindings-1"></span><h3 class="section">7.29 Python bindings</h3>
+</div>
+<div class="section" id="Python-bindings">
+<span id="Python-bindings-1"></span><h3 class="section">7.29 Python bindings</h3>
 
 <p>There are Python bindings for <code>lou_translateString</code>,
 <code>lou_translate</code>, <code>lou_backTranslateString</code>,
@@ -4190,7 +4357,10 @@ directory. Usage information is included in the Python module itself.
 </p>
 
 <hr>
-<span id="Concept-Index"></span><span id="Concept-Index-1"></span><h2 class="unnumbered">Concept Index</h2>
+</div>
+</div>
+<div class="unnumbered" id="Concept-Index">
+<span id="Concept-Index-1"></span><h2 class="unnumbered">Concept Index</h2>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Concept-Index_cp_letter-C"><b>C</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Concept-Index_cp_letter-D"><b>D</b></a>
@@ -4263,7 +4433,9 @@ directory. Usage information is included in the Python module itself.
 </td></tr></table>
 
 <hr>
-<span id="Opcode-Index"></span><span id="Opcode-Index-1"></span><h2 class="unnumbered">Opcode Index</h2>
+</div>
+<div class="unnumbered" id="Opcode-Index">
+<span id="Opcode-Index-1"></span><h2 class="unnumbered">Opcode Index</h2>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Opcode-Index_opcode_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Opcode-Index_opcode_letter-B"><b>B</b></a>
@@ -4396,6 +4568,7 @@ directory. Usage information is included in the Python module itself.
 <tr><td></td><td valign="top"><a href="#index-noletsign">noletsign</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-noletsignafter">noletsignafter</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-noletsignbefore">noletsignbefore</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-nonumsign">nonumsign</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-numericmodechars">numericmodechars</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-numericnocontchars">numericnocontchars</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-numsign">numsign</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
@@ -4474,7 +4647,9 @@ directory. Usage information is included in the Python module itself.
 </td></tr></table>
 
 <hr>
-<span id="Function-Index"></span><span id="Function-Index-1"></span><h2 class="unnumbered">Function Index</h2>
+</div>
+<div class="unnumbered" id="Function-Index">
+<span id="Function-Index-1"></span><h2 class="unnumbered">Function Index</h2>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Function-Index_fn_letter-L"><b>L</b></a>
  &nbsp; 
 </td></tr></table>
@@ -4513,7 +4688,9 @@ directory. Usage information is included in the Python module itself.
 </td></tr></table>
 
 <hr>
-<span id="Program-Index"></span><span id="Program-Index-1"></span><h2 class="unnumbered">Program Index</h2>
+</div>
+<div class="unnumbered" id="Program-Index">
+<span id="Program-Index-1"></span><h2 class="unnumbered">Program Index</h2>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Program-Index_pg_letter-L"><b>L</b></a>
  &nbsp; 
 </td></tr></table>
@@ -4534,18 +4711,19 @@ directory. Usage information is included in the Python module itself.
  &nbsp; 
 </td></tr></table>
 
+</div>
+</div>
 <div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
-<h5><a id="FOOT1" href="#DOCF1">(1)</a></h3>
+<h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>See
 <a href="https://github.com/liblouis/liblouis/issues/500#issuecomment-365753137">https://github.com/liblouis/liblouis/issues/500#issuecomment-365753137</a>.</p>
-<h5><a id="FOOT2" href="#DOCF2">(2)</a></h3>
+<h5><a id="FOOT2" href="#DOCF2">(2)</a></h5>
 <p>When the
 output buffer is not big enough, <code>lou_translateString</code> returns a
 partial translation that is more or less accurate up until the
 returned <code>inlen</code>/<code>outlen</code>, and treats it as a successful
 translation, i.e. also returns 1.</p>
 </div>
-<hr>
