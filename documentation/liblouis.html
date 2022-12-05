@@ -5,7 +5,7 @@ title: Liblouis User's and Programmer's Manual
 <div class="top" id="Top">
 <span id="Liblouis-User_0027s-and-Programmer_0027s-Manual"></span><h1 class="top">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouis (version 3.23.0, 7 June 2022),
+<p>This manual is for liblouis (version 3.24.0, 28 October 2022),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <acronym>BRLTTY</acronym>.
 </p>
@@ -3567,8 +3567,8 @@ characters are recognized.
 be obtained using <code>lou_charSize</code>.
 </p>
 <p>Here are the definitions of the eleven liblouis functions and their
-parameters. They are given in terms of 16-bit Unicode. If liblouis has
-been compiled for 32-bit Unicode simply read 32 instead of 16.
+parameters. They are given in terms of Unicode characters, either 16-bit
+or 32-bit, depening on how liblouis has been compiled.
 </p>
 <hr>
 </div>
@@ -3713,11 +3713,11 @@ and perhaps notable changes.
   int mode);
 </pre></div>
 
-<p>This function takes a string of 16-bit Unicode characters in
-<code>inbuf</code> and translates it into a string of 16-bit characters in
-<code>outbuf</code>. Each 16-bit character produces a particular dot pattern
+<p>This function takes a string of Unicode characters in
+<code>inbuf</code> and translates it into a string of characters in
+<code>outbuf</code>. Each character produces a particular dot pattern
 in one braille cell when sent to an embosser or braille display or to
-a screen type font. Which 16-bit character represents which dot pattern
+a screen type font. Which character represents which dot pattern
 is indicated by the character-definition and display opcodes in the
 translation table.
 </p>
@@ -3898,8 +3898,8 @@ not be carried out.
 </pre></div>
 
 <p>This is exactly the opposite of <code>lou_translateString</code>.
-<code>inbuf</code> is a string of 16-bit Unicode characters representing
-braille. <code>outbuf</code> will contain a string of 16&ndash;bit Unicode
+<code>inbuf</code> is a string of Unicode characters representing
+braille. <code>outbuf</code> will contain a string of Unicode
 characters. <code>typeform</code> will indicate any emphasis found in the
 input string, while <code>spacing</code> will indicate any differences in
 spacing between the input and output strings. The <code>typeform</code> and
