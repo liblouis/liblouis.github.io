@@ -2,7 +2,7 @@ name: Liblouis
 description: An open-source braille translator and back-translator.
 markdown: kramdown
 highlighter: rouge
-url: http://www.liblouis.org
+url: http://www.liblouis.io
 baseurl: ""
 gems:
   - jekyll-sitemap
