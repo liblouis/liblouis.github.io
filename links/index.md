@@ -5,7 +5,7 @@ title: Links
 ## Liblouis
 
 * [Mailing list](https://www.freelists.org/list/liblouis-liblouisxml)
-* [Chat](irc://irc.oftc.net/liblouis) (irc.oftc.net/liblouis)
+* [Chat](https://web.libera.chat/#liblouis) (irc://irc.libera.chat/#liblouis)
 * [Code repository](https://github.com/liblouis/liblouis)
 * [Issue tracker](https://github.com/liblouis/liblouis/issues)
 
