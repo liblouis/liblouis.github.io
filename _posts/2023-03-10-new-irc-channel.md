@@ -8,7 +8,7 @@ tags:
 - irc
 ---
 
-Irc is thge venerable tool to do real-time chat. Some of the liblouis
+Irc is the venerable tool to do real-time chat. Some of the liblouis
 developers used to hang out on a channel on the oftc network.
 
 We now have a new channel on libera.chat were we hang out.
