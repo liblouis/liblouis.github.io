@@ -5,7 +5,7 @@ title: Liblouis User's and Programmer's Manual
 <div class="top" id="Top">
 <span id="Liblouis-User_0027s-and-Programmer_0027s-Manual"></span><h1 class="top">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
 
-<p>This manual is for liblouis (version 3.25.0, 28 October 2022),
+<p>This manual is for liblouis (version 3.26.0, 5 June 2023),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <acronym>BRLTTY</acronym>.
 </p>
@@ -947,12 +947,12 @@ care, and test thoroughly.
 <dl compact="compact">
 <dd><span id="index-seqdelimiter"></span>
 <span id="seqdelimiter-opcode"></span></dd>
-<dt><span><code>seqdelimiter &lt;characters&gt; All the characters listed with</code></span></dt>
-<dd><p>this opcode designate a valid beginning and ending to a letter
-sequence used to determine when a letter sequence is <em>standing
-alone</em>. This again determines whether word contractions
-(see <a href="#word-opcode"><code>word</code></a>) or nocontractsign (see <a href="#nocontractsign-opcode"><code>nocontractsign</code></a>) should
-be applied.
+<dt><span><code>seqdelimiter &lt;characters&gt;</code></span></dt>
+<dd><p>All the characters listed with this opcode designate a valid beginning
+and ending to a letter sequence used to determine when a letter
+sequence is <em>standing alone</em>. This again determines whether word
+contractions (see <a href="#word-opcode"><code>word</code></a>) or nocontractsign
+(see <a href="#nocontractsign-opcode"><code>nocontractsign</code></a>) should be applied.
 </p>
 <p>Spaces do not need to be listed as
 they are automatically delimiters.
@@ -2968,13 +2968,17 @@ also accepts the following options:
 <p>If no options are given forward translation is assumed.
 </p>
 <p>Use the following command to do a forward translation with translation
-table <samp>en-us-g2.ctb</samp>. The resulting braille is ASCII encoded (as
-defined in <samp>en-us-g2.ctb</samp>).
+table <samp>en-us-g2.ctb</samp>.
 </p>
 <div class="example">
 <pre class="example">lou_translate --forward en-us-g2.ctb &lt; input.txt
 </pre></div>
 
+<p>The encoding of the resulting braille depends on the character
+definitions in the given table. It is recommended to use a display
+table, as in the following example, if you require a specific braille
+encoding.
+</p>
 <p>The next example illustrates a forward translation with translation
 table <samp>en-us-g2.ctb</samp> and display table <samp>unicode.dis</samp>. The
 resulting braille is encoded as Unicode dot patterns (as defined in
@@ -3259,24 +3263,58 @@ shows a typical example:
     - {typeform: {italic: '++++ '}, xfail: true}
   # same test more compact
   - [Hello, ⠨⠶⠠⠓⠑⠇⠇⠕⠨⠄, {typeform: {italic: '++++ '}, xfail: true}]
+  # same test but is only expected to fail for backtranslation
+  - [Hello, ⠨⠶⠠⠓⠑⠇⠇⠕⠨⠄, {typeform: {italic: '++++ '}, xfail: {backward: true}}]
+
 </pre></div>
 
 <p>The valid additional options for a test are as follows:
 </p>
 <dl compact="compact">
 <dt><span>&lsquo;<samp>xfail</samp>&rsquo;</span></dt>
-<dd><p>Whether a test is expected to fail. If you expect a test to fail, set
-this to &lsquo;<samp>true</samp>&rsquo;. If you prefer you can also specify a reason for
-the failure:
+<dd><p>Sometimes it is known that a test is failing. Maybe the table under
+test doesn&rsquo;t handle that word correctly yet, or maybe backtranslation
+has not been implemented. &lsquo;<samp>xfail</samp>&rsquo; is designed to mark tests as
+expected failures. There are three ways to mark a test as failing:
 </p>
+<ol>
+<li> Simply Mark a test as expected failure by setting &lsquo;<samp>xfail</samp>&rsquo; to
+&lsquo;<samp>true</samp>&rsquo;.
+<div class="example">
+<pre class="example">  - [Hello, ⠨, {xfail: true}]
+</pre></div>
+
+</li><li> Mark a test as expected failure and give a reason for the failure.
 <div class="example">
 <pre class="example">  - [Hello, ⠨, {xfail: Test case is not complete}]
 </pre></div>
 
-<p>If you expect a test case to pass then just don&rsquo;t mark it with
-&lsquo;<samp>xfail</samp>&rsquo; or if you really have to, set &lsquo;<samp>xfail</samp>&rsquo; to
-&lsquo;<samp>false</samp>&rsquo; or &lsquo;<samp>off</samp>&rsquo;.
+</li><li> Mark a test as expected failure just for backward or forward
+translation using the notation &lsquo;<samp>{xfail: {forward: true}}</samp>&rsquo; or
+&lsquo;<samp>{xfail: {backward: true}}</samp>&rsquo;. If you expect both to fail use
+&lsquo;<samp>{xfail: {forward: true, backward: true}}</samp>&rsquo;.
+
+<p>To mark just the backward translation of a test as expected failure
+use the following:
+</p><div class="example">
+<pre class="example">  - [Hello, ⠨, {xfail: {backward: true}}]
+</pre></div>
+
+<p>Again a reason for the expected failure can be given.
+</p><div class="example">
+<pre class="example">  - [Hello, ⠨, {xfail: {backward: Not implemented}}]
+</pre></div>
+
+<p>If you expect both forward and backward translation to fail set both
+&lsquo;<samp>forward</samp>&rsquo; and &lsquo;<samp>backward</samp>&rsquo; to &lsquo;<samp>true</samp>&rsquo; (or give a reason).
 </p>
+<div class="example">
+<pre class="example">  - [Hello, ⠨, {xfail: {forward: true, backward: true}}]
+  # above is equivalent to
+  - [Hello, ⠨, {xfail: true}]
+</pre></div>
+</li></ol>
+
 </dd>
 <dt><span>&lsquo;<samp>typeform</samp>&rsquo;</span></dt>
 <dd><p>The typeform used for a translation. It consists of one or more
