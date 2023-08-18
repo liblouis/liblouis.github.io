@@ -19,10 +19,14 @@ Automated fuzz tests have been set up for liblouis for a few years now
 and these tests have uncovered quite a few bugs, even security
 critical ones.
 
-In June [Adalogics](https://adalogics.com/), a well known consultancy
-for software security, has worked on some major improvements to the
-existing test coverage. The report on their work and results in a
-[blog post](https://adalogics.com/blog/liblouis-continous-fuzzing).
+Earlier this year the [Open Source Technology Improvement Fund
+(OSTIF)](https://ostif.org/) together with
+[Adalogics](https://adalogics.com/), a well known consultancy for
+software security, have worked on some major improvements to the
+existing test coverage. The report on their work and their results can
+be found in blog posts from both
+[OSTIF](https://ostif.org/liblouis-continuous-fuzzing-improvements-by-ada-logics-and-ostif/)
+and [ADALogic](https://adalogics.com/blog/liblouis-continous-fuzzing).
 
 The work has already paid of, quite a steady stream of security
 related issues trickles in through the automated fuzzing. Now all that
