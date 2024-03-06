@@ -15,6 +15,7 @@ For a detailed list of all the changes refer to [the list of closed issues](http
 
 ## New features
 
+-   There is a new uncontracted braille for Lao thanks to Aikeo Koomanivong, disability service center in Lao PDR DSC.
 -   There is a new uncontracted braille table to read classical Greek characters according to the technical document B12-1 by the Spanish Braille Commission, thanks to Iván Novegil.
 
 ## Bug fixes
@@ -68,6 +69,7 @@ For a detailed list of all the changes refer to [the list of closed issues](http
 
 -   bel-detailed.utb
 -   uk-detailed.utb
+-   lo-g1.utb
 
 ### Renamed
 
