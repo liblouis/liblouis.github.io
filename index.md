@@ -6,20 +6,20 @@ intro: The Liblouis software suite provides an open-source braille translator, b
 
 {::options parse_block_html="true" /}
 
-<div class="row">
-<div class="col-md-6">
-
 ## News
 
-{% for post in site.posts limit:3 %}
+<div class="grid">
+{% for post in site.posts limit:2 %}
+<div>
 ### {{ post.date | date_to_string}} [{{ post.title }}]({{ post.url }})
 
 {{ post.excerpt }}
+</div>
 {% endfor %}
-
 </div>
 
-<div class="col-md-6">
+<div class="grid">
+<div>
 
 ## Braille translator and back-translator
 
@@ -37,11 +37,8 @@ Liblouis is free software licensed under the [GNU Lesser GPL](https://www.gnu.or
 * Consult the [documentation](documentation)
 * Subscribe to our [mailing list](https://www.freelists.org/list/liblouis-liblouisxml) or chat with us on [irc](https://web.libera.chat/#liblouis) (irc://irc.libera.chat/#liblouis).
 
-</div> <!-- /col-md-6 -->
-</div> <!-- /row -->
-
-<div class="row">
-<div class="col-md-6">
+</div>
+<div>
 
 ## Language bindings
 
@@ -53,8 +50,6 @@ The software has interfaces to a number of programming languages. There are know
 
 Liblouisutdml is free software licensed under the [GNU Lesser GPL](https://www.gnu.org/licenses/lgpl.html).
 
-</div>
-<div class="col-md-6">
 
 ## Braille production
 
@@ -66,6 +61,5 @@ There are several braille production systems based on Liblouis and/or Liblouisut
 
 [Sao Mai Braille](http://saomaicenter.org/en/smsoft/smb), a rich text editing and Braille translation software for Windows, is developed by Sao Mai Center for the Blind, a non-profit organization based in Vietnam.
 
-</div> <!-- /col-md-6 -->
-</div> <!-- /row -->
-
+</div>
+</div>

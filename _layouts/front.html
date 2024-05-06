@@ -2,16 +2,11 @@
 layout: base
 ---
 
-<link href="{{ site.baseurl }}/css/front.css" rel="stylesheet" type="text/css">
+<section>
+  <h1>{{ page.title }}</h1>
+  <p>{{ page.intro }}</p>
+</section>
 
-<!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-  <div class="container"><div>
-    <h1>{{ page.title }}</h1>
-    <p>{{ page.intro }}</p>
-  </div></div>
-</div>
-
-<div class="container">
+<section>
   {{ content }}
-</div>
+</section>  
