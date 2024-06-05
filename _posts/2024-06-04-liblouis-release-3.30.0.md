@@ -65,7 +65,7 @@ For a detailed list of all the changes refer to [the list of closed issues](http
 -   `yi.utb`
 -   `hbo.utb`
 -   `akk.utb`
--   `akk-borger.yaml`
+-   `akk-borger.utb`
 -   `syc.utb`
 -   `uga.utb`
 -   `cuneiform-transliterated.utb`
