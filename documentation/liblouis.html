@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.1, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- This manual is for liblouis (version 3.30.0, 27 May 2024),
+<!-- This manual is for liblouis (version 3.31.0, 27 May 2024),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader BRLTTY.
 
@@ -56,9 +56,9 @@ kbd.kbd {font-style: oblique}
 kbd.key {font-style: normal}
 span:hover a.copiable-link {visibility: visible}
 td.printindex-index-entry {vertical-align: top}
-td.printindex-index-section {vertical-align: top}
+td.printindex-index-section {vertical-align: top; padding-left: 1em}
 th.entries-header-printindex {text-align:left}
-th.sections-header-printindex {text-align:left}
+th.sections-header-printindex {text-align:left; padding-left: 1em}
 ul.mark-bullet {list-style-type: disc}
 ul.toc-numbered-mark {list-style: none}
 -->
@@ -82,9 +82,9 @@ ul.toc-numbered-mark {list-style: none}
 
 
 <div class="top-level-extent" id="Top">
-<h1 class="top" id="Liblouis-User_0027s-and-Programmer_0027s-Manual">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</h1>
+<h1 class="top" id="Liblouis-User_0027s-and-Programmer_0027s-Manual"><span>Liblouis User&rsquo;s and Programmer&rsquo;s Manual<a class="copiable-link" href="#Liblouis-User_0027s-and-Programmer_0027s-Manual"> &para;</a></span></h1>
 
-<p>This manual is for liblouis (version 3.30.0, 27 May 2024),
+<p>This manual is for liblouis (version 3.31.0, 27 May 2024),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <abbr class="acronym">BRLTTY</abbr>.
 </p>
@@ -232,7 +232,7 @@ Fifth Floor, Boston, MA 02110-1301, USA.
 </div>
 <hr>
 <div class="chapter-level-extent" id="Introduction">
-<h2 class="chapter" id="Introduction-1">1 Introduction</h2>
+<h2 class="chapter" id="Introduction-1"><span>1 Introduction<a class="copiable-link" href="#Introduction-1"> &para;</a></span></h2>
 
 <p>Liblouis is an open-source braille translator and back-translator
 derived from the translation routines in the BRLTTY screen reader for
@@ -246,7 +246,7 @@ README file. Please report bugs and oddities to the mailing list,
 it has been extensively rewritten to cover new features.
 </p>
 <div class="section-level-extent" id="Who-is-this-manual-for">
-<h3 class="section">1.1 Who is this manual for</h3>
+<h3 class="section"><span>1.1 Who is this manual for<a class="copiable-link" href="#Who-is-this-manual-for"> &para;</a></span></h3>
 
 <p>This manual has two main audiences: People who want to write or
 improve a braille translation table and people who want to use the
@@ -256,7 +256,7 @@ translation software.
 </p>
 </div>
 <div class="section-level-extent" id="How-to-read-this-manual">
-<h3 class="section">1.2 How to read this manual</h3>
+<h3 class="section"><span>1.2 How to read this manual<a class="copiable-link" href="#How-to-read-this-manual"> &para;</a></span></h3>
 
 <p>If you are mostly interested in writing braille translation tables
 then you want to focus on <a class="ref" href="#How-to-Write-Translation-Tables">How to Write Translation Tables</a>. You
@@ -274,7 +274,7 @@ itself then you will want to look at <a class="ref" href="#Programming-with-libl
 </div>
 </div>
 <div class="chapter-level-extent" id="How-to-Write-Translation-Tables">
-<h2 class="chapter" id="How-to-Write-Translation-Tables-1">2 How to Write Translation Tables</h2>
+<h2 class="chapter" id="How-to-Write-Translation-Tables-1"><span>2 How to Write Translation Tables<a class="copiable-link" href="#How-to-Write-Translation-Tables-1"> &para;</a></span></h2>
 
 <p>For many languages there is already a translation table, so before
 creating a new table start by looking at existing tables to modify
@@ -316,7 +316,7 @@ program in which you can test your work.
 
 <hr>
 <div class="section-level-extent" id="Overview">
-<h3 class="section" id="Overview-1">2.1 Overview</h3>
+<h3 class="section" id="Overview-1"><span>2.1 Overview<a class="copiable-link" href="#Overview-1"> &para;</a></span></h3>
 
 <p>Many translation (contraction) tables have already been made up. They
 are included in the distribution in the tables directory and can be
@@ -498,7 +498,7 @@ everything else.
 <hr>
 </div>
 <div class="section-level-extent" id="Hyphenation-Tables">
-<h3 class="section" id="Hyphenation-Tables-1">2.2 Hyphenation Tables</h3>
+<h3 class="section" id="Hyphenation-Tables-1"><span>2.2 Hyphenation Tables<a class="copiable-link" href="#Hyphenation-Tables-1"> &para;</a></span></h3>
 
 <p>Hyphenation tables are necessary to make opcodes such as the
 <code class="code">nocross</code> opcode (see <a class="pxref" href="#nocross-opcode"><code class="code">nocross</code></a>) function properly. There are no opcodes for
@@ -513,7 +513,7 @@ of a hyphenation table, see <samp class="file">hyph_en_US.dic</samp>.
 <hr>
 </div>
 <div class="section-level-extent" id="Character_002dDefinition-Opcodes">
-<h3 class="section" id="Character_002dDefinition-Opcodes-1">2.3 Character-Definition Opcodes</h3>
+<h3 class="section" id="Character_002dDefinition-Opcodes-1"><span>2.3 Character-Definition Opcodes<a class="copiable-link" href="#Character_002dDefinition-Opcodes-1"> &para;</a></span></h3>
 
 <p>These opcodes are needed to define attributes such as digit,
 punctuation, letter, etc. for all characters and their dot patterns.
@@ -704,7 +704,7 @@ base uppercase A a
 <hr>
 </div>
 <div class="section-level-extent" id="Braille-Indicator-Opcodes">
-<h3 class="section" id="Braille-Indicator-Opcodes-1">2.4 Braille Indicator Opcodes</h3>
+<h3 class="section" id="Braille-Indicator-Opcodes-1"><span>2.4 Braille Indicator Opcodes<a class="copiable-link" href="#Braille-Indicator-Opcodes-1"> &para;</a></span></h3>
 
 <p>Braille indicators are dot patterns which are inserted into the
 braille text to indicate such things as capitalization, italic type,
@@ -714,7 +714,7 @@ by a dot pattern, which may be one or more cells.
 <dl class="table">
 <dd><a class="index-entry-id" id="index-modeletter"></a>
 <a class="anchor" id="modeletter-opcode"></a></dd>
-<dt id='index-capsletter'><span><code class="code">modeletter attribute dots</code><a class="copiable-link" href='#index-capsletter'> &para;</a></span></dt>
+<dt><a id="index-capsletter"></a><span><code class="code">modeletter attribute dots</code><a class="copiable-link" href="#index-capsletter"> &para;</a></span></dt>
 <dd><a class="anchor" id="capsletter-opcode"></a></dd>
 <dt><code class="code">capsletter dots</code></dt>
 <dd><p>The dot pattern which indicates that a certain mode is entered and
@@ -748,7 +748,7 @@ following two examples are equivalent:
 </p>
 <a class="index-entry-id" id="index-begmodeword"></a>
 <a class="anchor" id="begmodeword-opcode"></a></dd>
-<dt id='index-begcapsword'><span><code class="code">begmodeword attribute dots</code><a class="copiable-link" href='#index-begcapsword'> &para;</a></span></dt>
+<dt><a id="index-begcapsword"></a><span><code class="code">begmodeword attribute dots</code><a class="copiable-link" href="#index-begcapsword"> &para;</a></span></dt>
 <dd><a class="anchor" id="begcapsword-opcode"></a></dd>
 <dt><code class="code">begcapsword dots</code></dt>
 <dd><p>The dot pattern which indicates that a certain mode is entered for the
@@ -770,7 +770,7 @@ this by using the <code class="code">capsmodechars</code> opcode (see <a class="
 </p>
 <a class="index-entry-id" id="index-endmodeword"></a>
 <a class="anchor" id="endmodeword-opcode"></a></dd>
-<dt id='index-endcapsword'><span><code class="code">endmodeword attribute dots</code><a class="copiable-link" href='#index-endcapsword'> &para;</a></span></dt>
+<dt><a id="index-endcapsword"></a><span><code class="code">endmodeword attribute dots</code><a class="copiable-link" href="#index-endcapsword"> &para;</a></span></dt>
 <dd><a class="anchor" id="endcapsword-opcode"></a></dd>
 <dt><code class="code">endcapsword dots</code></dt>
 <dd><p>The dot pattern which terminates a mode within a word. It is used in
@@ -804,7 +804,7 @@ be the case for the hyphen character, &lsquo;<samp class="samp">-</samp>&rsquo;.
 
 <a class="index-entry-id" id="index-begmode"></a>
 <a class="anchor" id="begmode-opcode"></a></dd>
-<dt id='index-begcaps'><span><code class="code">begmode attribute dots</code><a class="copiable-link" href='#index-begcaps'> &para;</a></span></dt>
+<dt><a id="index-begcaps"></a><span><code class="code">begmode attribute dots</code><a class="copiable-link" href="#index-begcaps"> &para;</a></span></dt>
 <dd><a class="anchor" id="begcaps-opcode"></a></dd>
 <dt><code class="code">begcaps dots</code></dt>
 <dd><p>The dot pattern which indicates that a mode is entered until it is
@@ -827,7 +827,7 @@ at any position.
 </p>
 <a class="index-entry-id" id="index-endmode"></a>
 <a class="anchor" id="endmode-opcode"></a></dd>
-<dt id='index-endcaps'><span><code class="code">endmode attribute dots</code><a class="copiable-link" href='#index-endcaps'> &para;</a></span></dt>
+<dt><a id="index-endcaps"></a><span><code class="code">endmode attribute dots</code><a class="copiable-link" href="#index-endcaps"> &para;</a></span></dt>
 <dd><a class="anchor" id="endcaps-opcode"></a></dd>
 <dt><code class="code">endcaps dots</code></dt>
 <dd><p>The dot pattern which terminates a mode.
@@ -1004,7 +1004,7 @@ midendnumericmodechars -/
 <hr>
 </div>
 <div class="section-level-extent" id="Opcodes-for-Standing-Alone-Sequences">
-<h3 class="section" id="Opcodes-for-Standing-Alone-Sequences-1">2.5 Opcodes for <em class="emph">Standing Alone</em> Sequences</h3>
+<h3 class="section" id="Opcodes-for-Standing-Alone-Sequences-1"><span>2.5 Opcodes for <em class="emph">Standing Alone</em> Sequences<a class="copiable-link" href="#Opcodes-for-Standing-Alone-Sequences-1"> &para;</a></span></h3>
 
 <a class="index-entry-id" id="index-Standing-alone"></a>
 <p>The term &ldquo;standing alone&rdquo; comes from the specification of Unified
@@ -1104,7 +1104,7 @@ provided the overall sequence is <em class="emph">standing alone</em>.
 <hr>
 </div>
 <div class="section-level-extent" id="Emphasis-Opcodes">
-<h3 class="section" id="Emphasis-Opcodes-1">2.6 Emphasis Opcodes</h3>
+<h3 class="section" id="Emphasis-Opcodes-1"><span>2.6 Emphasis Opcodes<a class="copiable-link" href="#Emphasis-Opcodes-1"> &para;</a></span></h3>
 
 <p>In many braille systems emphasis such as bold, italics or underline is
 indicated using special dot patterns that mark the beginning and if
@@ -1122,7 +1122,7 @@ specific language using the <code class="code">emphclass</code> opcode (see <a c
 
 <hr>
 <div class="subsection-level-extent" id="Emphasis-classes">
-<h4 class="subsection" id="Emphasis-classes-1">2.6.1 Emphasis classes</h4>
+<h4 class="subsection" id="Emphasis-classes-1"><span>2.6.1 Emphasis classes<a class="copiable-link" href="#Emphasis-classes-1"> &para;</a></span></h4>
 
 <p>The <code class="code">emphclass</code> opcode defines the classes of emphasis that are
 relevant for a particular language. For all emphasis that need special
@@ -1148,7 +1148,7 @@ emphclass transnote
 <hr>
 </div>
 <div class="subsection-level-extent" id="Emphasis-indicators">
-<h4 class="subsection" id="Emphasis-indicators-1">2.6.2 Emphasis indicators</h4>
+<h4 class="subsection" id="Emphasis-indicators-1"><span>2.6.2 Emphasis indicators<a class="copiable-link" href="#Emphasis-indicators-1"> &para;</a></span></h4>
 
 <p>In order to understand the capabilities of Liblouis for emphasis
 handling we have to look at the different kinds of indicators that
@@ -1164,7 +1164,7 @@ specific combination of indicators that are defined in the table.
 
 <hr>
 <div class="subsubsection-level-extent" id="Permanent-indicator">
-<h4 class="subsubsection" id="Permanent-indicator-1">2.6.2.1 Permanent indicator</h4>
+<h4 class="subsubsection" id="Permanent-indicator-1"><span>2.6.2.1 Permanent indicator<a class="copiable-link" href="#Permanent-indicator-1"> &para;</a></span></h4>
 
 <p>Many languages simply have an indicator for the beginning of emphasis
 and another one for the end of the emphasis. The emphasis is
@@ -1232,7 +1232,7 @@ the list contains space characters (escaped, e.g. <code class="code">\s</code>).
 <hr>
 </div>
 <div class="subsubsection-level-extent" id="Letter-indicator">
-<h4 class="subsubsection" id="Letter-indicator-1">2.6.2.2 Letter indicator</h4>
+<h4 class="subsubsection" id="Letter-indicator-1"><span>2.6.2.2 Letter indicator<a class="copiable-link" href="#Letter-indicator-1"> &para;</a></span></h4>
 
 <p>Some languages have special indicators for single letter emphasis. The
 letter indicator will be chosen over other indicators when the next
@@ -1266,7 +1266,7 @@ can be useful anyway.
 <hr>
 </div>
 <div class="subsubsection-level-extent" id="Word-indicator">
-<h4 class="subsubsection" id="Word-indicator-1">2.6.2.3 Word indicator</h4>
+<h4 class="subsubsection" id="Word-indicator-1"><span>2.6.2.3 Word indicator<a class="copiable-link" href="#Word-indicator-1"> &para;</a></span></h4>
 
 <p>Many languages have special indicators for emphasized words. The scope
 of a word indicator is normally until the next unemphasizable
@@ -1330,7 +1330,7 @@ that are in the list will not cancel the word indicator.
 <hr>
 </div>
 <div class="subsubsection-level-extent" id="Phrase-indicator">
-<h4 class="subsubsection" id="Phrase-indicator-1">2.6.2.4 Phrase indicator</h4>
+<h4 class="subsubsection" id="Phrase-indicator-1"><span>2.6.2.4 Phrase indicator<a class="copiable-link" href="#Phrase-indicator-1"> &para;</a></span></h4>
 
 <p>Some languages have a concept of a phrase where the emphasis is valid
 for a number of words. The beginning of the phrase is indicated with a
@@ -1407,7 +1407,7 @@ indicated as a phrase, but the words will be indicated individually.
 </div>
 </div>
 <div class="subsection-level-extent" id="Note-about-fallback-behavior">
-<h4 class="subsection" id="Note-about-fallback-behavior-1">2.6.3 Note about fallback behavior</h4>
+<h4 class="subsection" id="Note-about-fallback-behavior-1"><span>2.6.3 Note about fallback behavior<a class="copiable-link" href="#Note-about-fallback-behavior-1"> &para;</a></span></h4>
 
 <p>Contrary to older versions of liblouis there is limited fallback
 behavior. Generally opcodes have a very specific purpose. This is done
@@ -1429,7 +1429,7 @@ more specific opcodes might be added.
 <hr>
 </div>
 <div class="subsection-level-extent" id="Computer-braille">
-<h4 class="subsection" id="Computer-braille-1">2.6.4 Computer braille</h4>
+<h4 class="subsection" id="Computer-braille-1"><span>2.6.4 Computer braille<a class="copiable-link" href="#Computer-braille-1"> &para;</a></span></h4>
 
 <p>For computer braille there are only two braille indicators, for the
 beginning and end of a sequence of characters to be rendered in
@@ -1465,7 +1465,7 @@ contains a subsequence specified by the <code class="code">compbrl</code> opcode
 </div>
 </div>
 <div class="section-level-extent" id="Special-Symbol-Opcodes">
-<h3 class="section" id="Special-Symbol-Opcodes-1">2.7 Special Symbol Opcodes</h3>
+<h3 class="section" id="Special-Symbol-Opcodes-1"><span>2.7 Special Symbol Opcodes<a class="copiable-link" href="#Special-Symbol-Opcodes-1"> &para;</a></span></h3>
 
 <p>These opcodes define certain symbols, such as the decimal point, which
 require special treatment.
@@ -1504,7 +1504,7 @@ to determine the end of individual words.
 <hr>
 </div>
 <div class="section-level-extent" id="Special-Processing-Opcodes">
-<h3 class="section" id="Special-Processing-Opcodes-1">2.8 Special Processing Opcodes</h3>
+<h3 class="section" id="Special-Processing-Opcodes-1"><span>2.8 Special Processing Opcodes<a class="copiable-link" href="#Special-Processing-Opcodes-1"> &para;</a></span></h3>
 
 <p>These opcodes cause special processing to be carried out.
 </p>
@@ -1522,7 +1522,7 @@ such as Norwegian.
 <hr>
 </div>
 <div class="section-level-extent" id="Translation-Opcodes">
-<h3 class="section" id="Translation-Opcodes-1">2.9 Translation Opcodes</h3>
+<h3 class="section" id="Translation-Opcodes-1"><span>2.9 Translation Opcodes<a class="copiable-link" href="#Translation-Opcodes-1"> &para;</a></span></h3>
 
 <p>These opcodes define the braille representations for character
 sequences. Each of them defines an entry within the contraction table.
@@ -1893,7 +1893,7 @@ joinnum \x00A5 13456 (YEN SIGN)
 <hr>
 </div>
 <div class="section-level-extent" id="Character_002dClass-Opcodes">
-<h3 class="section" id="Character_002dClass-Opcodes-1">2.10 Character-Class Opcodes</h3>
+<h3 class="section" id="Character_002dClass-Opcodes-1"><span>2.10 Character-Class Opcodes<a class="copiable-link" href="#Character_002dClass-Opcodes-1"> &para;</a></span></h3>
 
 <p>These opcodes define and use character classes, also known as
 character attributes. A character class associates a set of characters
@@ -1981,7 +1981,7 @@ classes is used.
 <hr>
 </div>
 <div class="section-level-extent" id="Swap-Opcodes">
-<h3 class="section" id="Swap-Opcodes-1">2.11 Swap Opcodes</h3>
+<h3 class="section" id="Swap-Opcodes-1"><span>2.11 Swap Opcodes<a class="copiable-link" href="#Swap-Opcodes-1"> &para;</a></span></h3>
 
 <p>The swap opcodes are needed to tell the <code class="code">context</code> opcode (see <a class="pxref" href="#context-opcode"><code class="code">context</code></a>), the
 <code class="code">correct</code> opcode (see <a class="pxref" href="#correct-opcode"><code class="code">correct</code></a>) and multipass opcodes which dot patterns to swap
@@ -2033,7 +2033,7 @@ such as formatting phone numbers.
 <hr>
 </div>
 <div class="section-level-extent" id="The-Context-and-Multipass-Opcodes">
-<h3 class="section" id="The-Context-and-Multipass-Opcodes-1">2.12 The Context and Multipass Opcodes</h3>
+<h3 class="section" id="The-Context-and-Multipass-Opcodes-1"><span>2.12 The Context and Multipass Opcodes<a class="copiable-link" href="#The-Context-and-Multipass-Opcodes-1"> &para;</a></span></h3>
 
 <p>The <code class="code">context</code> and multipass opcodes (<code class="code">pass2</code>, <code class="code">pass3</code>
 and <code class="code">pass4</code>) provide translation capabilities beyond those of the
@@ -2051,12 +2051,11 @@ the <code class="code">nofor</code> opcode (see <a class="pxref" href="#nofor-op
 test action</code>. The specific opcodes are invoked as follows:
 </p>
 <dl class="table">
-<dd><a class="anchor" id="context-opcode"></a><a class="index-entry-id" id="index-context"></a>
-<a class="index-entry-id" id="index-pass2"></a>
+<dd><a class="anchor" id="context-opcode"></a></dd>
+<dt><a class="index-entry-id" id="index-pass2"></a>
 <a class="index-entry-id" id="index-pass3"></a>
 <a class="index-entry-id" id="index-pass4"></a>
-</dd>
-<dt><code class="code">context test action</code></dt>
+<a id="index-context"></a><span><code class="code">context test action</code><a class="copiable-link" href="#index-context"> &para;</a></span></dt>
 <dt><code class="code">pass2 test action</code></dt>
 <dt><code class="code">pass3 test action</code></dt>
 <dt><code class="code">pass4 test action</code></dt>
@@ -2317,7 +2316,7 @@ same characters again and again.
 <hr>
 </div>
 <div class="section-level-extent" id="The-correct-Opcode">
-<h3 class="section" id="The-correct-Opcode-1">2.13 The correct Opcode</h3>
+<h3 class="section" id="The-correct-Opcode-1"><span>2.13 The correct Opcode<a class="copiable-link" href="#The-correct-Opcode-1"> &para;</a></span></h3>
 
 <dl class="table">
 <dd><a class="index-entry-id" id="index-correct"></a>
@@ -2356,7 +2355,7 @@ noback correct &quot;\s?&quot; &quot;?&quot; drop space before question mark
 <hr>
 </div>
 <div class="section-level-extent" id="The-match-Opcode">
-<h3 class="section" id="The-match-Opcode-1">2.14 The match Opcode</h3>
+<h3 class="section" id="The-match-Opcode-1"><span>2.14 The match Opcode<a class="copiable-link" href="#The-match-Opcode-1"> &para;</a></span></h3>
 
 <p>For historical reasons despite being fairly similar in functionality
 both the <code class="code">context</code> opcode (see <a class="pxref" href="#context-opcode"><code class="code">context</code></a>) and the match opcode exist and are in use
@@ -2519,7 +2518,7 @@ is preceded by a space, or beginning of input; then followed by a
 <hr>
 </div>
 <div class="section-level-extent" id="Miscellaneous-Opcodes">
-<h3 class="section" id="Miscellaneous-Opcodes-1">2.15 Miscellaneous Opcodes</h3>
+<h3 class="section" id="Miscellaneous-Opcodes-1"><span>2.15 Miscellaneous Opcodes<a class="copiable-link" href="#Miscellaneous-Opcodes-1"> &para;</a></span></h3>
 
 <dl class="table">
 <dd><a class="index-entry-id" id="index-include"></a>
@@ -2594,10 +2593,10 @@ opcode.
 </div>
 </div>
 <div class="chapter-level-extent" id="Notes-on-Back_002dTranslation">
-<h2 class="chapter" id="Notes-on-Back_002dTranslation-1">3 Notes on Back-Translation</h2>
+<h2 class="chapter" id="Notes-on-Back_002dTranslation-1"><span>3 Notes on Back-Translation<a class="copiable-link" href="#Notes-on-Back_002dTranslation-1"> &para;</a></span></h2>
 
 <a class="anchor" id="General-Notes"></a><div class="section-level-extent" id="General-Notes-1">
-<h3 class="section">3.1 General Notes</h3>
+<h3 class="section"><span>3.1 General Notes<a class="copiable-link" href="#General-Notes-1"> &para;</a></span></h3>
 
 <p>Back-translation refers to the process of translating backwards,
 i.e. from Braille to text. For many years, Liblouis was mainly
@@ -2642,7 +2641,7 @@ process may not be perfect.
 </p>
 <a class="anchor" id="Back_002dtranslation-with-Liblouis"></a></div>
 <div class="section-level-extent" id="Back_002dtranslation-with-Liblouis-1">
-<h3 class="section">3.2 Back-translation with Liblouis</h3>
+<h3 class="section"><span>3.2 Back-translation with Liblouis<a class="copiable-link" href="#Back_002dtranslation-with-Liblouis-1"> &para;</a></span></h3>
 
 <p>Back-translation is carried out by the function
 <code class="code">lou_backTranslateString</code>. Its calling sequence is described in
@@ -2679,7 +2678,7 @@ using <code class="code">noback</code> or <code class="code">nofor</code>.
 </div>
 </div>
 <div class="chapter-level-extent" id="Table-Metadata">
-<h2 class="chapter" id="Table-Metadata-1">4 Table Metadata</h2>
+<h2 class="chapter" id="Table-Metadata-1"><span>4 Table Metadata<a class="copiable-link" href="#Table-Metadata-1"> &para;</a></span></h2>
 
 <p>Translation tables may contain metadata. This makes them
 discoverable. Programs may for example use the Liblouis function
@@ -2688,7 +2687,7 @@ special query of which the <a class="ref" href="#Query-Syntax">syntax</a> is des
 below.
 </p>
 <div class="section-level-extent" id="Syntax">
-<h3 class="section">4.1 Syntax</h3>
+<h3 class="section"><span>4.1 Syntax<a class="copiable-link" href="#Syntax"> &para;</a></span></h3>
 
 <p>Metadata must be defined in special comments within the table
 header. The table header is the area at the top of the file, before
@@ -2724,7 +2723,7 @@ on the wiki page
 </p>
 <a class="anchor" id="Query-Syntax"></a></div>
 <div class="section-level-extent" id="Query-Syntax-1">
-<h3 class="section">4.2 Query Syntax</h3>
+<h3 class="section"><span>4.2 Query Syntax<a class="copiable-link" href="#Query-Syntax-1"> &para;</a></span></h3>
 
 <p>A query that is passed to the <a class="ref" href="#lou_005ffindTable"><code class="code">lou_findTable</code></a>
 function must have the following syntax:
@@ -2752,7 +2751,7 @@ allowed around colons.
 </div>
 </div>
 <div class="chapter-level-extent" id="Testing-Translation-Tables-interactively">
-<h2 class="chapter" id="Testing-Translation-Tables-interactively-1">5 Testing Translation Tables interactively</h2>
+<h2 class="chapter" id="Testing-Translation-Tables-interactively-1"><span>5 Testing Translation Tables interactively<a class="copiable-link" href="#Testing-Translation-Tables-interactively-1"> &para;</a></span></h2>
 
 <p>A number of test programs are provided as part of the liblouis
 package. They are intended for testing liblouis and for debugging
@@ -2787,7 +2786,7 @@ system or local to where the command is executed. See <a class="xref" href="#How
 
 <hr>
 <div class="section-level-extent" id="lou_005fdebug">
-<h3 class="section" id="lou_005fdebug-1">5.1 lou_debug</h3>
+<h3 class="section" id="lou_005fdebug-1"><span>5.1 lou_debug<a class="copiable-link" href="#lou_005fdebug-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fdebug"></a>
 
 <p>The <code class="command">lou_debug</code> tool is intended for debugging liblouis
@@ -2901,7 +2900,7 @@ there is a hyphenation table.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005ftrace">
-<h3 class="section" id="lou_005ftrace-1">5.2 lou_trace</h3>
+<h3 class="section" id="lou_005ftrace-1"><span>5.2 lou_trace<a class="copiable-link" href="#lou_005ftrace-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005ftrace"></a>
 
 <p>When working on translation tables it is sometimes useful to determine
@@ -2966,7 +2965,7 @@ the u.s. postal service
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fchecktable">
-<h3 class="section" id="lou_005fchecktable-1">5.3 lou_checktable</h3>
+<h3 class="section" id="lou_005fchecktable-1"><span>5.3 lou_checktable<a class="copiable-link" href="#lou_005fchecktable-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fchecktable"></a>
 
 <p>To use this program type the following:
@@ -2993,7 +2992,7 @@ shown.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fallround">
-<h3 class="section" id="lou_005fallround-1">5.4 lou_allround</h3>
+<h3 class="section" id="lou_005fallround-1"><span>5.4 lou_allround<a class="copiable-link" href="#lou_005fallround-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fallround"></a>
 
 <p>This program tests every capability of the liblouis library. It is
@@ -3016,7 +3015,7 @@ and then view the results.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005ftranslate-_0028program_0029">
-<h3 class="section" id="lou_005ftranslate-1">5.5 lou_translate</h3>
+<h3 class="section" id="lou_005ftranslate-1"><span>5.5 lou_translate<a class="copiable-link" href="#lou_005ftranslate-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005ftranslate-1"></a>
 
 <p>This program translates whatever is on the standard input unit and
@@ -3127,7 +3126,7 @@ translator.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fcheckhyphens">
-<h3 class="section" id="lou_005fcheckhyphens-1">5.6 lou_checkhyphens</h3>
+<h3 class="section" id="lou_005fcheckhyphens-1"><span>5.6 lou_checkhyphens<a class="copiable-link" href="#lou_005fcheckhyphens-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fcheckhyphens"></a>
 
 <p>This program checks the accuracy of hyphenation in Braille translation
@@ -3146,7 +3145,7 @@ interactive. Invoke it as follows:
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fcheckyaml">
-<h3 class="section" id="lou_005fcheckyaml-1">5.7 lou_checkyaml</h3>
+<h3 class="section" id="lou_005fcheckyaml-1"><span>5.7 lou_checkyaml<a class="copiable-link" href="#lou_005fcheckyaml-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fcheckyaml"></a>
 
 <p>This program tests a liblouis table against a corpus of known good
@@ -3178,7 +3177,7 @@ make check TESTS=yaml/en-ueb-g2_backward.yaml
 </div>
 </div>
 <div class="chapter-level-extent" id="Automated-Testing-of-Translation-Tables">
-<h2 class="chapter" id="Automated-Testing-of-Translation-Tables-1">6 Automated Testing of Translation Tables</h2>
+<h2 class="chapter" id="Automated-Testing-of-Translation-Tables-1"><span>6 Automated Testing of Translation Tables<a class="copiable-link" href="#Automated-Testing-of-Translation-Tables-1"> &para;</a></span></h2>
 
 <p>There are a number of automated tests for liblouis and they are
 proving to be of tremendous value. When changing the code the
@@ -3196,7 +3195,7 @@ automatically be invoked as part of the standard <code class="command">make chec
 command.
 </p>
 <a class="anchor" id="YAML-Tests"></a><div class="section-level-extent" id="YAML-Tests-1">
-<h3 class="section">6.1 YAML Tests</h3>
+<h3 class="section"><span>6.1 YAML Tests<a class="copiable-link" href="#YAML-Tests-1"> &para;</a></span></h3>
 <p><a class="url" href="http://yaml.org/">YAML</a> is a human readable data serialization
 format that allows for an easy and compact way to define tests.
 </p>
@@ -3526,7 +3525,7 @@ example the length of the refreshable braille display.
 </dl>
 
 <div class="subsection-level-extent" id="Optional-test-description">
-<h4 class="subsection">6.1.1 Optional test description</h4>
+<h4 class="subsection"><span>6.1.1 Optional test description<a class="copiable-link" href="#Optional-test-description"> &para;</a></span></h4>
 <p>When a test contains three or four items the first item is assumed to
 be a test description, the second item is the unicode text to be
 tested and the third item is the expected braille output. Again an
@@ -3550,7 +3549,7 @@ distribution.
 </p>
 </div>
 <div class="subsection-level-extent" id="Testing-multiple-tables-within-the-same-YAML-test-file">
-<h4 class="subsection">6.1.2 Testing multiple tables within the same YAML test file</h4>
+<h4 class="subsection"><span>6.1.2 Testing multiple tables within the same YAML test file<a class="copiable-link" href="#Testing-multiple-tables-within-the-same-YAML-test-file"> &para;</a></span></h4>
 <p>Sometimes you are more focused on testing a particular feature across
 several tables rather than just testing one table. For that reason the
 following is also allowed:
@@ -3571,7 +3570,7 @@ to their default values when you specify a new table.
 </p>
 </div>
 <div class="subsection-level-extent" id="Multiple-test-sections-for-each-table">
-<h4 class="subsection">6.1.3 Multiple test sections for each table</h4>
+<h4 class="subsection"><span>6.1.3 Multiple test sections for each table<a class="copiable-link" href="#Multiple-test-sections-for-each-table"> &para;</a></span></h4>
 <p>You can specify several sections of tests for each table, with or
 without the optional flags. This is useful e.g. if you want to have
 various tests for both forward and backward translation for the same
@@ -3602,7 +3601,7 @@ flags: {testmode: backward}
 
 <a class="anchor" id="Inline-definition-of-tables"></a></div>
 <div class="subsection-level-extent" id="Inline-definition-of-tables-1">
-<h4 class="subsection">6.1.4 Inline definition of tables</h4>
+<h4 class="subsection"><span>6.1.4 Inline definition of tables<a class="copiable-link" href="#Inline-definition-of-tables-1"> &para;</a></span></h4>
 <p>When testing very specific opcode combinations it is sometimes tedious
 to create specific test tables just for that. Hence the YAML tests
 allow for specification of table definitions inline. Instead of
@@ -3623,7 +3622,7 @@ tests:
 
 </div>
 <div class="subsection-level-extent" id="Running-the-same-test-data-on-multiple-tables">
-<h4 class="subsection">6.1.5 Running the same test data on multiple tables</h4>
+<h4 class="subsection"><span>6.1.5 Running the same test data on multiple tables<a class="copiable-link" href="#Running-the-same-test-data-on-multiple-tables"> &para;</a></span></h4>
 <p>Sometimes you maintain multiple tables which are very similar and
 basically contain the same test data. Instead of copying the YAML test
 and changing the table name you can also define multiple tables. This
@@ -3642,12 +3641,12 @@ tests:
 </div>
 </div>
 <div class="chapter-level-extent" id="Programming-with-liblouis">
-<h2 class="chapter" id="Programming-with-liblouis-1">7 Programming with liblouis</h2>
+<h2 class="chapter" id="Programming-with-liblouis-1"><span>7 Programming with liblouis<a class="copiable-link" href="#Programming-with-liblouis-1"> &para;</a></span></h2>
 
 
 <hr>
 <div class="section-level-extent" id="Overview-_0028library_0029">
-<h3 class="section" id="Overview-2">7.1 Overview</h3>
+<h3 class="section" id="Overview-2"><span>7.1 Overview<a class="copiable-link" href="#Overview-2"> &para;</a></span></h3>
 
 <p>You use the liblouis library by calling the following functions,
 <code class="code">lou_translateString</code>, <code class="code">lou_backTranslateString</code>,
@@ -3710,7 +3709,7 @@ or 32-bit, depening on how liblouis has been compiled.
 <hr>
 </div>
 <div class="section-level-extent" id="Data-structure-of-liblouis-tables">
-<h3 class="section" id="Data-structure-of-liblouis-tables-1">7.2 Data structure of liblouis tables</h3>
+<h3 class="section" id="Data-structure-of-liblouis-tables-1"><span>7.2 Data structure of liblouis tables<a class="copiable-link" href="#Data-structure-of-liblouis-tables-1"> &para;</a></span></h3>
 
 <p>The data structure <code class="code">TranslationTableHeader</code> is defined by a
 <code class="code">typedef</code> statement in <samp class="file">louis.h</samp>. To find the beginning,
@@ -3779,7 +3778,7 @@ points.
 <hr>
 </div>
 <div class="section-level-extent" id="How-tables-are-found">
-<h3 class="section" id="How-tables-are-found-1">7.3 How tables are found</h3>
+<h3 class="section" id="How-tables-are-found-1"><span>7.3 How tables are found<a class="copiable-link" href="#How-tables-are-found-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Table-search-path"></a>
 <a class="index-entry-id" id="index-LOUIS_005fTABLEPATH"></a>
 <p>liblouis knows where to find all the tables that have been distributed
@@ -3801,7 +3800,7 @@ path-checking is skipped.
 <hr>
 </div>
 <div class="section-level-extent" id="Deprecation-of-the-logging-system">
-<h3 class="section" id="Deprecation-of-the-logging-system-1">7.4 Deprecation of the logging system</h3>
+<h3 class="section" id="Deprecation-of-the-logging-system-1"><span>7.4 Deprecation of the logging system<a class="copiable-link" href="#Deprecation-of-the-logging-system-1"> &para;</a></span></h3>
 
 <p>As of version 2.6.0 <code class="code">lou_logFile</code>, <code class="code">lou_logPrint</code> and
 <code class="code">lou_logEnd</code> are deprecated. They are replaced by a more powerful,
@@ -3821,7 +3820,7 @@ will not cause an invocation of the registered callback.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fversion">
-<h3 class="section" id="lou_005fversion-1">7.5 lou_version</h3>
+<h3 class="section" id="lou_005fversion-1"><span>7.5 lou_version<a class="copiable-link" href="#lou_005fversion-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fversion"></a>
 
 <div class="example">
@@ -3835,7 +3834,7 @@ and perhaps notable changes.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005ftranslateString">
-<h3 class="section" id="lou_005ftranslateString-1">7.6 lou_translateString</h3>
+<h3 class="section" id="lou_005ftranslateString-1"><span>7.6 lou_translateString<a class="copiable-link" href="#lou_005ftranslateString-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005ftranslateString"></a>
 
 <div class="example">
@@ -3981,7 +3980,7 @@ suppresses this dot number output.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005ftranslate">
-<h3 class="section" id="lou_005ftranslate-2">7.7 lou_translate</h3>
+<h3 class="section" id="lou_005ftranslate-2"><span>7.7 lou_translate<a class="copiable-link" href="#lou_005ftranslate-2"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005ftranslate"></a>
 
 <div class="example">
@@ -4019,7 +4018,7 @@ not be carried out.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fbackTranslateString">
-<h3 class="section" id="lou_005fbackTranslateString-1">7.8 lou_backTranslateString</h3>
+<h3 class="section" id="lou_005fbackTranslateString-1"><span>7.8 lou_backTranslateString<a class="copiable-link" href="#lou_005fbackTranslateString-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fbackTranslateString"></a>
 
 <div class="example">
@@ -4059,7 +4058,7 @@ before the word is complete.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fbackTranslate">
-<h3 class="section" id="lou_005fbackTranslate-1">7.9 lou_backTranslate</h3>
+<h3 class="section" id="lou_005fbackTranslate-1"><span>7.9 lou_backTranslate<a class="copiable-link" href="#lou_005fbackTranslate-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fbackTranslate"></a>
 
 <div class="example">
@@ -4082,7 +4081,7 @@ before the word is complete.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fhyphenate">
-<h3 class="section" id="lou_005fhyphenate-1">7.10 lou_hyphenate</h3>
+<h3 class="section" id="lou_005fhyphenate-1"><span>7.10 lou_hyphenate<a class="copiable-link" href="#lou_005fhyphenate-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fhyphenate"></a>
 
 <div class="example">
@@ -4118,7 +4117,7 @@ use in liblouisutdml.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fcompileString">
-<h3 class="section" id="lou_005fcompileString-1">7.11 lou_compileString</h3>
+<h3 class="section" id="lou_005fcompileString-1"><span>7.11 lou_compileString<a class="copiable-link" href="#lou_005fcompileString-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fcompileString"></a>
 
 <div class="example">
@@ -4136,7 +4135,7 @@ will be produced if it is invalid. The function returns 1 on success and
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fgetTypeformForEmphClass">
-<h3 class="section" id="lou_005fgetTypeformForEmphClass-1">7.12 lou_getTypeformForEmphClass</h3>
+<h3 class="section" id="lou_005fgetTypeformForEmphClass-1"><span>7.12 lou_getTypeformForEmphClass<a class="copiable-link" href="#lou_005fgetTypeformForEmphClass-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fgetTypeformForEmphClass"></a>
 
 <div class="example">
@@ -4156,7 +4155,7 @@ emphasis class.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fdotsToChar">
-<h3 class="section" id="lou_005fdotsToChar-1">7.13 lou_dotsToChar</h3>
+<h3 class="section" id="lou_005fdotsToChar-1"><span>7.13 lou_dotsToChar<a class="copiable-link" href="#lou_005fdotsToChar-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fdotsToChar"></a>
 
 <div class="example">
@@ -4181,7 +4180,7 @@ and 0 on failure.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fcharToDots">
-<h3 class="section" id="lou_005fcharToDots-1">7.14 lou_charToDots</h3>
+<h3 class="section" id="lou_005fcharToDots-1"><span>7.14 lou_charToDots<a class="copiable-link" href="#lou_005fcharToDots-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fcharToDots"></a>
 
 <div class="example">
@@ -4205,7 +4204,7 @@ success and 0 on failure.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fregisterLogCallback">
-<h3 class="section" id="lou_005fregisterLogCallback-1">7.15 lou_registerLogCallback</h3>
+<h3 class="section" id="lou_005fregisterLogCallback-1"><span>7.15 lou_registerLogCallback<a class="copiable-link" href="#lou_005fregisterLogCallback-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fregisterLogCallback"></a>
 
 <div class="example">
@@ -4227,7 +4226,7 @@ callback. Passing <code class="code">NULL</code> resets to the default callback.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fsetLogLevel">
-<h3 class="section" id="lou_005fsetLogLevel-1">7.16 lou_setLogLevel</h3>
+<h3 class="section" id="lou_005fsetLogLevel-1"><span>7.16 lou_setLogLevel<a class="copiable-link" href="#lou_005fsetLogLevel-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fsetLogLevel"></a>
 
 <div class="example">
@@ -4256,7 +4255,7 @@ disables logging. The default level is <code class="code">LOU_LOG_INFO</code>.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005flogFile">
-<h3 class="section" id="lou_005flogFile-_0028deprecated_0029">7.17 lou_logFile (deprecated)</h3>
+<h3 class="section" id="lou_005flogFile-_0028deprecated_0029"><span>7.17 lou_logFile (deprecated)<a class="copiable-link" href="#lou_005flogFile-_0028deprecated_0029"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005flogFile"></a>
 
 <div class="example">
@@ -4275,7 +4274,7 @@ the file must be given.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005flogPrint">
-<h3 class="section" id="lou_005flogPrint-_0028deprecated_0029">7.18 lou_logPrint (deprecated)</h3>
+<h3 class="section" id="lou_005flogPrint-_0028deprecated_0029"><span>7.18 lou_logPrint (deprecated)<a class="copiable-link" href="#lou_005flogPrint-_0028deprecated_0029"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005flogPrint"></a>
 
 <div class="example">
@@ -4294,7 +4293,7 @@ library liblouisutdml.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005flogEnd">
-<h3 class="section" id="lou_005flogEnd-_0028deprecated_0029">7.19 lou_logEnd (deprecated)</h3>
+<h3 class="section" id="lou_005flogEnd-_0028deprecated_0029"><span>7.19 lou_logEnd (deprecated)<a class="copiable-link" href="#lou_005flogEnd-_0028deprecated_0029"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005flogEnd"></a>
 
 <div class="example">
@@ -4309,7 +4308,7 @@ log file, so that it can be read by the rest of the program.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fsetDataPath">
-<h3 class="section" id="lou_005fsetDataPath-1">7.20 lou_setDataPath</h3>
+<h3 class="section" id="lou_005fsetDataPath-1"><span>7.20 lou_setDataPath<a class="copiable-link" href="#lou_005fsetDataPath-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fsetDataPath"></a>
 
 <div class="example">
@@ -4326,7 +4325,7 @@ or located. The function returns a pointer to the <code class="code">path</code>
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fgetDataPath">
-<h3 class="section" id="lou_005fgetDataPath-1">7.21 lou_getDataPath</h3>
+<h3 class="section" id="lou_005fgetDataPath-1"><span>7.21 lou_getDataPath<a class="copiable-link" href="#lou_005fgetDataPath-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fgetDataPath"></a>
 
 <div class="example">
@@ -4340,7 +4339,7 @@ or located. The function returns a pointer to the <code class="code">path</code>
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fgetTable">
-<h3 class="section" id="lou_005fgetTable-1">7.22 lou_getTable</h3>
+<h3 class="section" id="lou_005fgetTable-1"><span>7.22 lou_getTable<a class="copiable-link" href="#lou_005fgetTable-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fgetTable"></a>
 
 <div class="example">
@@ -4360,7 +4359,7 @@ pointer being returned.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005ffindTable">
-<h3 class="section" id="lou_005ffindTable-1">7.23 lou_findTable</h3>
+<h3 class="section" id="lou_005ffindTable-1"><span>7.23 lou_findTable<a class="copiable-link" href="#lou_005ffindTable-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005ffindTable"></a>
 
 <div class="example">
@@ -4397,7 +4396,7 @@ query creates a very small penalty.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005findexTables">
-<h3 class="section" id="lou_005findexTables-1">7.24 lou_indexTables</h3>
+<h3 class="section" id="lou_005findexTables-1"><span>7.24 lou_indexTables<a class="copiable-link" href="#lou_005findexTables-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005findexTables"></a>
 
 <div class="example">
@@ -4412,7 +4411,7 @@ names. Tables that contain invalid metadata are ignored.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fcheckTable">
-<h3 class="section" id="lou_005fcheckTable-1">7.25 lou_checkTable</h3>
+<h3 class="section" id="lou_005fcheckTable-1"><span>7.25 lou_checkTable<a class="copiable-link" href="#lou_005fcheckTable-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fcheckTable"></a>
 
 <div class="example">
@@ -4432,7 +4431,7 @@ value is <code class="code">0</code>.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005freadCharFromFile">
-<h3 class="section" id="lou_005freadCharFromFile-1">7.26 lou_readCharFromFile</h3>
+<h3 class="section" id="lou_005freadCharFromFile-1"><span>7.26 lou_readCharFromFile<a class="copiable-link" href="#lou_005freadCharFromFile-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005freadCharFromFile"></a>
 
 <div class="example">
@@ -4453,7 +4452,7 @@ function takes care of it. On end-of-file the function returns
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005ffree">
-<h3 class="section" id="lou_005ffree-1">7.27 lou_free</h3>
+<h3 class="section" id="lou_005ffree-1"><span>7.27 lou_free<a class="copiable-link" href="#lou_005ffree-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005ffree"></a>
 
 <div class="example">
@@ -4469,7 +4468,7 @@ tables every time they are used, resulting in great inefficiency.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fcharSize">
-<h3 class="section" id="lou_005fcharSize-1">7.28 lou_charSize</h3>
+<h3 class="section" id="lou_005fcharSize-1"><span>7.28 lou_charSize<a class="copiable-link" href="#lou_005fcharSize-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fcharSize"></a>
 
 <div class="example">
@@ -4483,7 +4482,7 @@ builds of liblouis.
 <hr>
 </div>
 <div class="section-level-extent" id="Python-bindings">
-<h3 class="section" id="Python-bindings-1">7.29 Python bindings</h3>
+<h3 class="section" id="Python-bindings-1"><span>7.29 Python bindings<a class="copiable-link" href="#Python-bindings-1"> &para;</a></span></h3>
 
 <p>There are Python bindings for <code class="code">lou_translateString</code>,
 <code class="code">lou_translate</code>, <code class="code">lou_backTranslateString</code>,
@@ -4497,7 +4496,7 @@ directory. Usage information is included in the Python module itself.
 </div>
 </div>
 <div class="unnumbered-level-extent" id="Concept-Index">
-<h2 class="unnumbered" id="Concept-Index-1">Concept Index</h2>
+<h2 class="unnumbered" id="Concept-Index-1"><span>Concept Index<a class="copiable-link" href="#Concept-Index-1"> &para;</a></span></h2>
 <div class="printindex cp-printindex">
 <table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Concept-Index_cp_letter-C"><b>C</b></a>
  &nbsp; 
@@ -4519,36 +4518,36 @@ directory. Usage information is included in the Python module itself.
  &nbsp; 
 </td></tr></table>
 <table class="cp-entries-printindex" border="0">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Concept-Index_cp_letter-C">C</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Characters-operand">Characters operand</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Overview">Overview</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Concept-Index_cp_letter-D">D</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Dots-operand">Dots operand</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Overview">Overview</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Concept-Index_cp_letter-L">L</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-LOUIS_005fTABLEPATH">LOUIS_TABLEPATH</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#How-tables-are-found">How tables are found</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Concept-Index_cp_letter-M">M</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Multi_002dcell-dot-pattern">Multi-cell dot pattern</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Overview">Overview</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Concept-Index_cp_letter-O">O</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Opcode">Opcode</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#How-to-Write-Translation-Tables">How to Write Translation Tables</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Concept-Index_cp_letter-R">R</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Running-individual-YAML-tests">Running individual YAML tests</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fcheckyaml">lou_checkyaml</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Running-YAML-tests-manually">Running YAML tests manually</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fcheckyaml">lou_checkyaml</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Concept-Index_cp_letter-S">S</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Standing-alone">Standing alone</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Opcodes-for-Standing-Alone-Sequences">Opcodes for Standing Alone Sequences</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Concept-Index_cp_letter-T">T</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Table-search-path">Table search path</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#How-tables-are-found">How tables are found</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Concept-Index_cp_letter-V">V</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Virtual-dots">Virtual dots</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Overview">Overview</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Concept-Index_cp_letter-C">C</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Characters-operand">Characters operand</a></td><td class="printindex-index-section"><a href="#Overview">Overview</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Concept-Index_cp_letter-D">D</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Dots-operand">Dots operand</a></td><td class="printindex-index-section"><a href="#Overview">Overview</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Concept-Index_cp_letter-L">L</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-LOUIS_005fTABLEPATH">LOUIS_TABLEPATH</a></td><td class="printindex-index-section"><a href="#How-tables-are-found">How tables are found</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Concept-Index_cp_letter-M">M</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Multi_002dcell-dot-pattern">Multi-cell dot pattern</a></td><td class="printindex-index-section"><a href="#Overview">Overview</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Concept-Index_cp_letter-O">O</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Opcode">Opcode</a></td><td class="printindex-index-section"><a href="#How-to-Write-Translation-Tables">How to Write Translation Tables</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Concept-Index_cp_letter-R">R</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Running-individual-YAML-tests">Running individual YAML tests</a></td><td class="printindex-index-section"><a href="#lou_005fcheckyaml">lou_checkyaml</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Running-YAML-tests-manually">Running YAML tests manually</a></td><td class="printindex-index-section"><a href="#lou_005fcheckyaml">lou_checkyaml</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Concept-Index_cp_letter-S">S</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Standing-alone">Standing alone</a></td><td class="printindex-index-section"><a href="#Opcodes-for-Standing-Alone-Sequences">Opcodes for Standing Alone Sequences</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Concept-Index_cp_letter-T">T</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Table-search-path">Table search path</a></td><td class="printindex-index-section"><a href="#How-tables-are-found">How tables are found</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Concept-Index_cp_letter-V">V</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Virtual-dots">Virtual dots</a></td><td class="printindex-index-section"><a href="#Overview">Overview</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
 </table>
 <table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Concept-Index_cp_letter-C"><b>C</b></a>
  &nbsp; 
@@ -4574,7 +4573,7 @@ directory. Usage information is included in the Python module itself.
 <hr>
 </div>
 <div class="unnumbered-level-extent" id="Opcode-Index">
-<h2 class="unnumbered" id="Opcode-Index-1">Opcode Index</h2>
+<h2 class="unnumbered" id="Opcode-Index-1"><span>Opcode Index<a class="copiable-link" href="#Opcode-Index-1"> &para;</a></span></h2>
 <div class="printindex opcode-printindex">
 <table class="opcode-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Opcode-Index_opcode_letter-A"><b>A</b></a>
  &nbsp; 
@@ -4612,143 +4611,143 @@ directory. Usage information is included in the Python module itself.
  &nbsp; 
 </td></tr></table>
 <table class="opcode-entries-printindex" border="0">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Opcode-Index_opcode_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-after">after</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Character_002dClass-Opcodes">Character-Class Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-always">always</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-attribute">attribute</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Character_002dClass-Opcodes">Character-Class Opcodes</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Opcode-Index_opcode_letter-B">B</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-base">base</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-before">before</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Character_002dClass-Opcodes">Character-Class Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-begcaps">begcaps</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-begcapsword">begcapsword</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-begcomp">begcomp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Computer-braille">Computer braille</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-begemph">begemph</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Permanent-indicator">Permanent indicator</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-begemphphrase">begemphphrase</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Phrase-indicator">Phrase indicator</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-begemphword">begemphword</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Word-indicator">Word indicator</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-begmidword">begmidword</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-begmode">begmode</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-begmodeword">begmodeword</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-begnum">begnum</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-begword">begword</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Opcode-Index_opcode_letter-C">C</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-capsletter">capsletter</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-capsmodechars">capsmodechars</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-capsnocont">capsnocont</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Special-Processing-Opcodes">Special Processing Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-comp6">comp6</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-compbrl">compbrl</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-context">context</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#The-Context-and-Multipass-Opcodes">The Context and Multipass Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-contraction">contraction</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-correct">correct</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#The-correct-Opcode">The correct Opcode</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Opcode-Index_opcode_letter-D">D</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-decpoint">decpoint</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Special-Symbol-Opcodes">Special Symbol Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-digit">digit</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-display">display</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous-Opcodes">Miscellaneous Opcodes</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Opcode-Index_opcode_letter-E">E</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-emphclass">emphclass</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Emphasis-classes">Emphasis classes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-emphletter">emphletter</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Letter-indicator">Letter indicator</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-emphmodechars">emphmodechars</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Word-indicator">Word indicator</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-endcaps">endcaps</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-endcapsword">endcapsword</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-endcomp">endcomp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Computer-braille">Computer braille</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-endemph">endemph</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Permanent-indicator">Permanent indicator</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-endemphphrase-after">endemphphrase after</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Phrase-indicator">Phrase indicator</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-endemphphrase-before">endemphphrase before</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Phrase-indicator">Phrase indicator</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-endemphword">endemphword</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Word-indicator">Word indicator</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-endmode">endmode</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-endmodeword">endmodeword</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-endnum">endnum</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-endword">endword</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-exactdots">exactdots</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Opcode-Index_opcode_letter-G">G</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-grouping">grouping</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Opcode-Index_opcode_letter-H">H</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-hyphen">hyphen</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Special-Symbol-Opcodes">Special Symbol Opcodes</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Opcode-Index_opcode_letter-I">I</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-include">include</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous-Opcodes">Miscellaneous Opcodes</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Opcode-Index_opcode_letter-J">J</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-joinnum">joinnum</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-joinword">joinword</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Opcode-Index_opcode_letter-L">L</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-largesign">largesign</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lenemphphrase">lenemphphrase</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Phrase-indicator">Phrase indicator</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-letsign">letsign</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-letter">letter</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-litdigit">litdigit</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lowercase">lowercase</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lowword">lowword</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Opcode-Index_opcode_letter-M">M</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-match">match</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#The-match-Opcode">The match Opcode</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-math">math</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-midendnumericmodechars">midendnumericmodechars</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-midendword">midendword</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-midnum">midnum</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-midword">midword</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-modeletter">modeletter</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-multind">multind</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous-Opcodes">Miscellaneous Opcodes</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Opcode-Index_opcode_letter-N">N</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-noback">noback</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-nocont">nocont</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-nocontractsign">nocontractsign</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-nocross">nocross</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-noemphchars">noemphchars</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Permanent-indicator">Permanent indicator</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-nofor">nofor</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-noletsign">noletsign</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-noletsignafter">noletsignafter</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-noletsignbefore">noletsignbefore</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-nonumsign">nonumsign</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-numericmodechars">numericmodechars</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-numericnocontchars">numericnocontchars</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-numsign">numsign</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Opcode-Index_opcode_letter-P">P</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-partword">partword</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-pass2">pass2</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#The-Context-and-Multipass-Opcodes">The Context and Multipass Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-pass3">pass3</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#The-Context-and-Multipass-Opcodes">The Context and Multipass Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-pass4">pass4</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#The-Context-and-Multipass-Opcodes">The Context and Multipass Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-postpunc">postpunc</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-prepunc">prepunc</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-prfword">prfword</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-punctuation">punctuation</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Opcode-Index_opcode_letter-R">R</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-repeated">repeated</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-rependword">rependword</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-replace">replace</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-repword">repword</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Opcode-Index_opcode_letter-S">S</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-seqafterchars">seqafterchars</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Opcodes-for-Standing-Alone-Sequences">Opcodes for Standing Alone Sequences</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-seqafterpattern">seqafterpattern</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Opcodes-for-Standing-Alone-Sequences">Opcodes for Standing Alone Sequences</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-seqbeforechars">seqbeforechars</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Opcodes-for-Standing-Alone-Sequences">Opcodes for Standing Alone Sequences</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-seqdelimiter">seqdelimiter</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Opcodes-for-Standing-Alone-Sequences">Opcodes for Standing Alone Sequences</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-sign">sign</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-space">space</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-sufword">sufword</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-swapcc">swapcc</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Swap-Opcodes">Swap Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-swapcd">swapcd</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Swap-Opcodes">Swap Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-swapdd">swapdd</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Swap-Opcodes">Swap Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-syllable">syllable</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Opcode-Index_opcode_letter-U">U</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-undefined">undefined</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Miscellaneous-Opcodes">Miscellaneous Opcodes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-uppercase">uppercase</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Opcode-Index_opcode_letter-W">W</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-word">word</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Opcode-Index_opcode_letter-A">A</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-after">after</a></td><td class="printindex-index-section"><a href="#Character_002dClass-Opcodes">Character-Class Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-always">always</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-attribute">attribute</a></td><td class="printindex-index-section"><a href="#Character_002dClass-Opcodes">Character-Class Opcodes</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Opcode-Index_opcode_letter-B">B</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-base">base</a></td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-before">before</a></td><td class="printindex-index-section"><a href="#Character_002dClass-Opcodes">Character-Class Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-begcaps">begcaps</a></td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-begcapsword">begcapsword</a></td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-begcomp">begcomp</a></td><td class="printindex-index-section"><a href="#Computer-braille">Computer braille</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-begemph">begemph</a></td><td class="printindex-index-section"><a href="#Permanent-indicator">Permanent indicator</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-begemphphrase">begemphphrase</a></td><td class="printindex-index-section"><a href="#Phrase-indicator">Phrase indicator</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-begemphword">begemphword</a></td><td class="printindex-index-section"><a href="#Word-indicator">Word indicator</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-begmidword">begmidword</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-begmode">begmode</a></td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-begmodeword">begmodeword</a></td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-begnum">begnum</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-begword">begword</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Opcode-Index_opcode_letter-C">C</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-capsletter">capsletter</a></td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-capsmodechars">capsmodechars</a></td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-capsnocont">capsnocont</a></td><td class="printindex-index-section"><a href="#Special-Processing-Opcodes">Special Processing Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-comp6">comp6</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-compbrl">compbrl</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-context">context</a></td><td class="printindex-index-section"><a href="#The-Context-and-Multipass-Opcodes">The Context and Multipass Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-contraction">contraction</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-correct">correct</a></td><td class="printindex-index-section"><a href="#The-correct-Opcode">The correct Opcode</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Opcode-Index_opcode_letter-D">D</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-decpoint">decpoint</a></td><td class="printindex-index-section"><a href="#Special-Symbol-Opcodes">Special Symbol Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-digit">digit</a></td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-display">display</a></td><td class="printindex-index-section"><a href="#Miscellaneous-Opcodes">Miscellaneous Opcodes</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Opcode-Index_opcode_letter-E">E</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-emphclass">emphclass</a></td><td class="printindex-index-section"><a href="#Emphasis-classes">Emphasis classes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-emphletter">emphletter</a></td><td class="printindex-index-section"><a href="#Letter-indicator">Letter indicator</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-emphmodechars">emphmodechars</a></td><td class="printindex-index-section"><a href="#Word-indicator">Word indicator</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-endcaps">endcaps</a></td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-endcapsword">endcapsword</a></td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-endcomp">endcomp</a></td><td class="printindex-index-section"><a href="#Computer-braille">Computer braille</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-endemph">endemph</a></td><td class="printindex-index-section"><a href="#Permanent-indicator">Permanent indicator</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-endemphphrase-after">endemphphrase after</a></td><td class="printindex-index-section"><a href="#Phrase-indicator">Phrase indicator</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-endemphphrase-before">endemphphrase before</a></td><td class="printindex-index-section"><a href="#Phrase-indicator">Phrase indicator</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-endemphword">endemphword</a></td><td class="printindex-index-section"><a href="#Word-indicator">Word indicator</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-endmode">endmode</a></td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-endmodeword">endmodeword</a></td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-endnum">endnum</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-endword">endword</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-exactdots">exactdots</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Opcode-Index_opcode_letter-G">G</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-grouping">grouping</a></td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Opcode-Index_opcode_letter-H">H</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-hyphen">hyphen</a></td><td class="printindex-index-section"><a href="#Special-Symbol-Opcodes">Special Symbol Opcodes</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Opcode-Index_opcode_letter-I">I</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-include">include</a></td><td class="printindex-index-section"><a href="#Miscellaneous-Opcodes">Miscellaneous Opcodes</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Opcode-Index_opcode_letter-J">J</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-joinnum">joinnum</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-joinword">joinword</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Opcode-Index_opcode_letter-L">L</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-largesign">largesign</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lenemphphrase">lenemphphrase</a></td><td class="printindex-index-section"><a href="#Phrase-indicator">Phrase indicator</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-letsign">letsign</a></td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-letter">letter</a></td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-litdigit">litdigit</a></td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lowercase">lowercase</a></td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lowword">lowword</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Opcode-Index_opcode_letter-M">M</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-match">match</a></td><td class="printindex-index-section"><a href="#The-match-Opcode">The match Opcode</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-math">math</a></td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-midendnumericmodechars">midendnumericmodechars</a></td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-midendword">midendword</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-midnum">midnum</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-midword">midword</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-modeletter">modeletter</a></td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-multind">multind</a></td><td class="printindex-index-section"><a href="#Miscellaneous-Opcodes">Miscellaneous Opcodes</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Opcode-Index_opcode_letter-N">N</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-noback">noback</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-nocont">nocont</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-nocontractsign">nocontractsign</a></td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-nocross">nocross</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-noemphchars">noemphchars</a></td><td class="printindex-index-section"><a href="#Permanent-indicator">Permanent indicator</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-nofor">nofor</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-noletsign">noletsign</a></td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-noletsignafter">noletsignafter</a></td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-noletsignbefore">noletsignbefore</a></td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-nonumsign">nonumsign</a></td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-numericmodechars">numericmodechars</a></td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-numericnocontchars">numericnocontchars</a></td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-numsign">numsign</a></td><td class="printindex-index-section"><a href="#Braille-Indicator-Opcodes">Braille Indicator Opcodes</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Opcode-Index_opcode_letter-P">P</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-partword">partword</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-pass2">pass2</a></td><td class="printindex-index-section"><a href="#The-Context-and-Multipass-Opcodes">The Context and Multipass Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-pass3">pass3</a></td><td class="printindex-index-section"><a href="#The-Context-and-Multipass-Opcodes">The Context and Multipass Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-pass4">pass4</a></td><td class="printindex-index-section"><a href="#The-Context-and-Multipass-Opcodes">The Context and Multipass Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-postpunc">postpunc</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-prepunc">prepunc</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-prfword">prfword</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-punctuation">punctuation</a></td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Opcode-Index_opcode_letter-R">R</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-repeated">repeated</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-rependword">rependword</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-replace">replace</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-repword">repword</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Opcode-Index_opcode_letter-S">S</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-seqafterchars">seqafterchars</a></td><td class="printindex-index-section"><a href="#Opcodes-for-Standing-Alone-Sequences">Opcodes for Standing Alone Sequences</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-seqafterpattern">seqafterpattern</a></td><td class="printindex-index-section"><a href="#Opcodes-for-Standing-Alone-Sequences">Opcodes for Standing Alone Sequences</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-seqbeforechars">seqbeforechars</a></td><td class="printindex-index-section"><a href="#Opcodes-for-Standing-Alone-Sequences">Opcodes for Standing Alone Sequences</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-seqdelimiter">seqdelimiter</a></td><td class="printindex-index-section"><a href="#Opcodes-for-Standing-Alone-Sequences">Opcodes for Standing Alone Sequences</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-sign">sign</a></td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-space">space</a></td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-sufword">sufword</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-swapcc">swapcc</a></td><td class="printindex-index-section"><a href="#Swap-Opcodes">Swap Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-swapcd">swapcd</a></td><td class="printindex-index-section"><a href="#Swap-Opcodes">Swap Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-swapdd">swapdd</a></td><td class="printindex-index-section"><a href="#Swap-Opcodes">Swap Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-syllable">syllable</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Opcode-Index_opcode_letter-U">U</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-undefined">undefined</a></td><td class="printindex-index-section"><a href="#Miscellaneous-Opcodes">Miscellaneous Opcodes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-uppercase">uppercase</a></td><td class="printindex-index-section"><a href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Opcode-Index_opcode_letter-W">W</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-word">word</a></td><td class="printindex-index-section"><a href="#Translation-Opcodes">Translation Opcodes</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
 </table>
 <table class="opcode-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Opcode-Index_opcode_letter-A"><b>A</b></a>
  &nbsp; 
@@ -4790,57 +4789,57 @@ directory. Usage information is included in the Python module itself.
 <hr>
 </div>
 <div class="unnumbered-level-extent" id="Function-Index">
-<h2 class="unnumbered" id="Function-Index-1">Function Index</h2>
+<h2 class="unnumbered" id="Function-Index-1"><span>Function Index<a class="copiable-link" href="#Function-Index-1"> &para;</a></span></h2>
 <div class="printindex fn-printindex">
 <table class="fn-entries-printindex" border="0">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Function-Index_fn_letter-L">L</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fbackTranslate"><code>lou_backTranslate</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fbackTranslate">lou_backTranslate</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fbackTranslateString"><code>lou_backTranslateString</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fbackTranslateString">lou_backTranslateString</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fcharSize"><code>lou_charSize</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fcharSize">lou_charSize</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fcharToDots"><code>lou_charToDots</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fcharToDots">lou_charToDots</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fcheckTable"><code>lou_checkTable</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fcheckTable">lou_checkTable</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fcompileString"><code>lou_compileString</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fcompileString">lou_compileString</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fdotsToChar"><code>lou_dotsToChar</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fdotsToChar">lou_dotsToChar</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005ffindTable"><code>lou_findTable</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005ffindTable">lou_findTable</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005ffree"><code>lou_free</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005ffree">lou_free</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fgetDataPath"><code>lou_getDataPath</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fgetDataPath">lou_getDataPath</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fgetTable"><code>lou_getTable</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fgetTable">lou_getTable</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fgetTypeformForEmphClass"><code>lou_getTypeformForEmphClass</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fgetTypeformForEmphClass">lou_getTypeformForEmphClass</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fhyphenate"><code>lou_hyphenate</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fhyphenate">lou_hyphenate</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005findexTables"><code>lou_indexTables</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005findexTables">lou_indexTables</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005flogEnd"><code>lou_logEnd</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005flogEnd">lou_logEnd</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005flogFile"><code>lou_logFile</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005flogFile">lou_logFile</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005flogPrint"><code>lou_logPrint</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005flogPrint">lou_logPrint</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005freadCharFromFile"><code>lou_readCharFromFile</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005freadCharFromFile">lou_readCharFromFile</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fregisterLogCallback"><code>lou_registerLogCallback</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fregisterLogCallback">lou_registerLogCallback</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fsetDataPath"><code>lou_setDataPath</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fsetDataPath">lou_setDataPath</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fsetLogLevel"><code>lou_setLogLevel</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fsetLogLevel">lou_setLogLevel</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005ftranslate"><code>lou_translate</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005ftranslate">lou_translate</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005ftranslateString"><code>lou_translateString</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005ftranslateString">lou_translateString</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fversion"><code>lou_version</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fversion">lou_version</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Function-Index_fn_letter-L">L</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fbackTranslate"><code>lou_backTranslate</code></a></td><td class="printindex-index-section"><a href="#lou_005fbackTranslate">lou_backTranslate</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fbackTranslateString"><code>lou_backTranslateString</code></a></td><td class="printindex-index-section"><a href="#lou_005fbackTranslateString">lou_backTranslateString</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fcharSize"><code>lou_charSize</code></a></td><td class="printindex-index-section"><a href="#lou_005fcharSize">lou_charSize</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fcharToDots"><code>lou_charToDots</code></a></td><td class="printindex-index-section"><a href="#lou_005fcharToDots">lou_charToDots</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fcheckTable"><code>lou_checkTable</code></a></td><td class="printindex-index-section"><a href="#lou_005fcheckTable">lou_checkTable</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fcompileString"><code>lou_compileString</code></a></td><td class="printindex-index-section"><a href="#lou_005fcompileString">lou_compileString</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fdotsToChar"><code>lou_dotsToChar</code></a></td><td class="printindex-index-section"><a href="#lou_005fdotsToChar">lou_dotsToChar</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005ffindTable"><code>lou_findTable</code></a></td><td class="printindex-index-section"><a href="#lou_005ffindTable">lou_findTable</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005ffree"><code>lou_free</code></a></td><td class="printindex-index-section"><a href="#lou_005ffree">lou_free</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fgetDataPath"><code>lou_getDataPath</code></a></td><td class="printindex-index-section"><a href="#lou_005fgetDataPath">lou_getDataPath</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fgetTable"><code>lou_getTable</code></a></td><td class="printindex-index-section"><a href="#lou_005fgetTable">lou_getTable</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fgetTypeformForEmphClass"><code>lou_getTypeformForEmphClass</code></a></td><td class="printindex-index-section"><a href="#lou_005fgetTypeformForEmphClass">lou_getTypeformForEmphClass</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fhyphenate"><code>lou_hyphenate</code></a></td><td class="printindex-index-section"><a href="#lou_005fhyphenate">lou_hyphenate</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005findexTables"><code>lou_indexTables</code></a></td><td class="printindex-index-section"><a href="#lou_005findexTables">lou_indexTables</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005flogEnd"><code>lou_logEnd</code></a></td><td class="printindex-index-section"><a href="#lou_005flogEnd">lou_logEnd</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005flogFile"><code>lou_logFile</code></a></td><td class="printindex-index-section"><a href="#lou_005flogFile">lou_logFile</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005flogPrint"><code>lou_logPrint</code></a></td><td class="printindex-index-section"><a href="#lou_005flogPrint">lou_logPrint</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005freadCharFromFile"><code>lou_readCharFromFile</code></a></td><td class="printindex-index-section"><a href="#lou_005freadCharFromFile">lou_readCharFromFile</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fregisterLogCallback"><code>lou_registerLogCallback</code></a></td><td class="printindex-index-section"><a href="#lou_005fregisterLogCallback">lou_registerLogCallback</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fsetDataPath"><code>lou_setDataPath</code></a></td><td class="printindex-index-section"><a href="#lou_005fsetDataPath">lou_setDataPath</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fsetLogLevel"><code>lou_setLogLevel</code></a></td><td class="printindex-index-section"><a href="#lou_005fsetLogLevel">lou_setLogLevel</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005ftranslate"><code>lou_translate</code></a></td><td class="printindex-index-section"><a href="#lou_005ftranslate">lou_translate</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005ftranslateString"><code>lou_translateString</code></a></td><td class="printindex-index-section"><a href="#lou_005ftranslateString">lou_translateString</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fversion"><code>lou_version</code></a></td><td class="printindex-index-section"><a href="#lou_005fversion">lou_version</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
 </table>
 </div>
 
 <hr>
 </div>
 <div class="unnumbered-level-extent" id="Program-Index">
-<h2 class="unnumbered" id="Program-Index-1">Program Index</h2>
+<h2 class="unnumbered" id="Program-Index-1"><span>Program Index<a class="copiable-link" href="#Program-Index-1"> &para;</a></span></h2>
 <div class="printindex pg-printindex">
 <table class="pg-entries-printindex" border="0">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Program-Index_pg_letter-L">L</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fallround"><code>lou_allround</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fallround">lou_allround</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fcheckhyphens"><code>lou_checkhyphens</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fcheckhyphens">lou_checkhyphens</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fchecktable"><code>lou_checktable</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fchecktable">lou_checktable</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fcheckyaml"><code>lou_checkyaml</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fcheckyaml">lou_checkyaml</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fdebug"><code>lou_debug</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005fdebug">lou_debug</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005ftrace"><code>lou_trace</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005ftrace">lou_trace</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005ftranslate-1"><code>lou_translate</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#lou_005ftranslate-_0028program_0029">lou_translate (program)</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Program-Index_pg_letter-L">L</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fallround"><code>lou_allround</code></a></td><td class="printindex-index-section"><a href="#lou_005fallround">lou_allround</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fcheckhyphens"><code>lou_checkhyphens</code></a></td><td class="printindex-index-section"><a href="#lou_005fcheckhyphens">lou_checkhyphens</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fchecktable"><code>lou_checktable</code></a></td><td class="printindex-index-section"><a href="#lou_005fchecktable">lou_checktable</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fcheckyaml"><code>lou_checkyaml</code></a></td><td class="printindex-index-section"><a href="#lou_005fcheckyaml">lou_checkyaml</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005fdebug"><code>lou_debug</code></a></td><td class="printindex-index-section"><a href="#lou_005fdebug">lou_debug</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005ftrace"><code>lou_trace</code></a></td><td class="printindex-index-section"><a href="#lou_005ftrace">lou_trace</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lou_005ftranslate-1"><code>lou_translate</code></a></td><td class="printindex-index-section"><a href="#lou_005ftranslate-_0028program_0029">lou_translate (program)</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
 </table>
 </div>
 
