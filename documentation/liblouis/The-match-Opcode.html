@@ -1,0 +1,180 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="The-match-Opcode">
+<div class="nav-panel">
+<p>
+Next: <a href="Miscellaneous-Opcodes.html" accesskey="n" rel="next">Miscellaneous Opcodes</a>, Previous: <a href="The-correct-Opcode.html" accesskey="p" rel="prev">The correct Opcode</a>, Up: <a href="How-to-Write-Translation-Tables.html" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="The-match-Opcode-1"><span>2.14 The match Opcode<a class="copiable-link" href="#The-match-Opcode-1"> &para;</a></span></h3>
+
+<p>For historical reasons despite being fairly similar in functionality
+both the <code class="code">context</code> opcode (see <a class="pxref" href="The-Context-and-Multipass-Opcodes.html#context-opcode"><code class="code">context</code></a>) and the match opcode exist and are in use
+in modern braille tables. But in the future they might be merged under
+some common opcode. For that reason consider the match opcode
+<em class="emph">somewhat experimental</em>.
+</p>
+<dl class="table">
+<dd><a class="index-entry-id" id="index-match"></a>
+<a class="anchor" id="match-opcode"></a></dd>
+<dt><code class="code">match pre-pattern characters post-pattern dots</code></dt>
+<dd>
+<p>This opcode allows for matching a string of characters via <em class="emph">pre</em>
+and <em class="emph">post patterns</em>. The patterns are specified using an
+expression syntax somewhat like regular expressions (see <a class="pxref" href="#pattern-expression-syntax">pattern expression syntax</a>). A single hyphen (&lsquo;<samp class="samp">-</samp>&rsquo;) by itself means no
+pattern is specified.
+</p>
+<p>The following will replace &lsquo;<samp class="samp">xyz</samp>&rsquo; with the dots
+&lsquo;<samp class="samp">1346-13456-1356</samp>&rsquo; when it appears in the string &lsquo;<samp class="samp">abxyzcd</samp>&rsquo;.
+</p>
+<div class="example">
+<pre class="example-preformatted">match ab xyz cd 1346-13456-1356
+</pre></div>
+
+<p>The following will replace &lsquo;<samp class="samp">ONE</samp>&rsquo; with &lsquo;<samp class="samp">3456-1</samp>&rsquo; when it
+starts the input and is followed by &lsquo;<samp class="samp">:</samp>&rsquo;
+</p>
+<div class="example">
+<pre class="example-preformatted">match ^ ONE : 3456-1
+</pre></div>
+</dd>
+</dl>
+
+<a class="anchor" id="pattern-expression-syntax"></a><p>The <code class="code">pre-pattern</code> and the <code class="code">post-pattern</code> can contain
+any of the following expressions:
+</p>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">[ ]</samp>&rsquo;</dt>
+<dd><p>Expression can be any of the characters between the brackets. If only
+one character present then the brackets are not needed unless it is a
+special character, in which it should be escaped with the backslash.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">.</samp>&rsquo;</dt>
+<dd><p>Expression can be any character.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">%[ ]</samp>&rsquo;</dt>
+<dd><p>Expression is a character with the attributes listed between the
+brackets. If only one character is present then the brackets are not
+needed. The set of attributes are specified as follows:
+</p>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">_</samp>&rsquo;</dt>
+<dd><p>space
+</p></dd>
+<dt>&lsquo;<samp class="samp">#</samp>&rsquo;</dt>
+<dd><p>digit
+</p></dd>
+<dt>&lsquo;<samp class="samp">a</samp>&rsquo;</dt>
+<dd><p>letter
+</p></dd>
+<dt>&lsquo;<samp class="samp">u</samp>&rsquo;</dt>
+<dd><p>uppercase
+</p></dd>
+<dt>&lsquo;<samp class="samp">l</samp>&rsquo;</dt>
+<dd><p>lowercase
+</p></dd>
+<dt>&lsquo;<samp class="samp">.</samp>&rsquo;</dt>
+<dd><p>punctuation
+</p></dd>
+<dt>&lsquo;<samp class="samp">$</samp>&rsquo;</dt>
+<dd><p>sign
+</p></dd>
+<dt>&lsquo;<samp class="samp">~</samp>&rsquo;</dt>
+<dd><p>seqdelimiter
+</p></dd>
+<dt>&lsquo;<samp class="samp">&lt;</samp>&rsquo;</dt>
+<dd><p>seqbeforechars
+</p></dd>
+<dt>&lsquo;<samp class="samp">&gt;</samp>&rsquo;</dt>
+<dd><p>seqafterchars
+</p> 
+</dd>
+</dl>
+
+</dd>
+<dt>&lsquo;<samp class="samp">^</samp>&rsquo;</dt>
+<dd><p>Match at the end of input processing (or beginning depending of the
+direction pre or post).
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">$</samp>&rsquo;</dt>
+<dd><p>Same as &lsquo;<samp class="samp">^</samp>&rsquo;.
+</p></dd>
+</dl>
+
+<p>For example the following will replace &lsquo;<samp class="samp">bb</samp>&rsquo; with the dots &lsquo;<samp class="samp">23</samp>&rsquo; when it
+is between letters.
+</p>
+<div class="example">
+<pre class="example-preformatted">match %a bb %a 23
+</pre></div>
+
+<p>The following will replace &lsquo;<samp class="samp">con</samp>&rsquo; with the dots &lsquo;<samp class="samp">25</samp>&rsquo; when it
+is preceded by a space or beginning of input, and followed by an
+&lsquo;<samp class="samp">s</samp>&rsquo; and then any letter.
+</p>
+<div class="example">
+<pre class="example-preformatted">match %[^_] con s%a 25
+</pre></div>
+
+<p>Similar to regular expressions the pattern expressions can contain
+grouping, quantifiers and even negation:
+</p>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">( )</samp>&rsquo;</dt>
+<dd><p>Expressions between parentheses are grouped together as one
+expression.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">!</samp>&rsquo;</dt>
+<dd><p>The following expression is negated.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">?</samp>&rsquo;</dt>
+<dd><p>The previous expression must match zero or one times.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">*</samp>&rsquo;</dt>
+<dd><p>The previous expression must match zero or more times.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">+</samp>&rsquo;</dt>
+<dd><p>The previous expression must match one or more times.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">|</samp>&rsquo;</dt>
+<dd><p>Either the previous or the following expressions must match.
+</p></dd>
+</dl>
+
+<p>For example the following will replace &lsquo;<samp class="samp">ing</samp>&rsquo; with the dots
+&lsquo;<samp class="samp">346</samp>&rsquo; when it is <em class="emph">not</em> preceded by a space or beginning of
+input. What follows after the &lsquo;<samp class="samp">ing</samp>&rsquo; does not matter, hence the
+&lsquo;<samp class="samp">-</samp>&rsquo;.
+</p>
+<div class="example">
+<pre class="example-preformatted">match !%[^_] ing - 346
+</pre></div>
+
+<p>The following will replace &lsquo;<samp class="samp">con</samp>&rsquo; with the dots &lsquo;<samp class="samp">25</samp>&rsquo; when it
+is preceded by a space, or beginning of input; then followed by a
+&lsquo;<samp class="samp">c</samp>&rsquo; that is followed by any character but &lsquo;<samp class="samp">h</samp>&rsquo;.
+</p>
+<div class="example">
+<pre class="example-preformatted">match %[^_] con c!h 25
+</pre></div>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Miscellaneous-Opcodes.html">Miscellaneous Opcodes</a>, Previous: <a href="The-correct-Opcode.html">The correct Opcode</a>, Up: <a href="How-to-Write-Translation-Tables.html">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

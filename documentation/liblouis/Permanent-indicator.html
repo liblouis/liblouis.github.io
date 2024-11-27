@@ -1,0 +1,85 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="subsubsection-level-extent" id="Permanent-indicator">
+<div class="nav-panel">
+<p>
+Next: <a href="Letter-indicator.html" accesskey="n" rel="next">Letter indicator</a>, Up: <a href="Emphasis-indicators.html" accesskey="u" rel="up">Emphasis indicators</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsubsection" id="Permanent-indicator-1"><span>2.6.2.1 Permanent indicator<a class="copiable-link" href="#Permanent-indicator-1"> &para;</a></span></h4>
+
+<p>Many languages simply have an indicator for the beginning of emphasis
+and another one for the end of the emphasis. The emphasis is
+&ldquo;permanent&rdquo; in the sense that it needs an end indicator to cancel
+it. It is not implicitly canceled by any character or space.
+</p>
+<p>Characters that are defined as <em class="emph">not emphasizable</em> in braille
+(see <a class="pxref" href="#noemphchars-opcode"><code class="code">noemphchars</code></a>) are not indicated as such by Liblouis. This
+means that if an emphasized phrase begins or ends with such
+characters, they will not be within the part enclosed by the two
+indicators. Also, if multiple emphasized parts are separated by
+unemphasizable characters only, it will be indicated as if it was a
+single emphasized phrase, with one start indicator and one end
+indicator.
+</p>
+<p>A table can not specify both a permanent indicator and a word
+indicator (see <a class="pxref" href="Word-indicator.html">Word indicator</a>) for a certain emphasis class.
+</p>
+<dl class="table">
+<dd><a class="index-entry-id" id="index-begemph"></a>
+<a class="anchor" id="begemph-opcode"></a></dd>
+<dt><code class="code">begemph &lt;emphasis class&gt; &lt;dot pattern&gt;</code></dt>
+<dd><p>Braille dot pattern to indicate the beginning of emphasis.
+</p>
+<div class="example">
+<pre class="example-preformatted">begemph italic 46
+</pre></div>
+
+<p>A <code class="code">begemph</code> rule must always be combined with a <code class="code">endemph</code>
+rule.
+</p>
+<a class="index-entry-id" id="index-endemph"></a>
+<a class="anchor" id="endemph-opcode"></a></dd>
+<dt><code class="code">endemph &lt;emphasis class&gt; &lt;dot pattern&gt;</code></dt>
+<dd><p>Braille dot pattern to indicate the end of emphasis.
+</p>
+<div class="example">
+<pre class="example-preformatted">endemph italic 46-36
+</pre></div>
+
+</dd>
+</dl>
+
+<dl class="table">
+<dd><a class="index-entry-id" id="index-noemphchars"></a>
+<a class="anchor" id="noemphchars-opcode"></a></dd>
+<dt><code class="code">noemphchars &lt;emphasis class&gt; characters</code></dt>
+<dd>
+<p>Normally, emphasis is indicated on all characters except spaces
+(characters with a <code class="code">space</code> attribute, see <a class="pxref" href="Character_002dDefinition-Opcodes.html#space-opcode"><code class="code">space</code></a>). You can
+change this with the <code class="code">noemphchars</code> opcode. When this opcode is
+specified, emphasis is indicated on all characters except the ones in
+the list. That means that emphasis is also indicated on spaces unless
+the list contains space characters (escaped, e.g. <code class="code">\s</code>).
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example-preformatted">noemphchars italic \s'()
+</pre></div>
+
+</dd>
+</dl>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Letter-indicator.html">Letter indicator</a>, Up: <a href="Emphasis-indicators.html">Emphasis indicators</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

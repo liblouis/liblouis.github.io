@@ -1,0 +1,77 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="lou_005ftrace">
+<div class="nav-panel">
+<p>
+Next: <a href="lou_005fchecktable.html" accesskey="n" rel="next">lou_checktable</a>, Previous: <a href="lou_005fdebug.html" accesskey="p" rel="prev">lou_debug</a>, Up: <a href="Testing-Translation-Tables-interactively.html" accesskey="u" rel="up">Testing Translation Tables interactively</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="lou_005ftrace-1"><span>5.2 lou_trace<a class="copiable-link" href="#lou_005ftrace-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-lou_005ftrace"></a>
+
+<p>When working on translation tables it is sometimes useful to determine
+what rules were applied when translating a string. <code class="command">lou_trace</code>
+helps with exactly that. It list all the the applied rules for a given
+translation table and an input string.
+</p>
+<div class="example">
+<pre class="example-preformatted">lou_trace [OPTIONS] TABLE[,TABLE,...]
+</pre></div>
+
+<p>Aside from the standard options (see <a class="pxref" href="Testing-Translation-Tables-interactively.html#common-options">common options</a>)
+<code class="command">lou_trace</code> also accepts the following options:
+</p>
+<dl class="table">
+<dt><samp class="option">--forward</samp></dt>
+<dt><samp class="option">-f</samp></dt>
+<dd><p>Trace a forward translation.
+</p>
+</dd>
+<dt><samp class="option">--backward</samp></dt>
+<dt><samp class="option">-b</samp></dt>
+<dd><p>Trace a backward translation.
+</p>
+</dd>
+</dl>
+
+<p>If no options are given forward translation is assumed.
+</p>
+<p>Once started you can type an input string followed by <kbd class="kbd"><kbd class="key">RET</kbd></kbd>.
+<code class="command">lou_trace</code> will print the braille translation followed by
+list of rules that were applied to produce the translation. A possible
+invocation is listed in the following example:
+</p>
+<div class="example">
+<pre class="example-preformatted">$ lou_trace tables/en-us-g2.ctb 
+the u.s. postal service
+! u4s4 po/al s}vice
+1.      largesign       the     2346
+2.      repeated                0
+3.      lowercase       u       136
+4.      punctuation     .       46
+5.      context _$l[&quot;.&quot;]$l      @256
+6.      lowercase       s       234
+7.      postpunc        .       256
+8.      repeated                0
+9.      begword post    1234-135-34
+10.     largesign       a       1
+11.     lowercase       l       123
+12.     repeated                0
+13.     lowercase       s       234
+14.     always  er      12456
+15.     lowercase       v       1236
+16.     lowercase       i       24
+17.     lowercase       c       14
+18.     lowercase       e       15
+19.     pass2   $s1-10  @0
+20.     pass2   $s1-10  @0
+21.     pass2   $s1-10  @0
+</pre></div>
+
+</div>
+
+
+
+</body>
+</html>

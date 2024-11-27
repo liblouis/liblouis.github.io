@@ -1,0 +1,57 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="chapter-level-extent" id="Testing-Translation-Tables-interactively">
+<div class="nav-panel">
+<p>
+Next: <a href="Automated-Testing-of-Translation-Tables.html" accesskey="n" rel="next">Automated Testing of Translation Tables</a>, Previous: <a href="Table-Metadata.html" accesskey="p" rel="prev">Table Metadata</a>, Up: <a href="index.html" accesskey="u" rel="up">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h2 class="chapter" id="Testing-Translation-Tables-interactively-1"><span>5 Testing Translation Tables interactively<a class="copiable-link" href="#Testing-Translation-Tables-interactively-1"> &para;</a></span></h2>
+
+<p>A number of test programs are provided as part of the liblouis
+package. They are intended for testing liblouis and for debugging
+tables. None of them is suitable for braille transcription. An
+application that can be used for transcription is <code class="command">file2brl</code>,
+which is part of the liblouisutdml package (see <a data-manual="liblouisutdml" href="../liblouisutdml_html/index.html#Top">Introduction</a> in <cite class="cite">Liblouisutdml User&rsquo;s and Programmer&rsquo;s Manual</cite>). The source
+code of the test programs can be studied to learn how to use the
+liblouis library and they can be used to perform the following
+functions.
+</p>
+<a class="anchor" id="common-options"></a><p>All of these programs recognize the <samp class="option">--help</samp> and
+<samp class="option">--version</samp> options.
+</p>
+<dl class="table">
+<dt><samp class="option">--help</samp></dt>
+<dt><samp class="option">-h</samp></dt>
+<dd><p>Print a usage message listing all available options, then exit
+successfully.
+</p>
+</dd>
+<dt><samp class="option">--version</samp></dt>
+<dt><samp class="option">-v</samp></dt>
+<dd><p>Print the version number, then exit successfully.
+</p>
+</dd>
+</dl>
+
+<p>Most test programs let you specify one or multiple tables to use.
+These tables are usually found in standard locations in the file
+system or local to where the command is executed. See <a class="xref" href="How-tables-are-found.html">How tables are found</a>, for a description on how the tables are located.
+</p>
+
+<ul class="mini-toc">
+<li><a href="lou_005fdebug.html" accesskey="1">lou_debug</a></li>
+<li><a href="lou_005ftrace.html" accesskey="2">lou_trace</a></li>
+<li><a href="lou_005fchecktable.html" accesskey="3">lou_checktable</a></li>
+<li><a href="lou_005fallround.html" accesskey="4">lou_allround</a></li>
+<li><a href="lou_005ftranslate-_0028program_0029.html" accesskey="5">lou_translate</a></li>
+<li><a href="lou_005fcheckhyphens.html" accesskey="6">lou_checkhyphens</a></li>
+<li><a href="lou_005fcheckyaml.html" accesskey="7">lou_checkyaml</a></li>
+</ul>
+</div>
+
+
+
+</body>
+</html>

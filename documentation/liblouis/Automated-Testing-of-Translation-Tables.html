@@ -1,0 +1,491 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="chapter-level-extent" id="Automated-Testing-of-Translation-Tables">
+<div class="nav-panel">
+<p>
+Next: <a href="Programming-with-liblouis.html" accesskey="n" rel="next">Programming with liblouis</a>, Previous: <a href="Testing-Translation-Tables-interactively.html" accesskey="p" rel="prev">Testing Translation Tables interactively</a>, Up: <a href="index.html" accesskey="u" rel="up">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h2 class="chapter" id="Automated-Testing-of-Translation-Tables-1"><span>6 Automated Testing of Translation Tables<a class="copiable-link" href="#Automated-Testing-of-Translation-Tables-1"> &para;</a></span></h2>
+
+<p>There are a number of automated tests for liblouis and they are
+proving to be of tremendous value. When changing the code the
+developers can run the tests to see if anything broke.
+</p>
+<p>The easiest way to test the translation tables is to write a YAML file
+where you define the table that is to be tested and any number of
+words or phrases to translate together with their respective expected
+translation.
+</p>
+<p>The YAML tests are data driven, i.e. you give the test data, a string
+to translate and the expected output. The data is in a standard format
+namely YAML. If you have <samp class="file">libyaml</samp> installed they will
+automatically be invoked as part of the standard <code class="command">make check</code>
+command.
+</p>
+<a class="anchor" id="YAML-Tests"></a><ul class="mini-toc">
+<li><a href="#YAML-Tests-1" accesskey="1">YAML Tests</a></li>
+</ul>
+<div class="section-level-extent" id="YAML-Tests-1">
+<h3 class="section"><span>6.1 YAML Tests<a class="copiable-link" href="#YAML-Tests-1"> &para;</a></span></h3>
+<p><a class="url" href="http://yaml.org/">YAML</a> is a human readable data serialization
+format that allows for an easy and compact way to define tests.
+</p>
+<p>A YAML file first defines which tables are to be used for the tests.
+Then it optionally defines flags such as the &lsquo;<samp class="samp">testmode</samp>&rsquo;. Finally
+all the tests are defined.
+</p>
+<p>You can repeat the cycle as many times as you like (tables, optional
+flags, tests). You can also define several rounds of tests for any
+table, with or without the optional flags. Just remember that the
+flags are reset to their default values each time you start a new
+round of tests or load a new set of tables.
+</p>
+<p>Let&rsquo;s just look at a simple example how tests could be defined:
+</p>
+
+<div class="example">
+<pre class="example-preformatted"># comments start with '#' anywhere on a line
+# first define which tables will be used for your tests
+table: [unicode.dis, en-ueb-g1.ctb]
+
+# then optionally define flags such as testmode. If no flags are
+# defined forward translation is assumed
+
+# now define the tests
+tests:
+  - # each test is a list.
+    # The first item is the string to translate. Quoting of strings is
+    # optional
+    - hello
+    # The second item is the expected translation
+    - ⠓⠑⠇⠇⠕
+  - # optionally you can define additional parameters in a third
+    # item such as typeform or expected failure, etc
+    - Hello
+    - ⠨⠶⠠⠓⠑⠇⠇⠕⠨⠄
+    - {typeform: {italic: '++++ '}, xfail: true}
+  - # a simple, no-frills test
+    - Good bye
+    - ⠠⠛⠕⠕⠙ ⠃⠽⠑
+  # same as above using &quot;flow style&quot; notation
+  - [Good bye,  ⠠⠛⠕⠕⠙ ⠃⠽⠑]
+</pre></div>
+
+<p>The four basic components of a test file are as follows:
+</p>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">table</samp>&rsquo;</dt>
+<dd><p>A list containing table files, which the tests should be run against.
+This is usually just one file, but for some situations more than one
+file can be required. For example:
+</p>
+<div class="example">
+<pre class="example-preformatted">table: [hu-hu-g1.ctb, hyph_hu_HU.dic]
+</pre></div>
+
+<p>It is also possible to specify a table inline. <a class="ref" href="#Inline-definition-of-tables">Inline definition of tables</a> below explains how to do this.
+</p>
+<p>A third way to specify a table is by its metadata. A table query,
+which is essentially as list of &ldquo;features&rdquo;, is matched against the
+<a class="ref" href="Table-Metadata.html">table metadata</a> defined inside the tables
+contained in <code class="env">LOUIS_TABLEPATH</code>. Only the best match is used for
+the test.
+</p>
+<p>The syntax of the query is a variation of the <a class="ref" href="Table-Metadata.html#Query-Syntax">syntax</a> used for the <a class="ref" href="lou_005ffindTable.html"><code class="code">lou_findTable</code></a>
+function:
+</p>
+<div class="example">
+<pre class="example-preformatted">table:
+  locale: fr
+  grade: 1
+</pre></div>
+
+</dd>
+<dt>&lsquo;<samp class="samp">display</samp>&rsquo;</dt>
+<dd><p>A display table, which should be used to encode braille in the
+test. This item is optional. It is only taken into account for the
+&lsquo;<samp class="samp">forward</samp>&rsquo;, &lsquo;<samp class="samp">backward</samp>&rsquo; and &lsquo;<samp class="samp">bothDirections</samp>&rsquo; test
+modes. If it is present it should be the first item of the file. If it
+is not present, the braille encoding of each test is determined by the
+table that is being tested.
+</p>
+<p>The next example shows how to test the <samp class="file">en-ueb-g1.ctb</samp> table
+using ASCII notation (as defined in <samp class="file">en-ueb-g1.ctb</samp> itself):
+</p>
+<div class="example">
+<pre class="example-preformatted">table: [en-ueb-g1.ctb]
+</pre></div>
+
+<p>If you wanted to test the <samp class="file">en-ueb-g1.ctb</samp> table using Unicode dot
+patterns then you would use the following definition:
+</p>
+<div class="example">
+<pre class="example-preformatted">display: unicode.dis
+table: [en-ueb-g1.ctb]
+</pre></div>
+
+</dd>
+<dt>&lsquo;<samp class="samp">flags</samp>&rsquo;</dt>
+<dd><p>The flags that apply for all tests in this file. At the moment only
+the &lsquo;<samp class="samp">testmode</samp>&rsquo; flag is supported. It can have four possible
+values:
+</p>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">forward</samp>&rsquo;</dt>
+<dd><p>This indicates that the tests are for forward translation.
+</p></dd>
+<dt>&lsquo;<samp class="samp">backward</samp>&rsquo;</dt>
+<dd><p>This indicates that the tests are for backward translation.
+</p></dd>
+<dt>&lsquo;<samp class="samp">bothDirections</samp>&rsquo;</dt>
+<dd><p>Checks that forward translating the input yields the expected output,
+and backward translating the output yields the input again.
+</p></dd>
+<dt>&lsquo;<samp class="samp">display</samp>&rsquo;</dt>
+<dd><p>Checks that a display table maps characters to the expected dot
+patterns. The input is a string of characters, the output are the
+corresponding dot patterns, as a string of Unicode braille
+symbols. Virtual dots in the output are ignored.
+</p></dd>
+<dt>&lsquo;<samp class="samp">hyphenate</samp>&rsquo;</dt>
+<dd><p>This indicates that the tests are for hyphenation.
+</p></dd>
+<dt>&lsquo;<samp class="samp">hyphenateBraille</samp>&rsquo;</dt>
+<dd><p>This indicates that the tests are for hyphenation and the input is
+braille.
+</p></dd>
+</dl>
+
+<p>If no flags are defined forward translation is assumed.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">tests</samp>&rsquo;</dt>
+<dd><p>A list of tests. Each test consists of a list of two, three or in some
+cases four items. The first item is the test input. The second item is
+the expected output. Braille input and output can be either Unicode
+braille or an ASCII-braille like encoding, depending on the specified
+test mode, translation mode and display table. Quoting strings is
+optional. Comments can be inserted almost anywhere using the &lsquo;<samp class="samp">#</samp>&rsquo;
+sign. A simple test would look at follows:
+</p>
+<div class="example">
+<pre class="example-preformatted">  - # a simple, no-frills test
+    - Good bye
+    - ⠠⠛⠕⠕⠙ ⠃⠽⠑
+</pre></div>
+
+<p>Using the more compact &ldquo;flow style&rdquo; notation it would look like the
+following:
+</p>
+<div class="example">
+<pre class="example-preformatted">  - [Good bye, ⠠⠛⠕⠕⠙ ⠃⠽⠑]
+</pre></div>
+
+<p>An optional third item can contain additional options for a test such
+as the typeform, or whether a test is expected to fail. The following
+shows a typical example:
+</p>
+<div class="example">
+<pre class="example-preformatted">  -
+    - Hello
+    - ⠨⠶⠠⠓⠑⠇⠇⠕⠨⠄
+    - {typeform: {italic: '++++ '}, xfail: true}
+  # same test more compact
+  - [Hello, ⠨⠶⠠⠓⠑⠇⠇⠕⠨⠄, {typeform: {italic: '++++ '}, xfail: true}]
+  # same test but is only expected to fail for backtranslation
+  - [Hello, ⠨⠶⠠⠓⠑⠇⠇⠕⠨⠄, {typeform: {italic: '++++ '}, xfail: {backward: true}}]
+
+</pre></div>
+
+<p>The valid additional options for a test are as follows:
+</p>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">xfail</samp>&rsquo;</dt>
+<dd><p>Sometimes it is known that a test is failing. Maybe the table under
+test doesn&rsquo;t handle that word correctly yet, or maybe backtranslation
+has not been implemented. &lsquo;<samp class="samp">xfail</samp>&rsquo; is designed to mark tests as
+expected failures. There are three ways to mark a test as failing:
+</p>
+<ol class="enumerate">
+<li> Simply Mark a test as expected failure by setting &lsquo;<samp class="samp">xfail</samp>&rsquo; to
+&lsquo;<samp class="samp">true</samp>&rsquo;.
+<div class="example">
+<pre class="example-preformatted">  - [Hello, ⠨, {xfail: true}]
+</pre></div>
+
+</li><li> Mark a test as expected failure and give a reason for the failure.
+<div class="example">
+<pre class="example-preformatted">  - [Hello, ⠨, {xfail: Test case is not complete}]
+</pre></div>
+
+</li><li> Mark a test as expected failure just for backward or forward
+translation using the notation &lsquo;<samp class="samp">{xfail: {forward: true}}</samp>&rsquo; or
+&lsquo;<samp class="samp">{xfail: {backward: true}}</samp>&rsquo;. If you expect both to fail use
+&lsquo;<samp class="samp">{xfail: {forward: true, backward: true}}</samp>&rsquo;.
+
+<p>To mark just the backward translation of a test as expected failure
+use the following:
+</p><div class="example">
+<pre class="example-preformatted">  - [Hello, ⠨, {xfail: {backward: true}}]
+</pre></div>
+
+<p>Again a reason for the expected failure can be given.
+</p><div class="example">
+<pre class="example-preformatted">  - [Hello, ⠨, {xfail: {backward: Not implemented}}]
+</pre></div>
+
+<p>If you expect both forward and backward translation to fail set both
+&lsquo;<samp class="samp">forward</samp>&rsquo; and &lsquo;<samp class="samp">backward</samp>&rsquo; to &lsquo;<samp class="samp">true</samp>&rsquo; (or give a reason).
+</p>
+<div class="example">
+<pre class="example-preformatted">  - [Hello, ⠨, {xfail: {forward: true, backward: true}}]
+  # above is equivalent to
+  - [Hello, ⠨, {xfail: true}]
+</pre></div>
+</li></ol>
+
+</dd>
+<dt>&lsquo;<samp class="samp">typeform</samp>&rsquo;</dt>
+<dd><p>The typeform used for a translation. It consists of one or more
+emphasis specifications. For each character in the specifications that
+is not a space the corresponding emphasis will be set. Valid options
+for emphasis are &lsquo;<samp class="samp">italic</samp>&rsquo;, &lsquo;<samp class="samp">underline</samp>&rsquo;, &lsquo;<samp class="samp">bold</samp>&rsquo;,
+&lsquo;<samp class="samp">computer_braille</samp>&rsquo;, &lsquo;<samp class="samp">passage_break</samp>&rsquo;, &lsquo;<samp class="samp">word_reset</samp>&rsquo;,
+&lsquo;<samp class="samp">script</samp>&rsquo;, &lsquo;<samp class="samp">trans_note</samp>&rsquo;, &lsquo;<samp class="samp">trans_note_1</samp>&rsquo;,
+&lsquo;<samp class="samp">trans_note_2</samp>&rsquo;, &lsquo;<samp class="samp">trans_note_3</samp>&rsquo;, &lsquo;<samp class="samp">trans_note_4</samp>&rsquo; or
+&lsquo;<samp class="samp">trans_note_5</samp>&rsquo;. The following shows an example where both
+&lsquo;<samp class="samp">italic</samp>&rsquo; and &lsquo;<samp class="samp">underline</samp>&rsquo; are specified:
+</p>
+<div class="example">
+<pre class="example-preformatted">  -
+    - Hello
+    - ⠨⠶⠠⠓⠑⠇⠇⠕⠨⠄
+    - typeform:
+        italic:    '++++ '
+        underline: '    +'
+</pre></div>
+
+</dd>
+<dt>&lsquo;<samp class="samp">inputPos</samp>&rsquo;</dt>
+<dd><p>A list of 0-based input positions, one for each output position.
+Useful when simulating screen reader interaction, to debug contraction
+and cursor behavior as in the following example. Note that all
+positions in this and the following examples start at 0. Also note
+that in these examples the additional options are not passed using the
+&ldquo;flow style&rdquo; notation.
+</p>
+<div class="example">
+<pre class="example-preformatted">  -
+    - went
+    - ⠺⠢⠞
+    - inputPos: [0,1,3]
+</pre></div>
+
+</dd>
+<dt>&lsquo;<samp class="samp">outputPos</samp>&rsquo;</dt>
+<dd><p>A list of 0-based output positions, one for each input position. Useful when
+simulating screen reader interaction, to debug contraction and cursor
+behavior as in the following example.
+</p>
+<div class="example">
+<pre class="example-preformatted">  -
+    - went
+    - ⠺⠢⠞
+    - outputPos: [0,1,1,2]
+</pre></div>
+
+</dd>
+<dt>&lsquo;<samp class="samp">cursorPos</samp>&rsquo;</dt>
+<dd><p>The cursor position for the given translation and optionally an
+expected cursor position where the cursor is supposed to be after the
+translation. Useful when simulating screen reader interaction, to
+debug contraction and cursor behavior:
+</p>
+<p>The cursor position can take two forms: You can either specify a
+single number or alternatively you can give a tuple of two numbers.
+</p>
+<dl class="table">
+<dt>single number (e.g. &lsquo;<samp class="samp">4</samp>&rsquo;)</dt>
+<dd><p>When you simply want to specify the cursor position for the given
+translation you pass a number as in the following example:
+</p>
+<div class="example">
+<pre class="example-preformatted">  -
+    - you went to
+    - ⠽ ⠺⠑⠝⠞ ⠞⠕
+    - mode: [compbrlAtCursor]
+      cursorPos: 4
+</pre></div>
+
+</dd>
+<dt>a tuple (e.g. &lsquo;<samp class="samp">[4,2]</samp>&rsquo;)</dt>
+<dd><p>When you expect the cursor to be in a particular position after the
+translation and you want to check this then pass a tuple of cursor
+positions as in the following example:
+</p>
+<div class="example">
+<pre class="example-preformatted">  -
+    - you went to
+    - ⠽ ⠺⠑⠝⠞ ⠞⠕
+    - mode: [compbrlAtCursor]
+      cursorPos: [4,2]
+</pre></div>
+</dd>
+</dl>
+
+</dd>
+<dt>&lsquo;<samp class="samp">mode</samp>&rsquo;</dt>
+<dd><p>A list of translation modes that should be used for this test. If not
+defined defaults to 0. Valid mode values are &lsquo;<samp class="samp">noContractions</samp>&rsquo;,
+&lsquo;<samp class="samp">compbrlAtCursor</samp>&rsquo;, &lsquo;<samp class="samp">dotsIO</samp>&rsquo;, &lsquo;<samp class="samp">compbrlLeftCursor</samp>&rsquo;,
+&lsquo;<samp class="samp">ucBrl</samp>&rsquo;, &lsquo;<samp class="samp">noUndefined</samp>&rsquo; or &lsquo;<samp class="samp">partialTrans</samp>&rsquo;.
+</p>
+<p>For a description of the various translation mode flags, please see
+the function <a class="ref" href="lou_005ftranslateString.html">lou_translateString</a>.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">maxOutputLength</samp>&rsquo;</dt>
+<dd><p>Define a maximum length of the output. This can be used to test the
+behavior of liblouis in the face of a limited output buffer, for
+example the length of the refreshable braille display.
+</p>
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+<ul class="mini-toc">
+<li><a href="#Optional-test-description" accesskey="1">Optional test description</a></li>
+<li><a href="#Testing-multiple-tables-within-the-same-YAML-test-file" accesskey="2">Testing multiple tables within the same YAML test file</a></li>
+<li><a href="#Multiple-test-sections-for-each-table" accesskey="3">Multiple test sections for each table</a></li>
+<li><a href="#Inline-definition-of-tables-1" accesskey="4">Inline definition of tables</a></li>
+<li><a href="#Running-the-same-test-data-on-multiple-tables" accesskey="5">Running the same test data on multiple tables</a></li>
+</ul>
+<div class="subsection-level-extent" id="Optional-test-description">
+<h4 class="subsection"><span>6.1.1 Optional test description<a class="copiable-link" href="#Optional-test-description"> &para;</a></span></h4>
+<p>When a test contains three or four items the first item is assumed to
+be a test description, the second item is the unicode text to be
+tested and the third item is the expected braille output. Again an
+optional fourth item can contain additional options for the test. The
+following shows an example:
+</p>
+<div class="example">
+<pre class="example-preformatted">  -
+    - Number-text-transitions with italic
+    - 123abc
+    - ⠼⠁⠃⠉⠨⠶⠰⠁⠃⠉⠨⠄
+    - {typeform: '000111'}
+</pre></div>
+
+<p>In case the test fails the description will be printed together with
+the expected and the actual braille output.
+</p>
+<p>For more examples and inspiration please see the YAML tests
+(<samp class="file">*.yaml</samp>) in the <samp class="file">tests</samp> directory of the source
+distribution.
+</p>
+</div>
+<div class="subsection-level-extent" id="Testing-multiple-tables-within-the-same-YAML-test-file">
+<h4 class="subsection"><span>6.1.2 Testing multiple tables within the same YAML test file<a class="copiable-link" href="#Testing-multiple-tables-within-the-same-YAML-test-file"> &para;</a></span></h4>
+<p>Sometimes you are more focused on testing a particular feature across
+several tables rather than just testing one table. For that reason the
+following is also allowed:
+</p>
+<div class="example">
+<pre class="example-preformatted">table: ...
+tests:
+  - [..., ...]
+  - [..., ...]
+table: ...
+tests:
+  - [..., ...]
+  - [..., ...]
+</pre></div>
+
+<p>If you specify flags for the tests, remember that the flags are reset
+to their default values when you specify a new table.
+</p>
+</div>
+<div class="subsection-level-extent" id="Multiple-test-sections-for-each-table">
+<h4 class="subsection"><span>6.1.3 Multiple test sections for each table<a class="copiable-link" href="#Multiple-test-sections-for-each-table"> &para;</a></span></h4>
+<p>You can specify several sections of tests for each table, with or
+without the optional flags. This is useful e.g. if you want to have
+various tests for both forward and backward translation for the same
+set of tables, especially if you are defining the table as part of
+the yaml file (see next section). This feature is also useful if you
+simply want to divide your tests into multiple sections for better
+overview. All flags are reset to their default values when you start
+a new test section.
+</p>
+<p>Thus, a yaml file might look as follows:
+</p>
+<div class="example">
+<pre class="example-preformatted">table: ...
+tests:
+  - [..., ...]
+  - [..., ...]
+
+# Some more tests
+  tests:
+  - [..., ...]
+  - [..., ...]
+
+# Some tests for back-translation - same table
+flags: {testmode: backward}
+  - [..., ...]
+  - [..., ...]
+</pre></div>
+
+<a class="anchor" id="Inline-definition-of-tables"></a></div>
+<div class="subsection-level-extent" id="Inline-definition-of-tables-1">
+<h4 class="subsection"><span>6.1.4 Inline definition of tables<a class="copiable-link" href="#Inline-definition-of-tables-1"> &para;</a></span></h4>
+<p>When testing very specific opcode combinations it is sometimes tedious
+to create specific test tables just for that. Hence the YAML tests
+allow for specification of table definitions inline. Instead of
+referring to a table by name you just define the table inline by using
+what the YAML spec calls a
+<a class="url" href="http://www.yaml.org/spec/1.2/spec.html#id2795688">Literal Style
+Block</a>. Start the definition with a &lsquo;<samp class="samp">|</samp>&rsquo;, then list the opcodes
+with an indentation. The inline table ends when the indentation ends.
+</p>
+<div class="example">
+<pre class="example-preformatted">table: |
+  sign a 1
+  ...
+tests:
+  - ...
+  - ...
+</pre></div>
+
+</div>
+<div class="subsection-level-extent" id="Running-the-same-test-data-on-multiple-tables">
+<h4 class="subsection"><span>6.1.5 Running the same test data on multiple tables<a class="copiable-link" href="#Running-the-same-test-data-on-multiple-tables"> &para;</a></span></h4>
+<p>Sometimes you maintain multiple tables which are very similar and
+basically contain the same test data. Instead of copying the YAML test
+and changing the table name you can also define multiple tables. This
+will cause the YAML tests to be checked against both tables.
+</p>
+<div class="example">
+<pre class="example-preformatted">table: nl-NL
+table: nl-BE
+tests:
+  - [..., ...]
+  - [..., ...]
+</pre></div>
+
+</div>
+</div>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Programming-with-liblouis.html">Programming with liblouis</a>, Previous: <a href="Testing-Translation-Tables-interactively.html">Testing Translation Tables interactively</a>, Up: <a href="index.html">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

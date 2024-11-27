@@ -1,0 +1,27 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="Hyphenation-Tables">
+<div class="nav-panel">
+<p>
+Next: <a href="Character_002dDefinition-Opcodes.html" accesskey="n" rel="next">Character-Definition Opcodes</a>, Previous: <a href="Overview.html" accesskey="p" rel="prev">Overview</a>, Up: <a href="How-to-Write-Translation-Tables.html" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Hyphenation-Tables-1"><span>2.2 Hyphenation Tables<a class="copiable-link" href="#Hyphenation-Tables-1"> &para;</a></span></h3>
+
+<p>Hyphenation tables are necessary to make opcodes such as the
+<code class="code">nocross</code> opcode (see <a class="pxref" href="Translation-Opcodes.html#nocross-opcode"><code class="code">nocross</code></a>) function properly. There are no opcodes for
+hyphenation table entries because these tables have a special format.
+Therefore, they cannot be specified as part of an ordinary table.
+Rather, they must be included using the <code class="code">include</code> opcode (see <a class="pxref" href="Miscellaneous-Opcodes.html#include-opcode"><code class="code">include</code></a>) or as part
+of a table list. The liblouis hyphenation algorithm was adopted from the
+one used by OpenOffice. Note that Hyphenation tables must follow
+character definitions and should preferably be the last. For an example
+of a hyphenation table, see <samp class="file">hyph_en_US.dic</samp>.
+</p>
+</div>
+
+
+
+</body>
+</html>

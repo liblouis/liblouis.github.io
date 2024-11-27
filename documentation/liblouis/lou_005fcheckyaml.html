@@ -1,0 +1,43 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="lou_005fcheckyaml">
+<div class="nav-panel">
+<p>
+Previous: <a href="lou_005fcheckhyphens.html" accesskey="p" rel="prev">lou_checkhyphens</a>, Up: <a href="Testing-Translation-Tables-interactively.html" accesskey="u" rel="up">Testing Translation Tables interactively</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="lou_005fcheckyaml-1"><span>5.7 lou_checkyaml<a class="copiable-link" href="#lou_005fcheckyaml-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-lou_005fcheckyaml"></a>
+
+<p>This program tests a liblouis table against a corpus of known good
+Braille translations defined in YAML format. For a description of the
+format refer to <a class="ref" href="Automated-Testing-of-Translation-Tables.html#YAML-Tests">YAML Tests</a>. The program returns 0 if all tests
+pass or 1 if any of the tests fail. If <code class="code">libyaml</code> is not installed
+the program will simply skip all tests. Invoke it as follows:
+</p>
+<div class="example">
+<pre class="example-preformatted">lou_checkyaml YAML_TEST_FILE
+</pre></div>
+
+<p>The command line options that are accepted by
+<code class="command">lou_checkyaml</code> are described in <a class="ref" href="Testing-Translation-Tables-interactively.html#common-options">common options</a>.
+</p>
+<a class="index-entry-id" id="index-Running-YAML-tests-manually"></a>
+<a class="index-entry-id" id="index-Running-individual-YAML-tests"></a>
+<p>Due to some technical limitations the YAML tests work best if the
+<code class="env">LOUIS_TABLEPATH</code> is set up correctly. By running <code class="command">make</code>
+this is all taken care for you. You can also run individual YAML tests
+as shown in the following example:
+</p>
+<div class="example">
+<pre class="example-preformatted">cd tests
+make check TESTS=yaml/en-ueb-g2_backward.yaml
+</pre></div>
+
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,300 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="The-Context-and-Multipass-Opcodes">
+<div class="nav-panel">
+<p>
+Next: <a href="The-correct-Opcode.html" accesskey="n" rel="next">The correct Opcode</a>, Previous: <a href="Swap-Opcodes.html" accesskey="p" rel="prev">Swap Opcodes</a>, Up: <a href="How-to-Write-Translation-Tables.html" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="The-Context-and-Multipass-Opcodes-1"><span>2.12 The Context and Multipass Opcodes<a class="copiable-link" href="#The-Context-and-Multipass-Opcodes-1"> &para;</a></span></h3>
+
+<p>The <code class="code">context</code> and multipass opcodes (<code class="code">pass2</code>, <code class="code">pass3</code>
+and <code class="code">pass4</code>) provide translation capabilities beyond those of the
+basic translation opcodes (see <a class="pxref" href="Translation-Opcodes.html">Translation Opcodes</a>) discussed
+previously. The multipass opcodes cause additional passes to be made
+over the string to be translated. The number after the word
+<code class="code">pass</code> indicates in which pass the entry is to be applied. If no
+multipass opcodes are given, only the first translation pass is made.
+The <code class="code">context</code> opcode is basically a multipass opcode for the
+first pass. It differs slightly from the multipass opcodes per se.
+When back-translating, the passes are performed in the reverse order,
+i.e. <code class="code">pass4</code>, <code class="code">pass3</code>, <code class="code">pass2</code>, <code class="code">context</code>. Each
+of these opcodes must be prefixed by either the <code class="code">noback</code> opcode (see <a class="pxref" href="Translation-Opcodes.html#noback-opcode"><code class="code">noback</code></a>) or
+the <code class="code">nofor</code> opcode (see <a class="pxref" href="Translation-Opcodes.html#nofor-opcode"><code class="code">nofor</code></a>). The format of all these opcodes is <code class="code">opcode
+test action</code>. The specific opcodes are invoked as follows:
+</p>
+<dl class="table">
+<dd><a class="anchor" id="context-opcode"></a></dd>
+<dt><a class="index-entry-id" id="index-pass2"></a>
+<a class="index-entry-id" id="index-pass3"></a>
+<a class="index-entry-id" id="index-pass4"></a>
+<a id="index-context"></a><span><code class="code">context test action</code><a class="copiable-link" href="#index-context"> &para;</a></span></dt>
+<dt><code class="code">pass2 test action</code></dt>
+<dt><code class="code">pass3 test action</code></dt>
+<dt><code class="code">pass4 test action</code></dt>
+</dl>
+
+<p>The <code class="code">test</code> and <code class="code">action</code> operands have suboperands. Each
+suboperand begins with a non-alphanumeric character and ends when
+another non-alphanumeric character is encountered. The suboperands and
+their initial characters are as follows.
+</p>
+<dl class="table">
+<dt><kbd class="kbd">&quot; (double quote)</kbd></dt>
+<dd><p>a string of characters. This string must be terminated by another
+double quote. It may contain any characters. If a double quote is
+needed within the string, it must be preceded by a backslash
+(&lsquo;<samp class="samp">\</samp>&rsquo;). If a space is needed, it must be represented by the escape
+sequence \s. This suboperand is valid
+in the test and action parts of the <code class="code">correct</code> opcode,
+in the test part of the <code class="code">context</code> opcode when forward translating,
+and in the action part of the <code class="code">context</code> opcode when back translating.
+</p>
+</dd>
+<dt><kbd class="kbd">@ (at sign)</kbd></dt>
+<dd><p>a sequence of dot patterns. Cells are separated by hyphens as usual.
+This suboperand is valid in the test and action parts of
+the <code class="code">pass2</code>, <code class="code">pass3</code>, and <code class="code">pass4</code> opcodes,
+in the action part of the <code class="code">context</code> opcode when forward translating,
+and in the test part of the <code class="code">context</code> opcode when back translating.
+</p>
+</dd>
+<dt><kbd class="kbd">` (accent mark)</kbd></dt>
+<dd><p>If this is the beginning of the string being translated this
+suboperand is true. It is valid only in the test part and must be the
+first thing in this operand.
+</p>
+</dd>
+<dt><kbd class="kbd">~ (tilde)</kbd></dt>
+<dd><p>If this is the end of the string being translated this suboperand is
+true. It is valid only in the test part and must be the last thing in
+this operand.
+</p>
+</dd>
+<dt><kbd class="kbd">$ (dollar sign)</kbd></dt>
+<dd><p>a string of attributes, such as &lsquo;<samp class="samp">d</samp>&rsquo; for digit, &lsquo;<samp class="samp">l</samp>&rsquo; for
+letter, etc. For a list of all valid attributes see <a class="pxref" href="#valid-attribute-characters">valid attribute characters</a>. More than one attribute can be given. If you wish to
+check characters with any attribute, use the letter &lsquo;<samp class="samp">a</samp>&rsquo;. Input
+characters are checked to see if they have at least one of the
+attributes. The attribute string can be followed by numbers specifying
+how many characters are to be checked. If no numbers are given, 1 is
+assumed. If two numbers separated by a hyphen are given, the input is
+checked to make sure that at least the first number of characters with
+the attributes are present, but no more than the second number. If
+only one number is present, then exactly that many characters must
+have the attributes. A period instead of the numbers indicates an
+indefinite number of characters (for technical reasons the number of
+characters that are actually matched is limited to 65535).
+</p>
+<p>This suboperand is valid in all test parts but not in action parts.
+For the characters which can be used in attribute strings, see the
+following table.
+</p>
+</dd>
+<dt><kbd class="kbd">! (exclamation point)</kbd></dt>
+<dd><p>reverses the logical meaning of the suboperand which follows. For
+example, !$d is true only if the character is <em class="emph">NOT</em> a digit. This
+suboperand is valid in test parts only.
+</p>
+</dd>
+<dt><kbd class="kbd">% (percent sign)</kbd></dt>
+<dd><p>the name of a character class, predefined or defined using the
+<code class="code">attribute</code> opcode (see <a class="pxref" href="Character_002dClass-Opcodes.html#attribute-opcode"><code class="code">attribute</code></a>), or the name of a swap set defined by the swap
+opcodes (see <a class="pxref" href="Swap-Opcodes.html">Swap Opcodes</a>). Names must contain only letters (a-z
+and A-Z). The letters may be upper or lower-case but the case
+matters. Character class names may be used in test parts only. Swap
+names are valid everywhere.
+</p>
+</dd>
+<dt><kbd class="kbd">{ (left brace)</kbd></dt>
+<dd><p>Name: the name of a grouping pair. The left brace indicates that the
+first (or left) member of the pair is to be used in matching. If this
+is between replacement brackets it must be the only item. This is also
+valid in the action part.
+</p>
+<p>The brace actions, <code class="code">{name</code> and <code class="code">}name</code>, refer to named
+groupings. A grouping is created with the <code class="code">grouping</code> opcode (see <a class="pxref" href="Character_002dDefinition-Opcodes.html#grouping-opcode"><code class="code">grouping</code></a>) and
+contains exactly two characters which represent the opening character
+and the matching closing character for a character grouping. The first
+operand is the grouping name, the second is the two (opening and
+closing) characters, and the third is the two dot patterns separated
+by a comma.
+</p>
+<p>Let&rsquo;s say that you&rsquo;d like to define the opening and closing
+parentheses via multipass rules, and that you&rsquo;d like to use dots
+&lsquo;<samp class="samp">123478</samp>&rsquo; for the opening parenthesis and dots &lsquo;<samp class="samp">145678</samp>&rsquo; for
+the closing parenthesis. One way to do so is like this:
+</p>
+<div class="example">
+<pre class="example-preformatted">grouping parentheses () 123478,145678
+noback correct {parentheses {parentheses
+noback correct }parentheses }parentheses
+</pre></div>
+
+<p>The references within the test part of the multipass rule match
+against the characters (the second operand) of the grouping rule, and
+the references within the action part replace with the dot patterns
+(the third operand) of the grouping.
+</p>
+</dd>
+<dt><kbd class="kbd">} (right brace)</kbd></dt>
+<dd><p>Name: the name of a grouping pair. The right brace indicates that the
+second (or right) member is to be used in matching. See the remarks on
+the left brace immediately above.
+</p>
+</dd>
+<dt><kbd class="kbd">/ (slash)</kbd></dt>
+<dd><p>Search the input for the expression following the slash and return
+true if found. This can be used to set a variable.
+</p>
+</dd>
+<dt><kbd class="kbd">_ (underscore)</kbd></dt>
+<dd><p>Move backward. If a number follows, move backward that number of
+characters. The default is to move backward one character. This
+suboperand is valid only in test parts. The test fails if moving
+backward beyond the beginning of the input string.
+</p>
+</dd>
+<dt><kbd class="kbd">[ (left bracket)</kbd></dt>
+<dd><p>Start replacement here. This suboperand must always be paired with a
+right bracket and is valid only in test parts. Multiple pairs of
+square brackets in a single expression are not allowed.
+</p>
+</dd>
+<dt><kbd class="kbd">] (right bracket)</kbd></dt>
+<dd><p>End replacement here. This suboperand must always be paired with a
+left bracket and is valid only in test parts.
+</p>
+</dd>
+<dt><kbd class="kbd"># (number sign or crosshatch)</kbd></dt>
+<dd><p>Test or set a variable. Variables are referred to by numbers
+(0 through 49), e.g. <code class="code">#1</code>, <code class="code">#2</code>, <code class="code">#25</code>.
+Variables may be set by one <code class="code">context</code> or multipass opcode and tested
+by another. Thus, an operation that occurs at one place in a translation
+can tell an operation that occurs later within the same pass about itself.
+This feature is used in math translation, and may also help to alleviate
+the need for new opcodes. This suboperand is valid everywhere.
+</p>
+<p>Variables are set in the action part. To set a variable, use an
+expression like <code class="code">#1=1</code>. All of the variables are initialized to 0
+at the start of each pass.
+</p>
+<p>Variables can also be incremented and decremented by one in the action
+part with expressions like <code class="code">#1+</code> and <code class="code">#3-</code> respectively.
+An attempt to decrement a variable below 0 is silently ignored.
+</p>
+<p>Variables are tested in the test part with conditional expressions like:
+<code class="code">#1=2</code>, <code class="code">#3&lt;4</code>, <code class="code">#5&gt;6</code>, <code class="code">#7&lt;=8</code>, <code class="code">#9&gt;=10</code>.
+</p>
+</dd>
+<dt><kbd class="kbd">* (asterisk)</kbd></dt>
+<dd><p>Copy the input characters or dot patterns within the replacement brackets
+into the output, and discard anything else that was matched. If there are
+no replacement brackets then copy all of the matched input. This
+suboperand is only valid within the action part. It may be specified any
+number of times. This feature is used, for example, for handling numeric
+subscripts in Nemeth.
+</p>
+</dd>
+<dt><kbd class="kbd">? (question mark)</kbd></dt>
+<dd><p>Valid only in the action part. The characters to be replaced are
+simply ignored. That is, they are replaced with nothing. If either
+member of a grouping pair is in the replace brackets the other member
+at the same level is also removed.
+</p>
+</dd>
+</dl>
+
+<a class="anchor" id="valid-attribute-characters"></a><p>The valid characters which can be used in attribute strings are as
+follows:
+</p>
+<dl class="table">
+<dt><kbd class="kbd">a</kbd></dt>
+<dd><p>any attribute
+</p></dd>
+<dt><kbd class="kbd">d</kbd></dt>
+<dd><p>digit
+</p></dd>
+<dt><kbd class="kbd">D</kbd></dt>
+<dd><p>literary digit
+</p></dd>
+<dt><kbd class="kbd">l</kbd></dt>
+<dd><p>letter
+</p></dd>
+<dt><kbd class="kbd">m</kbd></dt>
+<dd><p>math
+</p></dd>
+<dt><kbd class="kbd">p</kbd></dt>
+<dd><p>punctuation
+</p></dd>
+<dt><kbd class="kbd">S</kbd></dt>
+<dd><p>sign
+</p></dd>
+<dt><kbd class="kbd">s</kbd></dt>
+<dd><p>space
+</p></dd>
+<dt><kbd class="kbd">U</kbd></dt>
+<dd><p>uppercase
+</p></dd>
+<dt><kbd class="kbd">u</kbd></dt>
+<dd><p>lowercase
+</p></dd>
+<dt><kbd class="kbd">w</kbd></dt>
+<dd><p>first user-defined character class
+</p></dd>
+<dt><kbd class="kbd">x</kbd></dt>
+<dd><p>second user-defined character class
+</p></dd>
+<dt><kbd class="kbd">y</kbd></dt>
+<dd><p>third user-defined character class
+</p></dd>
+<dt><kbd class="kbd">z</kbd></dt>
+<dd><p>fourth user-defined character class
+</p></dd>
+</dl>
+
+<p>The following illustrates the algorithm how text is evaluated with
+multipass expressions:
+</p>
+<p>Loop over context, pass2, pass3 and pass4 and do the following for each pass:
+</p>
+<ol class="enumerate" type="a" start="1">
+<li> Match the text following the cursor against all expressions in the
+current pass. If an expression has square brackets to indicate the
+part to be replaced, and the opening bracket would correspond with a
+position before the cursor, it is not a match.
+</li><li> If there is no match: shift the cursor one position to the right and
+continue the loop
+</li><li> If there are matches: choose the longest match
+</li><li> Do the replacement. If the expression has square brackets, the part of
+the input that matches the part in between the brackets is replaced
+with the right-hand side of the rule. If the expression has no square
+brackets, the whole match is replaced.
+</li><li> Place the cursor after the replaced text
+</li><li> continue loop
+</li></ol>
+
+<p>Normally, when a rule is applied, the characters in the input that the
+rule applies to are &quot;consumed&quot;, i.e. the position of the input string
+is stepped forward, and the characters are no longer available for
+subsequent rules.  However, with the multipass opcodes, the
+<code class="code">context</code> opcode (see <a class="pxref" href="#context-opcode"><code class="code">context</code></a>) opcode and the <code class="code">correct</code> opcode (see <a class="pxref" href="The-correct-Opcode.html#correct-opcode"><code class="code">correct</code></a>) opcode, it is
+possible to make rules which don&rsquo;t consume any characters from the
+input. This could happen, e.g. if you use the <code class="code">context</code> opcode (see <a class="pxref" href="#context-opcode"><code class="code">context</code></a>)
+opcode to insert a dot pattern before a special group of characters.
+In these cases, Liblouis will always advance the position by one
+character to make sure that the program doesn&rsquo;t apply a rule to the
+same characters again and again.
+</p>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="The-correct-Opcode.html">The correct Opcode</a>, Previous: <a href="Swap-Opcodes.html">Swap Opcodes</a>, Up: <a href="How-to-Write-Translation-Tables.html">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

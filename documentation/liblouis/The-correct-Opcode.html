@@ -1,0 +1,51 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="The-correct-Opcode">
+<div class="nav-panel">
+<p>
+Next: <a href="The-match-Opcode.html" accesskey="n" rel="next">The match Opcode</a>, Previous: <a href="The-Context-and-Multipass-Opcodes.html" accesskey="p" rel="prev">The Context and Multipass Opcodes</a>, Up: <a href="How-to-Write-Translation-Tables.html" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="The-correct-Opcode-1"><span>2.13 The correct Opcode<a class="copiable-link" href="#The-correct-Opcode-1"> &para;</a></span></h3>
+
+<dl class="table">
+<dd><a class="index-entry-id" id="index-correct"></a>
+<a class="anchor" id="correct-opcode"></a></dd>
+<dt><code class="code">correct test action</code></dt>
+<dd><p>Because some input (such as that from an OCR program) may contain
+systematic errors, it is sometimes advantageous to use a
+pre-translation pass to remove them. The errors and their corrections
+are specified by the <code class="code">correct</code> opcode. If there are no
+<code class="code">correct</code> opcodes in a table, the pre-translation pass is not used.
+If any back-translation corrections have been specified then they are
+applied in a post-translation (i.e. the very last) pass.
+</p>
+<p>Note that like the <code class="code">context</code> opcode (see <a class="pxref" href="The-Context-and-Multipass-Opcodes.html#context-opcode"><code class="code">context</code></a>) and multi-pass opcodes, the
+<code class="code">correct</code> opcode must be preceded by <code class="code">noback</code> opcode (see <a class="pxref" href="Translation-Opcodes.html#noback-opcode"><code class="code">noback</code></a>) or
+<code class="code">nofor</code> opcode (see <a class="pxref" href="Translation-Opcodes.html#nofor-opcode"><code class="code">nofor</code></a>).
+</p>
+<p>The format of the <code class="code">correct</code> opcode is very similar to that
+of the <code class="code">context</code> opcode (see <a class="pxref" href="The-Context-and-Multipass-Opcodes.html#context-opcode"><code class="code">context</code></a>). The only difference is that in the action
+part strings may be used and dot patterns may not be used. Some
+examples of <code class="code">correct</code> opcode entries are:
+</p>
+<div class="example">
+<pre class="example-preformatted">noback correct &quot;\\&quot; ? Eliminate backslashes
+noback correct &quot;cornf&quot; &quot;comf&quot; fix a common &quot;scano&quot;
+noback correct &quot;cornm&quot; &quot;comm&quot;
+noback correct &quot;cornp&quot; &quot;comp&quot;
+noback correct &quot;*&quot; ? Get rid of stray asterisks
+noback correct &quot;|&quot; ? ditto for vertical bars
+noback correct &quot;\s?&quot; &quot;?&quot; drop space before question mark
+</pre></div>
+
+</dd>
+</dl>
+
+</div>
+
+
+
+</body>
+</html>

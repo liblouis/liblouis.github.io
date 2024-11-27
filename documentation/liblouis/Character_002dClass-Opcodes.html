@@ -1,0 +1,105 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="Character_002dClass-Opcodes">
+<div class="nav-panel">
+<p>
+Next: <a href="Swap-Opcodes.html" accesskey="n" rel="next">Swap Opcodes</a>, Previous: <a href="Translation-Opcodes.html" accesskey="p" rel="prev">Translation Opcodes</a>, Up: <a href="How-to-Write-Translation-Tables.html" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Character_002dClass-Opcodes-1"><span>2.10 Character-Class Opcodes<a class="copiable-link" href="#Character_002dClass-Opcodes-1"> &para;</a></span></h3>
+
+<p>These opcodes define and use character classes, also known as
+character attributes. A character class associates a set of characters
+with a name. The name then refers to any character within the class. A
+character may belong to more than one class.
+</p>
+<p>The basic character classes correspond to the character definition
+opcodes. These classes are:
+</p>
+<dl class="table">
+<dt><code class="code">space</code></dt>
+<dd><p>Whitespace characters such as blank and tab
+</p></dd>
+<dt><code class="code">digit</code></dt>
+<dd><p>Numeric characters
+</p></dd>
+<dt><code class="code">letter</code></dt>
+<dd><p>Both uppercase and lowercase alphabetic characters
+</p></dd>
+<dt><code class="code">lowercase</code></dt>
+<dd><p>Lowercase alphabetic characters
+</p></dd>
+<dt><code class="code">uppercase</code></dt>
+<dd><p>Uppercase alphabetic characters
+</p></dd>
+<dt><code class="code">punctuation</code></dt>
+<dd><p>Punctuation marks
+</p></dd>
+<dt><code class="code">sign</code></dt>
+<dd><p>Signs such as percent (&lsquo;<samp class="samp">%</samp>&rsquo;)
+</p></dd>
+<dt><code class="code">math</code></dt>
+<dd><p>Mathematical symbols
+</p></dd>
+<dt><code class="code">litdigit</code></dt>
+<dd><p>Literary digit
+</p>
+</dd>
+</dl>
+
+<p>The opcodes which define and use character classes are shown below.
+For examples see <samp class="file">el.ctb</samp>.
+</p>
+<dl class="table">
+<dd>
+<a class="index-entry-id" id="index-attribute"></a>
+<a class="anchor" id="attribute-opcode"></a></dd>
+<dt><code class="code">attribute name characters</code></dt>
+<dd><p>Add characters to a character class. The class may be one of the
+predefined classes listed above, a user-defined class previously
+created with this opcode, or a new one. The name operand must contain
+only letters (a-z and A-Z, case matters). For historical reasons and
+to support the <code class="code">match</code> opcode (see <a class="pxref" href="The-match-Opcode.html#match-opcode"><code class="code">match</code></a>) it can also be a number between 0 and
+7. The characters operand must be specified as a string. Each
+character in the string, as well as its dot counterpart if it occupies
+a single cell, is added to the character class.
+</p>
+<p>A user-defined character class may not be used in other rules until it
+has been created with a <code class="code">attribute</code> rule. Numbered classes can be
+used in <code class="code">match</code> rules (see <a class="pxref" href="The-match-Opcode.html#match-opcode"><code class="code">match</code></a>). Named classes can be used with the
+<code class="code">before</code> and <code class="code">after</code> opcodes and in <code class="code">context</code> and
+multipass rules (see <a class="pxref" href="The-Context-and-Multipass-Opcodes.html">The Context and Multipass Opcodes</a>).
+</p>
+<a class="index-entry-id" id="index-after"></a>
+<a class="anchor" id="after-opcode"></a></dd>
+<dt><code class="code">after class opcode ...</code></dt>
+<dd><p>The specified opcode is further constrained in that the matched
+character sequence must be immediately preceded by a character
+belonging to the specified class. If this opcode is used more than
+once on the same line then the union of the characters in all the
+classes is used.
+</p>
+<a class="index-entry-id" id="index-before"></a>
+<a class="anchor" id="before-opcode"></a></dd>
+<dt><code class="code">before class opcode ...</code></dt>
+<dd><p>The specified opcode is further constrained in that the matched
+character sequence must be immediately followed by a character
+belonging to the specified class. If this opcode is used more than
+once on the same line then the union of the characters in all the
+classes is used.
+</p>
+</dd>
+</dl>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Swap-Opcodes.html">Swap Opcodes</a>, Previous: <a href="Translation-Opcodes.html">Translation Opcodes</a>, Up: <a href="How-to-Write-Translation-Tables.html">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

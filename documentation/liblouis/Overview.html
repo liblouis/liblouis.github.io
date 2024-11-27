@@ -1,0 +1,199 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="Overview">
+<div class="nav-panel">
+<p>
+Next: <a href="Hyphenation-Tables.html" accesskey="n" rel="next">Hyphenation Tables</a>, Up: <a href="How-to-Write-Translation-Tables.html" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Overview-1"><span>2.1 Overview<a class="copiable-link" href="#Overview-1"> &para;</a></span></h3>
+
+<p>Many translation (contraction) tables have already been made up. They
+are included in the distribution in the tables directory and can be
+studied as part of the documentation. Some of the more helpful (and
+normative) are listed in the following table:
+</p>
+<dl class="table">
+<dt><samp class="file">chardefs.cti</samp></dt>
+<dd><p>Character definitions for U.S. tables
+</p></dd>
+<dt><samp class="file">compress.ctb</samp></dt>
+<dd><p>Remove excessive whitespace
+</p></dd>
+<dt><samp class="file">en-us-g1.ctb</samp></dt>
+<dd><p>Uncontracted American English
+</p></dd>
+<dt><samp class="file">en-us-g2.ctb</samp></dt>
+<dd><p>Contracted or Grade 2 American English
+</p></dd>
+<dt><samp class="file">en-us-brf.dis</samp></dt>
+<dd><p>Make liblouis output conform to BRF standard
+</p></dd>
+<dt><samp class="file">en-us-comp8.ctb</samp></dt>
+<dd><p>8-dot computer braille for use in coding examples
+</p></dd>
+<dt><samp class="file">en-us-comp6.ctb</samp></dt>
+<dd><p>6-dot computer braille
+</p>
+</dd>
+</dl>
+
+<p>The names used for files containing translation tables are completely
+arbitrary. They are not interpreted in any way by the translator.
+Contraction tables may be 8-bit ASCII files, UTF-8, 16-bit big-endian
+Unicode files or 16-bit little-endian Unicode files. Blank lines are
+ignored. Any leading and trailing whitespace (any number of blanks
+and/or tabs) is ignored. Lines which begin with a number sign or hatch
+mark (&lsquo;<samp class="samp">#</samp>&rsquo;) are ignored, i.e. they are comments. If the number
+sign is not the first non-blank character in the line, it is treated
+as an ordinary character. If the first non-blank character is
+less-than (&lsquo;<samp class="samp">&lt;</samp>&rsquo;) the line is also treated as a comment. This makes
+it possible to mark up tables as xhtml documents. Lines which are not
+blank or comments define table entries. The general format of a table
+entry is:
+</p>
+<div class="example">
+<pre class="example-preformatted">opcode operands comments
+</pre></div>
+
+<p>Table entries may not be split between lines. The opcode is a mnemonic
+that specifies what the entry does. The operands may be character
+sequences, braille dot patterns or occasionally something else. They
+are described for each opcode, please see <a class="pxref" href="Opcode-Index.html">Opcode Index</a>. With some
+exceptions, opcodes expect a certain number of operands. Any text on
+the line after the last operand is ignored, and may be a comment. A
+few opcodes accept a variable number of operands. In this case a
+number sign (&lsquo;<samp class="samp">#</samp>&rsquo;) begins a comment unless it is preceded by a
+backslash (&lsquo;<samp class="samp">\</samp>&rsquo;).
+</p>
+<p>Here are some examples of table entries.
+</p>
+<div class="example">
+<pre class="example-preformatted"># This is a comment.
+always world 456-2456 A word and the dot pattern of its contraction
+</pre></div>
+
+<p>Most opcodes have both a &quot;characters&quot; operand and a &quot;dots&quot; operand,
+though some have only one and a few have other types.
+</p>
+<a class="index-entry-id" id="index-Characters-operand"></a>
+<p>The characters operand consists of any combination of characters and
+escape sequences proceeded and followed by whitespace. Escape
+sequences are used to represent difficult characters. They begin with
+a backslash (&lsquo;<samp class="samp">\</samp>&rsquo;). They are:
+</p>
+<dl class="table">
+<dt><kbd class="kbd">\</kbd></dt>
+<dd><p>backslash
+</p></dd>
+<dt><kbd class="kbd">\f</kbd></dt>
+<dd><p>form feed
+</p></dd>
+<dt><kbd class="kbd">\n</kbd></dt>
+<dd><p>new line
+</p></dd>
+<dt><kbd class="kbd">\r</kbd></dt>
+<dd><p>carriage return
+</p></dd>
+<dt><kbd class="kbd">\s</kbd></dt>
+<dd><p>blank (space)
+</p></dd>
+<dt><kbd class="kbd">\t</kbd></dt>
+<dd><p>horizontal tab
+</p></dd>
+<dt><kbd class="kbd">\v</kbd></dt>
+<dd><p>vertical tab
+</p></dd>
+<dt><kbd class="kbd">\e</kbd></dt>
+<dd><p>&quot;escape&quot; character (hex 1b, dec 27)
+</p></dd>
+<dt><kbd class="kbd">\xhhhh</kbd></dt>
+<dd><p>4-digit hexadecimal value of a character
+</p>
+</dd>
+</dl>
+
+<p>If liblouis has been compiled for 32-bit Unicode the following are
+also recognized.
+</p>
+<dl class="table">
+<dt><kbd class="kbd">\yhhhhh</kbd></dt>
+<dd><p>5-digit (20 bit) character
+</p></dd>
+<dt><kbd class="kbd">\zhhhhhhhh</kbd></dt>
+<dd><p>Full 32-bit value.
+</p>
+<p>Please take a look at the
+<a class="url" href="https://unicode.org/Public/UNIDATA/">public directory of the
+Unicode Character Database</a> as well as at the
+<a class="url" href="https://unicode.org/Public/UNIDATA/NamesList.txt">Unicode names
+list with their code points</a> to figure out the corresponding Unicode
+code point for a given Unicode character.
+</p>
+</dd>
+</dl>
+
+<a class="index-entry-id" id="index-Dots-operand"></a>
+<p>The dots operand is a braille dot pattern. The real braille dots, 1
+through 8, must be specified with their standard numbers.
+</p>
+<a class="index-entry-id" id="index-Virtual-dots"></a>
+<a class="anchor" id="virtual-dots"></a><p>liblouis recognizes <em class="emph">virtual dots</em>, which are used for special
+purposes, such as distinguishing accent marks. There are seven virtual
+dots. They are specified by the number 9 and the letters &lsquo;<samp class="samp">a</samp>&rsquo;
+through &lsquo;<samp class="samp">f</samp>&rsquo;.
+</p>
+<a class="index-entry-id" id="index-Multi_002dcell-dot-pattern"></a>
+<p>For a multi-cell dot pattern, the cell specifications must be
+separated from one another by a dash (&lsquo;<samp class="samp">-</samp>&rsquo;). For example, the
+contraction for the English word &lsquo;<samp class="samp">lord</samp>&rsquo; (the letter &lsquo;<samp class="samp">l</samp>&rsquo;
+preceded by dot 5) would be specified as &lsquo;<samp class="samp">5-123</samp>&rsquo;. A space may be
+specified with the special dot number 0.
+</p>
+<p>An opcode which is helpful in writing translation tables is
+<code class="code">include</code>. Its format is:
+</p>
+<div class="example">
+<pre class="example-preformatted">include filename
+</pre></div>
+
+<p>It reads the file indicated by <code class="code">filename</code> and incorporates or
+includes its entries into the table. Included files can include other
+files, which can include other files, etc. For an example, see what
+files are included by the entry <code class="code">include en-us-g1.ctb</code> in the table
+<samp class="file">en-us-g2.ctb</samp>. If the included file is not in the same directory
+as the main table, use a full path name for filename. Tables can also be
+specified in a table list, in which the table names are separated by
+commas and given as a single table name in calls to the translation
+functions.
+</p>
+<p>The order of the various types of opcodes or table entries is
+important. Character-definition opcodes should come first. However, if
+the optional <code class="code">display</code> opcode (see <a class="pxref" href="Miscellaneous-Opcodes.html#display-opcode"><code class="code">display</code></a>) is used it should precede
+character-definition opcodes. Braille-indicator opcodes should come
+next. Translation opcodes should follow. The <code class="code">context</code> opcode (see <a class="pxref" href="The-Context-and-Multipass-Opcodes.html#context-opcode"><code class="code">context</code></a>) is a
+translation opcode, even though it is considered along with the
+multipass opcodes. These latter should follow the translation opcodes.
+The <code class="code">correct</code> opcode (see <a class="pxref" href="The-correct-Opcode.html#correct-opcode"><code class="code">correct</code></a>) can be used anywhere after the
+character-definition opcodes, but it is probably a good idea to group
+all <code class="code">correct</code> opcodes together. The <code class="code">include</code> opcode (see <a class="pxref" href="Miscellaneous-Opcodes.html#include-opcode"><code class="code">include</code></a>) can be
+used anywhere, but the order of entries in the combined table must
+conform to the order given above. Within each type of opcode, the
+order of entries is generally unimportant. Thus the translation
+entries can be grouped alphabetically or in any other order that is
+convenient. Hyphenation tables may be specified either with an 
+<code class="code">include</code> opcode or as part of a table list. They should come after 
+everything else.
+</p>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Hyphenation-Tables.html">Hyphenation Tables</a>, Up: <a href="How-to-Write-Translation-Tables.html">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="subsection-level-extent" id="Note-about-fallback-behavior">
+<div class="nav-panel">
+<p>
+Next: <a href="Computer-braille.html" accesskey="n" rel="next">Computer braille</a>, Previous: <a href="Emphasis-indicators.html" accesskey="p" rel="prev">Emphasis indicators</a>, Up: <a href="Emphasis-Opcodes.html" accesskey="u" rel="up">Emphasis Opcodes</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsection" id="Note-about-fallback-behavior-1"><span>2.6.3 Note about fallback behavior<a class="copiable-link" href="#Note-about-fallback-behavior-1"> &para;</a></span></h4>
+
+<p>Contrary to older versions of liblouis there is limited fallback
+behavior. Generally opcodes have a very specific purpose. This is done
+for the sake of simplicity. While it would be possible to support more
+combinations of rules, Liblouis chooses to signal an error when
+certain combinations of opcodes are used (or not used).
+</p>
+<p>For example, when a <code class="code">begemphphrase</code> rule is defined it is
+required that there is also an <code class="code">endemphphrase</code>
+definition. <code class="code">begemph</code> must be combined with <code class="code">endemph</code>. A
+<code class="code">begemphphrase</code> rule is only allowed if there is also a
+<code class="code">begemphword</code>. <code class="code">begemph</code> and <code class="code">begemphword</code> are mutually
+exclusive. Etc.
+</p>
+<p>When new requirements for indicating emphasis arise that are not
+supported yet, either more opcode combinations might be enabled, or
+more specific opcodes might be added.
+</p>
+</div>
+
+
+
+</body>
+</html>

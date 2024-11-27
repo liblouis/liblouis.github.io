@@ -1,0 +1,36 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="lou_005fcharToDots">
+<div class="nav-panel">
+<p>
+Next: <a href="lou_005fregisterLogCallback.html" accesskey="n" rel="next">lou_registerLogCallback</a>, Previous: <a href="lou_005fdotsToChar.html" accesskey="p" rel="prev">lou_dotsToChar</a>, Up: <a href="Programming-with-liblouis.html" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="lou_005fcharToDots-1"><span>7.14 lou_charToDots<a class="copiable-link" href="#lou_005fcharToDots-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-lou_005fcharToDots"></a>
+
+<div class="example">
+<pre class="example-preformatted">int lou_charToDots (
+  const char *tableList,
+  const widechar *inbuf,
+  widechar *outbuf,
+  int length,
+  int mode)
+</pre></div>
+
+<p>This function is the inverse of <code class="code">lou_dotsToChar</code>. It takes a
+widechar string in <code class="code">inbuf</code> consisting of characters and converts it
+to a widechar string in <code class="code">outbuf</code> consisting of dot patterns
+according to the specifications in <code class="code">tableList</code>. <code class="code">length</code> is the
+length of both <code class="code">inbuf</code> and <code class="code">outbuf</code>. The dot patterns in
+<code class="code">outbufbuf</code> are in liblouis format if the mode bit <code class="code">ucBrl</code> is 
+not set and in Unicode format if it is set. The function returns 1 on
+success and 0 on failure.
+</p>
+</div>
+
+
+
+</body>
+</html>

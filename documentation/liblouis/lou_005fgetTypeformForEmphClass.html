@@ -1,0 +1,32 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="lou_005fgetTypeformForEmphClass">
+<div class="nav-panel">
+<p>
+Next: <a href="lou_005fdotsToChar.html" accesskey="n" rel="next">lou_dotsToChar</a>, Previous: <a href="lou_005fcompileString.html" accesskey="p" rel="prev">lou_compileString</a>, Up: <a href="Programming-with-liblouis.html" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="lou_005fgetTypeformForEmphClass-1"><span>7.12 lou_getTypeformForEmphClass<a class="copiable-link" href="#lou_005fgetTypeformForEmphClass-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-lou_005fgetTypeformForEmphClass"></a>
+
+<div class="example">
+<pre class="example-preformatted">int lou_getTypeformForEmphClass (const char *tableList, const char *emphClass);
+</pre></div>
+
+<p>This function returns the typeform bit associated with the given
+emphasis class. If the emphasis class is undefined this function
+returns <code class="code">0</code>. If errors are found error messages are logged to the
+log callback (see <code class="code">lou_registerLogCallback</code>) and the return value
+is <code class="code">0</code>. <code class="code">tableList</code> is a list of names of table files
+separated by commas, as explained previously
+(see <a class="pxref" href="lou_005ftranslateString.html#translation_002dtables"><code class="code">tableList</code> parameter in
+<code class="code">lou_translateString</code></a>). <code class="code">emphClass</code> is the name of an
+emphasis class.
+</p>
+</div>
+
+
+
+</body>
+</html>

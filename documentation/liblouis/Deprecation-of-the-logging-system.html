@@ -1,0 +1,32 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="Deprecation-of-the-logging-system">
+<div class="nav-panel">
+<p>
+Next: <a href="lou_005fversion.html" accesskey="n" rel="next">lou_version</a>, Previous: <a href="How-tables-are-found.html" accesskey="p" rel="prev">How tables are found</a>, Up: <a href="Programming-with-liblouis.html" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Deprecation-of-the-logging-system-1"><span>7.4 Deprecation of the logging system<a class="copiable-link" href="#Deprecation-of-the-logging-system-1"> &para;</a></span></h3>
+
+<p>As of version 2.6.0 <code class="code">lou_logFile</code>, <code class="code">lou_logPrint</code> and
+<code class="code">lou_logEnd</code> are deprecated. They are replaced by a more powerful,
+abstract API consisting of <code class="code">lou_registerLogCallback</code> and
+<code class="code">lou_setLogLevel</code>. 
+</p>
+<p>Usage of <code class="code">lou_logFile</code>, <code class="code">lou_logPrint</code> and <code class="code">lou_logEnd</code> is
+discouraged as they may not be part of future releases. Applications using
+Liblouis should implement their own logging system.
+</p>
+<p>During the transitional phase, <code class="code">lou_logPrint</code> is registered as default
+callback in <code class="code">lou_registerLogCallback</code>. <code class="code">lou_logPrint</code> is overwritten
+by the first call to <code class="code">lou_registerLogCallback</code> and reattached when
+<code class="code">NULL</code> is set as callback. Note that calling <code class="code">lou_logPrint</code> directly
+will not cause an invocation of the registered callback.
+</p>
+</div>
+
+
+
+</body>
+</html>

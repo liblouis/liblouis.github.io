@@ -1,0 +1,69 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="Swap-Opcodes">
+<div class="nav-panel">
+<p>
+Next: <a href="The-Context-and-Multipass-Opcodes.html" accesskey="n" rel="next">The Context and Multipass Opcodes</a>, Previous: <a href="Character_002dClass-Opcodes.html" accesskey="p" rel="prev">Character-Class Opcodes</a>, Up: <a href="How-to-Write-Translation-Tables.html" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Swap-Opcodes-1"><span>2.11 Swap Opcodes<a class="copiable-link" href="#Swap-Opcodes-1"> &para;</a></span></h3>
+
+<p>The swap opcodes are needed to tell the <code class="code">context</code> opcode (see <a class="pxref" href="The-Context-and-Multipass-Opcodes.html#context-opcode"><code class="code">context</code></a>), the
+<code class="code">correct</code> opcode (see <a class="pxref" href="The-correct-Opcode.html#correct-opcode"><code class="code">correct</code></a>) and multipass opcodes which dot patterns to swap
+for which characters. There are three, <code class="code">swapcd</code>, <code class="code">swapdd</code>
+and <code class="code">swapcc</code>. The first swaps dot patterns for characters. The
+second swaps dot patterns for dot patterns and the third swaps
+characters for characters. The first is used in the <code class="code">context</code>
+opcode and the second is used in the multipass opcodes.
+</p>
+<p>All the swap opcodes have a name so they can be referred to from the
+<code class="code">context</code>, <code class="code">correct</code> and multipass opcodes. The name operand
+must contain only letters (a-z and A-Z). The letters may be upper or
+lower-case but the case matters.
+</p>
+<p>Dot patterns are separated by commas and may contain more than one
+cell.
+</p>
+<dl class="table">
+<dd>
+<a class="index-entry-id" id="index-swapcd"></a>
+<a class="anchor" id="swapcd-opcode"></a></dd>
+<dt><code class="code">swapcd name characters dots, dots, dots, ...</code></dt>
+<dd><p>See above paragraph for explanation. For example:
+</p>
+<div class="example">
+<pre class="example-preformatted">swapcd dropped 0123456789 356,2,23,...
+</pre></div>
+
+<a class="index-entry-id" id="index-swapdd"></a>
+<a class="anchor" id="swapdd-opcode"></a></dd>
+<dt><code class="code">swapdd name dots, dots, dots ... dotpattern1, dotpattern2, dotpattern3, ...</code></dt>
+<dd><p>The <code class="code">swapdd</code> opcode defines substitutions for the multipass
+opcodes. In the second operand the dot patterns must be single cells,
+but in the third operand multi-cell dot patterns are allowed. This is
+because multi-cell patterns in the second operand would lead to
+ambiguities.
+</p>
+<a class="index-entry-id" id="index-swapcc"></a>
+<a class="anchor" id="swapcc-opcode"></a></dd>
+<dt><code class="code">swapcc name characters characters</code></dt>
+<dd><p>The <code class="code">swapcc</code> opcode swaps characters in its second operand for
+characters in the corresponding places in its third operand. It is
+intended for use with <code class="code">correct</code> opcodes and can solve problems
+such as formatting phone numbers.
+</p>
+</dd>
+</dl>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="The-Context-and-Multipass-Opcodes.html">The Context and Multipass Opcodes</a>, Previous: <a href="Character_002dClass-Opcodes.html">Character-Class Opcodes</a>, Up: <a href="How-to-Write-Translation-Tables.html">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

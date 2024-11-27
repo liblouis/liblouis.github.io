@@ -1,0 +1,86 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="Data-structure-of-liblouis-tables">
+<div class="nav-panel">
+<p>
+Next: <a href="How-tables-are-found.html" accesskey="n" rel="next">How tables are found</a>, Previous: <a href="Overview-_0028library_0029.html" accesskey="p" rel="prev">Overview</a>, Up: <a href="Programming-with-liblouis.html" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Data-structure-of-liblouis-tables-1"><span>7.2 Data structure of liblouis tables<a class="copiable-link" href="#Data-structure-of-liblouis-tables-1"> &para;</a></span></h3>
+
+<p>The data structure <code class="code">TranslationTableHeader</code> is defined by a
+<code class="code">typedef</code> statement in <samp class="file">louis.h</samp>. To find the beginning,
+search for the word &lsquo;<samp class="samp">header</samp>&rsquo;. As its name implies, this is
+actually the table header. Data are placed in the <code class="code">ruleArea</code>
+array, which is the last item defined in this structure. This array is
+declared with a length of 1 and is expanded as needed. The table
+header consists mostly of arrays of pointers of size <code class="code">HASHNUM</code>.
+These pointers are actually offsets into <code class="code">ruleArea</code> and point to
+chains of items which have been placed in the same hash bucket by a
+simple hashing algorithm. <code class="code">HASHNUM</code> should be a prime and is
+currently 1123. The structure of the table was chosen to optimize
+speed rather than memory usage.
+</p>
+<p>The first part of the table contains miscellaneous information, such
+as the number of passes and whether various opcodes have been used. It
+also contains the amount of memory allocated to the table and the
+amount actually used.
+</p>
+<p>The next section contains pointers to various braille indicators and
+begins with <code class="code">capitalSign</code>. The rules pointed to contain the 
+dot pattern for the indicator and an opcode which is used by the
+back-translator but does not appear in the list of opcodes. The
+braille indicators also include various kinds of emphasis, such as
+italic and bold and information about the length of emphasized
+phrases. The latter is contained directly in the table item instead of
+in a rule.
+</p>
+<p>After the braille indicators comes information about when a letter
+sign should be used.
+</p>
+<p>Next is an array of size <code class="code">HASHNUM</code> which points to character
+definitions. These are created by the character-definition opcodes.
+</p>
+<p>Following this is a similar array pointing to definitions of
+single-cell dot patterns. This is also created from the
+character-definition opcodes. If a character definition contains a
+multi-cell dot pattern this is compiled into ordinary forward and
+backward rules. If such a multi-cell dot pattern contains a single
+cell which has not previously been defined that cell is placed in this
+array, but is given the attribute <code class="code">space</code>.
+</p>
+<p>Next come arrays that map characters to single-cell dot patterns and
+dots to characters. These are created from both character-definition
+opcodes and display opcodes.
+</p>
+<p>Next is an array of size 256 which maps characters in this range to
+dot patterns which may consist of multiple cells. It is used, for
+example, to map &lsquo;<samp class="samp">{</samp>&rsquo; to dots 456-246. These mappings are created
+by the <code class="code">compdots</code> 
+or the <code class="code">comp6</code> opcode (see <a class="pxref" href="Translation-Opcodes.html#comp6-opcode"><code class="code">comp6</code></a>).
+</p>
+<p>Next are two small arrays that held pointers to chains of rules
+produced by the <code class="code">swapcd</code> opcode (see <a class="pxref" href="Swap-Opcodes.html#swapcd-opcode"><code class="code">swapcd</code></a>) and the <code class="code">swapdd</code> opcode (see <a class="pxref" href="Swap-Opcodes.html#swapdd-opcode"><code class="code">swapdd</code></a>) and by
+some multipass, <code class="code">context</code> and <code class="code">correct</code> opcodes.
+</p>
+<p>Now we get to an array of size <code class="code">HASHNUM</code> which points to chains
+of rules for forward translation.
+</p>
+<p>Following this is a similar array for back-translation.
+</p>
+<p>Finally is the <code class="code">ruleArea</code>, an array of variable size to which
+various structures are mapped and to which almost everything else
+points.
+</p>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="How-tables-are-found.html">How tables are found</a>, Previous: <a href="Overview-_0028library_0029.html">Overview</a>, Up: <a href="Programming-with-liblouis.html">Programming with liblouis</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

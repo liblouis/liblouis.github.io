@@ -1,0 +1,48 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="lou_005fhyphenate">
+<div class="nav-panel">
+<p>
+Next: <a href="lou_005fcompileString.html" accesskey="n" rel="next">lou_compileString</a>, Previous: <a href="lou_005fbackTranslate.html" accesskey="p" rel="prev">lou_backTranslate</a>, Up: <a href="Programming-with-liblouis.html" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="lou_005fhyphenate-1"><span>7.10 lou_hyphenate<a class="copiable-link" href="#lou_005fhyphenate-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-lou_005fhyphenate"></a>
+
+<div class="example">
+<pre class="example-preformatted">int lou_hyphenate (
+  const char *tableList,
+  const widechar *inbuf,
+  int inlen,
+  char *hyphens,
+  int mode);
+</pre></div>
+
+<p>This function looks at the characters in <code class="code">inbuf</code> and if it finds
+a sequence of letters attempts to hyphenate it as a word. Note that
+lou_hyphenate operates on single words only, and spaces or punctuation
+marks between letters are not allowed. Leading and trailing
+punctuation marks are ignored. The table named by the <code class="code">tableList</code>
+parameter must contain a hyphenation table. If it does not, the
+function does nothing. <code class="code">inlen</code> is the length of the character
+string in <code class="code">inbuf</code>. <code class="code">hyphens</code> is an array of characters and
+must be of size <code class="code">inlen</code> + 1 (to account for the NULL terminator).
+If hyphenation is successful it will have a 1 at the beginning of each
+syllable and a 0 elsewhere. If the <code class="code">mode</code> parameter is 0
+<code class="code">inbuf</code> is assumed to contain untranslated characters. Any
+nonzero value means that <code class="code">inbuf</code> contains a translation. In this
+case, it is back-translated, hyphenation is performed, and it is
+re-translated so that the hyphens can be placed correctly. The
+<code class="code">lou_translate</code> and <code class="code">lou_backTranslate</code> functions are used
+in this process. <code class="code">lou_hyphenate</code> returns 1 if hyphenation was
+successful and 0 otherwise. In the latter case, the contents of the
+<code class="code">hyphens</code> parameter are undefined. This function was provided for
+use in liblouisutdml.
+</p>
+</div>
+
+
+
+</body>
+</html>

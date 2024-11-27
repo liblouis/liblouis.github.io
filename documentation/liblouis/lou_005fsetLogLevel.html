@@ -1,0 +1,41 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="lou_005fsetLogLevel">
+<div class="nav-panel">
+<p>
+Next: <a href="lou_005flogFile.html" accesskey="n" rel="next">lou_logFile (deprecated)</a>, Previous: <a href="lou_005fregisterLogCallback.html" accesskey="p" rel="prev">lou_registerLogCallback</a>, Up: <a href="Programming-with-liblouis.html" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="lou_005fsetLogLevel-1"><span>7.16 lou_setLogLevel<a class="copiable-link" href="#lou_005fsetLogLevel-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-lou_005fsetLogLevel"></a>
+
+<div class="example">
+<pre class="example-preformatted">typedef enum
+{
+  LOU_LOG_ALL = 0,
+  LOU_LOG_DEBUG = 10000,
+  LOU_LOG_INFO = 20000,
+  LOU_LOG_WARN = 30000,
+  LOU_LOG_ERROR = 40000,
+  LOU_LOG_FATAL = 50000,
+  LOU_LOG_OFF = 60000
+} logLevels;
+void lou_setLogLevel (
+  logLevels level);
+</pre></div>
+
+<p>This function can be used to influence the amount of logging, from
+fatal error messages only to detailed debugging messages. Supported
+values are <code class="code">LOU_LOG_DEBUG</code>, <code class="code">LOU_LOG_INFO</code>,
+<code class="code">LOU_LOG_WARN</code>, <code class="code">LOU_LOG_ERROR</code>, <code class="code">LOU_LOG_FATAL</code> and
+<code class="code">LOU_LOG_OFF</code>. Enabling logging at a given level also enables
+logging at all higher levels. Setting the level to <code class="code">LOU_LOG_OFF</code>
+disables logging. The default level is <code class="code">LOU_LOG_INFO</code>.
+</p>
+</div>
+
+
+
+</body>
+</html>

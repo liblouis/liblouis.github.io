@@ -1,0 +1,396 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="Translation-Opcodes">
+<div class="nav-panel">
+<p>
+Next: <a href="Character_002dClass-Opcodes.html" accesskey="n" rel="next">Character-Class Opcodes</a>, Previous: <a href="Special-Processing-Opcodes.html" accesskey="p" rel="prev">Special Processing Opcodes</a>, Up: <a href="How-to-Write-Translation-Tables.html" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Translation-Opcodes-1"><span>2.9 Translation Opcodes<a class="copiable-link" href="#Translation-Opcodes-1"> &para;</a></span></h3>
+
+<p>These opcodes define the braille representations for character
+sequences. Each of them defines an entry within the contraction table.
+These entries may be defined in any order except, as noted below, when
+they define alternate representations for the same character sequence.
+</p>
+<p>Each of these opcodes specifies a condition under which the
+translation is legal, and each also has a characters operand and a
+dots operand. The text being translated is processed strictly from
+left to right, character by character, with the most eligible entry
+for each position being used. If there is more than one eligible entry
+for a given position in the text, then the one with the longest
+character string is used. If there is more than one eligible entry for
+the same character string, then the one defined first is is tested for
+legality first. (This is the only case in which the order of the
+entries makes a difference.)
+</p>
+<p>The characters operand is a sequence or string of characters preceded
+and followed by whitespace. Each character can be entered in the
+normal way, or it can be defined as a four-digit hexadecimal number
+preceded by &lsquo;<samp class="samp">\x</samp>&rsquo;.
+</p>
+<p>The dots operand defines the braille representation for the characters
+operand. It may also be specified as an equals sign (&lsquo;<samp class="samp">=</samp>&rsquo;). This
+means that the the default representation for each character
+(see <a class="pxref" href="Character_002dDefinition-Opcodes.html">Character-Definition Opcodes</a>) within the sequence is to be
+used. It is an error if not all the characters in the rule have been
+previously defined in a character-definition rule. Note that the
+&lsquo;<samp class="samp">=</samp>&rsquo; shortcut for dot patterns has a known bug<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
+that might cause problems when back-translating.
+</p>
+<p>In what follows the word &lsquo;<samp class="samp">characters</samp>&rsquo; means a sequence of one or
+more consecutive letters between spaces and/or punctuation marks.
+</p>
+<dl class="table">
+<dd>
+<a class="index-entry-id" id="index-noback"></a>
+<a class="anchor" id="noback-opcode"></a></dd>
+<dt><code class="code">noback opcode ...</code></dt>
+<dd><p>This is an opcode prefix, that is to say, it modifies the operation of 
+the opcode that follows it on the same line. noback specifies that
+back-translation is not to use information on this line.
+</p>
+<div class="example">
+<pre class="example-preformatted">noback always ;\s; 0
+</pre></div>
+
+<a class="index-entry-id" id="index-nofor"></a>
+<a class="anchor" id="nofor-opcode"></a></dd>
+<dt><code class="code">nofor opcode ...</code></dt>
+<dd><p>This is an opcode prefix which modifies the operation of the opcode 
+following it on the same line. nofor specifies that forward translation 
+is not to use the information on this line.
+</p>
+<a class="index-entry-id" id="index-nocross"></a>
+<a class="anchor" id="nocross-opcode"></a></dd>
+<dt><code class="code">nocross opcode characters ...</code></dt>
+<dd><p><code class="code">nocross</code> is an opcode prefix which modifies the operation of the
+opcode following it. The following opcode can be <code class="code">always</code> opcode (see <a class="pxref" href="#always-opcode"><code class="code">always</code></a>) or
+any other translation opcode listed below with <code class="code">characters</code> as
+the first operand. <code class="code">nocross</code> specifies that the operation should
+not be done when the characters are not all in one syllable (when they
+cross a syllable boundary). For this opcode to work, a hyphenation
+table must be included. If this is not done, <code class="code">nocross</code> is
+ignored. For example, if the English Grade 2 table is being used and
+the appropriate hyphenation table has been included <code class="code">nocross
+always sh 146</code> will cause the &lsquo;<samp class="samp">sh</samp>&rsquo; in &lsquo;<samp class="samp">monkshood</samp>&rsquo; not to be
+contracted.
+</p>
+<a class="index-entry-id" id="index-compbrl"></a>
+<a class="anchor" id="compbrl-opcode"></a></dd>
+<dt><code class="code">compbrl characters</code></dt>
+<dd><p>If the characters are found within a block of text surrounded by
+whitespace the entire block is translated according to the default
+braille representations defined by the <a class="ref" href="Character_002dDefinition-Opcodes.html">Character-Definition Opcodes</a>, if 8-dot computer braille is enabled or according to the dot
+patterns given in the <code class="code">comp6</code> opcode (see <a class="pxref" href="#comp6-opcode"><code class="code">comp6</code></a>), if 6-dot computer braille is
+enabled. For example:
+</p>
+<div class="example">
+<pre class="example-preformatted">compbrl www translate URLs in computer braille
+</pre></div>
+
+<a class="index-entry-id" id="index-comp6"></a>
+<a class="anchor" id="comp6-opcode"></a></dd>
+<dt><code class="code">comp6 character dots</code></dt>
+<dd><p>This opcode specifies the translation of characters in 6-dot computer
+braille. The first operand must be a single character. The second
+operand may specify as many cells as necessary. The opcode is somewhat
+of a misnomer, since any dots, not just dots 1 through 6, can be
+specified. This even includes virtual dots (see <a class="pxref" href="Overview.html#virtual-dots">virtual dots</a>).
+</p>
+<a class="index-entry-id" id="index-nocont"></a>
+<a class="anchor" id="nocont-opcode"></a></dd>
+<dt><code class="code">nocont characters</code></dt>
+<dd><p>Like <code class="code">compbrl</code>, except that the string is uncontracted.
+<code class="code">prepunc</code> opcode (see <a class="pxref" href="#prepunc-opcode"><code class="code">prepunc</code></a>) and <code class="code">postpunc</code> opcode (see <a class="pxref" href="#postpunc-opcode"><code class="code">postpunc</code></a>) rules are applied,
+however. This is useful for specifying that foreign words should not
+be contracted in an entire document.
+</p>
+<a class="index-entry-id" id="index-replace"></a>
+<a class="anchor" id="replace-opcode"></a></dd>
+<dt><code class="code">replace characters {characters}</code></dt>
+<dd><p>Replace the first set of characters, no matter where they appear, with
+the second. Note that the second operand is <em class="emph">NOT</em> a dot pattern.
+It is also optional. If it is omitted the character(s) in the first
+operand will be discarded. This is useful for ignoring characters. It
+is possible that the &quot;ignored&quot; characters may still affect the
+translation indirectly. Therefore, it is preferable to use
+<code class="code">correct</code> opcode (see <a class="pxref" href="The-correct-Opcode.html#correct-opcode"><code class="code">correct</code></a>).
+</p>
+<a class="index-entry-id" id="index-always"></a>
+<a class="anchor" id="always-opcode"></a></dd>
+<dt><code class="code">always characters dots</code></dt>
+<dd><p>Replace the characters with the dot pattern no matter where they
+appear. Do <em class="emph">NOT</em> use an entry such as <code class="code">always a 1</code>. Use the
+character definition opcodes instead. For example:
+</p>
+<div class="example">
+<pre class="example-preformatted">always world 456-2456 unconditional translation
+</pre></div>
+
+<a class="index-entry-id" id="index-repeated"></a>
+<a class="anchor" id="repeated-opcode"></a></dd>
+<dt><code class="code">repeated characters dots</code></dt>
+<dd><p>Replace the characters with the dot pattern no matter where they
+appear. Ignore any consecutive repetitions of the same character
+sequence. This is useful for shortening long strings of spaces or
+hyphens or periods. For example:
+</p>
+<div class="example">
+<pre class="example-preformatted">repeated --- 36-36-36 shorten separator lines made with hyphens
+</pre></div>
+
+<a class="index-entry-id" id="index-repword"></a>
+<a class="anchor" id="repword-opcode"></a></dd>
+<dt><code class="code">repword characters dots</code></dt>
+<dd><p>For some braille systems there is the requirement to remove repeated
+words which are connected by some character. In Malaysian braille for
+example you want to contract as follows:
+</p>
+<dl class="table">
+<dt>Text:</dt>
+<dd><p>&lsquo;<samp class="samp">tasik-tasik</samp>&rsquo;
+</p></dd>
+<dt>Grade 1:</dt>
+<dd><p>&lsquo;<samp class="samp">2345-1-234-24-13-36-2345-1-234-24-13</samp>&rsquo;
+</p></dd>
+<dt>Grade 2:</dt>
+<dd><p>&lsquo;<samp class="samp">2345-1-234-24-13-123456</samp>&rsquo;
+</p></dd>
+</dl>
+
+<p>The dash and the second occurrence of &lsquo;<samp class="samp">tasik</samp>&rsquo; is replaced with
+dots &lsquo;<samp class="samp">123456</samp>&rsquo;. To achieve this you can use the repword opcode as
+follows:
+</p>
+<div class="example">
+<pre class="example-preformatted">repword - 123456
+</pre></div>
+
+<a class="index-entry-id" id="index-rependword"></a>
+<a class="anchor" id="rependword-opcode"></a></dd>
+<dt><code class="code">rependword characters dots, dots</code></dt>
+<dd><p>Like the <code class="code">repword</code> opcode (see <a class="pxref" href="#repword-opcode"><code class="code">repword</code></a>), but for indicating a repetition of a
+string at the end of a word. When characters are encountered check to
+see if a part of the word before these characters (but not the whole
+word) matches the string after them. If so, insert the first dot
+pattern at the position where the part of the word started, replace
+characters with the second dot pattern and eliminate the repeated
+string and any string following another occurrence of characters that
+is the same. This opcode is used in Malaysian braille. In this case
+the rule is:
+</p>
+<div class="example">
+<pre class="example-preformatted">rependword - 25,123456
+</pre></div>
+
+<a class="index-entry-id" id="index-largesign"></a>
+<a class="anchor" id="largesign-opcode"></a></dd>
+<dt><code class="code">largesign characters dots</code></dt>
+<dd><p>Replace the characters with the dot pattern no matter where they
+appear. In addition, if two words defined as large signs follow each
+other, remove the space between them. For example, in
+<samp class="file">en-us-g2.ctb</samp> the words &lsquo;<samp class="samp">and</samp>&rsquo; and &lsquo;<samp class="samp">the</samp>&rsquo; are both
+defined as large signs. Thus, in the phrase &lsquo;<samp class="samp">the cat and the dog</samp>&rsquo;
+the space would be deleted between &lsquo;<samp class="samp">and</samp>&rsquo; and &lsquo;<samp class="samp">the</samp>&rsquo;, with the
+result &lsquo;<samp class="samp">the cat andthe dog</samp>&rsquo;. Of course, &lsquo;<samp class="samp">and</samp>&rsquo; and &lsquo;<samp class="samp">the</samp>&rsquo;
+would be properly contracted. The term <code class="code">largesign</code> is a bit of
+braille jargon that pleases braille experts.
+</p>
+<a class="index-entry-id" id="index-word"></a>
+<a class="anchor" id="word-opcode"></a></dd>
+<dt><code class="code">word characters dots</code></dt>
+<dd><p>Replace the characters with the dot pattern if they are a word, that
+is, are surrounded by whitespace and/or punctuation.
+</p>
+<a class="index-entry-id" id="index-syllable"></a>
+<a class="anchor" id="syllable-opcode"></a></dd>
+<dt><code class="code">syllable characters dots</code></dt>
+<dd><p>As its name indicates, this opcode defines a &quot;syllable&quot; which must be
+represented by exactly the dot patterns given. Contractions may not
+cross the boundaries of this &quot;syllable&quot; either from left or right. The
+character string defined by this opcode need not be a lexical
+syllable, though it usually will be. The equal sign in the following
+example means that the the default representation for each character
+within the sequence is to be used (see <a class="pxref" href="#Translation-Opcodes">Translation Opcodes</a>):
+</p>
+<div class="example">
+<pre class="example-preformatted">syllable horse = sawhorse, horseradish
+</pre></div>
+
+<a class="index-entry-id" id="index-joinword"></a>
+<a class="anchor" id="joinword-opcode"></a></dd>
+<dt><code class="code">joinword characters dots</code></dt>
+<dd><p>Replace the characters with the dot pattern if they are a word which
+is followed by whitespace and a letter. In addition remove the
+whitespace. For example, <samp class="file">en-us-g2.ctb</samp> has <code class="code">joinword to
+235</code>. This means that if the word &lsquo;<samp class="samp">to</samp>&rsquo; is followed by another
+word the contraction is to be used and the space is to be omitted. If
+these conditions are not met, the word is translated according to any
+other opcodes that may apply to it.
+</p>
+<a class="index-entry-id" id="index-lowword"></a>
+<a class="anchor" id="lowword-opcode"></a></dd>
+<dt><code class="code">lowword characters dots</code></dt>
+<dd><p>Replace the characters with the dot pattern if they are a word
+preceded and followed by whitespace. No punctuation either before or
+after the word is allowed. The term <code class="code">lowword</code> derives from the
+fact that in English these contractions are written in the lower part
+of the cell. For example:
+</p>
+<div class="example">
+<pre class="example-preformatted">lowword were 2356
+</pre></div>
+
+<a class="index-entry-id" id="index-contraction"></a>
+<a class="anchor" id="contraction-opcode"></a></dd>
+<dt><code class="code">contraction characters</code></dt>
+<dd><p>If you look at <samp class="file">en-us-g2.ctb</samp> you will see that some words are
+actually contracted into some of their own letters. A famous example
+among braille transcribers is &lsquo;<samp class="samp">also</samp>&rsquo;, which is contracted as
+&lsquo;<samp class="samp">al</samp>&rsquo;. But this is also the name of a person. To take another
+example, &lsquo;<samp class="samp">altogether</samp>&rsquo; is contracted as &lsquo;<samp class="samp">alt</samp>&rsquo;, but this is
+the abbreviation for the alternate key on a computer keyboard.
+Similarly &lsquo;<samp class="samp">could</samp>&rsquo; is contracted into &lsquo;<samp class="samp">cd</samp>&rsquo;, but this is the
+abbreviation for compact disk. To prevent confusion in such cases, the
+letter sign (see <code class="code">letsign</code> opcode (see <a class="pxref" href="Braille-Indicator-Opcodes.html#letsign-opcode"><code class="code">letsign</code></a>)) is placed before such letter
+combinations when they actually are abbreviations, not contractions.
+The <code class="code">contraction</code> opcode tells the translator to do this.
+</p>
+<a class="index-entry-id" id="index-sufword"></a>
+<a class="anchor" id="sufword-opcode"></a></dd>
+<dt><code class="code">sufword characters dots</code></dt>
+<dd><p>Replace the characters with the dot pattern if they are either a word
+or at the beginning of a word.
+</p>
+<a class="index-entry-id" id="index-prfword"></a>
+<a class="anchor" id="prfword-opcode"></a></dd>
+<dt><code class="code">prfword characters dots</code></dt>
+<dd><p>Replace the characters with the dot pattern if they are either a word
+or at the end of a word.
+</p>
+<a class="index-entry-id" id="index-begword"></a>
+<a class="anchor" id="begword-opcode"></a></dd>
+<dt><code class="code">begword characters dots</code></dt>
+<dd><p>Replace the characters with the dot pattern if they are at the
+beginning of a word.
+</p>
+<a class="index-entry-id" id="index-begmidword"></a>
+<a class="anchor" id="begmidword-opcode"></a></dd>
+<dt><code class="code">begmidword characters dots</code></dt>
+<dd><p>Replace the characters with the dot pattern if they are either at the
+beginning or in the middle of a word.
+</p>
+<a class="index-entry-id" id="index-midword"></a>
+<a class="anchor" id="midword-opcode"></a></dd>
+<dt><code class="code">midword characters dots</code></dt>
+<dd><p>Replace the characters with the dot pattern if they are in the middle
+of a word.
+</p>
+<a class="index-entry-id" id="index-midendword"></a>
+<a class="anchor" id="midendword-opcode"></a></dd>
+<dt><code class="code">midendword characters dots</code></dt>
+<dd><p>Replace the characters with the dot pattern if they are either in the
+middle or at the end of a word.
+</p>
+<a class="index-entry-id" id="index-endword"></a>
+<a class="anchor" id="endword-opcode"></a></dd>
+<dt><code class="code">endword characters dots</code></dt>
+<dd><p>Replace the characters with the dot pattern if they are at the end of
+a word.
+</p>
+<a class="index-entry-id" id="index-partword"></a>
+<a class="anchor" id="partword-opcode"></a></dd>
+<dt><code class="code">partword characters dots</code></dt>
+<dd><p>Replace the characters with the dot pattern if the characters are
+anywhere in a word, that is, if they are preceded or followed by a
+letter.
+</p>
+<a class="index-entry-id" id="index-exactdots"></a>
+<a class="anchor" id="exactdots-opcode"></a></dd>
+<dt><code class="code">exactdots @dots</code></dt>
+<dd><p>Note that the operand must begin with an at sign (&lsquo;<samp class="samp">@</samp>&rsquo;). The dot
+pattern following it is evaluated for validity. If it is valid,
+whenever an at sign followed by this dot pattern appears in the source
+document it is replaced by the characters corresponding to the dot
+pattern in the output. This opcode is intended for use in liblouisutdml
+semantic-action files to specify exact dot patterns, as in
+mathematical codes. For example:
+</p>
+<div class="example">
+<pre class="example-preformatted">exactdots @4-46-12356
+</pre></div>
+<p>will produce the characters with these dot patterns in the output.
+</p>
+<a class="index-entry-id" id="index-prepunc"></a>
+<a class="anchor" id="prepunc-opcode"></a></dd>
+<dt><code class="code">prepunc characters dots</code></dt>
+<dd><p>Replace the characters with the dot pattern if they are part of
+punctuation at the beginning of a word.
+</p>
+<a class="index-entry-id" id="index-postpunc"></a>
+<a class="anchor" id="postpunc-opcode"></a></dd>
+<dt><code class="code">postpunc characters dots</code></dt>
+<dd><p>Replace the characters with the dot pattern if they are part of
+punctuation at the end of a word.
+</p>
+<a class="index-entry-id" id="index-begnum"></a>
+<a class="anchor" id="begnum-opcode"></a></dd>
+<dt><code class="code">begnum characters dots</code></dt>
+<dd><p>Replace the characters with the dot pattern if they are at the
+beginning of a number, that is, before all its digits. For example, in
+<samp class="file">en-us-g1.ctb</samp> we have <code class="code">begnum # 4</code>.
+</p>
+<a class="index-entry-id" id="index-midnum"></a>
+<a class="anchor" id="midnum-opcode"></a></dd>
+<dt><code class="code">midnum characters dots</code></dt>
+<dd><p>Replace the characters with the dot pattern if they are in the middle
+of a number. For example, <samp class="file">en-us-g1.ctb</samp> has <code class="code">midnum . 46</code>.
+This is because the decimal point has a different dot pattern than the
+period.
+</p>
+<a class="index-entry-id" id="index-endnum"></a>
+<a class="anchor" id="endnum-opcode"></a></dd>
+<dt><code class="code">endnum characters dots</code></dt>
+<dd><p>Replace the characters with the dot pattern if they are at the end of
+a number. For example <samp class="file">en-us-g1.ctb</samp> has <code class="code">endnum th 1456</code>.
+This handles things like &lsquo;<samp class="samp">4th</samp>&rsquo;. A letter sign is <em class="emph">NOT</em>
+inserted.
+</p>
+<a class="index-entry-id" id="index-joinnum"></a>
+<a class="anchor" id="joinnum-opcode"></a></dd>
+<dt><code class="code">joinnum characters dots</code></dt>
+<dd><p>Replace the characters with the dot pattern. In addition, if
+whitespace and a number follows omit the whitespace. This opcode can
+be used to join currency symbols to numbers for example:
+</p>
+<div class="example">
+<pre class="example-preformatted">joinnum \x20AC 15 (EURO SIGN)
+joinnum \x0024 145 (DOLLAR SIGN)
+joinnum \x00A3 1234 (POUND SIGN)
+joinnum \x00A5 13456 (YEN SIGN)
+</pre></div>
+
+</dd>
+</dl>
+
+</div>
+<div class="footnotes-segment">
+<hr>
+<h4 class="footnotes-heading">Footnotes</h4>
+
+<h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(1)</a></h5>
+<p>See
+<a class="url" href="https://github.com/liblouis/liblouis/issues/500#issuecomment-365753137">https://github.com/liblouis/liblouis/issues/500#issuecomment-365753137</a>.</p>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Character_002dClass-Opcodes.html">Character-Class Opcodes</a>, Previous: <a href="Special-Processing-Opcodes.html">Special Processing Opcodes</a>, Up: <a href="How-to-Write-Translation-Tables.html">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>
