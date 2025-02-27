@@ -1,9 +1,18 @@
 ---
 ---
 
+// room for header
+html {
+	position: fixed;
+	overflow: auto;
+	top: 91px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
 body {
-	// room for header
-	padding-top: 70px;
+	height: 100%; // also needed for sticky footer
+	overflow: auto;
 }
 
 code {
@@ -14,11 +23,6 @@ code {
 /* Footer
 -------------------------------------------------- */
 
-// Sticky footer
-html,
-body {
-	height: 100%;
-}
 #wrap {
 	min-height: 100%;
 	height: auto !important;
