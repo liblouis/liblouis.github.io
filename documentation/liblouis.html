@@ -2,7 +2,7 @@
 title: Liblouis User's and Programmer's Manual
 ---
 
-<p>This manual is for liblouis (version 3.32.0, 2 December 2024),
+<p>This manual is for liblouis (version 3.33.0, 26 February 2025),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <abbr class="acronym">BRLTTY</abbr>.
 </p>
@@ -2626,13 +2626,6 @@ characters <code class="code">a</code> to <code class="code">z</code>, <code cla
 that separates the key and value may have zero or more spaces or tabs
 on either side.
 </p>
-<p>A value is optional. In case of no value the colon must be omitted as
-well:
-</p>
-<div class="example">
-<pre class="example-preformatted">#+&lt;key&gt;
-</pre></div>
-
 <p>The same key may appear multiple times in a table.
 </p>
 <p>There is no restriction on which keys and values are allowed, as long
@@ -2659,16 +2652,10 @@ function must have the following syntax:
 <pre class="example-preformatted">&lt;feature1&gt; &lt;feature2&gt; &lt;feature3&gt; ...
 </pre></div>
 
-<p>where &lsquo;<samp class="samp">&lt;feature&gt;</samp>&rsquo; is either:
+<p>where &lsquo;<samp class="samp">&lt;feature&gt;</samp>&rsquo; is:
 </p>
 <div class="example">
 <pre class="example-preformatted">&lt;key&gt;:&lt;value&gt;
-</pre></div>
-
-<p>or:
-</p>
-<div class="example">
-<pre class="example-preformatted">&lt;key&gt;
 </pre></div>
 
 <p>Features are separated by one or more spaces or tabs. No spaces are
