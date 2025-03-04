@@ -35,7 +35,7 @@ For a detailed list of all the changes refer to [the list of closed issues](http
 -   Improvements to the UEB table thanks to James Bowden. In particular the handling of words containing \"somer\", e.g. \"Somerville\" was fixed.
 -   Hungarian improvements (added more exceptions) thanks to Attila Hammer.
 -   Add a new 6-dot table for literary Coptic braille, thanks to Eric Harvey.
--   Added some missing symbols (including space) to the table for the International Phonetic Alphabet, thanks to James Bowden.
+-   Added some missing symbols (including space) to the table for the International Phonetic Alphabet, thanks to Robert Englebretson and James Bowden.
 -   Add a table for Portuguese 6-dot computer braille, thanks to Tiago
     1.  Casal and Iván Argote-Pérez. The table is based on the official
 
