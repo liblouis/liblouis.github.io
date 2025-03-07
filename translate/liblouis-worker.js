@@ -1,7 +1,10 @@
+// The origin of the URL where we are hosted. Most likely `http://liblouis.io` or `https://liblouis.io`.
+const ORIGIN = self.location.origin;
+
 self.onmessage = (function() {
 	CMD = {
 		importLib: function(data) {
-			importScripts("http://liblouis.io/js-build/build-no-tables-utf32.js");
+			importScripts(ORIGIN + "/js-build/build-no-tables-utf32.js");
 			importScripts("liblouis-easy-api.js");
 			liblouis.setLogLevel(liblouis.LOG.INFO);
 			liblouis.registerLogCallback(function(lvl, msg) {
@@ -44,7 +47,7 @@ self.onmessage = (function() {
 									continue; // ignore parse error
 								}
 								tableIndexName = line.substring(0, len);
-								tableUrl = new URL(tablePath, "http://liblouis.io/js-build/tables/_/_").href;
+								tableUrl = new URL(tablePath, ORIGIN + "/js-build/tables/_/_").href;
 								tableFileName = tableUrl.substring(tableUrl.lastIndexOf('/') + 1);
 								capi.FS.createLazyFile(tableFolder, tableFileName, tableUrl, true, true);
 								tables.push(tableFolder + "/" + tableFileName);
@@ -54,7 +57,7 @@ self.onmessage = (function() {
 							}
 						}
 						// this needs to come after the createLazyFile stuff because of how bindDynLoader works
-						liblouis.enableOnDemandTableLoading("http://liblouis.io/js-build/tables/");
+						liblouis.enableOnDemandTableLoading(ORIGIN + "/js-build/tables/");
 						// This takes too long, getting info from index file instead
 						/*ptr = capi.ccall("lou_listTables", "number", [], []);
 						if (ptr) {
