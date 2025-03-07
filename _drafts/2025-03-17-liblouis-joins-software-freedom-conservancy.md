@@ -12,7 +12,7 @@ Developments over the past few years, including the passing of liblouis founder 
 
 Each SFC member project is led by a Project Leadership Committee (PLC). Each individual member of the PLC participates in their own capacity, although they may have professional or other affiliations. The founding PLC includes Bert Frees, Christian Egli, and Anthony Tibbs. 
 
-To make a financial donation to the liblouis project, use the PayPal donation button below, or visit https://sfconservancy.org/donate/ for more information on other ways to donate.
+To make a financial donation to the liblouis project, use the PayPal donation button below, or visit the [SFC donations page](https://sfconservancy.org/donate/) for more information on other ways to donate.
 
 <form action="https://www.paypal.com/donate" method="post" target="_top">
 <input type="hidden" name="hosted_button_id" value="YTG8Y2WP6RJNG" />
@@ -20,5 +20,5 @@ To make a financial donation to the liblouis project, use the PayPal donation bu
 <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
 </form>
 
-To support the Software Freedom Conservancy, [please become a Sustainer](https://sfconservancy.org/sustainer/)
+To support the Software Freedom Conservancy, [please become a Sustainer](https://sfconservancy.org/sustainer/).
 
