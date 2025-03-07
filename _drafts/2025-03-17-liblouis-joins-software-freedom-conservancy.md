@@ -1,5 +1,6 @@
 ---
 title: liblouis joins the Software Freedom Conservancy
+category: Liblouis
 ---
 
 The liblouis project and [Software Freedom Conservancy](https://sfconservancy.org/) (SFC) are excited to announce that liblouis has joined SFC as a member project, with the goal of ensuring sustainability and a framework for long-term stewardship of the project. As a nonprofit home of liblouis, SFC will provide a home for fundraising, legal assistance, and governance that will benefit all users of the project.
