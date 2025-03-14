@@ -15,6 +15,81 @@ body {
 	overflow: auto;
 }
 
+// center text on grey background
+html {
+	background-color: #e7e7e7;
+}
+body {
+	max-width: 74.92em;
+	margin: 0 auto;
+	padding: .5em 1em 1em 1em;
+	border: .1em solid #c0c0c0;
+}
+
+// font size
+html, body {
+	font-size: 1em;
+}
+
+// headings
+h1 {
+	font-size: 2em;
+	margin: 1em 0;
+}
+h2 {
+	font-size: 1.50em;
+	margin: 1.0em 0 0.87em 0;
+}
+h3 {
+	font-size: 1.30em;
+	margin: 1.0em 0 0.87em 0;
+}
+h4 {
+	font-size: 1.13em;
+	margin: 1.0em 0 0.88em 0;
+}
+h5 {
+	font-size: 1.00em;
+	margin: 1.0em 0 1.00em 0;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+}
+
+// paragraph spacing
+p {
+	margin: 1em 0;
+	blockquote &:first-child {
+		margin-top: 0;
+	}
+}
+
+// list item spacing
+ul li {
+	margin: .5em 1em;
+	p,
+	& ul {
+		margin-top: .3em;
+		margin-bottom: .3em;
+	}
+}
+
+// list item bullets
+ul {
+	list-style: square outside;
+	li & {
+		list-style: circle;
+	}
+}
+
+// visited links are not given a different color by bootstrap
+a[href] {
+	color: #005090;
+	&:visited {
+		color: #100070;
+	}
+}
+
 // bootstrap removes underlining from links
 a[href] {
 	text-decoration: underline;
@@ -178,5 +253,38 @@ code {
 	& > svg {
 		fill: #ea4aaa;
 		vertical-align: text-bottom;
+	}
+}
+
+
+/* Manual pages
+-------------------------------------------------- */
+
+// table of contents
+.contents ul {
+	list-style: none;
+	font-weight: bold;
+	ul {
+		font-weight: normal;
+	}
+}
+
+// code blocks:
+// in order to properly override the bootstrap style, we put the style on pre instead of div
+div.example > pre {
+	margin: 1em 0 1em 3%;
+	padding: 1.8em 1.4em;
+	-webkit-border-radius: .3em;
+	-moz-border-radius: .3em;
+	border-radius: .3em;
+	border: 1px solid #d4cbb6;
+	background-color: #f2efe4;
+}
+
+// indendation and spacing of definition lists (opcode definitions, etc.)
+dd {
+	margin: .5em 3% 1em 3%;
+	p {
+		margin: .5em 0;
 	}
 }
