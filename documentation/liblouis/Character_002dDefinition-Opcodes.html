@@ -1,0 +1,208 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="Character_002dDefinition-Opcodes">
+<div class="nav-panel">
+<p>
+Next: <a href="Braille-Indicator-Opcodes.html" accesskey="n" rel="next">Braille Indicator Opcodes</a>, Previous: <a href="Hyphenation-Tables.html" accesskey="p" rel="prev">Hyphenation Tables</a>, Up: <a href="How-to-Write-Translation-Tables.html" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Character_002dDefinition-Opcodes-1"><span>2.3 Character-Definition Opcodes<a class="copiable-link" href="#Character_002dDefinition-Opcodes-1"> &para;</a></span></h3>
+
+<p>These opcodes are needed to define attributes such as digit,
+punctuation, letter, etc. for all characters and their dot patterns.
+liblouis has no built-in character definitions, but such definitions
+are essential to the operation of the <code class="code">context</code> opcode (see <a class="pxref" href="The-Context-and-Multipass-Opcodes.html#context-opcode"><code class="code">context</code></a>), the
+<code class="code">correct</code> opcode (see <a class="pxref" href="The-correct-Opcode.html#correct-opcode"><code class="code">correct</code></a>), the multipass opcodes and the back-translator. If
+the dot pattern is a single cell, it is used to define the mapping
+between dot patterns and characters, unless a <code class="code">display</code> opcode (see <a class="pxref" href="Miscellaneous-Opcodes.html#display-opcode"><code class="code">display</code></a>) for
+that character-dot-pattern pair has been used previously. If only a
+single-cell dot pattern has been given for a character, that dot
+pattern is defined with the character&rsquo;s own attributes.
+</p>
+<p>You may have multiple definitions of a character using the same or
+different dot patterns. If you use different dot patterns for the same
+character, only the first dot pattern will be used during forward
+translation. However, during back-translation, all the relevant dot
+patterns will back-translate to the character you defined.
+</p>
+<p>You can also define a character multiple times using the same dot
+pattern for the character, but using different character classes. The
+following example would define the character &lsquo;<samp class="samp">*</samp>&rsquo; (star) as both
+<code class="code">math</code> opcode (see <a class="pxref" href="#math-opcode"><code class="code">math</code></a>) and <code class="code">sign</code> opcode (see <a class="pxref" href="#sign-opcode"><code class="code">sign</code></a>).
+</p>
+<div class="example">
+<pre class="example-preformatted">math * 16
+sign * 16
+</pre></div>
+
+<p>Likewise, you can define multiple characters as the same dot pattern.
+The characters you define this way will be forward translated to the
+same dot pattern. However, when back-translating, the dot pattern will
+always back-translate to the first character that was defined with
+this pattern.
+</p>
+<p>This technique may be useful when defining characters that have one
+representation in the Windows character set (CP1252) and another
+representation in the Unicode character set, e.g. the Euro sign,
+&lsquo;<samp class="samp">€</samp>&rsquo;. It may also be of use when you have to define several
+variants of the same letter with different accents, which may be
+represented in your Braille code by the same dot pattern. This is a
+very common practice for accented letters that are foreign to the
+Braille code. In the following example, both e acute (&lsquo;<samp class="samp">é</samp>&rsquo;) and e
+grave (&lsquo;<samp class="samp">è</samp>&rsquo;) are defined as dot 4 followed by dots 1 and 5.
+</p>
+<div class="example">
+<pre class="example-preformatted">lowercase \x00e9 4-15 # E acute
+lowercase \x00e8 4-15 # E grave
+</pre></div>
+
+<p>In this example, the dot pattern would always back-translate to e
+acute, since this is the first definition. You could use the
+<code class="code">correct</code> opcode (see <a class="pxref" href="The-correct-Opcode.html#correct-opcode"><code class="code">correct</code></a>) to correct at least the most common errors on that
+account. However, there is no fail-safe way to know what accented
+letter to use when you back-translate from a dot pattern representing
+more than one variant.
+</p>
+<dl class="table">
+<dd><a class="index-entry-id" id="index-space"></a>
+<a class="anchor" id="space-opcode"></a></dd>
+<dt><code class="code">space character dots</code></dt>
+<dd><p>Defines a character as a space and also defines the dot pattern as
+such. for example:
+</p>
+<div class="example">
+<pre class="example-preformatted">space \s 0 \s is the escape sequence for blank; 0 means no dots.
+</pre></div>
+
+<a class="index-entry-id" id="index-punctuation"></a>
+<a class="anchor" id="punctuation-opcode"></a></dd>
+<dt><code class="code">punctuation character dots</code></dt>
+<dd><p>Associates a punctuation mark in the particular language with a
+braille representation and defines the character and dot pattern as
+punctuation. For example:
+</p>
+<div class="example">
+<pre class="example-preformatted">punctuation . 46 dot pattern for period in NAB computer braille
+</pre></div>
+
+<a class="index-entry-id" id="index-digit"></a>
+<a class="anchor" id="digit-opcode"></a></dd>
+<dt><code class="code">digit character dots</code></dt>
+<dd><p>Associates a digit with a dot pattern and defines the character as a
+digit. For example:
+</p>
+<div class="example">
+<pre class="example-preformatted">digit 0 356 NAB computer braille
+</pre></div>
+
+<a class="index-entry-id" id="index-letter"></a>
+<a class="anchor" id="letter-opcode"></a></dd>
+<dt><code class="code">letter character dots</code></dt>
+<dd><p>Associates a letter in the language with a braille representation and
+defines the character as a letter. This is intended for letters which
+are neither uppercase nor lowercase.
+</p>
+<a class="index-entry-id" id="index-lowercase"></a>
+<a class="anchor" id="lowercase-opcode"></a></dd>
+<dt><code class="code">lowercase character dots</code></dt>
+<dd><p>Associates a character with a dot pattern and defines the character as
+a lowercase letter. Both the character and the dot pattern have the
+attributes lowercase and letter.
+</p>
+<a class="index-entry-id" id="index-uppercase"></a>
+<a class="anchor" id="uppercase-opcode"></a></dd>
+<dt><code class="code">uppercase character dots</code></dt>
+<dd><p>Associates a character with a dot pattern and defines the character as
+an uppercase letter. Both the character and the dot pattern have the
+attributes uppercase and letter.
+</p>
+<a class="index-entry-id" id="index-litdigit"></a>
+<a class="anchor" id="litdigit-opcode"></a></dd>
+<dt><code class="code">litdigit digit dots</code></dt>
+<dd><p>Associates a digit with the dot pattern which should be used to
+represent it in literary texts. For example:
+</p>
+<div class="example">
+<pre class="example-preformatted">litdigit 0 245
+litdigit 1 1
+</pre></div>
+
+<a class="index-entry-id" id="index-sign"></a>
+<a class="anchor" id="sign-opcode"></a></dd>
+<dt><code class="code">sign character dots</code></dt>
+<dd><p>Associates a character with a dot pattern and defines both as a sign.
+This opcode should be used for things like at sign (&lsquo;<samp class="samp">@</samp>&rsquo;),
+percent (&lsquo;<samp class="samp">%</samp>&rsquo;), dollar sign (&lsquo;<samp class="samp">$</samp>&rsquo;), etc. Do not use it to
+define ordinary punctuation such as period and comma. For example:
+</p>
+<div class="example">
+<pre class="example-preformatted">sign % 4-25-1234 literary percent sign
+</pre></div>
+
+<a class="index-entry-id" id="index-math"></a>
+<a class="anchor" id="math-opcode"></a></dd>
+<dt><code class="code">math character dots</code></dt>
+<dd><p>Associates a character and a dot pattern and defines them as a
+mathematical symbol. It should be used for less than (&lsquo;<samp class="samp">&lt;</samp>&rsquo;),
+greater than(&lsquo;<samp class="samp">&gt;</samp>&rsquo;), equals(&lsquo;<samp class="samp">=</samp>&rsquo;), plus(&lsquo;<samp class="samp">+</samp>&rsquo;), etc. For
+example:
+</p>
+<div class="example">
+<pre class="example-preformatted">math + 346 plus
+</pre></div>
+
+<a class="index-entry-id" id="index-grouping"></a>
+<a class="anchor" id="grouping-opcode"></a></dd>
+<dt><code class="code">grouping name characters dots ,dots</code></dt>
+<dd><p>This opcode is different from the previous ones in that it defines two
+characters in one rule, and associates them with each other. The
+opcode is used to indicate pairs of grouping symbols used in
+processing mathematical expressions. These symbols are usually
+generated by the MathML interpreter in liblouisutdml. They are used in
+multipass opcodes. The name operand must contain only letters (a-z and
+A-Z). The letters may be upper or lower-case but the case matters. The
+characters operand must contain exactly two Unicode characters. The
+dots operand must contain exactly two braille cells, separated by a
+comma.
+</p>
+<div class="example">
+<pre class="example-preformatted">grouping mrow \x0001\x0002 1e,2e
+grouping mfrac \x0003\x0004 3e,4e
+</pre></div>
+
+<a class="index-entry-id" id="index-base"></a>
+<a class="anchor" id="base-opcode"></a></dd>
+<dt><code class="code">base attribute &lt;derived character&gt; &lt;base character&gt;</code></dt>
+<dd>
+<p>This opcode is different in that it does not associate a character
+with a dot pattern, but it associates a character with another already
+defined character. The derived character inherits the dot pattern of
+the base character, and braille indicators (see <a class="pxref" href="Braille-Indicator-Opcodes.html">Braille Indicator Opcodes</a>) are used to distinguish them. The attribute operand refers
+to the character class (see <a class="pxref" href="Character_002dClass-Opcodes.html">Character-Class Opcodes</a>) to which the
+character should be added. By defining braille indicator rules associated
+with this character class, you can determine the braille indicators to
+be inserted. The character operands are the derived character and the
+base character, respectively. A typical use of this opcode is for
+defining a pair of letters, a lowercase and the corresponding
+uppercase. For example:
+</p>
+<div class="example">
+<pre class="example-preformatted">lowercase a 1
+base uppercase A a
+</pre></div>
+
+</dd>
+</dl>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Braille-Indicator-Opcodes.html">Braille Indicator Opcodes</a>, Previous: <a href="Hyphenation-Tables.html">Hyphenation Tables</a>, Up: <a href="How-to-Write-Translation-Tables.html">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

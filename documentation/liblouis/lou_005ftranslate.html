@@ -1,0 +1,50 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="lou_005ftranslate">
+<div class="nav-panel">
+<p>
+Next: <a href="lou_005fbackTranslateString.html" accesskey="n" rel="next">lou_backTranslateString</a>, Previous: <a href="lou_005ftranslateString.html" accesskey="p" rel="prev">lou_translateString</a>, Up: <a href="Programming-with-liblouis.html" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="lou_005ftranslate-2"><span>7.7 lou_translate<a class="copiable-link" href="#lou_005ftranslate-2"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-lou_005ftranslate"></a>
+
+<div class="example">
+<pre class="example-preformatted">int lou_translate(
+  const char *tableList,
+  const widechar *inbuf,
+  int *inlen,
+  widechar *outbuf,
+  int *outlen,
+  formtype *typeform,
+  char *spacing,
+  int *outputPos,
+  int *inputPos,
+  int *cursorPos,
+  int mode);
+</pre></div>
+
+<p>This function adds the parameters <code class="code">outputPos</code>, <code class="code">inputPos</code>
+and <code class="code">cursorPos</code>, to facilitate use in screen reader programs. The
+<code class="code">outputPos</code> parameter must point to an array of integers with at
+least <code class="code">inlen</code> elements. On return, this array will contain the
+position in <code class="code">outbuf</code> corresponding to each input position.
+Similarly, <code class="code">inputPos</code> must point to an array of integers of at
+least <code class="code">outlen</code> elements. On return, this array will contain the
+position in <code class="code">inbuf</code> corresponding to each position in
+<code class="code">outbuf</code>. <code class="code">cursorPos</code> must point to an integer containing
+the position of the cursor in the input. On return, it will contain
+the cursor position in the output. Any parameter after <code class="code">outlen</code>
+may be <code class="code">NULL</code>. In this case, the actions corresponding to it will
+not be carried out.
+</p>
+<p>For a description of all other parameters, please see
+<a class="ref" href="lou_005ftranslateString.html">lou_translateString</a>.
+</p>
+</div>
+
+
+
+</body>
+</html>

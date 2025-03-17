@@ -1,0 +1,46 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="subsubsection-level-extent" id="Letter-indicator">
+<div class="nav-panel">
+<p>
+Next: <a href="Word-indicator.html" accesskey="n" rel="next">Word indicator</a>, Previous: <a href="Permanent-indicator.html" accesskey="p" rel="prev">Permanent indicator</a>, Up: <a href="Emphasis-indicators.html" accesskey="u" rel="up">Emphasis indicators</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsubsection" id="Letter-indicator-1"><span>2.6.2.2 Letter indicator<a class="copiable-link" href="#Letter-indicator-1"> &para;</a></span></h4>
+
+<p>Some languages have special indicators for single letter emphasis. The
+letter indicator will be chosen over other indicators when the next
+character is emphasized, but not the characters thereafter.
+</p>
+<p>In some situations the letter indicator is the only way to indicate
+emphasis. For instance when emphasis ends within the middle of a word,
+and a word indicator exists (see <a class="pxref" href="Word-indicator.html">Word indicator</a>), but no way to
+cancel it explicitly. In this case Liblouis will use the letter
+indicator for every emphasized character in the word.
+</p>
+<p>A table is even allowed to define only a letter indicator and no word
+or permanent indicators (see <a class="pxref" href="Permanent-indicator.html">Permanent indicator</a>), in which case the
+letter indicator will be used for any emphasis. It is not very likely
+that there are braille systems that work this way, but this feature
+can be useful anyway.
+</p>
+<dl class="table">
+<dd><a class="index-entry-id" id="index-emphletter"></a>
+<a class="anchor" id="emphletter-opcode"></a></dd>
+<dt><code class="code">emphletter &lt;emphasis class&gt; &lt;dot pattern&gt;</code></dt>
+<dd><p>Braille dot pattern to indicate that the next character is emphasized.
+</p>
+<div class="example">
+<pre class="example-preformatted">emphletter italic 46-25
+</pre></div>
+
+</dd>
+</dl>
+
+</div>
+
+
+
+</body>
+</html>

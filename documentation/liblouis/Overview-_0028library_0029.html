@@ -1,0 +1,80 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="Overview-_0028library_0029">
+<div class="nav-panel">
+<p>
+Next: <a href="Data-structure-of-liblouis-tables.html" accesskey="n" rel="next">Data structure of liblouis tables</a>, Up: <a href="Programming-with-liblouis.html" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Overview-2"><span>7.1 Overview<a class="copiable-link" href="#Overview-2"> &para;</a></span></h3>
+
+<p>You use the liblouis library by calling the following functions,
+<code class="code">lou_translateString</code>, <code class="code">lou_backTranslateString</code>,
+<code class="code">lou_translate</code>, <code class="code">lou_backTranslate</code>,
+<code class="code">lou_registerLogCallback</code>, <code class="code">lou_setLogLevel</code>,
+<code class="code">lou_logFile</code>, <code class="code">lou_logPrint</code>, <code class="code">lou_logEnd</code>,
+<code class="code">lou_getTable</code>, <code class="code">lou_findTable</code>, <code class="code">lou_indexTables</code>,
+<code class="code">lou_checkTable</code>, <code class="code">lou_hyphenate</code>, <code class="code">lou_charToDots</code>,
+<code class="code">lou_dotsToChar</code>, <code class="code">lou_compileString</code>,
+<code class="code">lou_getTypeformForEmphClass</code>, <code class="code">lou_readCharFromFile</code>,
+<code class="code">lou_version</code>, <code class="code">lou_free</code> and <code class="code">lou_charSize</code>. These are
+described below. The header file, <samp class="file">liblouis.h</samp>, also contains
+brief descriptions. Liblouis is written in straight C. It has four
+code modules, <samp class="file">compileTranslationTable.c</samp>, <samp class="file">logging.c</samp>,
+<samp class="file">lou_translateString.c</samp> and <samp class="file">lou_backTranslateString.c</samp>. In
+addition, there are two header files, <samp class="file">liblouis.h</samp>, which defines
+the API, and <samp class="file">louis.h</samp>, used only internally and by
+liblouisutdml. The latter includes <samp class="file">liblouis.h</samp>.
+</p>
+<p>Persons who wish to use liblouis from Python may want to skip ahead to
+<a class="ref" href="Python-bindings.html">Python bindings</a>.
+</p>
+<p><samp class="file">compileTranslationTable.c</samp> keeps track of all translation tables
+which an application has used. It is called by the translation,
+hyphenation and checking functions when they start. If a table has not
+yet been compiled <samp class="file">compileTranslationTable.c</samp> checks it for
+correctness and compiles it into an efficient internal representation.
+The main entry point is <code class="code">lou_getTable</code>. Since it is the module
+that keeps track of memory usage, it also contains the <code class="code">lou_free</code>
+function. In addition, it contains the <code class="code">lou_checkTable</code> function,
+plus some utility functions which are used by the other modules.
+</p>
+<p>By default, liblouis handles all characters internally as 16-bit
+unsigned integers. It can be compiled for 32-bit characters as
+explained below. The meanings of these integers are not hard-coded.
+Rather they are defined by the character-definition opcodes. However,
+the standard printable characters, from decimal 32 to 126 are
+recognized for the purpose of processing the opcodes. Hence, the
+following definition is included in <samp class="file">liblouis.h</samp>. It is correct
+for computers with at least 32-bit processors.
+</p>
+<div class="example">
+<pre class="example-preformatted">typedef unsigned short int widechar
+</pre></div>
+
+<p>To make liblouis handle 32-bit Unicode simply remove the word
+<code class="code">short</code> in the above <code class="code">typedef</code>. This will cause the translate and
+back-translate functions to expect input in 32-bit form and to deliver
+their output in this form. The input to the compiler (tables) is
+unaffected except that two new escape sequences for 20-bit and 32-bit
+characters are recognized.
+</p>
+<p>At run time, the width of a character specified during compilation may
+be obtained using <code class="code">lou_charSize</code>.
+</p>
+<p>Here are the definitions of the eleven liblouis functions and their
+parameters. They are given in terms of Unicode characters, either 16-bit
+or 32-bit, depending on how liblouis has been compiled.
+</p>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Data-structure-of-liblouis-tables.html">Data structure of liblouis tables</a>, Up: <a href="Programming-with-liblouis.html">Programming with liblouis</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

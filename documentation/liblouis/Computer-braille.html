@@ -1,0 +1,47 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="subsection-level-extent" id="Computer-braille">
+<div class="nav-panel">
+<p>
+Previous: <a href="Note-about-fallback-behavior.html" accesskey="p" rel="prev">Note about fallback behavior</a>, Up: <a href="Emphasis-Opcodes.html" accesskey="u" rel="up">Emphasis Opcodes</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsection" id="Computer-braille-1"><span>2.6.4 Computer braille<a class="copiable-link" href="#Computer-braille-1"> &para;</a></span></h4>
+
+<p>For computer braille there are only two braille indicators, for the
+beginning and end of a sequence of characters to be rendered in
+computer braille. Such a sequence may also have other emphasis. The
+computer braille indicators are applied not only when computer braille
+is indicated in the <code class="code">typeform</code> parameter, but also when a
+sequence of characters is determined to be computer braille because it
+contains a subsequence defined by the <code class="code">compbrl</code> opcode (see <a class="pxref" href="Translation-Opcodes.html#compbrl-opcode"><code class="code">compbrl</code></a>).
+</p>
+<dl class="table">
+<dd><a class="index-entry-id" id="index-begcomp"></a>
+<a class="anchor" id="begcomp-opcode"></a></dd>
+<dt><code class="code">begcomp dots</code></dt>
+<dd>
+<p>This braille indicator is placed before a sequence of characters
+translated in computer braille, whether this sequence is indicated in
+the <code class="code">typeform</code> parameter (see <a class="pxref" href="lou_005ftranslateString.html#typeform-parameter"><code class="code">typeform</code> parameter</a>) or inferred because it
+contains a subsequence specified by the <code class="code">compbrl</code> opcode (see <a class="pxref" href="Translation-Opcodes.html#compbrl-opcode"><code class="code">compbrl</code></a>).
+</p>
+<a class="index-entry-id" id="index-endcomp"></a>
+<a class="anchor" id="endcomp-opcode"></a></dd>
+<dt><code class="code">endcomp dots</code></dt>
+<dd>
+<p>This braille indicator is placed after a sequence of characters
+translated in computer braille, whether this sequence is indicated in
+the <code class="code">typeform</code> parameter (see <a class="pxref" href="lou_005ftranslateString.html#typeform-parameter"><code class="code">typeform</code> parameter</a>) or inferred because it
+contains a subsequence specified by the <code class="code">compbrl</code> opcode (see <a class="pxref" href="Translation-Opcodes.html#compbrl-opcode"><code class="code">compbrl</code></a>).
+</p>
+</dd>
+</dl>
+
+</div>
+
+
+
+</body>
+</html>

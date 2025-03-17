@@ -1,0 +1,52 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="lou_005fbackTranslateString">
+<div class="nav-panel">
+<p>
+Next: <a href="lou_005fbackTranslate.html" accesskey="n" rel="next">lou_backTranslate</a>, Previous: <a href="lou_005ftranslate.html" accesskey="p" rel="prev">lou_translate</a>, Up: <a href="Programming-with-liblouis.html" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="lou_005fbackTranslateString-1"><span>7.8 lou_backTranslateString<a class="copiable-link" href="#lou_005fbackTranslateString-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-lou_005fbackTranslateString"></a>
+
+<div class="example">
+<pre class="example-preformatted">int lou_backTranslateString(
+  const char *tableList,
+  const widechar *inbuf,
+  int *inlen,
+  widechar *outbuf,
+  int *outlen,
+  formtype *typeform,
+  char *spacing,
+  int mode);
+</pre></div>
+
+<p>This is exactly the opposite of <code class="code">lou_translateString</code>.
+<code class="code">inbuf</code> is a string of Unicode characters representing
+braille. <code class="code">outbuf</code> will contain a string of Unicode
+characters. <code class="code">typeform</code> will indicate any emphasis found in the
+input string, while <code class="code">spacing</code> will indicate any differences in
+spacing between the input and output strings. The <code class="code">typeform</code> and
+<code class="code">spacing</code> parameters may be <code class="code">NULL</code> if this information is
+not needed. <code class="code">mode</code> specifies how the back-translation
+should be done.
+</p>
+<p>By default, if a dot pattern in the input is undefined
+then its dot numbers will be included in the output (as \ddd/).
+This does not occur if the <code class="code">noUndefined</code> mode is set;
+an undefined dot pattern simply produces no output.
+</p>
+<p>The <code class="code">partialTrans</code> mode specifies that the input should be
+treated as an incomplete word. That is, rules that apply only for
+complete words or at the end of a word will not take effect. This is
+intended to be used when translating input typed on a braille keyboard
+to provide a rough idea to the user of the characters they are typing
+before the word is complete.
+</p>
+</div>
+
+
+
+</body>
+</html>

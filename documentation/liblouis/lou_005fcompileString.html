@@ -1,0 +1,30 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="lou_005fcompileString">
+<div class="nav-panel">
+<p>
+Next: <a href="lou_005fgetTypeformForEmphClass.html" accesskey="n" rel="next">lou_getTypeformForEmphClass</a>, Previous: <a href="lou_005fhyphenate.html" accesskey="p" rel="prev">lou_hyphenate</a>, Up: <a href="Programming-with-liblouis.html" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="lou_005fcompileString-1"><span>7.11 lou_compileString<a class="copiable-link" href="#lou_005fcompileString-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-lou_005fcompileString"></a>
+
+<div class="example">
+<pre class="example-preformatted">int lou_compileString (const char *tableList, const char *inString)
+</pre></div>
+
+<p>This function enables you to compile a table entry on the fly at 
+run-time. The new entry is added to <code class="code">tableList</code> and remains in force 
+until <code class="code">lou_free</code> is called. If <code class="code">tableList</code> has not previously 
+been loaded it is loaded and compiled. <code class="code">inString</code> contains the 
+table entry to be added. It may be anything valid. Error messages 
+will be produced if it is invalid. The function returns 1 on success and 
+0 on failure.
+</p>
+</div>
+
+
+
+</body>
+</html>

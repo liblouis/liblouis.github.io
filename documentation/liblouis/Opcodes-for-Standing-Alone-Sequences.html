@@ -1,0 +1,117 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="Opcodes-for-Standing-Alone-Sequences">
+<div class="nav-panel">
+<p>
+Next: <a href="Emphasis-Opcodes.html" accesskey="n" rel="next">Emphasis Opcodes</a>, Previous: <a href="Braille-Indicator-Opcodes.html" accesskey="p" rel="prev">Braille Indicator Opcodes</a>, Up: <a href="How-to-Write-Translation-Tables.html" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Opcodes-for-Standing-Alone-Sequences-1"><span>2.5 Opcodes for <em class="emph">Standing Alone</em> Sequences<a class="copiable-link" href="#Opcodes-for-Standing-Alone-Sequences-1"> &para;</a></span></h3>
+
+<a class="index-entry-id" id="index-Standing-alone"></a>
+<p>The term &ldquo;standing alone&rdquo; comes from the specification of Unified
+English Braille (UEB). In Liblouis, a letter or letters-sequence is
+considered to be <em class="emph">standing alone</em> if it is preceded and followed
+by a space, and/or other characters that you choose as delimiters,
+e.g. &lsquo;<samp class="samp">-</samp>&rsquo;. A <em class="emph">standing alone</em> sequence can be thought of as a
+word in a very broad sense. With the opcodes described in this
+section, you can decide what characters constitute a delimiter, and
+what characters can attach to the beginning or end of a word or
+<em class="emph">standing alone</em> sequence.
+</p>
+<p><strong class="strong">Note:</strong> The opcodes in this section were implemented in
+Liblouis specifically in order to support Unified English Braille
+(UEB). They may be used in any table, but may have unpredicted
+side-effects if used outside the intended context. Use with great
+care, and test thoroughly.
+</p>
+<dl class="table">
+<dd><a class="index-entry-id" id="index-seqdelimiter"></a>
+<a class="anchor" id="seqdelimiter-opcode"></a></dd>
+<dt><code class="code">seqdelimiter &lt;characters&gt;</code></dt>
+<dd><p>All the characters listed with this opcode designate a valid beginning
+and ending to a letter sequence used to determine when a letter
+sequence is <em class="emph">standing alone</em>. This again determines whether word
+contractions (see <a class="pxref" href="Translation-Opcodes.html#word-opcode"><code class="code">word</code></a>) or nocontractsign
+(see <a class="pxref" href="Braille-Indicator-Opcodes.html#nocontractsign-opcode"><code class="code">nocontractsign</code></a>) should be applied.
+</p>
+<p>Spaces do not need to be listed as
+they are automatically delimiters.
+</p>
+<p>For example, in UEB (section 2.6.1 page 15), any hyphen or dash count
+as delimiters.
+</p>
+<p>This opcode can be used several times, but the characters must have
+already been defined.
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example-preformatted">seqdelimiter -—
+</pre></div>
+
+<a class="index-entry-id" id="index-seqbeforechars"></a>
+<a class="anchor" id="seqbeforechars-opcode"></a></dd>
+<dt><code class="code">seqbeforechars &lt;characters&gt;</code></dt>
+<dd><p>Characters specified with this opcode may appear between a beginning
+sequence delimiter and the letter sequence itself.
+</p>
+<p>For example, in UEB (2.6.2, page 15), opening parenthesis and opening
+quotations and such are allowed.
+</p>
+<p>This opcode can be used several times, but the characters must have
+already been defined.
+</p>
+<p>Example:
+</p><div class="example">
+<pre class="example-preformatted">seqbeforechars ([{&quot;“'‘
+</pre></div>
+
+<a class="index-entry-id" id="index-seqafterchars"></a>
+<a class="anchor" id="seqafterchars-opcode"></a></dd>
+<dt><code class="code">seqafterchars &lt;chars&gt;</code></dt>
+<dd><p>Characters specified with this opcode may appear between a letter
+sequence itself and an end sequence delimiter.
+</p>
+<p>For example, in UEB (2.6.3, page 16), closing parenthesis and closing
+quotations and such are allowed.
+</p>
+<p>This opcode can be used several times, but the characters must have
+already been defined.
+</p>
+<p>Example:
+</p><div class="example">
+<pre class="example-preformatted">seqafterchars  )]}&quot;”'’.,;:.!?…
+</pre></div>
+
+<a class="index-entry-id" id="index-seqafterpattern"></a>
+<a class="anchor" id="seqafterpattern-opcode"></a></dd>
+<dt><code class="code">seqafterpattern &lt;string&gt;</code></dt>
+<dd><p>Specifies that a specific string of characters can be between the
+letter sequence itself and an ending sequence delimiter.
+</p>
+<p>For example, in UEB (section 2.6.4, page 18), the &lsquo;<samp class="samp">'d</samp>&rsquo;,
+&lsquo;<samp class="samp">'s</samp>&rsquo;, &lsquo;<samp class="samp">'ll</samp>&rsquo;, &lsquo;<samp class="samp">'ve</samp>&rsquo;, etc. can be after a letter sequence
+provided the overall sequence is <em class="emph">standing alone</em>.
+</p>
+<p>This opcode may be used multiple times, once per pattern.
+</p>
+<p>Example:
+</p><div class="example">
+<pre class="example-preformatted">seqafterpattern 'd
+</pre></div>
+</dd>
+</dl>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Emphasis-Opcodes.html">Emphasis Opcodes</a>, Previous: <a href="Braille-Indicator-Opcodes.html">Braille Indicator Opcodes</a>, Up: <a href="How-to-Write-Translation-Tables.html">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

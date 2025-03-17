@@ -1,0 +1,93 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="subsubsection-level-extent" id="Phrase-indicator">
+<div class="nav-panel">
+<p>
+Previous: <a href="Word-indicator.html" accesskey="p" rel="prev">Word indicator</a>, Up: <a href="Emphasis-indicators.html" accesskey="u" rel="up">Emphasis indicators</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsubsection" id="Phrase-indicator-1"><span>2.6.2.4 Phrase indicator<a class="copiable-link" href="#Phrase-indicator-1"> &para;</a></span></h4>
+
+<p>Some languages have a concept of a phrase where the emphasis is valid
+for a number of words. The beginning of the phrase is indicated with a
+braille dot pattern and a closing indicator is put before or after the
+last word of the phrase. A phrase only contains whole words. The
+phrase indicator is a special kind of permanent indicator that must be
+used in combination with a word indicator (see <a class="pxref" href="Permanent-indicator.html">Permanent indicator</a>
+and <a class="ref" href="Word-indicator.html">Word indicator</a>).
+</p>
+<p>A word is defined as a character sequence that starts and ends with
+emphasizable characters and does not contain characters that are both
+unemphasizable and resetting (see <a class="pxref" href="Word-indicator.html#emphmodechars-opcode"><code class="code">emphmodechars</code></a> and <a class="ref" href="Permanent-indicator.html#noemphchars-opcode"><code class="code">noemphchars</code></a>).
+</p>
+<p>To define how many words are considered a phrase in your language use
+the <code class="code">lenemphphrase</code> opcode (see <a class="pxref" href="#lenemphphrase-opcode"><code class="code">lenemphphrase</code></a>).
+</p>
+<dl class="table">
+<dd><a class="index-entry-id" id="index-begemphphrase"></a>
+<a class="anchor" id="begemphphrase-opcode"></a></dd>
+<dt><code class="code">begemphphrase &lt;emphasis class&gt; &lt;dot pattern&gt;</code></dt>
+<dd><p>Braille dot pattern to indicate the beginning of a phrase.
+</p>
+<div class="example">
+<pre class="example-preformatted">begemphphrase bold 456-46-46
+</pre></div>
+
+<p>A <code class="code">begemphphrase</code> rule must always be combined with a
+<code class="code">endemphphrase</code> rule.
+</p>
+
+<a class="index-entry-id" id="index-endemphphrase-before"></a>
+<a class="anchor" id="endemphphrase-before-opcode"></a></dd>
+<dt><code class="code">endemphphrase &lt;emphasis class&gt; before &lt;dot pattern&gt;</code></dt>
+<dd><p>Braille dot pattern to indicate the end of a phrase. The closing indicator
+will be placed before the last word of the phrase.
+</p>
+<div class="example">
+<pre class="example-preformatted">endemphphrase bold before 456-46
+</pre></div>
+
+<p>If a table specifies <code class="code">endemphphrase before</code> and the dot pattern
+is the same as that of <code class="code">begemphword</code>, the word scope applies
+whenever this indicator is used (see <a class="pxref" href="Word-indicator.html">Word indicator</a>).
+</p>
+<a class="index-entry-id" id="index-endemphphrase-after"></a>
+<a class="anchor" id="endemphphrase-after-opcode"></a></dd>
+<dt><code class="code">endemphphrase &lt;emphasis class&gt; after &lt;dot pattern&gt;</code></dt>
+<dd><p>Braille dot pattern to indicate the end of a phrase. The closing
+indicator will be placed after the last word of the phrase. If both
+<code class="code">endemphphrase &lt;emphasis class&gt; before</code> and <code class="code">endemphphrase
+&lt;emphasis class&gt; after</code> are defined an error will be signaled.
+</p>
+<div class="example">
+<pre class="example-preformatted">endemphphrase underline after 6-3
+</pre></div>
+
+<a class="index-entry-id" id="index-lenemphphrase"></a>
+<a class="anchor" id="lenemphphrase-opcode"></a></dd>
+<dt><code class="code">lenemphphrase &lt;emphasis class&gt; &lt;number&gt;</code></dt>
+<dd><p>Define how many words are required before a sequence of words is
+considered a phrase.
+</p>
+<div class="example">
+<pre class="example-preformatted">lenemphphrase underline 3
+</pre></div>
+
+<p>With the above rule, a sequence of two emphasized words will not be
+indicated as a phrase, but the words will be indicated individually.
+</p>
+</dd>
+</dl>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Previous: <a href="Word-indicator.html">Word indicator</a>, Up: <a href="Emphasis-indicators.html">Emphasis indicators</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

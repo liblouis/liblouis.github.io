@@ -1,0 +1,317 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="Braille-Indicator-Opcodes">
+<div class="nav-panel">
+<p>
+Next: <a href="Opcodes-for-Standing-Alone-Sequences.html" accesskey="n" rel="next">Opcodes for <em class="emph">Standing Alone</em> Sequences</a>, Previous: <a href="Character_002dDefinition-Opcodes.html" accesskey="p" rel="prev">Character-Definition Opcodes</a>, Up: <a href="How-to-Write-Translation-Tables.html" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Braille-Indicator-Opcodes-1"><span>2.4 Braille Indicator Opcodes<a class="copiable-link" href="#Braille-Indicator-Opcodes-1"> &para;</a></span></h3>
+
+<p>Braille indicators are dot patterns which are inserted into the
+braille text to indicate such things as capitalization, italic type,
+computer braille, etc. The opcodes which define them are followed only
+by a dot pattern, which may be one or more cells.
+</p>
+<dl class="table">
+<dd><a class="index-entry-id" id="index-modeletter"></a>
+<a class="anchor" id="modeletter-opcode"></a></dd>
+<dt><a id="index-capsletter"></a><span><code class="code">modeletter attribute dots</code><a class="copiable-link" href="#index-capsletter"> &para;</a></span></dt>
+<dd><a class="anchor" id="capsletter-opcode"></a></dd>
+<dt><code class="code">capsletter dots</code></dt>
+<dd><p>The dot pattern which indicates that a certain mode is entered and
+ends after a single character. A &ldquo;mode&rdquo; is a state in which dot
+patterns must be interpreted a certain way. For example, in uppercase
+mode dots &lsquo;<samp class="samp">1</samp>&rsquo; is to be interpreted as a capital &ldquo;A&rdquo; and not a
+small &ldquo;a&rdquo;. In numeric mode dots &lsquo;<samp class="samp">1</samp>&rsquo; is to be interpreted as a
+&ldquo;1&rdquo;. The attribute operand identifies the mode and corresponds with
+the name of the character class that determines when the mode must be
+entered and exited.
+</p>
+<p><code class="code">modeletter</code> is also used to mark every character when a mode
+must last for several characters but when there is no <code class="code">begmode</code>
+definition, or when the sequence happens in the middle of a word and
+<code class="code">begmodeword</code> is defined but no <code class="code">endmodeword</code>
+(see <a class="pxref" href="#begmode-opcode"><code class="code">begmode</code></a>, <a class="ref" href="#begmodeword-opcode"><code class="code">begmodeword</code></a> and <a class="ref" href="#endmodeword-opcode"><code class="code">endmodeword</code></a>)
+</p>
+<p><code class="code">capsletter</code> is an alias for <code class="code">modeletter uppercase</code>. The
+following two examples are equivalent:
+</p>
+<div class="example">
+<pre class="example-preformatted">capsletter 6
+</pre></div>
+
+<div class="example">
+<pre class="example-preformatted">modeletter uppercase 6
+</pre></div>
+
+<p><code class="code">emphletter</code> (see <a class="pxref" href="Letter-indicator.html#emphletter-opcode"><code class="code">emphletter</code></a>) is the counterpart of
+<code class="code">modeletter</code> for indication of emphasis.
+</p>
+<a class="index-entry-id" id="index-begmodeword"></a>
+<a class="anchor" id="begmodeword-opcode"></a></dd>
+<dt><a id="index-begcapsword"></a><span><code class="code">begmodeword attribute dots</code><a class="copiable-link" href="#index-begcapsword"> &para;</a></span></dt>
+<dd><a class="anchor" id="begcapsword-opcode"></a></dd>
+<dt><code class="code">begcapsword dots</code></dt>
+<dd><p>The dot pattern which indicates that a certain mode is entered for the
+following word or remainder of the current word. The mode is
+automatically terminated by the first character that is not a letter.
+</p>
+<p>For uppercase mode, you can define a list of characters that can
+appear within a word in capitals without terminating the block. Do
+this by using the <code class="code">capsmodechars</code> opcode (see <a class="pxref" href="#capsmodechars-opcode"><code class="code">capsmodechars</code></a>).
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example-preformatted">begcapsword 6-6
+</pre></div>
+
+<p><code class="code">begemphword</code> (see <a class="pxref" href="Word-indicator.html#begemphword-opcode"><code class="code">begemphword</code></a>) is the counterpart of
+<code class="code">begmodeword</code> for indication of emphasis.
+</p>
+<a class="index-entry-id" id="index-endmodeword"></a>
+<a class="anchor" id="endmodeword-opcode"></a></dd>
+<dt><a id="index-endcapsword"></a><span><code class="code">endmodeword attribute dots</code><a class="copiable-link" href="#index-endcapsword"> &para;</a></span></dt>
+<dd><a class="anchor" id="endcapsword-opcode"></a></dd>
+<dt><code class="code">endcapsword dots</code></dt>
+<dd><p>The dot pattern which terminates a mode within a word. It is used in
+cases where the block is not terminated automatically by a word
+boundary, a number or punctuation. A common case is when an uppercase
+block is followed directly by a lowercase letter.
+</p>
+<p>For example:
+</p>
+<div class="example">
+<pre class="example-preformatted">endcapsword 6-3
+</pre></div>
+
+<p><code class="code">endemphword</code> (see <a class="pxref" href="Word-indicator.html#endemphword-opcode"><code class="code">endemphword</code></a>) is the counterpart of
+<code class="code">endmodeword</code> for indication of emphasis.
+</p>
+<a class="index-entry-id" id="index-capsmodechars"></a>
+<a class="anchor" id="capsmodechars-opcode"></a></dd>
+<dt><code class="code">capsmodechars characters</code></dt>
+<dd><p>Normally, any character other than a letter will automatically cancel the
+<code class="code">begcapsword</code> indicator. However, by using the
+<code class="code">capsmodechars</code> opcode, you can specify a list of characters that
+are legal within a capitalized word. In some Braille codes, this might
+be the case for the hyphen character, &lsquo;<samp class="samp">-</samp>&rsquo;.
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example-preformatted">capsmodechars -
+</pre></div>
+
+<a class="index-entry-id" id="index-begmode"></a>
+<a class="anchor" id="begmode-opcode"></a></dd>
+<dt><a id="index-begcaps"></a><span><code class="code">begmode attribute dots</code><a class="copiable-link" href="#index-begcaps"> &para;</a></span></dt>
+<dd><a class="anchor" id="begcaps-opcode"></a></dd>
+<dt><code class="code">begcaps dots</code></dt>
+<dd><p>The dot pattern which indicates that a mode is entered until it is
+terminated by a <code class="code">endmode</code> indicator. It is used in some Braille
+codes to mark a whole sentence or several words as capital
+letters. The block can contain capital letters as well as
+non-alphabetic characters, punctuation, numbers etc.
+</p>
+<p>This is the most general opening mark, i.e. it can be used for opening
+at any position.
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example-preformatted">begcaps 6-6-6
+</pre></div>
+
+<p><code class="code">begemph</code> (see <a class="pxref" href="Permanent-indicator.html#begemph-opcode"><code class="code">begemph</code></a>) is the counterpart of
+<code class="code">begmode</code> for indication of emphasis.
+</p>
+<a class="index-entry-id" id="index-endmode"></a>
+<a class="anchor" id="endmode-opcode"></a></dd>
+<dt><a id="index-endcaps"></a><span><code class="code">endmode attribute dots</code><a class="copiable-link" href="#index-endcaps"> &para;</a></span></dt>
+<dd><a class="anchor" id="endcaps-opcode"></a></dd>
+<dt><code class="code">endcaps dots</code></dt>
+<dd><p>The dot pattern which terminates a mode.
+</p>
+<div class="example">
+<pre class="example-preformatted">endcaps 6-3
+</pre></div>
+
+<p><code class="code">endemph</code> (see <a class="pxref" href="Permanent-indicator.html#endemph-opcode"><code class="code">endemph</code></a>) is the counterpart of
+<code class="code">endmode</code> for indication of emphasis.
+</p>
+<a class="index-entry-id" id="index-letsign"></a>
+<a class="anchor" id="letsign-opcode"></a></dd>
+<dt><code class="code">letsign dots</code></dt>
+<dd><p>This indicator is needed in Grade 2 to show that a single letter is
+not a contraction. It is also used when an abbreviation happens to be
+a sequence of letters that is the same as a contraction. For example:
+</p>
+<div class="example">
+<pre class="example-preformatted">letsign 56
+</pre></div>
+
+<a class="index-entry-id" id="index-noletsign"></a>
+<a class="anchor" id="noletsign-opcode"></a></dd>
+<dt><code class="code">noletsign letters</code></dt>
+<dd>
+<p>The letters in the operand will not be proceeded by a letter sign.
+More than one <code class="code">noletsign</code> opcode can be used. This is equivalent
+to a single entry containing all the letters. In addition, if a single
+letter, such as &lsquo;<samp class="samp">a</samp>&rsquo; in English, is defined as a <code class="code">word</code>
+(see <a class="pxref" href="Translation-Opcodes.html#word-opcode"><code class="code">word</code></a>) or <code class="code">largesign</code> (see <a class="pxref" href="Translation-Opcodes.html#largesign-opcode"><code class="code">largesign</code></a>), it will be
+treated as though it had also been specified in a <code class="code">noletsign</code>
+entry.
+</p>
+<a class="index-entry-id" id="index-noletsignbefore"></a>
+<a class="anchor" id="noletsignbefore-opcode"></a></dd>
+<dt><code class="code">noletsignbefore characters</code></dt>
+<dd><p>If any of the characters precedes a single letter without a space a
+letter sign is not used. By default the characters apostrophe
+(&lsquo;<samp class="samp">'</samp>&rsquo;) and period (&lsquo;<samp class="samp">.</samp>&rsquo;) have this property. Use of a
+<code class="code">noletsignbefore</code> entry cancels the defaults. If more than one
+<code class="code">noletsignbefore</code> entry is used, the characters in all entries
+are combined.
+</p>
+<a class="index-entry-id" id="index-noletsignafter"></a>
+<a class="anchor" id="noletsignafter-opcode"></a></dd>
+<dt><code class="code">noletsignafter characters</code></dt>
+<dd><p>If any of the characters follows a single letter without a space a
+letter sign is not used. By default the characters apostrophe
+(&lsquo;<samp class="samp">'</samp>&rsquo;) and period (&lsquo;<samp class="samp">.</samp>&rsquo;) have this property. Use of a
+<code class="code">noletsignafter</code> entry cancels the defaults. If more than one
+<code class="code">noletsignafter</code> entry is used the characters in all entries are
+combined.
+</p>
+<a class="index-entry-id" id="index-nocontractsign"></a>
+<a class="anchor" id="nocontractsign-opcode"></a></dd>
+<dt><code class="code">nocontractsign dots</code></dt>
+<dd>
+<p>The dots in this opcode are used to indicate a letter or a sequence of
+letters that are not a contraction, e.g. &lsquo;<samp class="samp">CD</samp>&rsquo;
+(see <a class="pxref" href="Translation-Opcodes.html#contraction-opcode"><code class="code">contraction</code></a>). The opcode is similar to the
+<code class="code">letsign</code> opcode (see <a class="pxref" href="#letsign-opcode"><code class="code">letsign</code></a>).
+</p>
+<p><strong class="strong">Note:</strong> This opcode was implemented in Liblouis specifically in
+order to support Unified English Braille (UEB). It may be used in any
+table, but may have unpredicted side-effects if used outside the
+intended context. Use with great care, and test thoroughly.
+</p>
+
+<a class="index-entry-id" id="index-numsign"></a>
+<a class="anchor" id="numsign-opcode"></a></dd>
+<dt><code class="code">numsign dots</code></dt>
+<dd><p>The translator inserts this indicator before numbers made up of digits
+defined with the <code class="code">litdigit</code> opcode (see <a class="pxref" href="Character_002dDefinition-Opcodes.html#litdigit-opcode"><code class="code">litdigit</code></a>) to show that they are a number
+and not letters or some other symbols. A number is terminated when a
+space, a letter or any other none-<code class="code">litdigit</code> opcode (see <a class="pxref" href="Character_002dDefinition-Opcodes.html#litdigit-opcode"><code class="code">litdigit</code></a>) character is
+encountered.
+</p>
+<p>You can define characters or strings to be part of a number by using
+the <code class="code">midnum</code> opcode (see <a class="pxref" href="Translation-Opcodes.html#midnum-opcode"><code class="code">midnum</code></a>), the <code class="code">numericmodechars</code> opcode (see <a class="pxref" href="#numericmodechars-opcode"><code class="code">numericmodechars</code></a>) or the
+<code class="code">midendnumericmodechars</code> opcode (see <a class="pxref" href="#midendnumericmodechars-opcode"><code class="code">midendnumericmodechars</code></a>).
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example-preformatted">numsign 3456
+</pre></div>
+
+<a class="index-entry-id" id="index-nonumsign"></a>
+<a class="anchor" id="nonumsign-opcode"></a></dd>
+<dt><code class="code">nonumsign dots</code></dt>
+<dd><p>Usually the end of a number doesn&rsquo;t need to be indicated as the reader
+expects the number to end at a space character. However for mixed
+number word combinations you might want to have an indicator that lets
+the reader notice the end of the number.
+</p>
+<p>For a word like &ldquo;123abc&rdquo; for example the reader expects an indicator
+between the number &ldquo;123&rdquo; and the characters &ldquo;abc&rdquo;. This can be
+achieved using the <code class="code">nonumsign</code>.
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example-preformatted">numsign 56
+</pre></div>
+
+<a class="index-entry-id" id="index-numericnocontchars"></a>
+<a class="anchor" id="numericnocontchars-opcode"></a></dd>
+<dt><code class="code">numericnocontchars characters</code></dt>
+<dd>
+<p>This opcode specifies the characters that require a
+<code class="code">nonumsign</code> opcode (see <a class="pxref" href="#nonumsign-opcode"><code class="code">nonumsign</code></a>) if they appear after a number with no
+intervening space, e.g. &lsquo;<samp class="samp">1a</samp>&rsquo; or &lsquo;<samp class="samp">2-B</samp>&rsquo;.
+</p>
+<p>These characters will typically be the letters a-j, which usually
+constitute the literary digits (see <code class="code">litdigit</code> opcode (see <a class="pxref" href="Character_002dDefinition-Opcodes.html#litdigit-opcode"><code class="code">litdigit</code></a>)). However,
+in some Braille codes, all letters fall in this category.
+</p>
+<p><strong class="strong">Note:</strong> This opcode is case sensitive. So, if you need a
+<code class="code">nonumsign</code> opcode (see <a class="pxref" href="#nonumsign-opcode"><code class="code">nonumsign</code></a>) to also appear before the capital letters
+a-j, you should include these letters in the definition. This is
+especially relevant if you are also using the <code class="code">begcaps</code> and
+<code class="code">endcaps</code> opcodes (see <a class="pxref" href="#begcaps-opcode"><code class="code">begcaps</code></a> and <a class="ref" href="#endcaps-opcode"><code class="code">endcaps</code></a>). In
+this case, you might otherwise end up having numbers immediately
+followed by capital letters with no indicator between.
+</p>
+<p><strong class="strong">Note:</strong> This opcode was implemented in Liblouis specifically in
+order to support Unified English Braille (UEB). It may be used in any
+table, but may have unpredicted side-effects if used outside the
+intended context. Use with great care, and test thoroughly.
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example-preformatted">numericnocontchars abcdefghij
+</pre></div>
+
+<a class="index-entry-id" id="index-numericmodechars"></a>
+<a class="anchor" id="numericmodechars-opcode"></a></dd>
+<dt><code class="code">numericmodechars characters</code></dt>
+<dd>
+<a class="index-entry-id" id="index-midendnumericmodechars"></a>
+<a class="anchor" id="midendnumericmodechars-opcode"></a></dd>
+<dt><code class="code">midendnumericmodechars characters</code></dt>
+<dd>
+<p>Any of these characters can appear within a number without terminating
+the effect of the number sign (see <a class="pxref" href="#numsign-opcode"><code class="code">numsign</code></a>). In other words,
+they don&rsquo;t cancel numeric mode.
+</p>
+<p>The difference between the two opcodes is that
+<code class="code">numericmodechars</code> opcode (see <a class="pxref" href="#numericmodechars-opcode"><code class="code">numericmodechars</code></a>) characters can appear anywhere in a
+number whereas <code class="code">midendnumericmodechars</code> opcode (see <a class="pxref" href="#midendnumericmodechars-opcode"><code class="code">midendnumericmodechars</code></a>) characters can
+appear only in the middle or at the end of a number. Like
+<code class="code">midendnumericmodechars</code>, <code class="code">numericmodechars</code> characters keep
+numeric mode active, but in addition they activate numeric mode
+immediately when at least one digit follows, and the number sign will
+precede the <code class="code">numericmodechars</code> character in this case.
+</p>
+<p><strong class="strong">Note:</strong> This opcode was implemented in Liblouis specifically in
+order to support Unified English Braille (UEB). It may be used in any
+table, but may have unpredicted side-effects if used outside the
+intended context. Use with great care, and test thoroughly.
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example-preformatted">numericmodechars .,
+midendnumericmodechars -/
+</pre></div>
+
+</dd>
+</dl>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Opcodes-for-Standing-Alone-Sequences.html">Opcodes for <em class="emph">Standing Alone</em> Sequences</a>, Previous: <a href="Character_002dDefinition-Opcodes.html">Character-Definition Opcodes</a>, Up: <a href="How-to-Write-Translation-Tables.html">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

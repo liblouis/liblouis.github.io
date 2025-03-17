@@ -1,0 +1,77 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="chapter-level-extent" id="How-to-Write-Translation-Tables">
+<div class="nav-panel">
+<p>
+Next: <a href="Notes-on-Back_002dTranslation.html" accesskey="n" rel="next">Notes on Back-Translation</a>, Previous: <a href="Introduction.html" accesskey="p" rel="prev">Introduction</a>, Up: <a href="index.html" accesskey="u" rel="up">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h2 class="chapter" id="How-to-Write-Translation-Tables-1"><span>2 How to Write Translation Tables<a class="copiable-link" href="#How-to-Write-Translation-Tables-1"> &para;</a></span></h2>
+
+<p>For many languages there is already a translation table, so before
+creating a new table start by looking at existing tables to modify
+them as needed.
+</p>
+<p>Typically, a braille translation table consists of several parts.
+First are header and includes, in which you write what the table is
+for, license information and include tables you need for your table.
+</p>
+<p>Following this, you&rsquo;ll write various translation rules and lastly you
+write special rules to handle certain situations.
+</p>
+<a class="index-entry-id" id="index-Opcode"></a>
+<p>A translation rule is composed of at least three parts: the opcode
+(translation command), character(s) and braille dots. An opcode is a
+command you give to a machine or a program to perform something on
+your behalf. In liblouis, an opcode tells it which rule to use when
+translating characters into braille. An operand can be thought of as
+parameters for the translation rule and is composed of two parts: the
+character or word to be translated and the braille dots.
+</p>
+<p>For example, suppose you want to read the word &lsquo;<samp class="samp">world</samp>&rsquo; using
+braille dots &lsquo;<samp class="samp">456</samp>&rsquo;, followed by the letter &lsquo;<samp class="samp">W</samp>&rsquo; all the time.
+Then you&rsquo;d write:
+</p>
+<div class="example">
+<pre class="example-preformatted">always world 456-2456
+</pre></div>
+
+<p>The word <code class="code">always</code> is an opcode which tells liblouis to always
+honor this translation, that is to say when the word &lsquo;<samp class="samp">world</samp>&rsquo; (an
+operand) is encountered, always show braille dots &lsquo;<samp class="samp">456</samp>&rsquo; followed
+by the letter &lsquo;<samp class="samp">w</samp>&rsquo; (&lsquo;<samp class="samp">2456</samp>&rsquo;).
+</p>
+<p>When you write any braille table for any language, we&rsquo;d recommend
+working from some sort of official standard, and have a device or a
+program in which you can test your work.
+</p>
+
+<ul class="mini-toc">
+<li><a href="Overview.html" accesskey="1">Overview</a></li>
+<li><a href="Hyphenation-Tables.html" accesskey="2">Hyphenation Tables</a></li>
+<li><a href="Character_002dDefinition-Opcodes.html" accesskey="3">Character-Definition Opcodes</a></li>
+<li><a href="Braille-Indicator-Opcodes.html" accesskey="4">Braille Indicator Opcodes</a></li>
+<li><a href="Opcodes-for-Standing-Alone-Sequences.html" accesskey="5">Opcodes for <em class="emph">Standing Alone</em> Sequences</a></li>
+<li><a href="Emphasis-Opcodes.html" accesskey="6">Emphasis Opcodes</a></li>
+<li><a href="Special-Symbol-Opcodes.html" accesskey="7">Special Symbol Opcodes</a></li>
+<li><a href="Special-Processing-Opcodes.html" accesskey="8">Special Processing Opcodes</a></li>
+<li><a href="Translation-Opcodes.html" accesskey="9">Translation Opcodes</a></li>
+<li><a href="Character_002dClass-Opcodes.html">Character-Class Opcodes</a></li>
+<li><a href="Swap-Opcodes.html">Swap Opcodes</a></li>
+<li><a href="The-Context-and-Multipass-Opcodes.html">The Context and Multipass Opcodes</a></li>
+<li><a href="The-correct-Opcode.html">The correct Opcode</a></li>
+<li><a href="The-match-Opcode.html">The match Opcode</a></li>
+<li><a href="Miscellaneous-Opcodes.html">Miscellaneous Opcodes</a></li>
+</ul>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Notes-on-Back_002dTranslation.html">Notes on Back-Translation</a>, Previous: <a href="Introduction.html">Introduction</a>, Up: <a href="index.html">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

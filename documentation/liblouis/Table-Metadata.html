@@ -1,0 +1,90 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="chapter-level-extent" id="Table-Metadata">
+<div class="nav-panel">
+<p>
+Next: <a href="Testing-Translation-Tables-interactively.html" accesskey="n" rel="next">Testing Translation Tables interactively</a>, Previous: <a href="Notes-on-Back_002dTranslation.html" accesskey="p" rel="prev">Notes on Back-Translation</a>, Up: <a href="index.html" accesskey="u" rel="up">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h2 class="chapter" id="Table-Metadata-1"><span>4 Table Metadata<a class="copiable-link" href="#Table-Metadata-1"> &para;</a></span></h2>
+
+<p>Translation tables may contain metadata. This makes them
+discoverable. Programs may for example use the Liblouis function
+<a class="ref" href="lou_005ffindTable.html"><code class="code">lou_findTable</code></a> to find a table based on a
+special query of which the <a class="ref" href="#Query-Syntax">syntax</a> is described
+below.
+</p>
+<ul class="mini-toc">
+<li><a href="#Syntax" accesskey="1">Syntax</a></li>
+<li><a href="#Query-Syntax-1" accesskey="2">Query Syntax</a></li>
+</ul>
+<div class="section-level-extent" id="Syntax">
+<h3 class="section"><span>4.1 Syntax<a class="copiable-link" href="#Syntax"> &para;</a></span></h3>
+
+<p>Metadata must be defined in special comments within the table
+header. The table header is the area at the top of the file, before
+the first translation rule, consisting of only comments or empty
+lines. Any metadata within included tables is ignored.
+</p>
+<p>A metadata field must be defined on its own line, starting with
+<code class="code">#+</code>. It has the following syntax:
+</p>
+<div class="example">
+<pre class="example-preformatted">#+&lt;key&gt;: &lt;value&gt;
+</pre></div>
+
+<p>where &lsquo;<samp class="samp">&lt;key&gt;</samp>&rsquo; and &lsquo;<samp class="samp">&lt;value&gt;</samp>&rsquo; are sequences of one or more
+characters <code class="code">a</code> to <code class="code">z</code>, <code class="code">A</code> to <code class="code">Z</code>, <code class="code">0</code> to
+<code class="code">9</code>, <code class="code">.</code>, <code class="code">-</code>, <code class="code">_</code>, and in certain cases (for
+&lsquo;<samp class="samp">language</samp>&rsquo; or &lsquo;<samp class="samp">region</samp>&rsquo;, see below) also <code class="code">*</code>. The colon
+that separates the key and value may have zero or more spaces or tabs
+on either side.
+</p>
+<p>The same key may appear multiple times in a table.
+</p>
+<p>There is no restriction on which keys and values are allowed, as long
+as the syntax is correct. However in order to be really useful there
+must be some standard keys and values. A possible grammar is proposed
+on the wiki page
+<a class="url" href="https://github.com/liblouis/liblouis/wiki/Table-discovery-based-on-table-metadata#standard-metadata-tags">Standard metadata tags</a>.
+</p>
+<p>Fields with a key of &lsquo;<samp class="samp">language</samp>&rsquo; or &lsquo;<samp class="samp">region</samp>&rsquo; are treated
+specially. They are interpreted as &ldquo;extended language ranges&rdquo;. This
+means that they have a
+<a class="url" href="https://datatracker.ietf.org/doc/html/rfc4647#section-2.2">specific syntax</a>, and matching them to corresponding language tags in
+<a class="ref" href="#Query-Syntax">queries</a> happens according to
+<a class="url" href="https://datatracker.ietf.org/doc/html/rfc4647#section-3.3.2">specific rules</a>.
+</p>
+<a class="anchor" id="Query-Syntax"></a></div>
+<div class="section-level-extent" id="Query-Syntax-1">
+<h3 class="section"><span>4.2 Query Syntax<a class="copiable-link" href="#Query-Syntax-1"> &para;</a></span></h3>
+
+<p>A query that is passed to the <a class="ref" href="lou_005ffindTable.html"><code class="code">lou_findTable</code></a>
+function must have the following syntax:
+</p>
+<div class="example">
+<pre class="example-preformatted">&lt;feature1&gt; &lt;feature2&gt; &lt;feature3&gt; ...
+</pre></div>
+
+<p>where &lsquo;<samp class="samp">&lt;feature&gt;</samp>&rsquo; is:
+</p>
+<div class="example">
+<pre class="example-preformatted">&lt;key&gt;:&lt;value&gt;
+</pre></div>
+
+<p>Features are separated by one or more spaces or tabs. No spaces are
+allowed around colons.
+</p>
+</div>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Testing-Translation-Tables-interactively.html">Testing Translation Tables interactively</a>, Previous: <a href="Notes-on-Back_002dTranslation.html">Notes on Back-Translation</a>, Up: <a href="index.html">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

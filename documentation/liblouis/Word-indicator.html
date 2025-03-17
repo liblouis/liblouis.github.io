@@ -1,0 +1,81 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="subsubsection-level-extent" id="Word-indicator">
+<div class="nav-panel">
+<p>
+Next: <a href="Phrase-indicator.html" accesskey="n" rel="next">Phrase indicator</a>, Previous: <a href="Letter-indicator.html" accesskey="p" rel="prev">Letter indicator</a>, Up: <a href="Emphasis-indicators.html" accesskey="u" rel="up">Emphasis indicators</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsubsection" id="Word-indicator-1"><span>2.6.2.3 Word indicator<a class="copiable-link" href="#Word-indicator-1"> &para;</a></span></h4>
+
+<p>Many languages have special indicators for emphasized words. The scope
+of a word indicator is normally until the next unemphasizable
+character, however this can be changed with the <code class="code">emphmodechars</code>
+opcode (see <a class="pxref" href="Permanent-indicator.html#noemphchars-opcode"><code class="code">noemphchars</code></a> and <a class="ref" href="#emphmodechars-opcode"><code class="code">emphmodechars</code></a>).
+</p>
+<p>Word emphasis can also be canceled with an explicit closing
+indicator. Usually a word indicator is put at the the beginning of the
+word, but it may also be used for cases where the emphasis starts in
+the middle of the word.
+</p>
+<dl class="table">
+<dd><a class="index-entry-id" id="index-begemphword"></a>
+<a class="anchor" id="begemphword-opcode"></a></dd>
+<dt><code class="code">begemphword &lt;emphasis class&gt; &lt;dot pattern&gt;</code></dt>
+<dd><p>Braille dot pattern to indicate the beginning of an emphasized word
+or the beginning of emphasized characters within a word.
+</p>
+<div class="example">
+<pre class="example-preformatted">begemphword underline 456-36
+</pre></div>
+
+<a class="index-entry-id" id="index-endemphword"></a>
+<a class="anchor" id="endemphword-opcode"></a></dd>
+<dt><code class="code">endemphword &lt;emphasis class&gt;  &lt;dot pattern&gt;</code></dt>
+<dd><p>Word emphasis ends implicitly when the word ends. When an indication
+is required to close word emphasis, i.e. when emphasis ends in the
+middle of a word, then this opcode defines the braille dot pattern
+that is used.
+</p>
+<div class="example">
+<pre class="example-preformatted">endemphword transnote 6-3
+</pre></div>
+
+<p>When emphasis ends in the middle of a word and there is no
+<code class="code">endemphword</code> definition, a letter indicator must be defined
+(see <a class="pxref" href="Letter-indicator.html">Letter indicator</a>).
+</p>
+<a class="index-entry-id" id="index-emphmodechars"></a>
+<a class="anchor" id="emphmodechars-opcode"></a></dd>
+<dt><code class="code">emphmodechars &lt;emphasis class&gt; characters</code></dt>
+<dd>
+<p>Normally, only spaces and unemphasizable characters (see <a class="pxref" href="Character_002dDefinition-Opcodes.html#space-opcode"><code class="code">space</code></a>
+and <a class="ref" href="Permanent-indicator.html#noemphchars-opcode"><code class="code">noemphchars</code></a>) will cancel the <code class="code">begemphword</code> indicator
+(see <a class="pxref" href="#begemphword-opcode"><code class="code">begemphword</code></a>). However this can be overruled with the
+<code class="code">emphmodechars</code> opcode. If <code class="code">emphmodechars</code> is specified, any
+character that is not in the specified list and is not a letter
+(see <a class="pxref" href="Character_002dDefinition-Opcodes.html#uppercase-opcode"><code class="code">uppercase</code></a>, <a class="ref" href="Character_002dDefinition-Opcodes.html#lowercase-opcode"><code class="code">lowercase</code></a> or <a class="ref" href="Character_002dDefinition-Opcodes.html#letter-opcode"><code class="code">letter</code></a>) will cancel
+the <code class="code">begemphword</code> indicator. Conversely, letters and characters
+that are in the list will not cancel the word indicator.
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example-preformatted">emphmodechars underline -
+</pre></div>
+
+</dd>
+</dl>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Phrase-indicator.html">Phrase indicator</a>, Previous: <a href="Letter-indicator.html">Letter indicator</a>, Up: <a href="Emphasis-indicators.html">Emphasis indicators</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

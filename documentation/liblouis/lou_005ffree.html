@@ -1,0 +1,28 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="lou_005ffree">
+<div class="nav-panel">
+<p>
+Next: <a href="lou_005fcharSize.html" accesskey="n" rel="next">lou_charSize</a>, Previous: <a href="lou_005freadCharFromFile.html" accesskey="p" rel="prev">lou_readCharFromFile</a>, Up: <a href="Programming-with-liblouis.html" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="lou_005ffree-1"><span>7.27 lou_free<a class="copiable-link" href="#lou_005ffree-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-lou_005ffree"></a>
+
+<div class="example">
+<pre class="example-preformatted">void lou_free ();
+</pre></div>
+
+<p>This function should be called at the end of the application to free
+all memory allocated by liblouis. Failure to do so will result in
+memory leaks. Do <em class="emph">NOT</em> call <code class="code">lou_free</code> after each
+translation. This will force liblouis to compile the translation
+tables every time they are used, resulting in great inefficiency.
+</p>
+</div>
+
+
+
+</body>
+</html>

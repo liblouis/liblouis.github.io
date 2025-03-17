@@ -1,0 +1,106 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="chapter-level-extent" id="Notes-on-Back_002dTranslation">
+<div class="nav-panel">
+<p>
+Next: <a href="Table-Metadata.html" accesskey="n" rel="next">Table Metadata</a>, Previous: <a href="How-to-Write-Translation-Tables.html" accesskey="p" rel="prev">How to Write Translation Tables</a>, Up: <a href="index.html" accesskey="u" rel="up">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h2 class="chapter" id="Notes-on-Back_002dTranslation-1"><span>3 Notes on Back-Translation<a class="copiable-link" href="#Notes-on-Back_002dTranslation-1"> &para;</a></span></h2>
+
+<a class="anchor" id="General-Notes"></a><ul class="mini-toc">
+<li><a href="#General-Notes-1" accesskey="1">General Notes</a></li>
+<li><a href="#Back_002dtranslation-with-Liblouis-1" accesskey="2">Back-translation with Liblouis</a></li>
+</ul>
+<div class="section-level-extent" id="General-Notes-1">
+<h3 class="section"><span>3.1 General Notes<a class="copiable-link" href="#General-Notes-1"> &para;</a></span></h3>
+
+<p>Back-translation refers to the process of translating backwards,
+i.e. from Braille to text. For many years, Liblouis was mainly
+concerned with forward translation, and so were most of the authors of
+the translation tables. Today however, Liblouis is being used
+extensively in conjunction with screen reading programs like NVDA and
+JAWS for Windows as well as Braille note-takers like BrailleSense from
+HIMS and BrailleNote from HumanWare. So when writing a translation
+table for Liblouis, it is indeed relevant to consider how the table
+will work when used for back-translation, if anything special must be
+done, or if you want to write separate tables for forward translation
+and back-translation.
+</p>
+<p>Back-translation is generally harder to do in a computer program than
+forward translation. Ideally, any text could be translated to Braille
+and then translated back to text giving exactly the same result as the
+original. However, many Braille codes omit a lot of information and
+leaves it to the reader to fill in the missing bits. An example of this
+is letters with accents. In languages where accents are uncommon, e.g.
+English, Accented letters are usually just marked with a Braille
+indicator stating that there is an accent, but not which accent, even
+though this may be crucial to the meaning of the word or the sentence.
+Another example of this is when not all capital letters are marked in
+the Braille code, but only the &quot;important&quot; capital letters. A third
+example is when a Braille character serves as both a punctuation sign,
+a math sign, and perhaps even as a contraction, and the Braille code
+then leaves it up to the reader to use his/her knowledge of the context
+to decide the meaning of the Braille character.
+</p>
+<p>In some cases, you may need to bend the rules of the Braille code if it
+is important to create Braille that can be properly back-translated.
+This may include marking all capital letters instead of just the
+&quot;important&quot; ones, or perhaps marking a Braille character with an
+indicator stating that this character should in fact be interpreted as
+a math sign and not a punctuation or Braille contraction. In some
+cases, the best solution may be to create two separate sets of tables
+for forward translation: One set for Braille that must be
+back-translatable (for use with screen readers and note-takers), and
+another for good and nice literary Braille (for embossing).
+But no matter how you bend the Braille code, the back-translation
+process may not be perfect.
+</p>
+<a class="anchor" id="Back_002dtranslation-with-Liblouis"></a></div>
+<div class="section-level-extent" id="Back_002dtranslation-with-Liblouis-1">
+<h3 class="section"><span>3.2 Back-translation with Liblouis<a class="copiable-link" href="#Back_002dtranslation-with-Liblouis-1"> &para;</a></span></h3>
+
+<p>Back-translation is carried out by the function
+<code class="code">lou_backTranslateString</code>. Its calling sequence is described in
+<a class="ref" href="Programming-with-liblouis.html">Programming with liblouis</a>. <code class="code">lou_backTranslateString</code> first
+performs <code class="code">pass4</code>, if
+present, then <code class="code">pass3</code>, then <code class="code">pass2</code>, then the
+backtranslation, then corrections. Note that this is exactly the
+inverse of forward translation.
+</p>
+<p>Most opcodes can be preceded by <code class="code">noback</code> opcode (see <a class="pxref" href="Translation-Opcodes.html#noback-opcode"><code class="code">noback</code></a>) or <code class="code">nofor</code> opcode (see <a class="pxref" href="Translation-Opcodes.html#nofor-opcode"><code class="code">nofor</code></a>),
+and the <code class="code">correct</code>, <code class="code">context</code> and multi-pass opcodes must be
+preceded with either <code class="code">noback</code> or <code class="code">nofor</code>. So in most cases,
+it will be perfectly possible to make one table for translation in both
+directions, although a separate table for forward and backward
+translation might be more readable in some cases.
+</p>
+<p>Most of the opcodes associated with pass 1 have two operands, a
+character operand to the left and a dots operand to the right. During
+forward translation, these operands are used to replace the characters
+with the dot pattern according to the conditions of the opcode. The
+opcode works from left to right. When back-translating, these opcodes
+work the opposite way. The dot patterns are replaced by the text. The
+opcodes work from right to left.
+</p>
+<p>On the other hand, the <code class="code">correct</code>, <code class="code">context</code> and multi-pass
+opcodes have a test part to the left and an action part to the right.
+These opcodes work from left to right in both translation directions.
+The test is performed, and if true, the action is executed, i.e.
+replacing, inserting or deleting characters or dots. This is why a
+translation direction always has to be specified with these opcodes
+using <code class="code">noback</code> or <code class="code">nofor</code>.
+</p>
+</div>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Table-Metadata.html">Table Metadata</a>, Previous: <a href="How-to-Write-Translation-Tables.html">How to Write Translation Tables</a>, Up: <a href="index.html">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

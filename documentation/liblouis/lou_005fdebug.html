@@ -1,0 +1,131 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="lou_005fdebug">
+<div class="nav-panel">
+<p>
+Next: <a href="lou_005ftrace.html" accesskey="n" rel="next">lou_trace</a>, Up: <a href="Testing-Translation-Tables-interactively.html" accesskey="u" rel="up">Testing Translation Tables interactively</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="lou_005fdebug-1"><span>5.1 lou_debug<a class="copiable-link" href="#lou_005fdebug-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-lou_005fdebug"></a>
+
+<p>The <code class="command">lou_debug</code> tool is intended for debugging liblouis
+translation tables. The command line for <code class="command">lou_debug</code> is:
+</p>
+<div class="example">
+<pre class="example-preformatted">lou_debug [OPTIONS] TABLE[,TABLE,...]
+</pre></div>
+
+<p>The command line options that are accepted by <code class="command">lou_debug</code> are
+described in <a class="ref" href="Testing-Translation-Tables-interactively.html#common-options">common options</a>.
+</p>
+<p>The table (or comma-separated list of tables) is compiled. If no
+errors are found a brief command summary is printed, then the prompt
+&lsquo;<samp class="samp">Command:</samp>&rsquo;. You can then input one of the command letters and get
+output, as described below.
+</p>
+<p>Most of the commands print information in the various arrays of
+<code class="code">TranslationTableHeader</code>. Since these arrays are pointers to
+chains of hashed items, the commands first print the hash number, then
+the first item, then the next item chained to it, and so on. After
+each item there is a prompt indicated by &lsquo;<samp class="samp">=&gt;</samp>&rsquo;. You can then press
+enter (<kbd class="kbd"><kbd class="key">RET</kbd></kbd>) to see the next item in the chain or the first
+item in the next chain. Or you can press <kbd class="kbd">h</kbd> (for next-(h)ash) to
+skip to the next hash chain. You can also press <kbd class="kbd">e</kbd> to exit the
+command and go back to the &lsquo;<samp class="samp">command:</samp>&rsquo; prompt.
+</p>
+<dl class="table">
+<dt><kbd class="kbd">h</kbd></dt>
+<dd><p>Brings up a screen of somewhat more extensive help.
+</p>
+</dd>
+<dt><kbd class="kbd">f</kbd></dt>
+<dd><p>Display the first forward-translation rule in the first non-empty hash
+bucket. The number of the bucket is displayed at the beginning of the
+chain. Each rule is identified by the word &lsquo;<samp class="samp">Rule:</samp>&rsquo;. The fields
+are displayed by phrases consisting of the name of the field, an equal
+sign, and its value. The before and after fields are displayed only if
+they are nonzero. Special opcodes such as the <code class="code">correct</code> opcode (see <a class="pxref" href="The-correct-Opcode.html#correct-opcode"><code class="code">correct</code></a>) and
+the multipass opcodes are shown with the code that instructs the
+virtual machine that interprets them. If you want to see only the
+rules for a particular character string you can type <kbd class="kbd">p</kbd> at the
+&lsquo;<samp class="samp">command:</samp>&rsquo; prompt. This will take you to the &lsquo;<samp class="samp">particular:</samp>&rsquo;
+prompt, where you can press <kbd class="kbd">f</kbd> and then type in the string. The
+whole hash chain containing the string will be displayed.
+</p>
+</dd>
+<dt><kbd class="kbd">b</kbd></dt>
+<dd><p>Display back-translation rules. This display is very similar to that
+of forward translation rules except that the dot pattern is displayed
+before the character string.
+</p>
+</dd>
+<dt><kbd class="kbd">c</kbd></dt>
+<dd><p>Display character definitions, again within their hash chains.
+</p>
+</dd>
+<dt><kbd class="kbd">d</kbd></dt>
+<dd><p>Displays single-cell dot definitions. If a character-definition opcode
+gives a multi-cell dot pattern, it is displayed among the
+back-translation rules.
+</p>
+</dd>
+<dt><kbd class="kbd">C</kbd></dt>
+<dd><p>Display the character-to-dots map. This is set up by the
+character-definition opcodes and can also be influenced by the
+<code class="code">display</code> opcode (see <a class="pxref" href="Miscellaneous-Opcodes.html#display-opcode"><code class="code">display</code></a>).
+</p>
+</dd>
+<dt><kbd class="kbd">D</kbd></dt>
+<dd><p>Display the dot to character map, which shows which single-cell dot
+patterns map to which characters.
+</p>
+</dd>
+<dt><kbd class="kbd">z</kbd></dt>
+<dd><p>Show the multi-cell dot patterns which have been assigned to the
+characters from 0 to 255 to comply with computer braille codes such as
+a 6-dot code. Note that the character-definition opcodes should use
+8-dot computer braille.
+</p>
+</dd>
+<dt><kbd class="kbd">p</kbd></dt>
+<dd><p>Bring up a secondary (&lsquo;<samp class="samp">particular:</samp>&rsquo;) prompt from which you can
+examine particular character strings, dot patterns, etc. The commands
+(given in its own command summary) are very similar to those of the
+main &lsquo;<samp class="samp">command:</samp>&rsquo; prompt, but you can type a character string or
+dot pattern. They include <kbd class="kbd">h</kbd>, <kbd class="kbd">f</kbd>, <kbd class="kbd">b</kbd>, <kbd class="kbd">c</kbd>, <kbd class="kbd">d</kbd>,
+<kbd class="kbd">C</kbd>, <kbd class="kbd">D</kbd>, <kbd class="kbd">z</kbd> and <kbd class="kbd">x</kbd> (to exit this prompt), but not
+<kbd class="kbd">p</kbd>, <kbd class="kbd">i</kbd> and <kbd class="kbd">m</kbd>.
+</p>
+</dd>
+<dt><kbd class="kbd">i</kbd></dt>
+<dd><p>Show braille indicators. This shows the dot patterns for various
+opcodes such as the <code class="code">capsletter</code> opcode (see <a class="pxref" href="Braille-Indicator-Opcodes.html#capsletter-opcode"><code class="code">capsletter</code></a>) and the <code class="code">numsign</code> opcode (see <a class="pxref" href="Braille-Indicator-Opcodes.html#numsign-opcode"><code class="code">numsign</code></a>).
+It also shows emphasis dot patterns, such as those for the
+<code class="code">begemphword</code> opcode (see <a class="pxref" href="Word-indicator.html#begemphword-opcode"><code class="code">begemphword</code></a>), the <code class="code">begemphphrase</code> opcode (see <a class="pxref" href="Phrase-indicator.html#begemphphrase-opcode"><code class="code">begemphphrase</code></a>), etc. If a
+given opcode has not been used nothing is printed for it.
+</p>
+</dd>
+<dt><kbd class="kbd">m</kbd></dt>
+<dd><p>Display various miscellaneous information about the table, such as the
+number of passes, whether certain opcodes have been used, and whether
+there is a hyphenation table.
+</p>
+</dd>
+<dt><kbd class="kbd">q</kbd></dt>
+<dd><p>Exit the program.
+</p></dd>
+</dl>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="lou_005ftrace.html">lou_trace</a>, Up: <a href="Testing-Translation-Tables-interactively.html">Testing Translation Tables interactively</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

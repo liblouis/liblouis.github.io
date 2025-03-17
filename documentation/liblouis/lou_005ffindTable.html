@@ -1,0 +1,49 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+<div class="section-level-extent" id="lou_005ffindTable">
+<div class="nav-panel">
+<p>
+Next: <a href="lou_005findexTables.html" accesskey="n" rel="next">lou_indexTables</a>, Previous: <a href="lou_005fgetTable.html" accesskey="p" rel="prev">lou_getTable</a>, Up: <a href="Programming-with-liblouis.html" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="lou_005ffindTable-1"><span>7.23 lou_findTable<a class="copiable-link" href="#lou_005ffindTable-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-lou_005ffindTable"></a>
+
+<div class="example">
+<pre class="example-preformatted">char *lou_findTable (const char *query);
+</pre></div>
+
+<p>This function can be used to find a table based on
+metadata. <code class="code">query</code> is a string in the special <a class="ref" href="Table-Metadata.html#Query-Syntax">query syntax</a>. It is matched against <a class="ref" href="Table-Metadata.html">table
+metadata</a> inside the tables that were previously indexed with
+<a class="ref" href="lou_005findexTables.html"><code class="code">lou_indexTables</code></a>. Returns the file name of
+the best match. Returns <code class="code">NULL</code> if the query is invalid or if no
+match can be found.
+</p>
+<p>The match algorithm works as follows:
+</p>
+<ul class="itemize mark-bullet">
+<li>For every table a match quotient with the query is computed. The table
+with the highest (positive) match quotient wins. If no table has a
+positive quotient, there is no match.
+</li><li>A query is a list of features. Features defined first have a higher
+importance (have a higher impact on the final quotient) than features
+defined later.
+</li><li>A feature that matches a metadata field in the table (keys equal and
+values equal, or both values absent) adds to the quotient.
+</li><li>A feature that is undefined in the table (no field with that key)
+creates a medium penalty.
+</li><li>A feature that is defined in the table (one or more metadata fields
+with that key) but does not match (no metadata field with the right
+value) creates the highest penalty.
+</li><li>Every field in the table that has no corresponding feature in the
+query creates a very small penalty.
+</li></ul>
+
+</div>
+
+
+
+</body>
+</html>
