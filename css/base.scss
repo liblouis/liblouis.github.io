@@ -193,7 +193,7 @@ code {
 				}
 			}
 		}
-		#sponsor-button {
+		#support-button {
 			text-transform: uppercase;
 			margin: 2px 15px;
 			padding: 4px 8px;
@@ -231,31 +231,6 @@ code {
 	}
 }
 
-/* Github Sponsor ❤️ button
--------------------------------------------------- */
-
-.github-sponsoring-button {
-	padding: 5px 9px;
-	margin: 0 2px;
-	color: black;
-	background: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
-	border: 1px solid rgba(27,31,35,.2);
-	border-radius: .25em;
-	font-size: 88%;
-	font-weight: 600;
-	font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-	/*&:hover,
-	&:focus {
-		text-decoration: none;
-		color: black;
-		background: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
-	}*/
-	& > svg {
-		fill: #ea4aaa;
-		vertical-align: text-bottom;
-	}
-}
-
 
 /* Manual pages
 -------------------------------------------------- */
@@ -287,4 +262,35 @@ dd {
 	p {
 		margin: .5em 0;
 	}
+}
+
+
+/* Donate page
+-------------------------------------------------- */
+
+// PayPal button
+@font-face {
+	font-display:swap;
+	font-family:PayPalOpen-Bold;
+	font-style:normal;
+	src:url(https://www.paypalobjects.com/paypal-ui/fonts/PayPalOpen-Bold.woff2) format("woff2"),
+		url(https://www.paypalobjects.com/paypal-ui/fonts/PayPalOpen-Bold.woff) format("woff")
+}
+.paypal-button {
+	position: relative;
+	border-radius: 1000px;
+	cursor: pointer;
+	display: inline-block;
+	min-width: 6rem;
+	text-align: center;
+	text-decoration: none;
+	transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+	border: 0.125rem solid rgb(255, 209, 64);
+	font-family: PayPalOpen-Bold, "Helvetica Neue", Arial, sans-serif;
+	font-size: 1.125rem;
+	line-height: 1.5rem;
+	font-weight: 400;
+	padding: 0.625rem 1.875rem;
+	background: rgb(255, 209, 64);
+	color: rgb(0, 48, 135);
 }
