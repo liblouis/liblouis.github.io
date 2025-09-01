@@ -1,9 +1,8 @@
 ---
 title: Liblouis User's and Programmer's Manual
 ---
-<div class="top-level-extent" id="Top">
 
-<p>This manual is for liblouis (version 3.34.0, 6 June 2025),
+<p>This manual is for liblouis (version 3.35.0, 1 September 2025),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <abbr class="acronym">BRLTTY</abbr>.
 </p>
@@ -115,32 +114,38 @@ Fifth Floor, Boston, MA 02110-1301, USA.
     <li><a id="toc-Overview-2" href="#Overview-_0028library_0029">7.1 Overview</a></li>
     <li><a id="toc-Data-structure-of-liblouis-tables-1" href="#Data-structure-of-liblouis-tables">7.2 Data structure of liblouis tables</a></li>
     <li><a id="toc-How-tables-are-found-1" href="#How-tables-are-found">7.3 How tables are found</a></li>
-    <li><a id="toc-Deprecation-of-the-logging-system-1" href="#Deprecation-of-the-logging-system">7.4 Deprecation of the logging system</a></li>
-    <li><a id="toc-lou_005fversion-1" href="#lou_005fversion">7.5 lou_version</a></li>
-    <li><a id="toc-lou_005ftranslateString-1" href="#lou_005ftranslateString">7.6 lou_translateString</a></li>
-    <li><a id="toc-lou_005ftranslate-2" href="#lou_005ftranslate">7.7 lou_translate</a></li>
-    <li><a id="toc-lou_005fbackTranslateString-1" href="#lou_005fbackTranslateString">7.8 lou_backTranslateString</a></li>
-    <li><a id="toc-lou_005fbackTranslate-1" href="#lou_005fbackTranslate">7.9 lou_backTranslate</a></li>
-    <li><a id="toc-lou_005fhyphenate-1" href="#lou_005fhyphenate">7.10 lou_hyphenate</a></li>
-    <li><a id="toc-lou_005fcompileString-1" href="#lou_005fcompileString">7.11 lou_compileString</a></li>
-    <li><a id="toc-lou_005fgetTypeformForEmphClass-1" href="#lou_005fgetTypeformForEmphClass">7.12 lou_getTypeformForEmphClass</a></li>
-    <li><a id="toc-lou_005fdotsToChar-1" href="#lou_005fdotsToChar">7.13 lou_dotsToChar</a></li>
-    <li><a id="toc-lou_005fcharToDots-1" href="#lou_005fcharToDots">7.14 lou_charToDots</a></li>
-    <li><a id="toc-lou_005fregisterLogCallback-1" href="#lou_005fregisterLogCallback">7.15 lou_registerLogCallback</a></li>
-    <li><a id="toc-lou_005fsetLogLevel-1" href="#lou_005fsetLogLevel">7.16 lou_setLogLevel</a></li>
-    <li><a id="toc-lou_005flogFile-_0028deprecated_0029" href="#lou_005flogFile">7.17 lou_logFile (deprecated)</a></li>
-    <li><a id="toc-lou_005flogPrint-_0028deprecated_0029" href="#lou_005flogPrint">7.18 lou_logPrint (deprecated)</a></li>
-    <li><a id="toc-lou_005flogEnd-_0028deprecated_0029" href="#lou_005flogEnd">7.19 lou_logEnd (deprecated)</a></li>
-    <li><a id="toc-lou_005fsetDataPath-1" href="#lou_005fsetDataPath">7.20 lou_setDataPath</a></li>
-    <li><a id="toc-lou_005fgetDataPath-1" href="#lou_005fgetDataPath">7.21 lou_getDataPath</a></li>
-    <li><a id="toc-lou_005fgetTable-1" href="#lou_005fgetTable">7.22 lou_getTable</a></li>
-    <li><a id="toc-lou_005ffindTable-1" href="#lou_005ffindTable">7.23 lou_findTable</a></li>
-    <li><a id="toc-lou_005findexTables-1" href="#lou_005findexTables">7.24 lou_indexTables</a></li>
-    <li><a id="toc-lou_005fcheckTable-1" href="#lou_005fcheckTable">7.25 lou_checkTable</a></li>
-    <li><a id="toc-lou_005freadCharFromFile-1" href="#lou_005freadCharFromFile">7.26 lou_readCharFromFile</a></li>
-    <li><a id="toc-lou_005ffree-1" href="#lou_005ffree">7.27 lou_free</a></li>
-    <li><a id="toc-lou_005fcharSize-1" href="#lou_005fcharSize">7.28 lou_charSize</a></li>
-    <li><a id="toc-Python-bindings-1" href="#Python-bindings">7.29 Python bindings</a></li>
+    <li><a id="toc-Memory-ownership-1" href="#Memory-ownership">7.4 Memory ownership</a></li>
+    <li><a id="toc-Deprecation-of-the-logging-system-1" href="#Deprecation-of-the-logging-system">7.5 Deprecation of the logging system</a></li>
+    <li><a id="toc-lou_005fversion-1" href="#lou_005fversion">7.6 lou_version</a></li>
+    <li><a id="toc-lou_005ftranslateString-1" href="#lou_005ftranslateString">7.7 lou_translateString</a></li>
+    <li><a id="toc-lou_005ftranslate-2" href="#lou_005ftranslate">7.8 lou_translate</a></li>
+    <li><a id="toc-lou_005fbackTranslateString-1" href="#lou_005fbackTranslateString">7.9 lou_backTranslateString</a></li>
+    <li><a id="toc-lou_005fbackTranslate-1" href="#lou_005fbackTranslate">7.10 lou_backTranslate</a></li>
+    <li><a id="toc-lou_005fhyphenate-1" href="#lou_005fhyphenate">7.11 lou_hyphenate</a></li>
+    <li><a id="toc-lou_005fcompileString-1" href="#lou_005fcompileString">7.12 lou_compileString</a></li>
+    <li><a id="toc-lou_005fgetTypeformForEmphClass-1" href="#lou_005fgetTypeformForEmphClass">7.13 lou_getTypeformForEmphClass</a></li>
+    <li><a id="toc-lou_005fdotsToChar-1" href="#lou_005fdotsToChar">7.14 lou_dotsToChar</a></li>
+    <li><a id="toc-lou_005fcharToDots-1" href="#lou_005fcharToDots">7.15 lou_charToDots</a></li>
+    <li><a id="toc-lou_005fregisterLogCallback-1" href="#lou_005fregisterLogCallback">7.16 lou_registerLogCallback</a></li>
+    <li><a id="toc-lou_005fsetLogLevel-1" href="#lou_005fsetLogLevel">7.17 lou_setLogLevel</a></li>
+    <li><a id="toc-lou_005flogFile-_0028deprecated_0029" href="#lou_005flogFile">7.18 lou_logFile (deprecated)</a></li>
+    <li><a id="toc-lou_005flogPrint-_0028deprecated_0029" href="#lou_005flogPrint">7.19 lou_logPrint (deprecated)</a></li>
+    <li><a id="toc-lou_005flogEnd-_0028deprecated_0029" href="#lou_005flogEnd">7.20 lou_logEnd (deprecated)</a></li>
+    <li><a id="toc-lou_005fsetDataPath-1" href="#lou_005fsetDataPath">7.21 lou_setDataPath</a></li>
+    <li><a id="toc-lou_005fgetDataPath-1" href="#lou_005fgetDataPath">7.22 lou_getDataPath</a></li>
+    <li><a id="toc-lou_005fgetTable-1" href="#lou_005fgetTable">7.23 lou_getTable</a></li>
+    <li><a id="toc-lou_005ffindTable-1" href="#lou_005ffindTable">7.24 lou_findTable</a></li>
+    <li><a id="toc-lou_005findexTables-1" href="#lou_005findexTables">7.25 lou_indexTables</a></li>
+    <li><a id="toc-lou_005fcheckTable-1" href="#lou_005fcheckTable">7.26 lou_checkTable</a></li>
+    <li><a id="toc-lou_005freadCharFromFile-1" href="#lou_005freadCharFromFile">7.27 lou_readCharFromFile</a></li>
+    <li><a id="toc-lou_005ffree-1" href="#lou_005ffree">7.28 lou_free</a></li>
+    <li><a id="toc-lou_005fcharSize-1" href="#lou_005fcharSize">7.29 lou_charSize</a></li>
+    <li><a id="toc-Python-bindings-1" href="#Python-bindings">7.30 Python bindings</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Translation-functions" href="#Translation-functions">7.30.1 Translation functions</a></li>
+      <li><a id="toc-Finding-tables" href="#Finding-tables">7.30.2 Finding tables</a></li>
+      <li><a id="toc-Additional-functions" href="#Additional-functions">7.30.3 Additional functions</a></li>
+    </ul></li>
   </ul></li>
   <li><a id="toc-Concept-Index-1" href="#Concept-Index" rel="index">Concept Index</a></li>
   <li><a id="toc-Opcode-Index-1" href="#Opcode-Index" rel="index">Opcode Index</a></li>
@@ -151,6 +156,10 @@ Fifth Floor, Boston, MA 02110-1301, USA.
 </div>
 <hr>
 <div class="chapter-level-extent" id="Introduction">
+<div class="nav-panel">
+<p>
+Next: <a href="#How-to-Write-Translation-Tables" accesskey="n" rel="next">How to Write Translation Tables</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</a>, Up: <a href="#Top" accesskey="u" rel="up">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h2 class="chapter" id="Introduction-1"><span>1 Introduction<a class="copiable-link" href="#Introduction-1"> &para;</a></span></h2>
 
 <p>Liblouis is an open-source braille translator and back-translator
@@ -164,6 +173,10 @@ README file. Please report bugs and oddities to the mailing list,
 <p>This documentation is derived from the BRLTTY manual, but
 it has been extensively rewritten to cover new features.
 </p>
+<ul class="mini-toc">
+<li><a href="#Who-is-this-manual-for" accesskey="1">Who is this manual for</a></li>
+<li><a href="#How-to-read-this-manual" accesskey="2">How to read this manual</a></li>
+</ul>
 <div class="section-level-extent" id="Who-is-this-manual-for">
 <h3 class="section"><span>1.1 Who is this manual for<a class="copiable-link" href="#Who-is-this-manual-for"> &para;</a></span></h3>
 
@@ -193,6 +206,10 @@ itself then you will want to look at <a class="ref" href="#Programming-with-libl
 </div>
 </div>
 <div class="chapter-level-extent" id="How-to-Write-Translation-Tables">
+<div class="nav-panel">
+<p>
+Next: <a href="#Notes-on-Back_002dTranslation" accesskey="n" rel="next">Notes on Back-Translation</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Top" accesskey="u" rel="up">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h2 class="chapter" id="How-to-Write-Translation-Tables-1"><span>2 How to Write Translation Tables<a class="copiable-link" href="#How-to-Write-Translation-Tables-1"> &para;</a></span></h2>
 
 <p>For many languages there is already a translation table, so before
@@ -233,8 +250,29 @@ working from some sort of official standard, and have a device or a
 program in which you can test your work.
 </p>
 
+<ul class="mini-toc">
+<li><a href="#Overview" accesskey="1">Overview</a></li>
+<li><a href="#Hyphenation-Tables" accesskey="2">Hyphenation Tables</a></li>
+<li><a href="#Character_002dDefinition-Opcodes" accesskey="3">Character-Definition Opcodes</a></li>
+<li><a href="#Braille-Indicator-Opcodes" accesskey="4">Braille Indicator Opcodes</a></li>
+<li><a href="#Opcodes-for-Standing-Alone-Sequences" accesskey="5">Opcodes for <em class="emph">Standing Alone</em> Sequences</a></li>
+<li><a href="#Emphasis-Opcodes" accesskey="6">Emphasis Opcodes</a></li>
+<li><a href="#Special-Symbol-Opcodes" accesskey="7">Special Symbol Opcodes</a></li>
+<li><a href="#Special-Processing-Opcodes" accesskey="8">Special Processing Opcodes</a></li>
+<li><a href="#Translation-Opcodes" accesskey="9">Translation Opcodes</a></li>
+<li><a href="#Character_002dClass-Opcodes">Character-Class Opcodes</a></li>
+<li><a href="#Swap-Opcodes">Swap Opcodes</a></li>
+<li><a href="#The-Context-and-Multipass-Opcodes">The Context and Multipass Opcodes</a></li>
+<li><a href="#The-correct-Opcode">The correct Opcode</a></li>
+<li><a href="#The-match-Opcode">The match Opcode</a></li>
+<li><a href="#Miscellaneous-Opcodes">Miscellaneous Opcodes</a></li>
+</ul>
 <hr>
 <div class="section-level-extent" id="Overview">
+<div class="nav-panel">
+<p>
+Next: <a href="#Hyphenation-Tables" accesskey="n" rel="next">Hyphenation Tables</a>, Up: <a href="#How-to-Write-Translation-Tables" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="Overview-1"><span>2.1 Overview<a class="copiable-link" href="#Overview-1"> &para;</a></span></h3>
 
 <p>Many translation (contraction) tables have already been made up. They
@@ -307,12 +345,12 @@ though some have only one and a few have other types.
 </p>
 <a class="index-entry-id" id="index-Characters-operand"></a>
 <p>The characters operand consists of any combination of characters and
-escape sequences proceeded and followed by whitespace. Escape
+escape sequences preceded and followed by whitespace. Escape
 sequences are used to represent difficult characters. They begin with
 a backslash (&lsquo;<samp class="samp">\</samp>&rsquo;). They are:
 </p>
 <dl class="table">
-<dt><kbd class="kbd">\</kbd></dt>
+<dt><kbd class="kbd">\\</kbd></dt>
 <dd><p>backslash
 </p></dd>
 <dt><kbd class="kbd">\f</kbd></dt>
@@ -417,6 +455,10 @@ everything else.
 <hr>
 </div>
 <div class="section-level-extent" id="Hyphenation-Tables">
+<div class="nav-panel">
+<p>
+Next: <a href="#Character_002dDefinition-Opcodes" accesskey="n" rel="next">Character-Definition Opcodes</a>, Previous: <a href="#Overview" accesskey="p" rel="prev">Overview</a>, Up: <a href="#How-to-Write-Translation-Tables" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="Hyphenation-Tables-1"><span>2.2 Hyphenation Tables<a class="copiable-link" href="#Hyphenation-Tables-1"> &para;</a></span></h3>
 
 <p>Hyphenation tables are necessary to make opcodes such as the
@@ -432,6 +474,10 @@ of a hyphenation table, see <samp class="file">hyph_en_US.dic</samp>.
 <hr>
 </div>
 <div class="section-level-extent" id="Character_002dDefinition-Opcodes">
+<div class="nav-panel">
+<p>
+Next: <a href="#Braille-Indicator-Opcodes" accesskey="n" rel="next">Braille Indicator Opcodes</a>, Previous: <a href="#Hyphenation-Tables" accesskey="p" rel="prev">Hyphenation Tables</a>, Up: <a href="#How-to-Write-Translation-Tables" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="Character_002dDefinition-Opcodes-1"><span>2.3 Character-Definition Opcodes<a class="copiable-link" href="#Character_002dDefinition-Opcodes-1"> &para;</a></span></h3>
 
 <p>These opcodes are needed to define attributes such as digit,
@@ -623,6 +669,10 @@ base uppercase A a
 <hr>
 </div>
 <div class="section-level-extent" id="Braille-Indicator-Opcodes">
+<div class="nav-panel">
+<p>
+Next: <a href="#Opcodes-for-Standing-Alone-Sequences" accesskey="n" rel="next">Opcodes for <em class="emph">Standing Alone</em> Sequences</a>, Previous: <a href="#Character_002dDefinition-Opcodes" accesskey="p" rel="prev">Character-Definition Opcodes</a>, Up: <a href="#How-to-Write-Translation-Tables" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="Braille-Indicator-Opcodes-1"><span>2.4 Braille Indicator Opcodes<a class="copiable-link" href="#Braille-Indicator-Opcodes-1"> &para;</a></span></h3>
 
 <p>Braille indicators are dot patterns which are inserted into the
@@ -773,7 +823,7 @@ a sequence of letters that is the same as a contraction. For example:
 <a class="anchor" id="noletsign-opcode"></a></dd>
 <dt><code class="code">noletsign letters</code></dt>
 <dd>
-<p>The letters in the operand will not be proceeded by a letter sign.
+<p>The letters in the operand will not be preceded by a letter sign.
 More than one <code class="code">noletsign</code> opcode can be used. This is equivalent
 to a single entry containing all the letters. In addition, if a single
 letter, such as &lsquo;<samp class="samp">a</samp>&rsquo; in English, is defined as a <code class="code">word</code>
@@ -850,7 +900,7 @@ achieved using the <code class="code">nonumsign</code>.
 <p>Example:
 </p>
 <div class="example">
-<pre class="example-preformatted">numsign 56
+<pre class="example-preformatted">nonumsign 56
 </pre></div>
 
 <a class="index-entry-id" id="index-numericnocontchars"></a>
@@ -923,6 +973,10 @@ midendnumericmodechars -/
 <hr>
 </div>
 <div class="section-level-extent" id="Opcodes-for-Standing-Alone-Sequences">
+<div class="nav-panel">
+<p>
+Next: <a href="#Emphasis-Opcodes" accesskey="n" rel="next">Emphasis Opcodes</a>, Previous: <a href="#Braille-Indicator-Opcodes" accesskey="p" rel="prev">Braille Indicator Opcodes</a>, Up: <a href="#How-to-Write-Translation-Tables" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="Opcodes-for-Standing-Alone-Sequences-1"><span>2.5 Opcodes for <em class="emph">Standing Alone</em> Sequences<a class="copiable-link" href="#Opcodes-for-Standing-Alone-Sequences-1"> &para;</a></span></h3>
 
 <a class="index-entry-id" id="index-Standing-alone"></a>
@@ -1023,6 +1077,10 @@ provided the overall sequence is <em class="emph">standing alone</em>.
 <hr>
 </div>
 <div class="section-level-extent" id="Emphasis-Opcodes">
+<div class="nav-panel">
+<p>
+Next: <a href="#Special-Symbol-Opcodes" accesskey="n" rel="next">Special Symbol Opcodes</a>, Previous: <a href="#Opcodes-for-Standing-Alone-Sequences" accesskey="p" rel="prev">Opcodes for <em class="emph">Standing Alone</em> Sequences</a>, Up: <a href="#How-to-Write-Translation-Tables" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="Emphasis-Opcodes-1"><span>2.6 Emphasis Opcodes<a class="copiable-link" href="#Emphasis-Opcodes-1"> &para;</a></span></h3>
 
 <p>In many braille systems emphasis such as bold, italics or underline is
@@ -1039,8 +1097,18 @@ types but the table author defines which kind of emphasis exists for a
 specific language using the <code class="code">emphclass</code> opcode (see <a class="pxref" href="#emphclass-opcode"><code class="code">emphclass</code></a>).
 </p>
 
+<ul class="mini-toc">
+<li><a href="#Emphasis-classes" accesskey="1">Emphasis classes</a></li>
+<li><a href="#Emphasis-indicators" accesskey="2">Emphasis indicators</a></li>
+<li><a href="#Note-about-fallback-behavior" accesskey="3">Note about fallback behavior</a></li>
+<li><a href="#Computer-braille" accesskey="4">Computer braille</a></li>
+</ul>
 <hr>
 <div class="subsection-level-extent" id="Emphasis-classes">
+<div class="nav-panel">
+<p>
+Next: <a href="#Emphasis-indicators" accesskey="n" rel="next">Emphasis indicators</a>, Up: <a href="#Emphasis-Opcodes" accesskey="u" rel="up">Emphasis Opcodes</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h4 class="subsection" id="Emphasis-classes-1"><span>2.6.1 Emphasis classes<a class="copiable-link" href="#Emphasis-classes-1"> &para;</a></span></h4>
 
 <p>The <code class="code">emphclass</code> opcode defines the classes of emphasis that are
@@ -1067,6 +1135,10 @@ emphclass transnote
 <hr>
 </div>
 <div class="subsection-level-extent" id="Emphasis-indicators">
+<div class="nav-panel">
+<p>
+Next: <a href="#Note-about-fallback-behavior" accesskey="n" rel="next">Note about fallback behavior</a>, Previous: <a href="#Emphasis-classes" accesskey="p" rel="prev">Emphasis classes</a>, Up: <a href="#Emphasis-Opcodes" accesskey="u" rel="up">Emphasis Opcodes</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h4 class="subsection" id="Emphasis-indicators-1"><span>2.6.2 Emphasis indicators<a class="copiable-link" href="#Emphasis-indicators-1"> &para;</a></span></h4>
 
 <p>In order to understand the capabilities of Liblouis for emphasis
@@ -1081,8 +1153,18 @@ emphasized part in order to change the current scope.
 specific combination of indicators that are defined in the table.
 </p>
 
+<ul class="mini-toc">
+<li><a href="#Permanent-indicator" accesskey="1">Permanent indicator</a></li>
+<li><a href="#Letter-indicator" accesskey="2">Letter indicator</a></li>
+<li><a href="#Word-indicator" accesskey="3">Word indicator</a></li>
+<li><a href="#Phrase-indicator" accesskey="4">Phrase indicator</a></li>
+</ul>
 <hr>
 <div class="subsubsection-level-extent" id="Permanent-indicator">
+<div class="nav-panel">
+<p>
+Next: <a href="#Letter-indicator" accesskey="n" rel="next">Letter indicator</a>, Up: <a href="#Emphasis-indicators" accesskey="u" rel="up">Emphasis indicators</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h4 class="subsubsection" id="Permanent-indicator-1"><span>2.6.2.1 Permanent indicator<a class="copiable-link" href="#Permanent-indicator-1"> &para;</a></span></h4>
 
 <p>Many languages simply have an indicator for the beginning of emphasis
@@ -1151,6 +1233,10 @@ the list contains space characters (escaped, e.g. <code class="code">\s</code>).
 <hr>
 </div>
 <div class="subsubsection-level-extent" id="Letter-indicator">
+<div class="nav-panel">
+<p>
+Next: <a href="#Word-indicator" accesskey="n" rel="next">Word indicator</a>, Previous: <a href="#Permanent-indicator" accesskey="p" rel="prev">Permanent indicator</a>, Up: <a href="#Emphasis-indicators" accesskey="u" rel="up">Emphasis indicators</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h4 class="subsubsection" id="Letter-indicator-1"><span>2.6.2.2 Letter indicator<a class="copiable-link" href="#Letter-indicator-1"> &para;</a></span></h4>
 
 <p>Some languages have special indicators for single letter emphasis. The
@@ -1185,6 +1271,10 @@ can be useful anyway.
 <hr>
 </div>
 <div class="subsubsection-level-extent" id="Word-indicator">
+<div class="nav-panel">
+<p>
+Next: <a href="#Phrase-indicator" accesskey="n" rel="next">Phrase indicator</a>, Previous: <a href="#Letter-indicator" accesskey="p" rel="prev">Letter indicator</a>, Up: <a href="#Emphasis-indicators" accesskey="u" rel="up">Emphasis indicators</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h4 class="subsubsection" id="Word-indicator-1"><span>2.6.2.3 Word indicator<a class="copiable-link" href="#Word-indicator-1"> &para;</a></span></h4>
 
 <p>Many languages have special indicators for emphasized words. The scope
@@ -1193,7 +1283,7 @@ character, however this can be changed with the <code class="code">emphmodechars
 opcode (see <a class="pxref" href="#noemphchars-opcode"><code class="code">noemphchars</code></a> and <a class="ref" href="#emphmodechars-opcode"><code class="code">emphmodechars</code></a>).
 </p>
 <p>Word emphasis can also be canceled with an explicit closing
-indicator. Usually a word indicator is put at the the beginning of the
+indicator. Usually a word indicator is put at the beginning of the
 word, but it may also be used for cases where the emphasis starts in
 the middle of the word.
 </p>
@@ -1249,6 +1339,10 @@ that are in the list will not cancel the word indicator.
 <hr>
 </div>
 <div class="subsubsection-level-extent" id="Phrase-indicator">
+<div class="nav-panel">
+<p>
+Previous: <a href="#Word-indicator" accesskey="p" rel="prev">Word indicator</a>, Up: <a href="#Emphasis-indicators" accesskey="u" rel="up">Emphasis indicators</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h4 class="subsubsection" id="Phrase-indicator-1"><span>2.6.2.4 Phrase indicator<a class="copiable-link" href="#Phrase-indicator-1"> &para;</a></span></h4>
 
 <p>Some languages have a concept of a phrase where the emphasis is valid
@@ -1326,6 +1420,10 @@ indicated as a phrase, but the words will be indicated individually.
 </div>
 </div>
 <div class="subsection-level-extent" id="Note-about-fallback-behavior">
+<div class="nav-panel">
+<p>
+Next: <a href="#Computer-braille" accesskey="n" rel="next">Computer braille</a>, Previous: <a href="#Emphasis-indicators" accesskey="p" rel="prev">Emphasis indicators</a>, Up: <a href="#Emphasis-Opcodes" accesskey="u" rel="up">Emphasis Opcodes</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h4 class="subsection" id="Note-about-fallback-behavior-1"><span>2.6.3 Note about fallback behavior<a class="copiable-link" href="#Note-about-fallback-behavior-1"> &para;</a></span></h4>
 
 <p>Contrary to older versions of liblouis there is limited fallback
@@ -1348,6 +1446,10 @@ more specific opcodes might be added.
 <hr>
 </div>
 <div class="subsection-level-extent" id="Computer-braille">
+<div class="nav-panel">
+<p>
+Previous: <a href="#Note-about-fallback-behavior" accesskey="p" rel="prev">Note about fallback behavior</a>, Up: <a href="#Emphasis-Opcodes" accesskey="u" rel="up">Emphasis Opcodes</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h4 class="subsection" id="Computer-braille-1"><span>2.6.4 Computer braille<a class="copiable-link" href="#Computer-braille-1"> &para;</a></span></h4>
 
 <p>For computer braille there are only two braille indicators, for the
@@ -1384,6 +1486,10 @@ contains a subsequence specified by the <code class="code">compbrl</code> opcode
 </div>
 </div>
 <div class="section-level-extent" id="Special-Symbol-Opcodes">
+<div class="nav-panel">
+<p>
+Next: <a href="#Special-Processing-Opcodes" accesskey="n" rel="next">Special Processing Opcodes</a>, Previous: <a href="#Emphasis-Opcodes" accesskey="p" rel="prev">Emphasis Opcodes</a>, Up: <a href="#How-to-Write-Translation-Tables" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="Special-Symbol-Opcodes-1"><span>2.7 Special Symbol Opcodes<a class="copiable-link" href="#Special-Symbol-Opcodes-1"> &para;</a></span></h3>
 
 <p>These opcodes define certain symbols, such as the decimal point, which
@@ -1423,6 +1529,10 @@ to determine the end of individual words.
 <hr>
 </div>
 <div class="section-level-extent" id="Special-Processing-Opcodes">
+<div class="nav-panel">
+<p>
+Next: <a href="#Translation-Opcodes" accesskey="n" rel="next">Translation Opcodes</a>, Previous: <a href="#Special-Symbol-Opcodes" accesskey="p" rel="prev">Special Symbol Opcodes</a>, Up: <a href="#How-to-Write-Translation-Tables" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="Special-Processing-Opcodes-1"><span>2.8 Special Processing Opcodes<a class="copiable-link" href="#Special-Processing-Opcodes-1"> &para;</a></span></h3>
 
 <p>These opcodes cause special processing to be carried out.
@@ -1441,6 +1551,10 @@ such as Norwegian.
 <hr>
 </div>
 <div class="section-level-extent" id="Translation-Opcodes">
+<div class="nav-panel">
+<p>
+Next: <a href="#Character_002dClass-Opcodes" accesskey="n" rel="next">Character-Class Opcodes</a>, Previous: <a href="#Special-Processing-Opcodes" accesskey="p" rel="prev">Special Processing Opcodes</a>, Up: <a href="#How-to-Write-Translation-Tables" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="Translation-Opcodes-1"><span>2.9 Translation Opcodes<a class="copiable-link" href="#Translation-Opcodes-1"> &para;</a></span></h3>
 
 <p>These opcodes define the braille representations for character
@@ -1455,7 +1569,7 @@ left to right, character by character, with the most eligible entry
 for each position being used. If there is more than one eligible entry
 for a given position in the text, then the one with the longest
 character string is used. If there is more than one eligible entry for
-the same character string, then the one defined first is is tested for
+the same character string, then the one defined first is tested for
 legality first. (This is the only case in which the order of the
 entries makes a difference.)
 </p>
@@ -1466,7 +1580,7 @@ preceded by &lsquo;<samp class="samp">\x</samp>&rsquo;.
 </p>
 <p>The dots operand defines the braille representation for the characters
 operand. It may also be specified as an equals sign (&lsquo;<samp class="samp">=</samp>&rsquo;). This
-means that the the default representation for each character
+means that the default representation for each character
 (see <a class="pxref" href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a>) within the sequence is to be
 used. It is an error if not all the characters in the rule have been
 previously defined in a character-definition rule. Note that the
@@ -1646,7 +1760,7 @@ represented by exactly the dot patterns given. Contractions may not
 cross the boundaries of this &quot;syllable&quot; either from left or right. The
 character string defined by this opcode need not be a lexical
 syllable, though it usually will be. The equal sign in the following
-example means that the the default representation for each character
+example means that the default representation for each character
 within the sequence is to be used (see <a class="pxref" href="#Translation-Opcodes">Translation Opcodes</a>):
 </p>
 <div class="example">
@@ -1812,6 +1926,10 @@ joinnum \x00A5 13456 (YEN SIGN)
 <hr>
 </div>
 <div class="section-level-extent" id="Character_002dClass-Opcodes">
+<div class="nav-panel">
+<p>
+Next: <a href="#Swap-Opcodes" accesskey="n" rel="next">Swap Opcodes</a>, Previous: <a href="#Translation-Opcodes" accesskey="p" rel="prev">Translation Opcodes</a>, Up: <a href="#How-to-Write-Translation-Tables" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="Character_002dClass-Opcodes-1"><span>2.10 Character-Class Opcodes<a class="copiable-link" href="#Character_002dClass-Opcodes-1"> &para;</a></span></h3>
 
 <p>These opcodes define and use character classes, also known as
@@ -1871,7 +1989,7 @@ character in the string, as well as its dot counterpart if it occupies
 a single cell, is added to the character class.
 </p>
 <p>A user-defined character class may not be used in other rules until it
-has been created with a <code class="code">attribute</code> rule. Numbered classes can be
+has been created with an <code class="code">attribute</code> rule. Numbered classes can be
 used in <code class="code">match</code> rules (see <a class="pxref" href="#match-opcode"><code class="code">match</code></a>). Named classes can be used with the
 <code class="code">before</code> and <code class="code">after</code> opcodes and in <code class="code">context</code> and
 multipass rules (see <a class="pxref" href="#The-Context-and-Multipass-Opcodes">The Context and Multipass Opcodes</a>).
@@ -1900,6 +2018,10 @@ classes is used.
 <hr>
 </div>
 <div class="section-level-extent" id="Swap-Opcodes">
+<div class="nav-panel">
+<p>
+Next: <a href="#The-Context-and-Multipass-Opcodes" accesskey="n" rel="next">The Context and Multipass Opcodes</a>, Previous: <a href="#Character_002dClass-Opcodes" accesskey="p" rel="prev">Character-Class Opcodes</a>, Up: <a href="#How-to-Write-Translation-Tables" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="Swap-Opcodes-1"><span>2.11 Swap Opcodes<a class="copiable-link" href="#Swap-Opcodes-1"> &para;</a></span></h3>
 
 <p>The swap opcodes are needed to tell the <code class="code">context</code> opcode (see <a class="pxref" href="#context-opcode"><code class="code">context</code></a>), the
@@ -1952,6 +2074,10 @@ such as formatting phone numbers.
 <hr>
 </div>
 <div class="section-level-extent" id="The-Context-and-Multipass-Opcodes">
+<div class="nav-panel">
+<p>
+Next: <a href="#The-correct-Opcode" accesskey="n" rel="next">The correct Opcode</a>, Previous: <a href="#Swap-Opcodes" accesskey="p" rel="prev">Swap Opcodes</a>, Up: <a href="#How-to-Write-Translation-Tables" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="The-Context-and-Multipass-Opcodes-1"><span>2.12 The Context and Multipass Opcodes<a class="copiable-link" href="#The-Context-and-Multipass-Opcodes-1"> &para;</a></span></h3>
 
 <p>The <code class="code">context</code> and multipass opcodes (<code class="code">pass2</code>, <code class="code">pass3</code>
@@ -2235,6 +2361,10 @@ same characters again and again.
 <hr>
 </div>
 <div class="section-level-extent" id="The-correct-Opcode">
+<div class="nav-panel">
+<p>
+Next: <a href="#The-match-Opcode" accesskey="n" rel="next">The match Opcode</a>, Previous: <a href="#The-Context-and-Multipass-Opcodes" accesskey="p" rel="prev">The Context and Multipass Opcodes</a>, Up: <a href="#How-to-Write-Translation-Tables" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="The-correct-Opcode-1"><span>2.13 The correct Opcode<a class="copiable-link" href="#The-correct-Opcode-1"> &para;</a></span></h3>
 
 <dl class="table">
@@ -2274,6 +2404,10 @@ noback correct &quot;\s?&quot; &quot;?&quot; drop space before question mark
 <hr>
 </div>
 <div class="section-level-extent" id="The-match-Opcode">
+<div class="nav-panel">
+<p>
+Next: <a href="#Miscellaneous-Opcodes" accesskey="n" rel="next">Miscellaneous Opcodes</a>, Previous: <a href="#The-correct-Opcode" accesskey="p" rel="prev">The correct Opcode</a>, Up: <a href="#How-to-Write-Translation-Tables" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="The-match-Opcode-1"><span>2.14 The match Opcode<a class="copiable-link" href="#The-match-Opcode-1"> &para;</a></span></h3>
 
 <p>For historical reasons despite being fairly similar in functionality
@@ -2348,6 +2482,9 @@ needed. The set of attributes are specified as follows:
 </p></dd>
 <dt>&lsquo;<samp class="samp">$</samp>&rsquo;</dt>
 <dd><p>sign
+</p></dd>
+<dt>&lsquo;<samp class="samp">m</samp>&rsquo;</dt>
+<dd><p>math
 </p></dd>
 <dt>&lsquo;<samp class="samp">~</samp>&rsquo;</dt>
 <dd><p>seqdelimiter
@@ -2437,6 +2574,10 @@ is preceded by a space, or beginning of input; then followed by a
 <hr>
 </div>
 <div class="section-level-extent" id="Miscellaneous-Opcodes">
+<div class="nav-panel">
+<p>
+Previous: <a href="#The-match-Opcode" accesskey="p" rel="prev">The match Opcode</a>, Up: <a href="#How-to-Write-Translation-Tables" accesskey="u" rel="up">How to Write Translation Tables</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="Miscellaneous-Opcodes-1"><span>2.15 Miscellaneous Opcodes<a class="copiable-link" href="#Miscellaneous-Opcodes-1"> &para;</a></span></h3>
 
 <dl class="table">
@@ -2482,7 +2623,7 @@ display L 123
 <p>The <code class="code">display</code> opcode is optional. It is used when the embosser or
 display has a different mapping of characters to dot patterns than
 that given in <a class="ref" href="#Character_002dDefinition-Opcodes">Character-Definition Opcodes</a>. If used, display
-entries must proceed character-definition entries.
+entries must precede character-definition entries.
 </p>
 <p>A possible use case would be to define display opcodes so that the
 result is Unicode braille for use on a display and a second set of
@@ -2512,9 +2653,17 @@ opcode.
 </div>
 </div>
 <div class="chapter-level-extent" id="Notes-on-Back_002dTranslation">
+<div class="nav-panel">
+<p>
+Next: <a href="#Table-Metadata" accesskey="n" rel="next">Table Metadata</a>, Previous: <a href="#How-to-Write-Translation-Tables" accesskey="p" rel="prev">How to Write Translation Tables</a>, Up: <a href="#Top" accesskey="u" rel="up">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h2 class="chapter" id="Notes-on-Back_002dTranslation-1"><span>3 Notes on Back-Translation<a class="copiable-link" href="#Notes-on-Back_002dTranslation-1"> &para;</a></span></h2>
 
-<a class="anchor" id="General-Notes"></a><div class="section-level-extent" id="General-Notes-1">
+<a class="anchor" id="General-Notes"></a><ul class="mini-toc">
+<li><a href="#General-Notes-1" accesskey="1">General Notes</a></li>
+<li><a href="#Back_002dtranslation-with-Liblouis-1" accesskey="2">Back-translation with Liblouis</a></li>
+</ul>
+<div class="section-level-extent" id="General-Notes-1">
 <h3 class="section"><span>3.1 General Notes<a class="copiable-link" href="#General-Notes-1"> &para;</a></span></h3>
 
 <p>Back-translation refers to the process of translating backwards,
@@ -2597,6 +2746,10 @@ using <code class="code">noback</code> or <code class="code">nofor</code>.
 </div>
 </div>
 <div class="chapter-level-extent" id="Table-Metadata">
+<div class="nav-panel">
+<p>
+Next: <a href="#Testing-Translation-Tables-interactively" accesskey="n" rel="next">Testing Translation Tables interactively</a>, Previous: <a href="#Notes-on-Back_002dTranslation" accesskey="p" rel="prev">Notes on Back-Translation</a>, Up: <a href="#Top" accesskey="u" rel="up">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h2 class="chapter" id="Table-Metadata-1"><span>4 Table Metadata<a class="copiable-link" href="#Table-Metadata-1"> &para;</a></span></h2>
 
 <p>Translation tables may contain metadata. This makes them
@@ -2605,6 +2758,10 @@ discoverable. Programs may for example use the Liblouis function
 special query of which the <a class="ref" href="#Query-Syntax">syntax</a> is described
 below.
 </p>
+<ul class="mini-toc">
+<li><a href="#Syntax" accesskey="1">Syntax</a></li>
+<li><a href="#Query-Syntax-1" accesskey="2">Query Syntax</a></li>
+</ul>
 <div class="section-level-extent" id="Syntax">
 <h3 class="section"><span>4.1 Syntax<a class="copiable-link" href="#Syntax"> &para;</a></span></h3>
 
@@ -2666,6 +2823,10 @@ allowed around colons.
 </div>
 </div>
 <div class="chapter-level-extent" id="Testing-Translation-Tables-interactively">
+<div class="nav-panel">
+<p>
+Next: <a href="#Automated-Testing-of-Translation-Tables" accesskey="n" rel="next">Automated Testing of Translation Tables</a>, Previous: <a href="#Table-Metadata" accesskey="p" rel="prev">Table Metadata</a>, Up: <a href="#Top" accesskey="u" rel="up">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h2 class="chapter" id="Testing-Translation-Tables-interactively-1"><span>5 Testing Translation Tables interactively<a class="copiable-link" href="#Testing-Translation-Tables-interactively-1"> &para;</a></span></h2>
 
 <p>A number of test programs are provided as part of the liblouis
@@ -2699,8 +2860,21 @@ These tables are usually found in standard locations in the file
 system or local to where the command is executed. See <a class="xref" href="#How-tables-are-found">How tables are found</a>, for a description on how the tables are located.
 </p>
 
+<ul class="mini-toc">
+<li><a href="#lou_005fdebug" accesskey="1">lou_debug</a></li>
+<li><a href="#lou_005ftrace" accesskey="2">lou_trace</a></li>
+<li><a href="#lou_005fchecktable-_0028program_0029" accesskey="3">lou_checktable</a></li>
+<li><a href="#lou_005fallround" accesskey="4">lou_allround</a></li>
+<li><a href="#lou_005ftranslate-_0028program_0029" accesskey="5">lou_translate</a></li>
+<li><a href="#lou_005fcheckhyphens" accesskey="6">lou_checkhyphens</a></li>
+<li><a href="#lou_005fcheckyaml" accesskey="7">lou_checkyaml</a></li>
+</ul>
 <hr>
 <div class="section-level-extent" id="lou_005fdebug">
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005ftrace" accesskey="n" rel="next">lou_trace</a>, Up: <a href="#Testing-Translation-Tables-interactively" accesskey="u" rel="up">Testing Translation Tables interactively</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="lou_005fdebug-1"><span>5.1 lou_debug<a class="copiable-link" href="#lou_005fdebug-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fdebug"></a>
 
@@ -2815,12 +2989,16 @@ there is a hyphenation table.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005ftrace">
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005fchecktable-_0028program_0029" accesskey="n" rel="next">lou_checktable</a>, Previous: <a href="#lou_005fdebug" accesskey="p" rel="prev">lou_debug</a>, Up: <a href="#Testing-Translation-Tables-interactively" accesskey="u" rel="up">Testing Translation Tables interactively</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="lou_005ftrace-1"><span>5.2 lou_trace<a class="copiable-link" href="#lou_005ftrace-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005ftrace"></a>
 
 <p>When working on translation tables it is sometimes useful to determine
 what rules were applied when translating a string. <code class="command">lou_trace</code>
-helps with exactly that. It list all the the applied rules for a given
+helps with exactly that. It lists all the applied rules for a given
 translation table and an input string.
 </p>
 <div class="example">
@@ -2880,6 +3058,10 @@ the u.s. postal service
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fchecktable-_0028program_0029">
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005fallround" accesskey="n" rel="next">lou_allround</a>, Previous: <a href="#lou_005ftrace" accesskey="p" rel="prev">lou_trace</a>, Up: <a href="#Testing-Translation-Tables-interactively" accesskey="u" rel="up">Testing Translation Tables interactively</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="lou_005fchecktable"><span>5.3 lou_checktable<a class="copiable-link" href="#lou_005fchecktable"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fchecktable"></a>
 
@@ -2907,6 +3089,10 @@ shown.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fallround">
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005ftranslate-_0028program_0029" accesskey="n" rel="next">lou_translate</a>, Previous: <a href="#lou_005fchecktable-_0028program_0029" accesskey="p" rel="prev">lou_checktable</a>, Up: <a href="#Testing-Translation-Tables-interactively" accesskey="u" rel="up">Testing Translation Tables interactively</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="lou_005fallround-1"><span>5.4 lou_allround<a class="copiable-link" href="#lou_005fallround-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fallround"></a>
 
@@ -2930,6 +3116,10 @@ and then view the results.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005ftranslate-_0028program_0029">
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005fcheckhyphens" accesskey="n" rel="next">lou_checkhyphens</a>, Previous: <a href="#lou_005fallround" accesskey="p" rel="prev">lou_allround</a>, Up: <a href="#Testing-Translation-Tables-interactively" accesskey="u" rel="up">Testing Translation Tables interactively</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="lou_005ftranslate-1"><span>5.5 lou_translate<a class="copiable-link" href="#lou_005ftranslate-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005ftranslate-1"></a>
 
@@ -3051,6 +3241,10 @@ translator.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fcheckhyphens">
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005fcheckyaml" accesskey="n" rel="next">lou_checkyaml</a>, Previous: <a href="#lou_005ftranslate-_0028program_0029" accesskey="p" rel="prev">lou_translate</a>, Up: <a href="#Testing-Translation-Tables-interactively" accesskey="u" rel="up">Testing Translation Tables interactively</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="lou_005fcheckhyphens-1"><span>5.6 lou_checkhyphens<a class="copiable-link" href="#lou_005fcheckhyphens-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fcheckhyphens"></a>
 
@@ -3070,6 +3264,10 @@ interactive. Invoke it as follows:
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fcheckyaml">
+<div class="nav-panel">
+<p>
+Previous: <a href="#lou_005fcheckhyphens" accesskey="p" rel="prev">lou_checkhyphens</a>, Up: <a href="#Testing-Translation-Tables-interactively" accesskey="u" rel="up">Testing Translation Tables interactively</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="lou_005fcheckyaml-1"><span>5.7 lou_checkyaml<a class="copiable-link" href="#lou_005fcheckyaml-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fcheckyaml"></a>
 
@@ -3102,6 +3300,10 @@ make check TESTS=yaml/en-ueb-g2_backward.yaml
 </div>
 </div>
 <div class="chapter-level-extent" id="Automated-Testing-of-Translation-Tables">
+<div class="nav-panel">
+<p>
+Next: <a href="#Programming-with-liblouis" accesskey="n" rel="next">Programming with liblouis</a>, Previous: <a href="#Testing-Translation-Tables-interactively" accesskey="p" rel="prev">Testing Translation Tables interactively</a>, Up: <a href="#Top" accesskey="u" rel="up">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h2 class="chapter" id="Automated-Testing-of-Translation-Tables-1"><span>6 Automated Testing of Translation Tables<a class="copiable-link" href="#Automated-Testing-of-Translation-Tables-1"> &para;</a></span></h2>
 
 <p>There are a number of automated tests for liblouis and they are
@@ -3119,7 +3321,10 @@ namely YAML. If you have <samp class="file">libyaml</samp> installed they will
 automatically be invoked as part of the standard <code class="command">make check</code>
 command.
 </p>
-<a class="anchor" id="YAML-Tests"></a><div class="section-level-extent" id="YAML-Tests-1">
+<a class="anchor" id="YAML-Tests"></a><ul class="mini-toc">
+<li><a href="#YAML-Tests-1" accesskey="1">YAML Tests</a></li>
+</ul>
+<div class="section-level-extent" id="YAML-Tests-1">
 <h3 class="section"><span>6.1 YAML Tests<a class="copiable-link" href="#YAML-Tests-1"> &para;</a></span></h3>
 <p><a class="url" href="http://yaml.org/">YAML</a> is a human readable data serialization
 format that allows for an easy and compact way to define tests.
@@ -3449,6 +3654,13 @@ example the length of the refreshable braille display.
 </dd>
 </dl>
 
+<ul class="mini-toc">
+<li><a href="#Optional-test-description" accesskey="1">Optional test description</a></li>
+<li><a href="#Testing-multiple-tables-within-the-same-YAML-test-file" accesskey="2">Testing multiple tables within the same YAML test file</a></li>
+<li><a href="#Multiple-test-sections-for-each-table" accesskey="3">Multiple test sections for each table</a></li>
+<li><a href="#Inline-definition-of-tables-1" accesskey="4">Inline definition of tables</a></li>
+<li><a href="#Running-the-same-test-data-on-multiple-tables" accesskey="5">Running the same test data on multiple tables</a></li>
+</ul>
 <div class="subsection-level-extent" id="Optional-test-description">
 <h4 class="subsection"><span>6.1.1 Optional test description<a class="copiable-link" href="#Optional-test-description"> &para;</a></span></h4>
 <p>When a test contains three or four items the first item is assumed to
@@ -3566,11 +3778,51 @@ tests:
 </div>
 </div>
 <div class="chapter-level-extent" id="Programming-with-liblouis">
+<div class="nav-panel">
+<p>
+Next: <a href="#Concept-Index" accesskey="n" rel="next">Concept Index</a>, Previous: <a href="#Automated-Testing-of-Translation-Tables" accesskey="p" rel="prev">Automated Testing of Translation Tables</a>, Up: <a href="#Top" accesskey="u" rel="up">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h2 class="chapter" id="Programming-with-liblouis-1"><span>7 Programming with liblouis<a class="copiable-link" href="#Programming-with-liblouis-1"> &para;</a></span></h2>
 
 
+<ul class="mini-toc">
+<li><a href="#Overview-_0028library_0029" accesskey="1">Overview</a></li>
+<li><a href="#Data-structure-of-liblouis-tables" accesskey="2">Data structure of liblouis tables</a></li>
+<li><a href="#How-tables-are-found" accesskey="3">How tables are found</a></li>
+<li><a href="#Memory-ownership" accesskey="4">Memory ownership</a></li>
+<li><a href="#Deprecation-of-the-logging-system" accesskey="5">Deprecation of the logging system</a></li>
+<li><a href="#lou_005fversion" accesskey="6">lou_version</a></li>
+<li><a href="#lou_005ftranslateString" accesskey="7">lou_translateString</a></li>
+<li><a href="#lou_005ftranslate" accesskey="8">lou_translate</a></li>
+<li><a href="#lou_005fbackTranslateString" accesskey="9">lou_backTranslateString</a></li>
+<li><a href="#lou_005fbackTranslate">lou_backTranslate</a></li>
+<li><a href="#lou_005fhyphenate">lou_hyphenate</a></li>
+<li><a href="#lou_005fcompileString">lou_compileString</a></li>
+<li><a href="#lou_005fgetTypeformForEmphClass">lou_getTypeformForEmphClass</a></li>
+<li><a href="#lou_005fdotsToChar">lou_dotsToChar</a></li>
+<li><a href="#lou_005fcharToDots">lou_charToDots</a></li>
+<li><a href="#lou_005fregisterLogCallback">lou_registerLogCallback</a></li>
+<li><a href="#lou_005fsetLogLevel">lou_setLogLevel</a></li>
+<li><a href="#lou_005flogFile">lou_logFile (deprecated)</a></li>
+<li><a href="#lou_005flogPrint">lou_logPrint (deprecated)</a></li>
+<li><a href="#lou_005flogEnd">lou_logEnd (deprecated)</a></li>
+<li><a href="#lou_005fsetDataPath">lou_setDataPath</a></li>
+<li><a href="#lou_005fgetDataPath">lou_getDataPath</a></li>
+<li><a href="#lou_005fgetTable">lou_getTable</a></li>
+<li><a href="#lou_005ffindTable">lou_findTable</a></li>
+<li><a href="#lou_005findexTables">lou_indexTables</a></li>
+<li><a href="#lou_005fcheckTable">lou_checkTable</a></li>
+<li><a href="#lou_005freadCharFromFile">lou_readCharFromFile</a></li>
+<li><a href="#lou_005ffree">lou_free</a></li>
+<li><a href="#lou_005fcharSize">lou_charSize</a></li>
+<li><a href="#Python-bindings">Python bindings</a></li>
+</ul>
 <hr>
 <div class="section-level-extent" id="Overview-_0028library_0029">
+<div class="nav-panel">
+<p>
+Next: <a href="#Data-structure-of-liblouis-tables" accesskey="n" rel="next">Data structure of liblouis tables</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="Overview-2"><span>7.1 Overview<a class="copiable-link" href="#Overview-2"> &para;</a></span></h3>
 
 <p>You use the liblouis library by calling the following functions,
@@ -3634,6 +3886,10 @@ or 32-bit, depending on how liblouis has been compiled.
 <hr>
 </div>
 <div class="section-level-extent" id="Data-structure-of-liblouis-tables">
+<div class="nav-panel">
+<p>
+Next: <a href="#How-tables-are-found" accesskey="n" rel="next">How tables are found</a>, Previous: <a href="#Overview-_0028library_0029" accesskey="p" rel="prev">Overview</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="Data-structure-of-liblouis-tables-1"><span>7.2 Data structure of liblouis tables<a class="copiable-link" href="#Data-structure-of-liblouis-tables-1"> &para;</a></span></h3>
 
 <p>The data structure <code class="code">TranslationTableHeader</code> is defined by a
@@ -3703,6 +3959,10 @@ points.
 <hr>
 </div>
 <div class="section-level-extent" id="How-tables-are-found">
+<div class="nav-panel">
+<p>
+Next: <a href="#Memory-ownership" accesskey="n" rel="next">Memory ownership</a>, Previous: <a href="#Data-structure-of-liblouis-tables" accesskey="p" rel="prev">Data structure of liblouis tables</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h3 class="section" id="How-tables-are-found-1"><span>7.3 How tables are found<a class="copiable-link" href="#How-tables-are-found-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Table-search-path"></a>
 <a class="index-entry-id" id="index-LOUIS_005fTABLEPATH"></a>
@@ -3724,13 +3984,50 @@ path-checking is skipped.
 </p>
 <hr>
 </div>
+<div class="section-level-extent" id="Memory-ownership">
+<div class="nav-panel">
+<p>
+Next: <a href="#Deprecation-of-the-logging-system" accesskey="n" rel="next">Deprecation of the logging system</a>, Previous: <a href="#How-tables-are-found" accesskey="p" rel="prev">How tables are found</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="Memory-ownership-1"><span>7.4 Memory ownership<a class="copiable-link" href="#Memory-ownership-1"> &para;</a></span></h3>
+<p>The API includes functions that return memory to the caller, who is
+responsible for freeing that memory. To simplify memory management,
+the API provides dedicated functions for freeing specific data
+structures. Use the following functions to free memory allocated by
+their corresponding API calls:
+</p>
+<dl class="table">
+<dt><code class="code">lou_freeEmphClasses</code></dt>
+<dd><p>Frees memory allocated by <code class="code">lou_getEmphClasses</code>
+</p>
+</dd>
+<dt><code class="code">lou_freeTableInfo</code></dt>
+<dd><p>Frees memory allocated by <code class="code">lou_getTableInfo</code>
+</p>
+</dd>
+<dt><code class="code">lou_freeTableFile</code></dt>
+<dd><p>Frees memory allocated by <code class="code">lou_findTable</code>
+</p>
+</dd>
+<dt><code class="code">lou_freeTableFiles</code></dt>
+<dd><p>Frees memory allocated by <code class="code">lou_findTables</code> and <code class="code">lou_listTables</code>
+</p>
+</dd>
+</dl>
+
+<hr>
+</div>
 <div class="section-level-extent" id="Deprecation-of-the-logging-system">
-<h3 class="section" id="Deprecation-of-the-logging-system-1"><span>7.4 Deprecation of the logging system<a class="copiable-link" href="#Deprecation-of-the-logging-system-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005fversion" accesskey="n" rel="next">lou_version</a>, Previous: <a href="#Memory-ownership" accesskey="p" rel="prev">Memory ownership</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="Deprecation-of-the-logging-system-1"><span>7.5 Deprecation of the logging system<a class="copiable-link" href="#Deprecation-of-the-logging-system-1"> &para;</a></span></h3>
 
 <p>As of version 2.6.0 <code class="code">lou_logFile</code>, <code class="code">lou_logPrint</code> and
-<code class="code">lou_logEnd</code> are deprecated. They are replaced by a more powerful,
-abstract API consisting of <code class="code">lou_registerLogCallback</code> and
-<code class="code">lou_setLogLevel</code>. 
+<code class="code">lou_logEnd</code> are deprecated. They are replaced by a more
+powerful, abstract API consisting of <code class="code">lou_registerLogCallback</code>
+and <code class="code">lou_setLogLevel</code>.
 </p>
 <p>Usage of <code class="code">lou_logFile</code>, <code class="code">lou_logPrint</code> and <code class="code">lou_logEnd</code> is
 discouraged as they may not be part of future releases. Applications using
@@ -3745,7 +4042,11 @@ will not cause an invocation of the registered callback.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fversion">
-<h3 class="section" id="lou_005fversion-1"><span>7.5 lou_version<a class="copiable-link" href="#lou_005fversion-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005ftranslateString" accesskey="n" rel="next">lou_translateString</a>, Previous: <a href="#Deprecation-of-the-logging-system" accesskey="p" rel="prev">Deprecation of the logging system</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005fversion-1"><span>7.6 lou_version<a class="copiable-link" href="#lou_005fversion-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fversion"></a>
 
 <div class="example">
@@ -3759,7 +4060,11 @@ and perhaps notable changes.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005ftranslateString">
-<h3 class="section" id="lou_005ftranslateString-1"><span>7.6 lou_translateString<a class="copiable-link" href="#lou_005ftranslateString-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005ftranslate" accesskey="n" rel="next">lou_translate</a>, Previous: <a href="#lou_005fversion" accesskey="p" rel="prev">lou_version</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005ftranslateString-1"><span>7.7 lou_translateString<a class="copiable-link" href="#lou_005ftranslateString-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005ftranslateString"></a>
 
 <div class="example">
@@ -3905,7 +4210,11 @@ suppresses this dot number output.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005ftranslate">
-<h3 class="section" id="lou_005ftranslate-2"><span>7.7 lou_translate<a class="copiable-link" href="#lou_005ftranslate-2"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005fbackTranslateString" accesskey="n" rel="next">lou_backTranslateString</a>, Previous: <a href="#lou_005ftranslateString" accesskey="p" rel="prev">lou_translateString</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005ftranslate-2"><span>7.8 lou_translate<a class="copiable-link" href="#lou_005ftranslate-2"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005ftranslate"></a>
 
 <div class="example">
@@ -3943,7 +4252,11 @@ not be carried out.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fbackTranslateString">
-<h3 class="section" id="lou_005fbackTranslateString-1"><span>7.8 lou_backTranslateString<a class="copiable-link" href="#lou_005fbackTranslateString-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005fbackTranslate" accesskey="n" rel="next">lou_backTranslate</a>, Previous: <a href="#lou_005ftranslate" accesskey="p" rel="prev">lou_translate</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005fbackTranslateString-1"><span>7.9 lou_backTranslateString<a class="copiable-link" href="#lou_005fbackTranslateString-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fbackTranslateString"></a>
 
 <div class="example">
@@ -3983,7 +4296,11 @@ before the word is complete.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fbackTranslate">
-<h3 class="section" id="lou_005fbackTranslate-1"><span>7.9 lou_backTranslate<a class="copiable-link" href="#lou_005fbackTranslate-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005fhyphenate" accesskey="n" rel="next">lou_hyphenate</a>, Previous: <a href="#lou_005fbackTranslateString" accesskey="p" rel="prev">lou_backTranslateString</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005fbackTranslate-1"><span>7.10 lou_backTranslate<a class="copiable-link" href="#lou_005fbackTranslate-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fbackTranslate"></a>
 
 <div class="example">
@@ -4006,7 +4323,11 @@ before the word is complete.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fhyphenate">
-<h3 class="section" id="lou_005fhyphenate-1"><span>7.10 lou_hyphenate<a class="copiable-link" href="#lou_005fhyphenate-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005fcompileString" accesskey="n" rel="next">lou_compileString</a>, Previous: <a href="#lou_005fbackTranslate" accesskey="p" rel="prev">lou_backTranslate</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005fhyphenate-1"><span>7.11 lou_hyphenate<a class="copiable-link" href="#lou_005fhyphenate-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fhyphenate"></a>
 
 <div class="example">
@@ -4042,7 +4363,11 @@ use in liblouisutdml.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fcompileString">
-<h3 class="section" id="lou_005fcompileString-1"><span>7.11 lou_compileString<a class="copiable-link" href="#lou_005fcompileString-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005fgetTypeformForEmphClass" accesskey="n" rel="next">lou_getTypeformForEmphClass</a>, Previous: <a href="#lou_005fhyphenate" accesskey="p" rel="prev">lou_hyphenate</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005fcompileString-1"><span>7.12 lou_compileString<a class="copiable-link" href="#lou_005fcompileString-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fcompileString"></a>
 
 <div class="example">
@@ -4060,7 +4385,11 @@ will be produced if it is invalid. The function returns 1 on success and
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fgetTypeformForEmphClass">
-<h3 class="section" id="lou_005fgetTypeformForEmphClass-1"><span>7.12 lou_getTypeformForEmphClass<a class="copiable-link" href="#lou_005fgetTypeformForEmphClass-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005fdotsToChar" accesskey="n" rel="next">lou_dotsToChar</a>, Previous: <a href="#lou_005fcompileString" accesskey="p" rel="prev">lou_compileString</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005fgetTypeformForEmphClass-1"><span>7.13 lou_getTypeformForEmphClass<a class="copiable-link" href="#lou_005fgetTypeformForEmphClass-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fgetTypeformForEmphClass"></a>
 
 <div class="example">
@@ -4080,7 +4409,11 @@ emphasis class.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fdotsToChar">
-<h3 class="section" id="lou_005fdotsToChar-1"><span>7.13 lou_dotsToChar<a class="copiable-link" href="#lou_005fdotsToChar-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005fcharToDots" accesskey="n" rel="next">lou_charToDots</a>, Previous: <a href="#lou_005fgetTypeformForEmphClass" accesskey="p" rel="prev">lou_getTypeformForEmphClass</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005fdotsToChar-1"><span>7.14 lou_dotsToChar<a class="copiable-link" href="#lou_005fdotsToChar-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fdotsToChar"></a>
 
 <div class="example">
@@ -4105,7 +4438,11 @@ and 0 on failure.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fcharToDots">
-<h3 class="section" id="lou_005fcharToDots-1"><span>7.14 lou_charToDots<a class="copiable-link" href="#lou_005fcharToDots-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005fregisterLogCallback" accesskey="n" rel="next">lou_registerLogCallback</a>, Previous: <a href="#lou_005fdotsToChar" accesskey="p" rel="prev">lou_dotsToChar</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005fcharToDots-1"><span>7.15 lou_charToDots<a class="copiable-link" href="#lou_005fcharToDots-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fcharToDots"></a>
 
 <div class="example">
@@ -4129,7 +4466,11 @@ success and 0 on failure.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fregisterLogCallback">
-<h3 class="section" id="lou_005fregisterLogCallback-1"><span>7.15 lou_registerLogCallback<a class="copiable-link" href="#lou_005fregisterLogCallback-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005fsetLogLevel" accesskey="n" rel="next">lou_setLogLevel</a>, Previous: <a href="#lou_005fcharToDots" accesskey="p" rel="prev">lou_charToDots</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005fregisterLogCallback-1"><span>7.16 lou_registerLogCallback<a class="copiable-link" href="#lou_005fregisterLogCallback-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fregisterLogCallback"></a>
 
 <div class="example">
@@ -4151,7 +4492,11 @@ callback. Passing <code class="code">NULL</code> resets to the default callback.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fsetLogLevel">
-<h3 class="section" id="lou_005fsetLogLevel-1"><span>7.16 lou_setLogLevel<a class="copiable-link" href="#lou_005fsetLogLevel-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005flogFile" accesskey="n" rel="next">lou_logFile (deprecated)</a>, Previous: <a href="#lou_005fregisterLogCallback" accesskey="p" rel="prev">lou_registerLogCallback</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005fsetLogLevel-1"><span>7.17 lou_setLogLevel<a class="copiable-link" href="#lou_005fsetLogLevel-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fsetLogLevel"></a>
 
 <div class="example">
@@ -4177,10 +4522,22 @@ values are <code class="code">LOU_LOG_DEBUG</code>, <code class="code">LOU_LOG_I
 logging at all higher levels. Setting the level to <code class="code">LOU_LOG_OFF</code>
 disables logging. The default level is <code class="code">LOU_LOG_INFO</code>.
 </p>
+<p>Alternatively, the <code class="code">LOUIS_LOGLEVEL</code> environment variable can be
+set to one of <code class="code">all</code>, <code class="code">debug</code>, <code class="code">info</code>, <code class="code">warn</code>,
+<code class="code">error</code>, <code class="code">fatal</code>, or <code class="code">off</code>. If set, this value will be
+adopted as the default logging level; however, any calls to <code class="code">lou_setLogLevel()</code>
+by the application will take precedence. Values are case-insensitive,
+and if brevity matters, only the first letter (i.e. <code class="code">a</code> for <code class="code">all</code>
+or <code class="code">w</code> for <code class="code">warn</code>) matters.
+</p>
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005flogFile">
-<h3 class="section" id="lou_005flogFile-_0028deprecated_0029"><span>7.17 lou_logFile (deprecated)<a class="copiable-link" href="#lou_005flogFile-_0028deprecated_0029"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005flogPrint" accesskey="n" rel="next">lou_logPrint (deprecated)</a>, Previous: <a href="#lou_005fsetLogLevel" accesskey="p" rel="prev">lou_setLogLevel</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005flogFile-_0028deprecated_0029"><span>7.18 lou_logFile (deprecated)<a class="copiable-link" href="#lou_005flogFile-_0028deprecated_0029"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005flogFile"></a>
 
 <div class="example">
@@ -4199,7 +4556,11 @@ the file must be given.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005flogPrint">
-<h3 class="section" id="lou_005flogPrint-_0028deprecated_0029"><span>7.18 lou_logPrint (deprecated)<a class="copiable-link" href="#lou_005flogPrint-_0028deprecated_0029"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005flogEnd" accesskey="n" rel="next">lou_logEnd (deprecated)</a>, Previous: <a href="#lou_005flogFile" accesskey="p" rel="prev">lou_logFile (deprecated)</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005flogPrint-_0028deprecated_0029"><span>7.19 lou_logPrint (deprecated)<a class="copiable-link" href="#lou_005flogPrint-_0028deprecated_0029"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005flogPrint"></a>
 
 <div class="example">
@@ -4218,7 +4579,11 @@ library liblouisutdml.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005flogEnd">
-<h3 class="section" id="lou_005flogEnd-_0028deprecated_0029"><span>7.19 lou_logEnd (deprecated)<a class="copiable-link" href="#lou_005flogEnd-_0028deprecated_0029"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005fsetDataPath" accesskey="n" rel="next">lou_setDataPath</a>, Previous: <a href="#lou_005flogPrint" accesskey="p" rel="prev">lou_logPrint (deprecated)</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005flogEnd-_0028deprecated_0029"><span>7.20 lou_logEnd (deprecated)<a class="copiable-link" href="#lou_005flogEnd-_0028deprecated_0029"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005flogEnd"></a>
 
 <div class="example">
@@ -4233,7 +4598,11 @@ log file, so that it can be read by the rest of the program.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fsetDataPath">
-<h3 class="section" id="lou_005fsetDataPath-1"><span>7.20 lou_setDataPath<a class="copiable-link" href="#lou_005fsetDataPath-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005fgetDataPath" accesskey="n" rel="next">lou_getDataPath</a>, Previous: <a href="#lou_005flogEnd" accesskey="p" rel="prev">lou_logEnd (deprecated)</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005fsetDataPath-1"><span>7.21 lou_setDataPath<a class="copiable-link" href="#lou_005fsetDataPath-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fsetDataPath"></a>
 
 <div class="example">
@@ -4250,7 +4619,11 @@ or located. The function returns a pointer to the <code class="code">path</code>
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fgetDataPath">
-<h3 class="section" id="lou_005fgetDataPath-1"><span>7.21 lou_getDataPath<a class="copiable-link" href="#lou_005fgetDataPath-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005fgetTable" accesskey="n" rel="next">lou_getTable</a>, Previous: <a href="#lou_005fsetDataPath" accesskey="p" rel="prev">lou_setDataPath</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005fgetDataPath-1"><span>7.22 lou_getDataPath<a class="copiable-link" href="#lou_005fgetDataPath-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fgetDataPath"></a>
 
 <div class="example">
@@ -4264,7 +4637,11 @@ or located. The function returns a pointer to the <code class="code">path</code>
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fgetTable">
-<h3 class="section" id="lou_005fgetTable-1"><span>7.22 lou_getTable<a class="copiable-link" href="#lou_005fgetTable-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005ffindTable" accesskey="n" rel="next">lou_findTable</a>, Previous: <a href="#lou_005fgetDataPath" accesskey="p" rel="prev">lou_getDataPath</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005fgetTable-1"><span>7.23 lou_getTable<a class="copiable-link" href="#lou_005fgetTable-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fgetTable"></a>
 
 <div class="example">
@@ -4284,7 +4661,11 @@ pointer being returned.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005ffindTable">
-<h3 class="section" id="lou_005ffindTable-1"><span>7.23 lou_findTable<a class="copiable-link" href="#lou_005ffindTable-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005findexTables" accesskey="n" rel="next">lou_indexTables</a>, Previous: <a href="#lou_005fgetTable" accesskey="p" rel="prev">lou_getTable</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005ffindTable-1"><span>7.24 lou_findTable<a class="copiable-link" href="#lou_005ffindTable-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005ffindTable"></a>
 
 <div class="example">
@@ -4321,7 +4702,11 @@ query creates a very small penalty.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005findexTables">
-<h3 class="section" id="lou_005findexTables-1"><span>7.24 lou_indexTables<a class="copiable-link" href="#lou_005findexTables-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005fcheckTable" accesskey="n" rel="next">lou_checkTable</a>, Previous: <a href="#lou_005ffindTable" accesskey="p" rel="prev">lou_findTable</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005findexTables-1"><span>7.25 lou_indexTables<a class="copiable-link" href="#lou_005findexTables-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005findexTables"></a>
 
 <div class="example">
@@ -4336,7 +4721,11 @@ names. Tables that contain invalid metadata are ignored.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fcheckTable">
-<h3 class="section" id="lou_005fcheckTable-1"><span>7.25 lou_checkTable<a class="copiable-link" href="#lou_005fcheckTable-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005freadCharFromFile" accesskey="n" rel="next">lou_readCharFromFile</a>, Previous: <a href="#lou_005findexTables" accesskey="p" rel="prev">lou_indexTables</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005fcheckTable-1"><span>7.26 lou_checkTable<a class="copiable-link" href="#lou_005fcheckTable-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fcheckTable"></a>
 
 <div class="example">
@@ -4356,7 +4745,11 @@ value is <code class="code">0</code>.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005freadCharFromFile">
-<h3 class="section" id="lou_005freadCharFromFile-1"><span>7.26 lou_readCharFromFile<a class="copiable-link" href="#lou_005freadCharFromFile-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005ffree" accesskey="n" rel="next">lou_free</a>, Previous: <a href="#lou_005fcheckTable" accesskey="p" rel="prev">lou_checkTable</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005freadCharFromFile-1"><span>7.27 lou_readCharFromFile<a class="copiable-link" href="#lou_005freadCharFromFile-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005freadCharFromFile"></a>
 
 <div class="example">
@@ -4377,7 +4770,11 @@ function takes care of it. On end-of-file the function returns
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005ffree">
-<h3 class="section" id="lou_005ffree-1"><span>7.27 lou_free<a class="copiable-link" href="#lou_005ffree-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#lou_005fcharSize" accesskey="n" rel="next">lou_charSize</a>, Previous: <a href="#lou_005freadCharFromFile" accesskey="p" rel="prev">lou_readCharFromFile</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005ffree-1"><span>7.28 lou_free<a class="copiable-link" href="#lou_005ffree-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005ffree"></a>
 
 <div class="example">
@@ -4393,7 +4790,11 @@ tables every time they are used, resulting in great inefficiency.
 <hr>
 </div>
 <div class="section-level-extent" id="lou_005fcharSize">
-<h3 class="section" id="lou_005fcharSize-1"><span>7.28 lou_charSize<a class="copiable-link" href="#lou_005fcharSize-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Next: <a href="#Python-bindings" accesskey="n" rel="next">Python bindings</a>, Previous: <a href="#lou_005ffree" accesskey="p" rel="prev">lou_free</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="lou_005fcharSize-1"><span>7.29 lou_charSize<a class="copiable-link" href="#lou_005fcharSize-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-lou_005fcharSize"></a>
 
 <div class="example">
@@ -4407,20 +4808,80 @@ builds of liblouis.
 <hr>
 </div>
 <div class="section-level-extent" id="Python-bindings">
-<h3 class="section" id="Python-bindings-1"><span>7.29 Python bindings<a class="copiable-link" href="#Python-bindings-1"> &para;</a></span></h3>
+<div class="nav-panel">
+<p>
+Previous: <a href="#lou_005fcharSize" accesskey="p" rel="prev">lou_charSize</a>, Up: <a href="#Programming-with-liblouis" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<h3 class="section" id="Python-bindings-1"><span>7.30 Python bindings<a class="copiable-link" href="#Python-bindings-1"> &para;</a></span></h3>
 
-<p>There are Python bindings for <code class="code">lou_translateString</code>,
-<code class="code">lou_translate</code>, <code class="code">lou_backTranslateString</code>,
-<code class="code">lou_backTranslate</code>, <code class="code">lou_hyphenate</code>, <code class="code">checkTable</code>,
-<code class="code">lou_compileString</code> and <code class="code">lou_version</code>. For installation
-instructions see the the <samp class="file">README</samp> file in the <samp class="file">python</samp>
-directory. Usage information is included in the Python module itself.
+<p>Liblouis provides comprehensive Python bindings for its core
+functionality. The following functions are available:
 </p>
+<ul class="mini-toc">
+<li><a href="#Translation-functions" accesskey="1">Translation functions</a></li>
+<li><a href="#Finding-tables" accesskey="2">Finding tables</a></li>
+<li><a href="#Additional-functions" accesskey="3">Additional functions</a></li>
+</ul>
+<div class="subsection-level-extent" id="Translation-functions">
+<h4 class="subsection"><span>7.30.1 Translation functions<a class="copiable-link" href="#Translation-functions"> &para;</a></span></h4>
+<dl class="table">
+<dt><code class="code">translate, translateString</code></dt>
+<dd><p>Forward translation from text to braille
+</p></dd>
+<dt><code class="code">backTranslate, backTranslateString</code></dt>
+<dd><p>Reverse translation from braille to text
+</p></dd>
+</dl>
 
+</div>
+<div class="subsection-level-extent" id="Finding-tables">
+<h4 class="subsection"><span>7.30.2 Finding tables<a class="copiable-link" href="#Finding-tables"> &para;</a></span></h4>
+<p>The <a class="ref" href="#Query-Syntax">query API</a> provides querying for tables through:
+</p><dl class="table">
+<dt><code class="code">findTable, findTables</code></dt>
+<dd><p>Locate translation tables
+</p></dd>
+<dt><code class="code">getTableInfo</code></dt>
+<dd><p>Retrieve table metadata
+</p></dd>
+<dt><code class="code">listTables</code></dt>
+<dd><p>List available tables
+</p></dd>
+</dl>
+
+</div>
+<div class="subsection-level-extent" id="Additional-functions">
+<h4 class="subsection"><span>7.30.3 Additional functions<a class="copiable-link" href="#Additional-functions"> &para;</a></span></h4>
+<dl class="table">
+<dt><code class="code">hyphenate</code></dt>
+<dd><p>Text hyphenation
+</p></dd>
+<dt><code class="code">checkTable</code></dt>
+<dd><p>Validate table syntax
+</p></dd>
+<dt><code class="code">compileString</code></dt>
+<dd><p>Compile translation rules
+</p></dd>
+<dt><code class="code">setLogLevel</code></dt>
+<dd><p>Configure logging verbosity
+</p></dd>
+<dt><code class="code">version</code></dt>
+<dd><p>Get library version information
+</p></dd>
+</dl>
+
+<p>For detailed API documentation, refer to the Python module&rsquo;s built-in help.
+Installation instructions can be found in <samp class="file">python/README</samp>.
+</p>
 <hr>
 </div>
 </div>
+</div>
 <div class="unnumbered-level-extent" id="Concept-Index">
+<div class="nav-panel">
+<p>
+Next: <a href="#Opcode-Index" accesskey="n" rel="next">Opcode Index</a>, Previous: <a href="#Programming-with-liblouis" accesskey="p" rel="prev">Programming with liblouis</a>, Up: <a href="#Top" accesskey="u" rel="up">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h2 class="unnumbered" id="Concept-Index-1"><span>Concept Index<a class="copiable-link" href="#Concept-Index-1"> &para;</a></span></h2>
 <div class="printindex cp-printindex">
 <table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Concept-Index_cp_letter-C"><b>C</b></a>
@@ -4498,6 +4959,10 @@ directory. Usage information is included in the Python module itself.
 <hr>
 </div>
 <div class="unnumbered-level-extent" id="Opcode-Index">
+<div class="nav-panel">
+<p>
+Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Previous: <a href="#Concept-Index" accesskey="p" rel="prev">Concept Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h2 class="unnumbered" id="Opcode-Index-1"><span>Opcode Index<a class="copiable-link" href="#Opcode-Index-1"> &para;</a></span></h2>
 <div class="printindex opcode-printindex">
 <table class="opcode-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Opcode-Index_opcode_letter-A"><b>A</b></a>
@@ -4714,6 +5179,10 @@ directory. Usage information is included in the Python module itself.
 <hr>
 </div>
 <div class="unnumbered-level-extent" id="Function-Index">
+<div class="nav-panel">
+<p>
+Next: <a href="#Program-Index" accesskey="n" rel="next">Program Index</a>, Previous: <a href="#Opcode-Index" accesskey="p" rel="prev">Opcode Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h2 class="unnumbered" id="Function-Index-1"><span>Function Index<a class="copiable-link" href="#Function-Index-1"> &para;</a></span></h2>
 <div class="printindex fn-printindex">
 <table class="fn-entries-printindex" border="0">
@@ -4751,6 +5220,10 @@ directory. Usage information is included in the Python module itself.
 <hr>
 </div>
 <div class="unnumbered-level-extent" id="Program-Index">
+<div class="nav-panel">
+<p>
+Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Liblouis User&rsquo;s and Programmer&rsquo;s Manual</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 <h2 class="unnumbered" id="Program-Index-1"><span>Program Index<a class="copiable-link" href="#Program-Index-1"> &para;</a></span></h2>
 <div class="printindex pg-printindex">
 <table class="pg-entries-printindex" border="0">
@@ -4784,8 +5257,3 @@ partial translation that is more or less accurate up until the
 returned <code class="code">inlen</code>/<code class="code">outlen</code>, and treats it as a successful
 translation, i.e. also returns 1.</p>
 </div>
-
-
-
-</body>
-</html>
