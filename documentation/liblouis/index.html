@@ -2,8 +2,7 @@
 title: Liblouis User's and Programmer's Manual
 ---
 <div class="top-level-extent" id="Top">
-
-<p>This manual is for liblouis (version 3.34.0, 6 June 2025),
+<p>This manual is for liblouis (version 3.35.0, 1 September 2025),
 a Braille Translation and Back-Translation Library derived from the
 Linux screen reader <abbr class="acronym">BRLTTY</abbr>.
 </p>
@@ -115,32 +114,38 @@ Fifth Floor, Boston, MA 02110-1301, USA.
     <li><a id="toc-Overview-2" href="Overview-_0028library_0029.html">7.1 Overview</a></li>
     <li><a id="toc-Data-structure-of-liblouis-tables-1" href="Data-structure-of-liblouis-tables.html">7.2 Data structure of liblouis tables</a></li>
     <li><a id="toc-How-tables-are-found-1" href="How-tables-are-found.html">7.3 How tables are found</a></li>
-    <li><a id="toc-Deprecation-of-the-logging-system-1" href="Deprecation-of-the-logging-system.html">7.4 Deprecation of the logging system</a></li>
-    <li><a id="toc-lou_005fversion-1" href="lou_005fversion.html">7.5 lou_version</a></li>
-    <li><a id="toc-lou_005ftranslateString-1" href="lou_005ftranslateString.html">7.6 lou_translateString</a></li>
-    <li><a id="toc-lou_005ftranslate-2" href="lou_005ftranslate.html">7.7 lou_translate</a></li>
-    <li><a id="toc-lou_005fbackTranslateString-1" href="lou_005fbackTranslateString.html">7.8 lou_backTranslateString</a></li>
-    <li><a id="toc-lou_005fbackTranslate-1" href="lou_005fbackTranslate.html">7.9 lou_backTranslate</a></li>
-    <li><a id="toc-lou_005fhyphenate-1" href="lou_005fhyphenate.html">7.10 lou_hyphenate</a></li>
-    <li><a id="toc-lou_005fcompileString-1" href="lou_005fcompileString.html">7.11 lou_compileString</a></li>
-    <li><a id="toc-lou_005fgetTypeformForEmphClass-1" href="lou_005fgetTypeformForEmphClass.html">7.12 lou_getTypeformForEmphClass</a></li>
-    <li><a id="toc-lou_005fdotsToChar-1" href="lou_005fdotsToChar.html">7.13 lou_dotsToChar</a></li>
-    <li><a id="toc-lou_005fcharToDots-1" href="lou_005fcharToDots.html">7.14 lou_charToDots</a></li>
-    <li><a id="toc-lou_005fregisterLogCallback-1" href="lou_005fregisterLogCallback.html">7.15 lou_registerLogCallback</a></li>
-    <li><a id="toc-lou_005fsetLogLevel-1" href="lou_005fsetLogLevel.html">7.16 lou_setLogLevel</a></li>
-    <li><a id="toc-lou_005flogFile-_0028deprecated_0029" href="lou_005flogFile.html">7.17 lou_logFile (deprecated)</a></li>
-    <li><a id="toc-lou_005flogPrint-_0028deprecated_0029" href="lou_005flogPrint.html">7.18 lou_logPrint (deprecated)</a></li>
-    <li><a id="toc-lou_005flogEnd-_0028deprecated_0029" href="lou_005flogEnd.html">7.19 lou_logEnd (deprecated)</a></li>
-    <li><a id="toc-lou_005fsetDataPath-1" href="lou_005fsetDataPath.html">7.20 lou_setDataPath</a></li>
-    <li><a id="toc-lou_005fgetDataPath-1" href="lou_005fgetDataPath.html">7.21 lou_getDataPath</a></li>
-    <li><a id="toc-lou_005fgetTable-1" href="lou_005fgetTable.html">7.22 lou_getTable</a></li>
-    <li><a id="toc-lou_005ffindTable-1" href="lou_005ffindTable.html">7.23 lou_findTable</a></li>
-    <li><a id="toc-lou_005findexTables-1" href="lou_005findexTables.html">7.24 lou_indexTables</a></li>
-    <li><a id="toc-lou_005fcheckTable-1" href="lou_005fcheckTable.html">7.25 lou_checkTable</a></li>
-    <li><a id="toc-lou_005freadCharFromFile-1" href="lou_005freadCharFromFile.html">7.26 lou_readCharFromFile</a></li>
-    <li><a id="toc-lou_005ffree-1" href="lou_005ffree.html">7.27 lou_free</a></li>
-    <li><a id="toc-lou_005fcharSize-1" href="lou_005fcharSize.html">7.28 lou_charSize</a></li>
-    <li><a id="toc-Python-bindings-1" href="Python-bindings.html">7.29 Python bindings</a></li>
+    <li><a id="toc-Memory-ownership-1" href="Memory-ownership.html">7.4 Memory ownership</a></li>
+    <li><a id="toc-Deprecation-of-the-logging-system-1" href="Deprecation-of-the-logging-system.html">7.5 Deprecation of the logging system</a></li>
+    <li><a id="toc-lou_005fversion-1" href="lou_005fversion.html">7.6 lou_version</a></li>
+    <li><a id="toc-lou_005ftranslateString-1" href="lou_005ftranslateString.html">7.7 lou_translateString</a></li>
+    <li><a id="toc-lou_005ftranslate-2" href="lou_005ftranslate.html">7.8 lou_translate</a></li>
+    <li><a id="toc-lou_005fbackTranslateString-1" href="lou_005fbackTranslateString.html">7.9 lou_backTranslateString</a></li>
+    <li><a id="toc-lou_005fbackTranslate-1" href="lou_005fbackTranslate.html">7.10 lou_backTranslate</a></li>
+    <li><a id="toc-lou_005fhyphenate-1" href="lou_005fhyphenate.html">7.11 lou_hyphenate</a></li>
+    <li><a id="toc-lou_005fcompileString-1" href="lou_005fcompileString.html">7.12 lou_compileString</a></li>
+    <li><a id="toc-lou_005fgetTypeformForEmphClass-1" href="lou_005fgetTypeformForEmphClass.html">7.13 lou_getTypeformForEmphClass</a></li>
+    <li><a id="toc-lou_005fdotsToChar-1" href="lou_005fdotsToChar.html">7.14 lou_dotsToChar</a></li>
+    <li><a id="toc-lou_005fcharToDots-1" href="lou_005fcharToDots.html">7.15 lou_charToDots</a></li>
+    <li><a id="toc-lou_005fregisterLogCallback-1" href="lou_005fregisterLogCallback.html">7.16 lou_registerLogCallback</a></li>
+    <li><a id="toc-lou_005fsetLogLevel-1" href="lou_005fsetLogLevel.html">7.17 lou_setLogLevel</a></li>
+    <li><a id="toc-lou_005flogFile-_0028deprecated_0029" href="lou_005flogFile.html">7.18 lou_logFile (deprecated)</a></li>
+    <li><a id="toc-lou_005flogPrint-_0028deprecated_0029" href="lou_005flogPrint.html">7.19 lou_logPrint (deprecated)</a></li>
+    <li><a id="toc-lou_005flogEnd-_0028deprecated_0029" href="lou_005flogEnd.html">7.20 lou_logEnd (deprecated)</a></li>
+    <li><a id="toc-lou_005fsetDataPath-1" href="lou_005fsetDataPath.html">7.21 lou_setDataPath</a></li>
+    <li><a id="toc-lou_005fgetDataPath-1" href="lou_005fgetDataPath.html">7.22 lou_getDataPath</a></li>
+    <li><a id="toc-lou_005fgetTable-1" href="lou_005fgetTable.html">7.23 lou_getTable</a></li>
+    <li><a id="toc-lou_005ffindTable-1" href="lou_005ffindTable.html">7.24 lou_findTable</a></li>
+    <li><a id="toc-lou_005findexTables-1" href="lou_005findexTables.html">7.25 lou_indexTables</a></li>
+    <li><a id="toc-lou_005fcheckTable-1" href="lou_005fcheckTable.html">7.26 lou_checkTable</a></li>
+    <li><a id="toc-lou_005freadCharFromFile-1" href="lou_005freadCharFromFile.html">7.27 lou_readCharFromFile</a></li>
+    <li><a id="toc-lou_005ffree-1" href="lou_005ffree.html">7.28 lou_free</a></li>
+    <li><a id="toc-lou_005fcharSize-1" href="lou_005fcharSize.html">7.29 lou_charSize</a></li>
+    <li><a id="toc-Python-bindings-1" href="Python-bindings.html">7.30 Python bindings</a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Translation-functions" href="Python-bindings.html#Translation-functions">7.30.1 Translation functions</a></li>
+      <li><a id="toc-Finding-tables" href="Python-bindings.html#Finding-tables">7.30.2 Finding tables</a></li>
+      <li><a id="toc-Additional-functions" href="Python-bindings.html#Additional-functions">7.30.3 Additional functions</a></li>
+    </ul></li>
   </ul></li>
   <li><a id="toc-Concept-Index-1" href="Concept-Index.html" rel="index">Concept Index</a></li>
   <li><a id="toc-Opcode-Index-1" href="Opcode-Index.html" rel="index">Opcode Index</a></li>
@@ -155,8 +160,3 @@ Fifth Floor, Boston, MA 02110-1301, USA.
 <p>
 Next: <a href="Introduction.html" accesskey="n" rel="next">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
-
-
-
-</body>
-</html>

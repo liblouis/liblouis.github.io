@@ -1,6 +1,7 @@
 ---
 title: Liblouis User's and Programmer's Manual
 ---
+
 <div class="section-level-extent" id="Translation-Opcodes">
 <div class="nav-panel">
 <p>
@@ -21,7 +22,7 @@ left to right, character by character, with the most eligible entry
 for each position being used. If there is more than one eligible entry
 for a given position in the text, then the one with the longest
 character string is used. If there is more than one eligible entry for
-the same character string, then the one defined first is is tested for
+the same character string, then the one defined first is tested for
 legality first. (This is the only case in which the order of the
 entries makes a difference.)
 </p>
@@ -32,7 +33,7 @@ preceded by &lsquo;<samp class="samp">\x</samp>&rsquo;.
 </p>
 <p>The dots operand defines the braille representation for the characters
 operand. It may also be specified as an equals sign (&lsquo;<samp class="samp">=</samp>&rsquo;). This
-means that the the default representation for each character
+means that the default representation for each character
 (see <a class="pxref" href="Character_002dDefinition-Opcodes.html">Character-Definition Opcodes</a>) within the sequence is to be
 used. It is an error if not all the characters in the rule have been
 previously defined in a character-definition rule. Note that the
@@ -212,7 +213,7 @@ represented by exactly the dot patterns given. Contractions may not
 cross the boundaries of this &quot;syllable&quot; either from left or right. The
 character string defined by this opcode need not be a lexical
 syllable, though it usually will be. The equal sign in the following
-example means that the the default representation for each character
+example means that the default representation for each character
 within the sequence is to be used (see <a class="pxref" href="#Translation-Opcodes">Translation Opcodes</a>):
 </p>
 <div class="example">
@@ -389,8 +390,3 @@ joinnum \x00A5 13456 (YEN SIGN)
 <p>
 Next: <a href="Character_002dClass-Opcodes.html">Character-Class Opcodes</a>, Previous: <a href="Special-Processing-Opcodes.html">Special Processing Opcodes</a>, Up: <a href="How-to-Write-Translation-Tables.html">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
-
-
-
-</body>
-</html>

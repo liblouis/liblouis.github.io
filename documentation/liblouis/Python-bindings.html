@@ -1,25 +1,73 @@
 ---
 title: Liblouis User's and Programmer's Manual
 ---
+
 <div class="section-level-extent" id="Python-bindings">
 <div class="nav-panel">
 <p>
 Previous: <a href="lou_005fcharSize.html" accesskey="p" rel="prev">lou_charSize</a>, Up: <a href="Programming-with-liblouis.html" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
-<h3 class="section" id="Python-bindings-1"><span>7.29 Python bindings<a class="copiable-link" href="#Python-bindings-1"> &para;</a></span></h3>
+<h3 class="section" id="Python-bindings-1"><span>7.30 Python bindings<a class="copiable-link" href="#Python-bindings-1"> &para;</a></span></h3>
 
-<p>There are Python bindings for <code class="code">lou_translateString</code>,
-<code class="code">lou_translate</code>, <code class="code">lou_backTranslateString</code>,
-<code class="code">lou_backTranslate</code>, <code class="code">lou_hyphenate</code>, <code class="code">checkTable</code>,
-<code class="code">lou_compileString</code> and <code class="code">lou_version</code>. For installation
-instructions see the the <samp class="file">README</samp> file in the <samp class="file">python</samp>
-directory. Usage information is included in the Python module itself.
+<p>Liblouis provides comprehensive Python bindings for its core
+functionality. The following functions are available:
 </p>
+<ul class="mini-toc">
+<li><a href="#Translation-functions" accesskey="1">Translation functions</a></li>
+<li><a href="#Finding-tables" accesskey="2">Finding tables</a></li>
+<li><a href="#Additional-functions" accesskey="3">Additional functions</a></li>
+</ul>
+<div class="subsection-level-extent" id="Translation-functions">
+<h4 class="subsection"><span>7.30.1 Translation functions<a class="copiable-link" href="#Translation-functions"> &para;</a></span></h4>
+<dl class="table">
+<dt><code class="code">translate, translateString</code></dt>
+<dd><p>Forward translation from text to braille
+</p></dd>
+<dt><code class="code">backTranslate, backTranslateString</code></dt>
+<dd><p>Reverse translation from braille to text
+</p></dd>
+</dl>
 
 </div>
+<div class="subsection-level-extent" id="Finding-tables">
+<h4 class="subsection"><span>7.30.2 Finding tables<a class="copiable-link" href="#Finding-tables"> &para;</a></span></h4>
+<p>The <a class="ref" href="Table-Metadata.html#Query-Syntax">query API</a> provides querying for tables through:
+</p><dl class="table">
+<dt><code class="code">findTable, findTables</code></dt>
+<dd><p>Locate translation tables
+</p></dd>
+<dt><code class="code">getTableInfo</code></dt>
+<dd><p>Retrieve table metadata
+</p></dd>
+<dt><code class="code">listTables</code></dt>
+<dd><p>List available tables
+</p></dd>
+</dl>
 
+</div>
+<div class="subsection-level-extent" id="Additional-functions">
+<h4 class="subsection"><span>7.30.3 Additional functions<a class="copiable-link" href="#Additional-functions"> &para;</a></span></h4>
+<dl class="table">
+<dt><code class="code">hyphenate</code></dt>
+<dd><p>Text hyphenation
+</p></dd>
+<dt><code class="code">checkTable</code></dt>
+<dd><p>Validate table syntax
+</p></dd>
+<dt><code class="code">compileString</code></dt>
+<dd><p>Compile translation rules
+</p></dd>
+<dt><code class="code">setLogLevel</code></dt>
+<dd><p>Configure logging verbosity
+</p></dd>
+<dt><code class="code">version</code></dt>
+<dd><p>Get library version information
+</p></dd>
+</dl>
 
-
-</body>
-</html>
+<p>For detailed API documentation, refer to the Python module&rsquo;s built-in help.
+Installation instructions can be found in <samp class="file">python/README</samp>.
+</p>
+</div>
+</div>

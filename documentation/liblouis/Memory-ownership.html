@@ -1,0 +1,37 @@
+---
+title: Liblouis User's and Programmer's Manual
+---
+
+<div class="section-level-extent" id="Memory-ownership">
+<div class="nav-panel">
+<p>
+Next: <a href="Deprecation-of-the-logging-system.html" accesskey="n" rel="next">Deprecation of the logging system</a>, Previous: <a href="How-tables-are-found.html" accesskey="p" rel="prev">How tables are found</a>, Up: <a href="Programming-with-liblouis.html" accesskey="u" rel="up">Programming with liblouis</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Memory-ownership-1"><span>7.4 Memory ownership<a class="copiable-link" href="#Memory-ownership-1"> &para;</a></span></h3>
+<p>The API includes functions that return memory to the caller, who is
+responsible for freeing that memory. To simplify memory management,
+the API provides dedicated functions for freeing specific data
+structures. Use the following functions to free memory allocated by
+their corresponding API calls:
+</p>
+<dl class="table">
+<dt><code class="code">lou_freeEmphClasses</code></dt>
+<dd><p>Frees memory allocated by <code class="code">lou_getEmphClasses</code>
+</p>
+</dd>
+<dt><code class="code">lou_freeTableInfo</code></dt>
+<dd><p>Frees memory allocated by <code class="code">lou_getTableInfo</code>
+</p>
+</dd>
+<dt><code class="code">lou_freeTableFile</code></dt>
+<dd><p>Frees memory allocated by <code class="code">lou_findTable</code>
+</p>
+</dd>
+<dt><code class="code">lou_freeTableFiles</code></dt>
+<dd><p>Frees memory allocated by <code class="code">lou_findTables</code> and <code class="code">lou_listTables</code>
+</p>
+</dd>
+</dl>
+
+</div>

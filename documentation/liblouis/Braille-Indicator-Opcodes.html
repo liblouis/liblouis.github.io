@@ -1,6 +1,7 @@
 ---
 title: Liblouis User's and Programmer's Manual
 ---
+
 <div class="section-level-extent" id="Braille-Indicator-Opcodes">
 <div class="nav-panel">
 <p>
@@ -157,7 +158,7 @@ a sequence of letters that is the same as a contraction. For example:
 <a class="anchor" id="noletsign-opcode"></a></dd>
 <dt><code class="code">noletsign letters</code></dt>
 <dd>
-<p>The letters in the operand will not be proceeded by a letter sign.
+<p>The letters in the operand will not be preceded by a letter sign.
 More than one <code class="code">noletsign</code> opcode can be used. This is equivalent
 to a single entry containing all the letters. In addition, if a single
 letter, such as &lsquo;<samp class="samp">a</samp>&rsquo; in English, is defined as a <code class="code">word</code>
@@ -234,7 +235,7 @@ achieved using the <code class="code">nonumsign</code>.
 <p>Example:
 </p>
 <div class="example">
-<pre class="example-preformatted">numsign 56
+<pre class="example-preformatted">nonumsign 56
 </pre></div>
 
 <a class="index-entry-id" id="index-numericnocontchars"></a>
@@ -310,8 +311,3 @@ midendnumericmodechars -/
 <p>
 Next: <a href="Opcodes-for-Standing-Alone-Sequences.html">Opcodes for <em class="emph">Standing Alone</em> Sequences</a>, Previous: <a href="Character_002dDefinition-Opcodes.html">Character-Definition Opcodes</a>, Up: <a href="How-to-Write-Translation-Tables.html">How to Write Translation Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
-
-
-
-</body>
-</html>
