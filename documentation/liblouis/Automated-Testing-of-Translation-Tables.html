@@ -268,6 +268,21 @@ for emphasis are &lsquo;<samp class="samp">italic</samp>&rsquo;, &lsquo;<samp cl
 </pre></div>
 
 </dd>
+<dt>&lsquo;<samp class="samp">expected_typeform</samp>&rsquo;</dt>
+<dd><p>The expected typeform of the output of a backtranslation. The format
+is the same as <code class="code">typeform</code> above. This is useful for verifying
+that emphasis indicators in braille are correctly detected during
+backtranslation. For example:
+</p>
+<div class="example">
+<pre class="example-preformatted">  -
+    - ⠨⠶⠠⠓⠑⠇⠇⠕⠨⠄
+    - Hello
+    - expected_typeform:
+        italic: '++++++'
+</pre></div>
+
+</dd>
 <dt>&lsquo;<samp class="samp">inputPos</samp>&rsquo;</dt>
 <dd><p>A list of 0-based input positions, one for each output position.
 Useful when simulating screen reader interaction, to debug contraction
