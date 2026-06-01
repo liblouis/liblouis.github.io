@@ -203,16 +203,36 @@ intended context. Use with great care, and test thoroughly.
 <a class="index-entry-id" id="index-numsign"></a>
 <a class="anchor" id="numsign-opcode"></a></dd>
 <dt><code class="code">numsign dots</code></dt>
-<dd><p>The translator inserts this indicator before numbers made up of digits
-defined with the <code class="code">litdigit</code> opcode (see <a class="pxref" href="Character_002dDefinition-Opcodes.html#litdigit-opcode"><code class="code">litdigit</code></a>) to show that they are a number
-and not letters or some other symbols. A number is terminated when a
-space, a letter or any other none-<code class="code">litdigit</code> opcode (see <a class="pxref" href="Character_002dDefinition-Opcodes.html#litdigit-opcode"><code class="code">litdigit</code></a>) character is
-encountered.
+<dd><p>The translator inserts this indicator before numbers to show that they
+are a number and not letters or some other symbols.
 </p>
-<p>You can define characters or strings to be part of a number by using
-the <code class="code">midnum</code> opcode (see <a class="pxref" href="Translation-Opcodes.html#midnum-opcode"><code class="code">midnum</code></a>), the <code class="code">numericmodechars</code> opcode (see <a class="pxref" href="#numericmodechars-opcode"><code class="code">numericmodechars</code></a>) or the
-<code class="code">midendnumericmodechars</code> opcode (see <a class="pxref" href="#midendnumericmodechars-opcode"><code class="code">midendnumericmodechars</code></a>).
+<p>A number is a sequence of digits, but you can define other characters
+to be part of a number by using <code class="code">numericmodechars</code>
+(see <a class="pxref" href="#numericmodechars-opcode"><code class="code">numericmodechars</code></a>), <code class="code">midendnumericmodechars</code>
+(see <a class="pxref" href="#midendnumericmodechars-opcode"><code class="code">midendnumericmodechars</code></a>) or <code class="code">midnum</code>
+(see <a class="pxref" href="Translation-Opcodes.html#midnum-opcode"><code class="code">midnum</code></a>).
 </p>
+<ul class="itemize mark-bullet">
+<li>If <code class="code">numericmodechars</code> or <code class="code">midendnumericmodechars</code> is
+defined, the translator uses <em class="dfn">numeric mode</em>. The number sign is
+inserted wherever numeric mode is entered.
+
+<p>Numeric mode is activated by characters with the <code class="code">digit</code> or
+<code class="code">litdigit</code> attribute, or characters declared
+<code class="code">numericmodechars</code> and followed immediately by a <code class="code">digit</code> or
+<code class="code">litdigit</code>. Once active, numeric mode persists across (literary)
+digits and characters declared <code class="code">numericmodechars</code> or
+<code class="code">midendnumericmodechars</code> until a character without these
+attributes is encountered (e.g. a space, a letter, or punctuation
+that is not declared as a numeric mode character).
+</p>
+</li><li>If neither <code class="code">numericmodechars</code> nor <code class="code">midendnumericmodechars</code>
+is defined, the translator uses a simpler insertion rule: the number
+sign is inserted before any sequence of characters with the
+<code class="code">digit</code> attribute (not <code class="code">litdigit</code>), possibly with a
+<code class="code">midnum</code> string in the middle of the sequence.
+</li></ul>
+
 <p>Example:
 </p>
 <div class="example">

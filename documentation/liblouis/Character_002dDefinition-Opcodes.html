@@ -89,8 +89,13 @@ punctuation. For example:
 <a class="index-entry-id" id="index-digit"></a>
 <a class="anchor" id="digit-opcode"></a></dd>
 <dt><code class="code">digit character dots</code></dt>
-<dd><p>Associates a digit with a dot pattern and defines the character as a
-digit. For example:
+<dd><p>Associates a character with a dot pattern and defines the character as
+a digit (giving it the <code class="code">digit</code> attribute).
+</p>
+<p>If a table also defines <code class="code">litdigit</code> for the same character, the
+<code class="code">litdigit</code> rule takes precedence. In this case, the <code class="code">digit</code>
+opcode&rsquo;s primary purpose is to set the <code class="code">digit</code> attribute. See the
+<code class="code">litdigit</code> opcode (see <a class="pxref" href="#litdigit-opcode"><code class="code">litdigit</code></a>) for further discussion.
 </p>
 <div class="example">
 <pre class="example-preformatted">digit 0 356 NAB computer braille
@@ -120,8 +125,19 @@ attributes uppercase and letter.
 <a class="index-entry-id" id="index-litdigit"></a>
 <a class="anchor" id="litdigit-opcode"></a></dd>
 <dt><code class="code">litdigit digit dots</code></dt>
-<dd><p>Associates a digit with the dot pattern which should be used to
-represent it in literary texts. For example:
+<dd><p>Associates a digit with a dot pattern and defines the character as a
+literary digit (giving it the <code class="code">litdigit</code> attribute).
+</p>
+<p>When both <code class="code">litdigit</code> and <code class="code">digit</code> (see <a class="pxref" href="#digit-opcode"><code class="code">digit</code></a>) are
+defined for the same character, the <code class="code">litdigit</code> dot pattern is
+used.
+</p>
+<p>Many literary braille tables define both <code class="code">digit</code> and
+<code class="code">litdigit</code> for the characters 0&ndash;9. The existence of both opcodes
+is often a cause of confusion. It is probably a design flaw. The main
+thing you need to understand is that <code class="code">litdigit</code> exists for the
+purpose of back-translation of numbers (see <a class="pxref" href="Braille-Indicator-Opcodes.html#numsign-opcode"><code class="code">numsign</code></a>), while
+<code class="code">digit</code> is needed for many other things.
 </p>
 <div class="example">
 <pre class="example-preformatted">litdigit 0 245
