@@ -26,11 +26,10 @@ Next: <a href="lou_005fbackTranslate.html" accesskey="n" rel="next">lou_backTran
 <code class="code">inbuf</code> is a string of Unicode characters representing
 braille. <code class="code">outbuf</code> will contain a string of Unicode
 characters. <code class="code">typeform</code> will indicate any emphasis found in the
-input string, while <code class="code">spacing</code> will indicate any differences in
-spacing between the input and output strings. The <code class="code">typeform</code> and
-<code class="code">spacing</code> parameters may be <code class="code">NULL</code> if this information is
-not needed. <code class="code">mode</code> specifies how the back-translation
-should be done.
+input string; it may be <code class="code">NULL</code> if this information is not
+needed. The <code class="code">spacing</code> parameter is deprecated and must be
+<code class="code">NULL</code> (see <a class="pxref" href="lou_005ftranslateString.html#spacing-parameter">spacing parameter</a>). <code class="code">mode</code> specifies how
+the back-translation should be done.
 </p>
 <p>By default, if a dot pattern in the input is undefined
 then its dot numbers will be included in the output (as \ddd/).

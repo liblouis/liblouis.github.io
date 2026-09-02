@@ -69,10 +69,12 @@ corresponding to a character in <code class="code">outbuf</code> which was defin
 have a dot representation containing dot 7, dot 8 or both, and to 0
 otherwise.
 </p>
-<p>The <code class="code">spacing</code> parameter is used to indicate differences in
-spacing between the input string and the translated output string. It
-is also of the same length as the string pointed to by <code class="code">*inbuf</code>.
-If this parameter is <code class="code">NULL</code>, no spacing information is computed.
+<a class="anchor" id="spacing-parameter"></a><p>The <code class="code">spacing</code> parameter is deprecated and must be <code class="code">NULL</code>.
+It was originally intended to indicate differences in spacing between
+the input string and the translated output string, but the feature
+never worked reliably and is no longer supported. The parameter is
+kept only for API and ABI compatibility. If a non-<code class="code">NULL</code> value is
+passed, it is ignored and a warning is logged.
 </p>
 <p>The <code class="code">mode</code> parameter specifies how the translation should be
 done. The valid values of mode are defined in <samp class="file">liblouis.h</samp>. They
