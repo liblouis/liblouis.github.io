@@ -76,6 +76,8 @@ for showing their appreciation for the work we do, and for
 understanding the importance of keeping Liblouis alive and
 healthy.
 
+- <img src="/images/viewplus.png" alt="Logo ViewPlus" height="40" style="margin-right: 1ch; vertical-align: middle"/> [ViewPlus](https://viewplus.com/)
+
 - <img src="/images/sbs_cropped.svg" alt="Logo SBS" height="40" style="margin-right: 1ch; vertical-align: middle"/> [SBS - Schweizerische Bibliothek für Blinde, Seh- und Lesebehinderte](https://www.sbs.ch/startseite/)
 
 - [Matt Yeater](https://nivlouie.com/)
