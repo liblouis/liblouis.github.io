@@ -6,6 +6,10 @@ intro: The Liblouis software suite provides an open-source braille translator, b
 
 {::options parse_block_html="true" /}
 
+<div class="alert alert-info">
+**liblouis is moving to [louis-rs](https://github.com/liblouis/louis-rs).** louis-rs is a reimplementation of liblouis in Rust that uses the same braille tables. liblouis is now in maintenance mode: it will get four more regular releases, the last one planned for November 2027, after which only louis-rs will be maintained. New features go to louis-rs. If you develop an application that uses liblouis, please [try louis-rs](https://github.com/liblouis/louis-rs) now and tell us what you need to switch.
+</div>
+
 <div class="row">
 <div class="col-md-6">
 
@@ -22,6 +26,8 @@ intro: The Liblouis software suite provides an open-source braille translator, b
 <div class="col-md-6">
 
 ## Braille translator and back-translator
+
+**louis-rs** is the successor of Liblouis: a reimplementation in Rust, not a port, with different data structures and algorithms. It uses the same braille tables and passes the Liblouis test suite almost completely. Being written in safe Rust rules out the memory-safety bugs behind most security issues in the C code. It is in beta, with a Rust API and [Python bindings](https://github.com/liblouis/louis-py). Get it from [crates.io](https://crates.io/crates/louis-rs), the source is at [liblouis/louis-rs](https://github.com/liblouis/louis-rs).
 
 **Liblouis** is an open-source braille translator and back-translator named in honor of [Louis Braille](http://en.wikipedia.org/wiki/Louis_Braille). It features support for computer and literary braille, supports contracted and uncontracted translation for [many languages](https://github.com/liblouis/liblouis/tree/master/tables) and has support for hyphenation. New languages can easily be added through tables that support a rule- or dictionary based approach. Tools for testing and debugging tables are also included. Liblouis also supports math braille (Nemeth and Marburg).
 
